@@ -1,0 +1,17 @@
+checkInputFileEncoding
+                        Check character encoding of input file
+createResultsDataModel
+                        Create the results data model tables on a
+                        database server.
+getCohortCounts         Count the cohort(s)
+getResultsDataModelSpecifications
+                        Get specifications for Cohort Diagnostics
+                        results data model
+instantiateCohortSet    Instantiate a set of cohort
+launchCohortExplorer    Launch the CohortExplorer Shiny app
+launchDiagnosticsExplorer
+                        Launch the Diagnostics Explorer Shiny app
+preMergeDiagnosticsFiles
+                        Premerge Shiny diagnostics files
+runCohortDiagnostics    Run cohort diagnostics
+uploadResults           Upload results to the database server.

@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create covariate settings for a table 1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createTable1CovariateSettings {FeatureExtraction}"><tr><td>createTable1CovariateSettings {FeatureExtraction}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create covariate settings for a table 1</h2>
+
+<h3>Description</h3>
+
+<p>Creates a covariate settings object for generating only those covariates that will be included in a
+table 1. This function works by filtering the <code>covariateSettings</code> object for the covariates in
+the <code>specifications</code> object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createTable1CovariateSettings(
+  specifications = getDefaultTable1Specifications(),
+  covariateSettings = createDefaultCovariateSettings(),
+  includedCovariateConceptIds = c(),
+  addDescendantsToInclude = FALSE,
+  excludedCovariateConceptIds = c(),
+  addDescendantsToExclude = FALSE,
+  includedCovariateIds = c()
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>specifications</code></td>
+<td>
+<p>A specifications object for generating a table using the
+<code><a href="createTable1.html">createTable1</a></code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>covariateSettings</code></td>
+<td>
+<p>The covariate settings object to use as the basis for the
+filtered covariate settings.</p>
+</td></tr>
+<tr valign="top"><td><code>includedCovariateConceptIds</code></td>
+<td>
+<p>A list of concept IDs that should be used to construct
+covariates.</p>
+</td></tr>
+<tr valign="top"><td><code>addDescendantsToInclude</code></td>
+<td>
+<p>Should descendant concept IDs be added to the list of concepts
+to include?</p>
+</td></tr>
+<tr valign="top"><td><code>excludedCovariateConceptIds</code></td>
+<td>
+<p>A list of concept IDs that should NOT be used to construct
+covariates.</p>
+</td></tr>
+<tr valign="top"><td><code>addDescendantsToExclude</code></td>
+<td>
+<p>Should descendant concept IDs be added to the list of concepts
+to exclude?</p>
+</td></tr>
+<tr valign="top"><td><code>includedCovariateIds</code></td>
+<td>
+<p>A list of covariate IDs that should be restricted to.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A covariate settings object, for example to be used when calling the
+<code><a href="getDbCovariateData.html">getDbCovariateData</a></code> function.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.1.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

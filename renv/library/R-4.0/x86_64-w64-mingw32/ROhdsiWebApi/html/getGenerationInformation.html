@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get generation information. *[Stable]*</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for getGenerationInformation {ROhdsiWebApi}"><tr><td>getGenerationInformation {ROhdsiWebApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get generation information. <a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img src="../help/figures/lifecycle-stable.svg" alt='[Stable]' /></a></h2>
+
+<h3>Description</h3>
+
+<p>Get generation information. <a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img src="../help/figures/lifecycle-stable.svg" alt='[Stable]' /></a>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+getGenerationInformation(id, category, baseUrl)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>id</code></td>
+<td>
+<p>An integer id representing the id that uniquely identifies a definition for the
+category in a WebApi instance.</p>
+</td></tr>
+<tr valign="top"><td><code>category</code></td>
+<td>
+<p>The category of expression in WebApi. Only the following strings are accepted:
+'cohort', 'characterization', 'pathway', 'incidenceRate'.</p>
+</td></tr>
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;. Note, there is no trailing '/'.
+If trailing '/' is used, you may receive an error.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Get generation (execution) information.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An R object with the generation information.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+getGenerationInformation(id = 13242,
+                         category = "cohort",
+                         baseUrl = "http://server.org:80/WebAPI")
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>ROhdsiWebApi</em> version 1.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

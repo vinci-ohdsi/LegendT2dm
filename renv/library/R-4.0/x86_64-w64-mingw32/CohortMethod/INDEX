@@ -1,0 +1,94 @@
+CohortMethodData-class
+                        Cohort Method Data
+checkCmInstallation     Check is CohortMethod and its dependencies are
+                        correctly installed
+cohortMethodDataSimulationProfile
+                        A simulation profile
+computeCovariateBalance
+                        Compute covariate balance before and after
+                        matching and trimming
+computeMdrr             Compute the minimum detectable relative risk
+computePsAuc            Compute the area under the ROC curve
+createCmAnalysis        Create a CohortMethod analysis specification
+createCmTable1          Create a table 1
+createCohortMethodDataSimulationProfile
+                        Create simulation profile
+createCreatePsArgs      Create a parameter object for the function
+                        createPs
+createCreateStudyPopulationArgs
+                        Create a parameter object for the function
+                        createStudyPopulation
+createFitOutcomeModelArgs
+                        Create a parameter object for the function
+                        fitOutcomeModel
+createGetDbCohortMethodDataArgs
+                        Create a parameter object for the function
+                        getDbCohortMethodData
+createMatchOnPsAndCovariatesArgs
+                        Create a parameter object for the function
+                        matchOnPsAndCovariates
+createMatchOnPsArgs     Create a parameter object for the function
+                        matchOnPs
+createPs                Create propensity scores
+createStratifyByPsAndCovariatesArgs
+                        Create a parameter object for the function
+                        stratifyByPsAndCovariates
+createStratifyByPsArgs
+                        Create a parameter object for the function
+                        stratifyByPs
+createStudyPopulation   Create a study population
+createTargetComparatorOutcomes
+                        Create target-comparator-outcomes combinations.
+createTrimByIptwArgs    Create a parameter object for the function
+                        trimByIptw
+createTrimByPsArgs      Create a parameter object for the function
+                        trimByPs
+createTrimByPsToEquipoiseArgs
+                        Create a parameter object for the function
+                        trimByPsToEquipoise
+drawAttritionDiagram    Draw the attrition diagram
+fitOutcomeModel         Create an outcome model, and compute the
+                        relative risk
+getAttritionTable       Get the attrition table for a population
+getDbCohortMethodData   Get the cohort data from the server
+getDefaultCmTable1Specifications
+                        Get the default table 1 specifications
+getFollowUpDistribution
+                        Get the distribution of follow-up time
+getOutcomeModel         Get the outcome model
+getPsModel              Get the propensity model
+isCohortMethodData      Check whether an object is a CohortMethodData
+                        object
+loadCmAnalysisList      Load a list of cmAnalysis from file
+loadCohortMethodData    Load the cohort method data from a file
+loadTargetComparatorOutcomesList
+                        Load a list of targetComparatorOutcomes from
+                        file
+matchOnPs               Match persons by propensity score
+matchOnPsAndCovariates
+                        Match by propensity score as well as other
+                        covariates
+plotCovariateBalanceOfTopVariables
+                        Plot variables with largest imbalance
+plotCovariateBalanceScatterPlot
+                        Create a scatterplot of the covariate balance
+plotFollowUpDistribution
+                        Plot the distribution of follow-up time
+plotKaplanMeier         Plot the Kaplan-Meier curve
+plotPs                  Plot the propensity score distribution
+plotTimeToEvent         Plot time-to-event
+runCmAnalyses           Run a list of analyses
+saveCmAnalysisList      Save a list of cmAnalysis to file
+saveCohortMethodData    Save the cohort method data to file
+saveTargetComparatorOutcomesList
+                        Save a list of targetComparatorOutcomes to file
+simulateCohortMethodData
+                        Generate simulated data
+stratifyByPs            Stratify persons by propensity score
+stratifyByPsAndCovariates
+                        Stratify persons by propensity score and other
+                        covariates
+summarizeAnalyses       Create a summary report of the analyses
+trimByIptw              Remove subjects with a high IPTW
+trimByPs                Trim persons by propensity score
+trimByPsToEquipoise     Keep only persons in clinical equipoise

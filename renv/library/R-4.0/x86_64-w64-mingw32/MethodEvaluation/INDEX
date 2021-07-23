@@ -1,0 +1,79 @@
+computeMdrr             Compute minimal detectable relative risk (MDRR)
+computeMetrics          Compute method performance metrics
+computeOhdsiBenchmarkMetrics
+                        Generate perfomance metrics for the OHDSI
+                        Methods Benchmark
+createReferenceSetCohorts
+                        Create cohorts used in a reference set.
+euadrReferenceSet       The EU-ADR reference set A reference set of 43
+                        drug-outcome pairs where we believe the drug
+                        causes the outcome ( positive controls) and 50
+                        drug-outcome pairs where we believe the drug
+                        does not cause the outcome (negative controls).
+                        The controls involve 10 health outcomes of
+                        interest. Note that originally, there was an
+                        additional positive control (Nimesulide and
+                        acute liver injury), but Nimesulide is not in
+                        RxNorm, and is not available in many countries.
+injectSignals           Inject signals in database
+launchMethodEvaluationApp
+                        Launch the Method Evaluation Shiny app
+ohdsiDevelopmentNegativeControls
+                        The OHDSI Development Set - Negative Controls A
+                        set of 76 negative control outcomes, all for
+                        the exposures of ACE inhibitors (compared to
+                        thiazides and thiazide-like diuretics). This
+                        set is a much small set than the he OHDSI
+                        Method Evaluation Benchmark, but follows the
+                        same principles. It is intended to be used when
+                        developing methods, leaving the Methods
+                        Benchark untouched until a final evaluation of
+                        the method, thus preventing 'training' on the
+                        evaluation set. The negative controls are
+                        borrowed from the LEGEND Hypertension study.
+                        The exposure, outcome, and nesting cohorts can
+                        be created using the
+                        'createReferenceSetCohorts' function. These
+                        negative controls can form the basis to
+                        generate positive controls using the
+                        'injectSignals' function.
+ohdsiNegativeControls   The OHDSI Method Evaluation Benchmark -
+                        Negative Controls A set of 200 negative
+                        controls, centered around four outcomes of
+                        interest (acute pancreatitis, GI bleeding,
+                        Stroke, and IBD), and 4 exposures of interest
+                        (diclofenac, ciprofloxacin, metformin, and
+                        sertraline), which 25 negative controls each.
+                        Each drug-outcome pair also includes a
+                        comparator drug (where the comparator is also a
+                        negative control), allowing for evaluation of
+                        comparative effect estimation, and a nesting
+                        cohort for evaluating methods such as the
+                        nested case-control design. The exposure,
+                        outcome, and nesting cohorts can be created
+                        using the 'createReferenceSetCohorts' function.
+                        These negative controls can form the basis to
+                        generate positive controls using the
+                        'injectSignals' function.
+omopReferenceSet        The OMOP reference set A reference set of 165
+                        drug-outcome pairs where we believe the drug
+                        causes the outcome ( positive controls) and 234
+                        drug-outcome pairs where we believe the drug
+                        does not cause the outcome (negative controls).
+                        The controls involve 4 health outcomes of
+                        interest: acute liver injury, acute kidney
+                        injury, acute myocardial infarction, and GI
+                        bleeding.
+packageOhdsiBenchmarkResults
+                        Package results of a method on the OHDSI
+                        Methods Benchmark
+plotControls            Plot negative and positive control estimates.
+plotCoverageInjectedSignals
+                        Plot the coverage
+plotRocsInjectedSignals
+                        Plot the ROC curves for various injected signal
+                        sizes
+synthesizePositiveControls
+                        Synthesize positive controls
+synthesizeReferenceSetPositiveControls
+                        Synthesize positive controls for reference set

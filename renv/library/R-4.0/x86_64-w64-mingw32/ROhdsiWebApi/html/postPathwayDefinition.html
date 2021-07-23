@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Post Pathway definition. *[Maturing]*</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for postPathwayDefinition {ROhdsiWebApi}"><tr><td>postPathwayDefinition {ROhdsiWebApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Post Pathway definition. <a href="https://lifecycle.r-lib.org/articles/stages.html#maturing"><img src="../help/figures/lifecycle-maturing.svg" alt='[Maturing]' /></a></h2>
+
+<h3>Description</h3>
+
+<p>Post Pathway definition. <a href="https://lifecycle.r-lib.org/articles/stages.html#maturing"><img src="../help/figures/lifecycle-maturing.svg" alt='[Maturing]' /></a>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+postPathwayDefinition(name, pathwayDefinition, baseUrl)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>A valid name for the definition. WebApi will use this name (if valid) as
+the name of the definition. WebApi checks for validity, such as
+uniqueness, absence of unacceptable character etc. An error might be
+thrown.</p>
+</td></tr>
+<tr valign="top"><td><code>pathwayDefinition</code></td>
+<td>
+<p>An R list object containing the expression for the specification. This
+will be converted to JSON expression by function and posted into the
+WebApi. Note: only limited checks are performed in R to check the
+validity of this expression.</p>
+</td></tr>
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;. Note, there is no trailing '/'.
+If trailing '/' is used, you may receive an error.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Post Pathway definition to WebAPI
+</p>
+
+
+<h3>Value</h3>
+
+<p>This function will return a dataframe object with one row describing the posted WebApi expression
+and its details. If unsuccessful a STOP message will be shown.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+postPathwayDefinition(name = "new valid name",
+                      pathwayDefinition = definition,
+                      baseUrl = "http://server.org:80/WebAPI")
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>ROhdsiWebApi</em> version 1.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

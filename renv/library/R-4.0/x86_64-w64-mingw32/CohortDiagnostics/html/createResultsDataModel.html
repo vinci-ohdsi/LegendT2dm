@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create the results data model tables on a database server.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createResultsDataModel {CohortDiagnostics}"><tr><td>createResultsDataModel {CohortDiagnostics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create the results data model tables on a database server.</h2>
+
+<h3>Description</h3>
+
+<p>Create the results data model tables on a database server.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createResultsDataModel(connection = NULL, connectionDetails = NULL, schema)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connection</code></td>
+<td>
+<p>An object of type <code>connection</code> as created using the
+<code><a href="../../DatabaseConnector/html/connect.html">connect</a></code> function in the
+DatabaseConnector package. Can be left NULL if <code>connectionDetails</code>
+is provided, in which case a new connection will be opened at the start
+of the function, and closed when the function finishes.</p>
+</td></tr>
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>An object of type <code>connectionDetails</code> as created using the
+<code><a href="../../DatabaseConnector/html/createConnectionDetails.html">createConnectionDetails</a></code> function in the
+DatabaseConnector package. Can be left NULL if <code>connection</code> is
+provided.</p>
+</td></tr>
+<tr valign="top"><td><code>schema</code></td>
+<td>
+<p>The schema on the postgres server where the tables will be created.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Only PostgreSQL servers are supported.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>CohortDiagnostics</em> version 2.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

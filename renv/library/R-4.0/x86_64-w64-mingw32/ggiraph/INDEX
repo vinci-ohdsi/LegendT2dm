@@ -1,0 +1,123 @@
+annotate_interactive    Create interactive annotations
+annotation_raster_interactive
+                        Create interactive raster annotations
+dsvg                    SVG Graphics Driver
+dsvg_view               Run plotting code and view svg in RStudio
+                        Viewer or web broswer.
+element_line_interactive
+                        Create interactive theme elements
+font_family_exists      Check if font family exists.
+geom_abline_interactive
+                        Create interactive reference lines
+geom_bar_interactive    Create interactive bars
+geom_boxplot_interactive
+                        Create interactive boxplot
+geom_contour_interactive
+                        Create interactive 2d contours of a 3d surface
+geom_crossbar_interactive
+                        Create interactive vertical intervals: lines,
+                        crossbars & errorbars
+geom_density_2d_interactive
+                        Create interactive contours of a 2d density
+                        estimate
+geom_density_interactive
+                        Create interactive smoothed density estimates
+geom_dotplot_interactive
+                        Create interactive dot plots
+geom_errorbarh_interactive
+                        Create interactive horizontal error bars
+geom_freqpoly_interactive
+                        Create interactive histograms and frequency
+                        polygons
+geom_jitter_interactive
+                        Create interactive jittered points
+geom_label_interactive
+                        Create interactive textual annotations
+geom_map_interactive    Create interactive polygons from a reference
+                        map
+geom_path_interactive   Create interactive observations connections
+geom_point_interactive
+                        Create interactive points
+geom_polygon_interactive
+                        Create interactive polygons
+geom_quantile_interactive
+                        Create interactive quantile regression
+geom_raster_interactive
+                        Create interactive raster rectangles
+geom_rect_interactive   Create interactive rectangles
+geom_ribbon_interactive
+                        Create interactive ribbons and area plots
+geom_segment_interactive
+                        Create interactive line segments
+geom_sf_interactive     Create interactive sf objects
+geom_smooth_interactive
+                        Create interactive smoothed conditional means
+ggiraph                 Create a ggiraph object
+ggiraphOutput           Create a ggiraph output element
+girafe                  Create a girafe object
+girafeOutput            Create a girafe output element
+girafe_css              CSS creation helper
+girafe_options          Set girafe options
+guide_bins_interactive
+                        Create interactive bins guide
+guide_colourbar_interactive
+                        Create interactive continuous colour bar guide
+guide_coloursteps_interactive
+                        Create interactive colorsteps guide
+guide_legend_interactive
+                        Create interactive legend guide
+interactive_circle_grob
+                        Create interactive circles grob
+interactive_parameters
+                        Interactive parameters
+interactive_path_grob   Create interactive path grob
+interactive_points_grob
+                        Create interactive points grob
+interactive_polygon_grob
+                        Create interactive polygon grob
+interactive_polyline_grob
+                        Create interactive polyline grob
+interactive_raster_grob
+                        Create interactive raster grob
+interactive_rect_grob   Create interactive rectangle grob
+interactive_roundrect_grob
+                        Create interactive rectangle grob
+interactive_segments_grob
+                        Create interactive segments grob
+interactive_text_grob   Create interactive text grob
+label_interactive       Create an interactive label
+labeller_interactive    Construct interactive labelling specification
+                        for facet strips
+match_family            Find best family match with systemfonts
+opts_hover              Hover effect settings
+opts_selection          Selection effect settings
+opts_sizing             Girafe sizing settings
+opts_toolbar            Toolbar settings
+opts_tooltip            Tooltip settings
+opts_zoom               Zoom settings
+renderGirafe            Reactive version of girafe
+renderggiraph           Reactive version of ggiraph object
+run_girafe_example      Run shiny examples and see corresponding code
+scale_alpha_interactive
+                        Create interactive scales for alpha
+                        transparency
+scale_colour_brewer_interactive
+                        Create interactive colorbrewer scales
+scale_colour_interactive
+                        Create interactive colour scales
+scale_colour_steps_interactive
+                        Create interactive binned gradient colour
+                        scales
+scale_gradient_interactive
+                        Create interactive gradient colour scales
+scale_linetype_interactive
+                        Create interactive scales for line patterns
+scale_manual_interactive
+                        Create your own interactive discrete scale
+scale_shape_interactive
+                        Create interactive scales for shapes
+scale_size_interactive
+                        Create interactive scales for area or radius
+scale_viridis_interactive
+                        Create interactive viridis colour scales
+validated_fonts         List of validated default fonts

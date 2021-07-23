@@ -1,0 +1,40 @@
+Package: ParallelLogger
+Type: Package
+Title: Support for Parallel Computation, Logging, and Function Automation
+Version: 2.0.1
+Date: 2020-10-26
+Authors@R: c(
+ person("Martijn", "Schuemie", email = "schuemie@ohdsi.org", role = c("aut", "cre")),
+ person("Marc", "Suchard", role = c("aut")),
+ person("Observational Health Data Science and Informatics", role = c("cph"))
+ )
+Maintainer: Martijn Schuemie <schuemie@ohdsi.org>
+Description: Support for parallel computation with progress bar, and option to stop or proceed on errors. Also provides logging to console and disk,
+ and the logging persists in the parallel threads. Additional functions support function call automation with delayed execution (e.g. for executing functions in
+ parallel).
+License: Apache License 2.0
+VignetteBuilder: knitr
+Depends: R (>= 3.1.0)
+Imports: snow, xml2, jsonlite, methods, utils
+Suggests: mailR, testthat, shiny, DT, knitr, rmarkdown
+URL: https://ohdsi.github.io/ParallelLogger,
+    https://github.com/OHDSI/ParallelLogger
+BugReports: https://github.com/OHDSI/ParallelLogger/issues
+NeedsCompilation: no
+RoxygenNote: 7.1.1
+Encoding: UTF-8
+Author: Martijn Schuemie [aut, cre],
+ Marc Suchard [aut],
+ Observational Health Data Science and Informatics [cph]
+Built: R 4.0.3; ; 2021-07-08 21:04:17 UTC; windows
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: ParallelLogger
+RemoteUsername: OHDSI
+RemoteRef: HEAD
+RemoteSha: feaa03f8178b8f0652ad25244c7a0b7d01fe6f07
+GithubHost: api.github.com
+GithubRepo: ParallelLogger
+GithubUsername: OHDSI
+GithubRef: HEAD
+GithubSHA1: feaa03f8178b8f0652ad25244c7a0b7d01fe6f07

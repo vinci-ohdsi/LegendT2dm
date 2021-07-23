@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Resolve a concept set to the included standard concept IDs...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for resolveConceptSet {ROhdsiWebApi}"><tr><td>resolveConceptSet {ROhdsiWebApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Resolve a concept set to the included standard concept IDs <a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img src="../help/figures/lifecycle-stable.svg" alt='[Stable]' /></a></h2>
+
+<h3>Description</h3>
+
+<p>Resolve a concept set to the included standard concept IDs <a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img src="../help/figures/lifecycle-stable.svg" alt='[Stable]' /></a>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+resolveConceptSet(conceptSetDefinition, baseUrl, vocabularySourceKey = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>conceptSetDefinition</code></td>
+<td>
+<p>A concept set definition, for example as obtained through the <code><a href="getConceptSetDefinition.html">getConceptSetDefinition</a></code> function, 
+or taken from a cohort definition.</p>
+</td></tr>
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;. Note, there is no trailing '/'.
+If trailing '/' is used, you may receive an error.</p>
+</td></tr>
+<tr valign="top"><td><code>vocabularySourceKey</code></td>
+<td>
+<p>The source key of the Vocabulary. By default, the priority Vocabulary is
+used.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Resolve a concept set to the included standard concept IDs
+</p>
+
+
+<h3>Value</h3>
+
+<p>A vector of standard concept ids.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+conceptSetDefinition &lt;- getConceptSetDefinition(conceptSetId = 282,
+                                                baseUrl = "http://server.org:80/WebAPI")
+conceptIds &lt;- resolveConceptSet(conceptSetDefinition = conceptSetDefinition,
+                                baseUrl = "http://server.org:80/WebAPI")
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>ROhdsiWebApi</em> version 1.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

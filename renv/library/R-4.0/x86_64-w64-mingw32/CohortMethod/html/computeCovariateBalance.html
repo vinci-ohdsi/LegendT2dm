@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Compute covariate balance before and after matching and...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for computeCovariateBalance {CohortMethod}"><tr><td>computeCovariateBalance {CohortMethod}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Compute covariate balance before and after matching and trimming</h2>
+
+<h3>Description</h3>
+
+<p>For every covariate, prevalence in treatment and comparator groups before and after
+matching/trimming are computed. When variable ratio matching was used the balance score will be
+corrected according the method described in Austin et al (2008).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+computeCovariateBalance(
+  population,
+  cohortMethodData,
+  subgroupCovariateId = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>population</code></td>
+<td>
+<p>A data frame containing the people that are remaining after matching
+and/or trimming.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortMethodData</code></td>
+<td>
+<p>An object of type <a href="CohortMethodData-class.html">CohortMethodData</a> as generated using
+<code><a href="getDbCohortMethodData.html">getDbCohortMethodData()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>subgroupCovariateId</code></td>
+<td>
+<p>Optional: a covariate ID of a binary covariate that indicates a subgroup of
+interest. Both the before and after populations will be restricted to this
+subgroup before computing covariate balance.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The population data frame should have the following three columns:
+</p>
+
+<ul>
+<li><p> rowId (numeric): A unique identifier for each row (e.g. the person ID).
+</p>
+</li>
+<li><p> treatment (integer): Column indicating whether the person is in the target (1) or comparator (0) group.
+</p>
+</li>
+<li><p> propensityScore (numeric): Propensity score.
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>Returns a tibble describing the covariate balance before and after matching/trimming.
+</p>
+
+
+<h3>References</h3>
+
+<p>Austin, P.C. (2008) Assessing balance in measured baseline covariates when using many-to-one
+matching on the propensity-score. Pharmacoepidemiology and Drug Safety, 17: 1218-1225.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

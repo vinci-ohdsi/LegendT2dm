@@ -1,0 +1,91 @@
+DatabaseConnectorDriver
+                        Create a DatabaseConnectorDriver object
+connect                 connect
+createConnectionDetails
+                        createConnectionDetails
+createZipFile           Compress files and/or folders into a single zip
+                        file
+dbAppendTable,DatabaseConnectorConnection,character,data.frame-method
+                        Insert rows into a table
+dbClearResult,DatabaseConnectorResult-method
+                        Clear a result set
+dbColumnInfo,DatabaseConnectorResult-method
+                        Information about result types
+dbConnect,DatabaseConnectorDriver-method
+                        Create a connection to a DBMS
+dbCreateTable,DatabaseConnectorConnection,character,data.frame-method
+                        Create a table in the database
+dbDisconnect,DatabaseConnectorConnection-method
+                        Disconnect (close) a connection
+dbExecute,DatabaseConnectorConnection,character-method
+                        Execute an update statement, query number of
+                        rows affected, and then close result set
+dbExistsTable,DatabaseConnectorConnection,character-method
+                        Does a table exist?
+dbFetch,DatabaseConnectorResult-method
+                        Fetch records from a previously executed query
+dbGetQuery,DatabaseConnectorConnection,character-method
+                        Send query, retrieve results and then clear
+                        result set
+dbGetRowCount,DatabaseConnectorResult-method
+                        The number of rows fetched so far
+dbGetRowsAffected,DatabaseConnectorResult-method
+                        The number of rows affected
+dbGetStatement,DatabaseConnectorResult-method
+                        Get the statement associated with a result set
+dbHasCompleted,DatabaseConnectorResult-method
+                        Completion status
+dbIsValid,DatabaseConnectorDbiConnection-method
+                        Is this DBMS object still valid?
+dbIsValid,DatabaseConnectorJdbcConnection-method
+                        Is this DBMS object still valid?
+dbListFields,DatabaseConnectorConnection,character-method
+                        List field names of a remote table
+dbListTables,DatabaseConnectorConnection-method
+                        List remote tables
+dbQuoteIdentifier,DatabaseConnectorConnection,character-method
+                        Quote identifiers
+dbQuoteString,DatabaseConnectorConnection,character-method
+                        Quote literal strings
+dbReadTable,DatabaseConnectorConnection,character-method
+                        Copy data frames from database tables
+dbRemoveTable,DatabaseConnectorConnection,character-method
+                        Remove a table from the database
+dbSendQuery,DatabaseConnectorDbiConnection,character-method
+                        Execute a query on a given database connection
+dbSendQuery,DatabaseConnectorJdbcConnection,character-method
+                        Execute a query on a given database connection
+dbSendStatement,DatabaseConnectorConnection,character-method
+                        Execute a data manipulation statement on a
+                        given database connection
+dbUnloadDriver,DatabaseConnectorDriver-method
+                        Load and unload database drivers
+dbWriteTable,DatabaseConnectorConnection,character,data.frame-method
+                        Copy data frames to database tables
+disconnect              Disconnect from the server
+downloadJdbcDrivers     Download DatabaseConnector JDBC Jar files
+executeSql              Execute SQL code
+getTableNames           List all tables in a database schema.
+insertTable             Insert a table on the server
+isSqlReservedWord       Test a character vector of SQL names for SQL
+                        reserved words
+jdbcDrivers             How to download and use JDBC drivers for the
+                        various data platforms.
+lowLevelExecuteSql      Execute SQL code
+lowLevelQuerySql        Low level function for retrieving data to a
+                        data frame
+lowLevelQuerySqlToAndromeda
+                        Low level function for retrieving data to a
+                        local Andromeda database
+querySql                Retrieve data to a data.frame
+querySqlToAndromeda     Retrieves data to a local Andromeda database
+renderTranslateExecuteSql
+                        Render, translate, execute SQL code
+renderTranslateQuerySql
+                        Render, translate, and query to data.frame
+renderTranslateQuerySqlToAndromeda
+                        Render, translate, and query to local Andromeda
+show,DatabaseConnectorConnection-method
+                        Show an Object
+show,DatabaseConnectorDriver-method
+                        Show an Object

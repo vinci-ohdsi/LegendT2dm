@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Getcovariate information from the database through the...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for getDbCohortAttrCovariatesData {FeatureExtraction}"><tr><td>getDbCohortAttrCovariatesData {FeatureExtraction}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Getcovariate information from the database through the cohort_attribute table</h2>
+
+<h3>Description</h3>
+
+<p>Constructs covariates using the cohort_attribute table.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+getDbCohortAttrCovariatesData(
+  connection,
+  oracleTempSchema = NULL,
+  cdmDatabaseSchema,
+  cohortTable = "#cohort_person",
+  cohortId = -1,
+  cdmVersion = "5",
+  rowIdField = "subject_id",
+  covariateSettings,
+  aggregated = FALSE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connection</code></td>
+<td>
+<p>A connection to the server containing the schema as created using the
+<code>connect</code> function in the <code>DatabaseConnector</code> package.</p>
+</td></tr>
+<tr valign="top"><td><code>oracleTempSchema</code></td>
+<td>
+<p>A schema where temp tables can be created in Oracle.</p>
+</td></tr>
+<tr valign="top"><td><code>cdmDatabaseSchema</code></td>
+<td>
+<p>The name of the database schema that contains the OMOP CDM instance.
+Requires read permissions to this database. On SQL Server, this should
+specifiy both the database and the schema, so for example
+'cdm_instance.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortTable</code></td>
+<td>
+<p>Name of the table holding the cohort for which we want to construct
+covariates. If it is a temp table, the name should have a hash prefix,
+e.g. '#temp_table'. If it is a non-temp table, it should include the
+database schema, e.g. 'cdm_database.cohort'.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortId</code></td>
+<td>
+<p>For which cohort ID should covariates be constructed? If set to -1,
+covariates will be constructed for all cohorts in the specified cohort
+table.</p>
+</td></tr>
+<tr valign="top"><td><code>cdmVersion</code></td>
+<td>
+<p>The version of the Common Data Model used. Currently only 
+<code>cdmVersion = "5"</code> is supported.</p>
+</td></tr>
+<tr valign="top"><td><code>rowIdField</code></td>
+<td>
+<p>The name of the field in the cohort temp table that is to be used as the
+row_id field in the output table. This can be especially usefull if there
+is more than one period per person.</p>
+</td></tr>
+<tr valign="top"><td><code>covariateSettings</code></td>
+<td>
+<p>An object of type <code>covariateSettings</code> as created using the
+<code><a href="createCohortAttrCovariateSettings.html">createCohortAttrCovariateSettings</a></code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>aggregated</code></td>
+<td>
+<p>Should aggregate statistics be computed instead of covariates per
+cohort entry?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function uses the data in the CDM to construct a large set of covariates for the provided
+cohort. The cohort is assumed to be in an existing temp table with these fields: 'subject_id',
+'cohort_definition_id', 'cohort_start_date'. Optionally, an extra field can be added containing the
+unique identifier that will be used as rowID in the output. Typically, users don't call this
+function directly but rather use the <code><a href="getDbCovariateData.html">getDbCovariateData</a></code> function instead.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Returns an object of type <code>CovariateData</code>, which is an Andromeda object containing information on the baseline covariates.
+Information about multiple outcomes can be captured at once for efficiency reasons. This object is
+a list with the following components: </p>
+ <dl>
+<dt>covariates</dt><dd><p>An ffdf object listing the
+baseline covariates per person in the cohorts. This is done using a sparse representation:
+covariates with a value of 0 are omitted to save space. The covariates object will have three
+columns: rowId, covariateId, and covariateValue. The rowId is usually equal to the person_id,
+unless specified otherwise in the rowIdField argument.</p>
+</dd> <dt>covariateRef</dt><dd><p>A table
+describing the covariates that have been extracted.</p>
+</dd>  </dl>
+<p>. The CovariateData object will also have a <code>metaData</code> attribute, a list of objects with
+information on how the covariateData object was constructed.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.1.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

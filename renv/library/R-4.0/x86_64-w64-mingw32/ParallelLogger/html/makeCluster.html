@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create a cluster of nodes for parallel computation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for makeCluster {ParallelLogger}"><tr><td>makeCluster {ParallelLogger}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create a cluster of nodes for parallel computation</h2>
+
+<h3>Description</h3>
+
+<p>Create a cluster of nodes for parallel computation
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+makeCluster(
+  numberOfThreads,
+  singleThreadToMain = TRUE,
+  setAndromedaTempFolder = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>numberOfThreads</code></td>
+<td>
+<p>Number of parallel threads.</p>
+</td></tr>
+<tr valign="top"><td><code>singleThreadToMain</code></td>
+<td>
+<p>If <code>numberOfThreads</code> is 1, should we fall back to running the
+process in the main thread?</p>
+</td></tr>
+<tr valign="top"><td><code>setAndromedaTempFolder</code></td>
+<td>
+<p>When TRUE, the andromedaTempFolder option will be copied to each
+thread.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An object representing the cluster.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+fun &lt;- function(x) {
+  return (x^2)
+}
+
+cluster &lt;- makeCluster(numberOfThreads = 3)
+clusterApply(cluster, 1:10, fun)
+stopCluster(cluster)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>ParallelLogger</em> version 2.0.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

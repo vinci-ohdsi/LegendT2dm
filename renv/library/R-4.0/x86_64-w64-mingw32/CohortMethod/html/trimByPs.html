@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Trim persons by propensity score</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for trimByPs {CohortMethod}"><tr><td>trimByPs {CohortMethod}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Trim persons by propensity score</h2>
+
+<h3>Description</h3>
+
+<p>Use the provided propensity scores to trim subjects with extreme scores.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+trimByPs(population, trimFraction = 0.05)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>population</code></td>
+<td>
+<p>A data frame with the three columns described below</p>
+</td></tr>
+<tr valign="top"><td><code>trimFraction</code></td>
+<td>
+<p>This fraction will be removed from each treatment group. In the target
+group, persons with the highest propensity scores will be removed, in the
+comparator group person with the lowest scores will be removed.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The data frame should have the following three columns:
+</p>
+
+<ul>
+<li><p> rowId (numeric): A unique identifier for each row (e.g. the person ID).
+</p>
+</li>
+<li><p> treatment (integer): Column indicating whether the person is in the target (1) or comparator (0) group.
+</p>
+</li>
+<li><p> propensityScore (numeric): Propensity score.
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>Returns a tibble with the same three columns as the input.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+rowId &lt;- 1:2000
+treatment &lt;- rep(0:1, each = 1000)
+propensityScore &lt;- c(runif(1000, min = 0, max = 1), runif(1000, min = 0, max = 1))
+data &lt;- data.frame(rowId = rowId, treatment = treatment, propensityScore = propensityScore)
+result &lt;- trimByPs(data, 0.05)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

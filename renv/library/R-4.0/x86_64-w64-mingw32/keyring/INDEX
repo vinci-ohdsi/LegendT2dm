@@ -1,0 +1,13 @@
+backend                 Abstract class of a minimal keyring backend
+backend_env             Environment variable keyring backend
+backend_file            Encrypted file keyring backend
+backend_keyrings        Abstract class of a backend that supports
+                        multiple keyrings
+backend_macos           macOS Keychain keyring backend
+backend_secret_service
+                        Linux Secret Service keyring backend
+backend_wincred         Windows Credential Store keyring backend
+backends                Select the default backend and default keyring
+has_keyring_support     Operations on keyrings
+key_get                 Operations on keys
+keyring-package         About the keyring package

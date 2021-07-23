@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create a table 1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createCmTable1 {CohortMethod}"><tr><td>createCmTable1 {CohortMethod}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create a table 1</h2>
+
+<h3>Description</h3>
+
+<p>Creates a formatted table of cohort characteristics, to be included in publications or reports.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createCmTable1(
+  balance,
+  specifications = getDefaultCmTable1Specifications(),
+  beforeTargetPopSize,
+  beforeComparatorPopSize,
+  afterTargetPopSize,
+  afterComparatorPopSize,
+  beforeLabel = "Before matching",
+  afterLabel = "After matching",
+  targetLabel = "Target",
+  comparatorLabel = "Comparator",
+  percentDigits = 1,
+  stdDiffDigits = 2
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>balance</code></td>
+<td>
+<p>A data frame created by the <code>computeCovariateBalance</code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>specifications</code></td>
+<td>
+<p>Specifications of which covariates to display, and how.</p>
+</td></tr>
+<tr valign="top"><td><code>beforeTargetPopSize</code></td>
+<td>
+<p>The number of people in the target cohort before matching/stratification/trimming,
+to mention in the table header. If not provide, no number will be included in the header.</p>
+</td></tr>
+<tr valign="top"><td><code>beforeComparatorPopSize</code></td>
+<td>
+<p>The number of people in the comparator cohort before matching/stratification/trimming,
+to mention in the table header. If not provide, no number will be included in the header.</p>
+</td></tr>
+<tr valign="top"><td><code>afterTargetPopSize</code></td>
+<td>
+<p>The number of people in the target cohort after matching/stratification/trimming,
+to mention in the table header. If not provide, no number will be included in the header.</p>
+</td></tr>
+<tr valign="top"><td><code>afterComparatorPopSize</code></td>
+<td>
+<p>The number of people in the comparator cohort after matching/stratification/trimming,
+to mention in the table header. If not provide, no number will be included in the header.</p>
+</td></tr>
+<tr valign="top"><td><code>beforeLabel</code></td>
+<td>
+<p>Label for identifying columns before matching / stratification / trimming.</p>
+</td></tr>
+<tr valign="top"><td><code>afterLabel</code></td>
+<td>
+<p>Label for identifying columns after matching / stratification / trimming.</p>
+</td></tr>
+<tr valign="top"><td><code>targetLabel</code></td>
+<td>
+<p>Label for identifying columns of the target cohort.</p>
+</td></tr>
+<tr valign="top"><td><code>comparatorLabel</code></td>
+<td>
+<p>Label for identifying columns of the comparator cohort.</p>
+</td></tr>
+<tr valign="top"><td><code>percentDigits</code></td>
+<td>
+<p>Number of digits to be used for percentages.</p>
+</td></tr>
+<tr valign="top"><td><code>stdDiffDigits</code></td>
+<td>
+<p>Number of digits to be used for the standardized differences.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data frame with the formatted table 1.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

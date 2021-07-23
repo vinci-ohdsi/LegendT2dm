@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create Generation Options</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createGenerateOptions {CirceR}"><tr><td>createGenerateOptions {CirceR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create Generation Options</h2>
+
+<h3>Description</h3>
+
+<p>Creates the generation options object for use in generateSql()
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createGenerateOptions(
+  cohortIdFieldName,
+  cohortId,
+  cdmSchema,
+  targetTable,
+  resultSchema,
+  vocabularySchema,
+  generateStats
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>cohortIdFieldName</code></td>
+<td>
+<p>The field that contains the cohortId in the cohort table.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortId</code></td>
+<td>
+<p>The generated cohort ID.</p>
+</td></tr>
+<tr valign="top"><td><code>cdmSchema</code></td>
+<td>
+<p>The value of the CDM schema.</p>
+</td></tr>
+<tr valign="top"><td><code>targetTable</code></td>
+<td>
+<p>the cohort table name.</p>
+</td></tr>
+<tr valign="top"><td><code>resultSchema</code></td>
+<td>
+<p>the schema the cohort table belongs to.</p>
+</td></tr>
+<tr valign="top"><td><code>vocabularySchema</code></td>
+<td>
+<p>the schema of the vocabulary tables (defaults to cdmSchema)</p>
+</td></tr>
+<tr valign="top"><td><code>generateStats</code></td>
+<td>
+<p>a boolean representing if the query should include inclusion rule statistics calculation</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A jObj that can be passed to generateSql().
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>CirceR</em> version 1.1.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

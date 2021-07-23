@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Launch the CohortExplorer Shiny app</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for launchCohortExplorer {CohortDiagnostics}"><tr><td>launchCohortExplorer {CohortDiagnostics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Launch the CohortExplorer Shiny app</h2>
+
+<h3>Description</h3>
+
+<p>Launch the CohortExplorer Shiny app
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+launchCohortExplorer(
+  connectionDetails,
+  cdmDatabaseSchema,
+  cohortDatabaseSchema,
+  cohortTable,
+  cohortId,
+  sampleSize = 100,
+  subjectIds = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>An object of type <code>connectionDetails</code> as created using the
+<code><a href="../../DatabaseConnector/html/createConnectionDetails.html">createConnectionDetails</a></code> function in the
+DatabaseConnector package.</p>
+</td></tr>
+<tr valign="top"><td><code>cdmDatabaseSchema</code></td>
+<td>
+<p>Schema name where your patient-level data in OMOP CDM format resides.
+Note that for SQL Server, this should include both the database and
+schema name, for example 'cdm_data.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortDatabaseSchema</code></td>
+<td>
+<p>Schema name where your cohort table resides. Note that for SQL Server,
+this should include both the database and schema name, for example
+'scratch.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortTable</code></td>
+<td>
+<p>Name of the cohort table.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortId</code></td>
+<td>
+<p>The ID of the cohort.</p>
+</td></tr>
+<tr valign="top"><td><code>sampleSize</code></td>
+<td>
+<p>Number of subjects to sample from the cohort. Ignored if subjectIds is specified.</p>
+</td></tr>
+<tr valign="top"><td><code>subjectIds</code></td>
+<td>
+<p>A vector of subject IDs to view.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Launches a Shiny app that allows the user to explore a cohort of interest.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>CohortDiagnostics</em> version 2.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

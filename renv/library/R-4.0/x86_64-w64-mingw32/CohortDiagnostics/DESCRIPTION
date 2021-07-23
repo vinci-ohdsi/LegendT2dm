@@ -1,0 +1,53 @@
+Package: CohortDiagnostics
+Type: Package
+Title: Diagnostics for OHDSI Cohorts
+Version: 2.1.0
+Date: 2021-05-24
+Authors@R: c(
+ person("Gowtham", "Rao", email = "rao@ohdsi.org", role = c("aut", "cre")),
+ person("Martijn", "Schuemie", email = "schuemie@ohdsi.org", role = c("aut")),
+ person("Patrick", "Ryan", role = c("aut")),
+ person("James", "Weaver", role = c("aut")),
+ person("Jamie", "Gilbert", role = c("aut")),
+ person("Observational Health Data Science and Informatics", role = c("cph"))
+ )
+Maintainer: Gowtham Rao <rao@ohdsi.org>
+Description: Diagnostics for cohorts that use the OMOP Common Data Model and the OHDSI tools.
+Depends: DatabaseConnector (>= 4.0.0), FeatureExtraction (>= 3.1.1), R (>=
+    4.0.0)
+Imports: Andromeda, checkmate, CirceR, clock, digest, dplyr (>= 1.0.0),
+    methods, ParallelLogger (>= 2.0.0), pool, readr (>= 1.4.0), RJSONIO, rlang,
+    ROhdsiWebApi (>= 1.2.0), SqlRender (>= 1.7.0), stringr, tidyr (>= 1.0.0)
+Suggests: DT, Eunomia, ggiraph, ggplot2, htmltools, knitr, lubridate, plotly,
+    purrr, RColorBrewer, rmarkdown, RSQLite (>= 2.2.1), scales, shiny,
+    shinydashboard, shinyWidgets, testthat, withr, zip
+License: Apache License
+VignetteBuilder: knitr
+URL: https://ohdsi.github.io/CohortDiagnostics,
+    https://github.com/OHDSI/CohortDiagnostics
+BugReports: https://github.com/OHDSI/CohortDiagnostics/issues
+RoxygenNote: 7.1.1
+Encoding: UTF-8
+Language: en-US
+Author: Gowtham Rao [aut, cre],
+ Martijn Schuemie [aut],
+ Patrick Ryan [aut],
+ James Weaver [aut],
+ Jamie Gilbert [aut],
+ Observational Health Data Science and Informatics [cph]
+Built: R 4.0.3; ; 2021-07-12 20:53:03 UTC; windows
+RemoteType: github
+Remotes: ohdsi/Eunomia, ohdsi/FeatureExtraction, ohdsi/ROhdsiWebApi,
+    ohdsi/CirceR
+RemoteHost: api.github.com
+RemoteRepo: CohortDiagnostics
+RemoteUsername: OHDSI
+RemoteRef: va_patch
+RemoteSha: cd7e865e8f32b8c40889a96f6f5be97782dc952a
+GithubHost: api.github.com
+GithubRepo: CohortDiagnostics
+GithubUsername: OHDSI
+GithubRef: va_patch
+GithubSHA1: cd7e865e8f32b8c40889a96f6f5be97782dc952a
+Remotes: ohdsi/Eunomia, ohdsi/FeatureExtraction, ohdsi/ROhdsiWebApi,
+    ohdsi/CirceR

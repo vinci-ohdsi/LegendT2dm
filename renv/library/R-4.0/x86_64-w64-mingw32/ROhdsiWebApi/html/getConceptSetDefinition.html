@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get ConceptSet id definition. *[Stable]*</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for getConceptSetDefinition {ROhdsiWebApi}"><tr><td>getConceptSetDefinition {ROhdsiWebApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get ConceptSet id definition. <a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img src="../help/figures/lifecycle-stable.svg" alt='[Stable]' /></a></h2>
+
+<h3>Description</h3>
+
+<p>Get ConceptSet id definition. <a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img src="../help/figures/lifecycle-stable.svg" alt='[Stable]' /></a>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+getConceptSetDefinition(conceptSetId, baseUrl)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>conceptSetId</code></td>
+<td>
+<p>An integer id representing the id that uniquely identifies a ConceptSet
+definition in a WebApi instance.</p>
+</td></tr>
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;. Note, there is no trailing '/'.
+If trailing '/' is used, you may receive an error.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Obtain the ConceptSet definition from WebAPI for a given ConceptSet id
+</p>
+
+
+<h3>Value</h3>
+
+<p>An R object representing the ConceptSet definition
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+getConceptSetDefinition(conceptSetId = 13242, baseUrl = "http://server.org:80/WebAPI")
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>ROhdsiWebApi</em> version 1.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Manually set the authorization http header for a WebAPI...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for setAuthHeader {ROhdsiWebApi}"><tr><td>setAuthHeader {ROhdsiWebApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Manually set the authorization http header for a WebAPI baseUrl In some cases the user may want to
+manually set the authorization header. An authHeader is associated with a particular baseUrl and
+added to to the header of all http requests sent to that url by ROhdsiWebApi.</h2>
+
+<h3>Description</h3>
+
+<p>Manually set the authorization http header for a WebAPI baseUrl In some cases the user may want to
+manually set the authorization header. An authHeader is associated with a particular baseUrl and
+added to to the header of all http requests sent to that url by ROhdsiWebApi.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+setAuthHeader(baseUrl, authHeader)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;. Note, there is no trailing '/'.
+If trailing '/' is used, you may receive an error.</p>
+</td></tr>
+<tr valign="top"><td><code>authHeader</code></td>
+<td>
+<p>A character string containing a Bearer token that will be added to the header of
+all http requests sent to baseUrl. (e.g. &quot;Bearer
+lxd9n2nsdsd2329km23mexjop02m23m23mmmsioxiis0&quot;)</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>ROhdsiWebApi</em> version 1.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

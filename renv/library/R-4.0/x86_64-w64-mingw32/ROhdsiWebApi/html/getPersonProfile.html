@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get person profile data *[Maturing]*</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for getPersonProfile {ROhdsiWebApi}"><tr><td>getPersonProfile {ROhdsiWebApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get person profile data <a href="https://lifecycle.r-lib.org/articles/stages.html#maturing"><img src="../help/figures/lifecycle-maturing.svg" alt='[Maturing]' /></a></h2>
+
+<h3>Description</h3>
+
+<p>Get person profile data <a href="https://lifecycle.r-lib.org/articles/stages.html#maturing"><img src="../help/figures/lifecycle-maturing.svg" alt='[Maturing]' /></a>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+getPersonProfile(baseUrl, sourceKey, personId, indexCohortId = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;. Note, there is no trailing '/'.
+If trailing '/' is used, you may receive an error.</p>
+</td></tr>
+<tr valign="top"><td><code>sourceKey</code></td>
+<td>
+<p>The source key for a CDM instance in WebAPI, as defined in the
+Configuration page</p>
+</td></tr>
+<tr valign="top"><td><code>personId</code></td>
+<td>
+<p>The personId of the person whose profile is being reviewed</p>
+</td></tr>
+<tr valign="top"><td><code>indexCohortId</code></td>
+<td>
+<p>&lt;OPTIONAL&gt; Do you want to use a particular cohortId as the index cohort? If
+left NULL, the WebApi will identify the earliest cohort for the person by
+cohort start date and use it as the index cohort. WebApi uses the cohort
+start date of the index cohort to calculate the person's index age
+(ageAtIndex). WebApi will also return the relative position, in days, for
+each event compared to the index cohorts start date. These relative positions
+are useful to study the relationship of various events with respect to the
+index cohort start date.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Get a R object with person profile data. This function may be used for visualizing a patients
+profile in tables or visualization.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list of tibble data frame objects corresponding to cohorts, observationPeriod, records and
+person.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+getPersonProfile(baseUrl = "http://server.org:80/WebAPI",
+                 sourceKey = "sourceKey",
+                 personId = 342342)
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>ROhdsiWebApi</em> version 1.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

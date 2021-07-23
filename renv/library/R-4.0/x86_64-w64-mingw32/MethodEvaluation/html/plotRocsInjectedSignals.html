@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Plot the ROC curves for various injected signal sizes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for plotRocsInjectedSignals {MethodEvaluation}"><tr><td>plotRocsInjectedSignals {MethodEvaluation}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Plot the ROC curves for various injected signal sizes</h2>
+
+<h3>Description</h3>
+
+<p>Plot the ROC curves for various injected signal sizes
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+plotRocsInjectedSignals(logRr, trueLogRr, showAucs, fileName = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>logRr</code></td>
+<td>
+<p>A vector containing the log of the relative risk as estimated by a method.</p>
+</td></tr>
+<tr valign="top"><td><code>trueLogRr</code></td>
+<td>
+<p>A vector containing the injected log(relative risk) for each estimate.</p>
+</td></tr>
+<tr valign="top"><td><code>showAucs</code></td>
+<td>
+<p>Should the AUCs be shown in the plot?</p>
+</td></tr>
+<tr valign="top"><td><code>fileName</code></td>
+<td>
+<p>Name of the file where the plot should be saved, for example 'plot.png'. See the
+function <code>ggsave</code> in the ggplot2 package for supported file formats.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A Ggplot object. Use the <code>ggsave</code> function to save to file.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>MethodEvaluation</em> version 2.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

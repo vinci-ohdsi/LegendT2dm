@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Generate simulated data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for simulateCohortMethodData {CohortMethod}"><tr><td>simulateCohortMethodData {CohortMethod}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Generate simulated data</h2>
+
+<h3>Description</h3>
+
+<p>Creates a <a href="CohortMethodData-class.html">CohortMethodData</a> object with simulated data.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+simulateCohortMethodData(profile, n = 10000)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>profile</code></td>
+<td>
+<p>An object of type <code>CohortMethodDataSimulationProfile</code> as generated using the
+<code><a href="createCohortMethodDataSimulationProfile.html">createCohortMethodDataSimulationProfile()</a></code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>n</code></td>
+<td>
+<p>The size of the population to be generated.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function generates simulated data that is in many ways similar to the original data on which
+the simulation profile is based. The contains same outcome, comparator, and outcome concept IDs,
+and the covariates and their 1st order statistics should be comparable.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of type <a href="CohortMethodData-class.html">CohortMethodData</a>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

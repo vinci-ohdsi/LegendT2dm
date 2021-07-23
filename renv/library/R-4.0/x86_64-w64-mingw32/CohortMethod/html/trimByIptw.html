@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Remove subjects with a high IPTW</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for trimByIptw {CohortMethod}"><tr><td>trimByIptw {CohortMethod}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Remove subjects with a high IPTW</h2>
+
+<h3>Description</h3>
+
+<p>Compute the inverse probability of treatment weights (IPTW) using the propensity scores, and remove
+subjects having a weight higher than the user-specified threshold.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+trimByIptw(population, maxWeight = 10, estimator = "ate")
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>population</code></td>
+<td>
+<p>A data frame with at least the three columns described below.</p>
+</td></tr>
+<tr valign="top"><td><code>maxWeight</code></td>
+<td>
+<p>The maximum allowed IPTW.</p>
+</td></tr>
+<tr valign="top"><td><code>estimator</code></td>
+<td>
+<p>The type of estimator. Options are <code>estimator = "ate"</code> for the average treatment
+effect, and <code>estimator = "att"</code>for the average treatment effect in the treated.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The data frame should have the following three columns:
+</p>
+
+<ul>
+<li><p> rowId (numeric): A unique identifier for each row (e.g. the person ID).
+</p>
+</li>
+<li><p> treatment (integer): Column indicating whether the person is in the target (1) or comparator (0) group.
+</p>
+</li>
+<li><p> propensityScore (numeric): Propensity score.
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>Returns a tibble with the same  columns as the input, as well as a <code>weights</code> column containing the
+IPTW.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+rowId &lt;- 1:2000
+treatment &lt;- rep(0:1, each = 1000)
+propensityScore &lt;- c(runif(1000, min = 0, max = 1), runif(1000, min = 0, max = 1))
+data &lt;- data.frame(rowId = rowId, treatment = treatment, propensityScore = propensityScore)
+result &lt;- trimByIptw(data)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

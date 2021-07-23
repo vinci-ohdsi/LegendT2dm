@@ -1,0 +1,43 @@
+Authenticated encryption	messaging
+auth_decrypt	messaging
+auth_encrypt	messaging
+bin2hex	helpers
+chacha20	stream
+data_decrypt	symmetric
+data_encrypt	symmetric
+data_tag	symmetric
+diffie	diffie
+Diffie-Hellman	diffie
+diffie_hellman	diffie
+hash	hash
+Hash functions	hash
+hashing	hash
+helpers	helpers
+hex2bin	helpers
+Key generation	keygen
+keygen	keygen
+password	password
+Password storage	password
+password_store	password
+password_verify	password
+pubkey	keygen
+random	helpers
+salsa20	stream
+scrypt	hash
+sha256	hash
+sha512	hash
+shorthash	hash
+sig	sig
+Signatures	sig
+sig_keygen	sig
+sig_pubkey	sig
+sig_sign	sig
+sig_verify	sig
+Simple encryption	simple
+simple_decrypt	simple
+simple_encrypt	simple
+Sodium utilities	helpers
+stream	stream
+Stream ciphers	stream
+Symmetric encryption	symmetric
+xsalsa20	stream

@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>R: Object Pooling</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+<h1> Object Pooling
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;pool&rsquo; version 0.1.6</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">copy_to.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection.html">dbAppendTable-method</a></td>
+<td>DBIConnection methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection-transaction.html">dbBegin-method</a></td>
+<td>DBIConnection transaction methods are not supported for Pool objects.</td></tr>
+<tr><td style="width: 25%;"><a href="poolWithTransaction.html">dbBreak</a></td>
+<td>Self-contained database transactions using pool</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection-transaction.html">dbCommit-method</a></td>
+<td>DBIConnection transaction methods are not supported for Pool objects.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection.html">dbCreateTable-method</a></td>
+<td>DBIConnection methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-object.html">dbDataType-method</a></td>
+<td>DBIObject methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection.html">dbExecute-method</a></td>
+<td>DBIConnection methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection.html">dbExistsTable-method</a></td>
+<td>DBIConnection methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-object.html">dbGetInfo-method</a></td>
+<td>DBIObject methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection.html">dbGetQuery-method</a></td>
+<td>DBIConnection methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection.html">DBI-connection</a></td>
+<td>DBIConnection methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection-interpolate.html">DBI-connection-interpolate</a></td>
+<td>Safely interpolate values into an SQL string and parse them back.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection-quote.html">DBI-connection-quote</a></td>
+<td>SQL quoting.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection-sql.html">DBI-connection-sql</a></td>
+<td>Creating and manipulating SQL tables.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection-transaction.html">DBI-connection-transaction</a></td>
+<td>DBIConnection transaction methods are not supported for Pool objects.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-object.html">DBI-object</a></td>
+<td>DBIObject methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-object-deprecated.html">DBI-object-deprecated</a></td>
+<td>Make R identifiers into legal SQL identifiers.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection.html">dbIsReadOnly-method</a></td>
+<td>DBIConnection methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-object.html">dbIsValid-method</a></td>
+<td>DBIObject methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection.html">dbListFields-method</a></td>
+<td>DBIConnection methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection.html">dbListObjects-method</a></td>
+<td>DBIConnection methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection.html">dbListResults-method</a></td>
+<td>DBIConnection methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection.html">dbListTables-method</a></td>
+<td>DBIConnection methods.</td></tr>
+<tr><td style="width: 25%;"><a href="dbPool.html">dbPool</a></td>
+<td>Create a DBI Database Connection Pool.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection-quote.html">dbQuoteIdentifier-method</a></td>
+<td>SQL quoting.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection-quote.html">dbQuoteLiteral-method</a></td>
+<td>SQL quoting.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection-quote.html">dbQuoteString-method</a></td>
+<td>SQL quoting.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection.html">dbReadTable-method</a></td>
+<td>DBIConnection methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection.html">dbRemoveTable-method</a></td>
+<td>DBIConnection methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection-transaction.html">dbRollback-method</a></td>
+<td>DBIConnection transaction methods are not supported for Pool objects.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection.html">dbSendQuery-method</a></td>
+<td>DBIConnection methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection.html">dbSendStatement-method</a></td>
+<td>DBIConnection methods.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection-quote.html">dbUnquoteIdentifier-method</a></td>
+<td>SQL quoting.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection-transaction.html">dbWithTransaction-method</a></td>
+<td>DBIConnection transaction methods are not supported for Pool objects.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection.html">dbWriteTable-method</a></td>
+<td>DBIConnection methods.</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_analyze.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_begin.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_collect.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_commit.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_compute.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_create_index.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_create_indexes.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_create_table.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_data_type.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_desc.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_drop_table.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_explain.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_has_table.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_insert_into.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_list_tables.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_query_fields.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_query_rows.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_rollback.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_save_query.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_sql_render.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">db_write_table.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">dplyr-db-methods</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-object-deprecated.html">isSQLKeyword-method</a></td>
+<td>Make R identifiers into legal SQL identifiers.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-object-deprecated.html">make.db.names-method</a></td>
+<td>Make R identifiers into legal SQL identifiers.</td></tr>
+<tr><td style="width: 25%;"><a href="Pool-class.html">Pool</a></td>
+<td>S4 class for compatibility with DBI methods</td></tr>
+<tr><td style="width: 25%;"><a href="Pool-class.html">Pool-class</a></td>
+<td>S4 class for compatibility with DBI methods</td></tr>
+<tr><td style="width: 25%;"><a href="poolCheckout.html">poolCheckout</a></td>
+<td>Checks out an object from the pool.</td></tr>
+<tr><td style="width: 25%;"><a href="poolCheckout.html">poolCheckout-method</a></td>
+<td>Checks out an object from the pool.</td></tr>
+<tr><td style="width: 25%;"><a href="Pool-class.html">poolClose</a></td>
+<td>S4 class for compatibility with DBI methods</td></tr>
+<tr><td style="width: 25%;"><a href="Pool-class.html">poolClose-method</a></td>
+<td>S4 class for compatibility with DBI methods</td></tr>
+<tr><td style="width: 25%;"><a href="Pool-class.html">poolCreate</a></td>
+<td>S4 class for compatibility with DBI methods</td></tr>
+<tr><td style="width: 25%;"><a href="poolReturn.html">poolReturn</a></td>
+<td>Returns an object back to the pool.</td></tr>
+<tr><td style="width: 25%;"><a href="poolReturn.html">poolReturn-method</a></td>
+<td>Returns an object back to the pool.</td></tr>
+<tr><td style="width: 25%;"><a href="poolWithTransaction.html">poolWithTransaction</a></td>
+<td>Self-contained database transactions using pool</td></tr>
+<tr><td style="width: 25%;"><a href="show-Pool-method.html">show-method</a></td>
+<td>Show method</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection-sql.html">sqlAppendTable-method</a></td>
+<td>Creating and manipulating SQL tables.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection-sql.html">sqlCreateTable-method</a></td>
+<td>Creating and manipulating SQL tables.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection-sql.html">sqlData-method</a></td>
+<td>Creating and manipulating SQL tables.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection-interpolate.html">sqlInterpolate-method</a></td>
+<td>Safely interpolate values into an SQL string and parse them back.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-object-deprecated.html">SQLKeywords-method</a></td>
+<td>Make R identifiers into legal SQL identifiers.</td></tr>
+<tr><td style="width: 25%;"><a href="DBI-connection-interpolate.html">sqlParseVariables-method</a></td>
+<td>Safely interpolate values into an SQL string and parse them back.</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">sql_escape_logical.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">sql_escape_string.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">sql_join.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">sql_join_suffix.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">sql_select.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">sql_semi_join.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">sql_subquery.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">sql_translate_env.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+<tr><td style="width: 25%;"><a href="dplyr-db-methods.html">tbl.Pool</a></td>
+<td>DBIConnection methods from dplyr and dbplyr</td></tr>
+</table>
+</body></html>

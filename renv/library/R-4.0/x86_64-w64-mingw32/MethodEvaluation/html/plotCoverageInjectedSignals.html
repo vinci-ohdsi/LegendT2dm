@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Plot the coverage</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for plotCoverageInjectedSignals {MethodEvaluation}"><tr><td>plotCoverageInjectedSignals {MethodEvaluation}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Plot the coverage</h2>
+
+<h3>Description</h3>
+
+<p>Plot the coverage
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+plotCoverageInjectedSignals(
+  logRr,
+  seLogRr,
+  trueLogRr,
+  region = 0.95,
+  fileName = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>logRr</code></td>
+<td>
+<p>A numeric vector of effect estimates on the log scale</p>
+</td></tr>
+<tr valign="top"><td><code>seLogRr</code></td>
+<td>
+<p>The standard error of the log of the effect estimates. Hint: often the standard
+error = (log(&lt;lower bound 95 percent confidence interval&gt;) - log(&lt;effect
+estimate&gt;))/qnorm(0.025)</p>
+</td></tr>
+<tr valign="top"><td><code>trueLogRr</code></td>
+<td>
+<p>A vector of the true effect sizes</p>
+</td></tr>
+<tr valign="top"><td><code>region</code></td>
+<td>
+<p>Size of the confidence interval. Default is .95 (95 percent).</p>
+</td></tr>
+<tr valign="top"><td><code>fileName</code></td>
+<td>
+<p>Name of the file where the plot should be saved, for example 'plot.png'. See the
+function <code>ggsave</code> in the ggplot2 package for supported file formats.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Plot the fractions of estimates where the true effect size is below, above or within the confidence
+interval, for one or more true effect sizes.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>MethodEvaluation</em> version 2.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,43 @@
+addDefaultConsoleLogger
+                        Add the default console logger
+addDefaultEmailLogger   Add the default e-mail logger
+addDefaultErrorReportLogger
+                        Add the default error report logger
+addDefaultFileLogger    Add the default file logger
+clearLoggers            Remove all registered loggers
+clusterApply            Apply a function to a list using the cluster
+clusterRequire          Require a package in the cluster
+convertJsonToSettings   Converts a JSON string to a settings object
+convertSettingsToJson   Convert a settings object to a JSON string
+createArgFunction       Create an argument function
+createConsoleAppender   Create console appender
+createEmailAppender     Create e-mail appender
+createFileAppender      Create file appender
+createLogger            Create a logger
+excludeFromList         Exclude variables from a list of objects of the
+                        same type
+getLoggers              Get all registered loggers
+launchLogViewer         Launch the log viewer Shiny app
+layoutEmail             Logging layout for e-mail
+layoutErrorReport       Logging layout for error report
+layoutParallel          Logging layout for parallel computing
+layoutSimple            Simple logging layout
+layoutStackTrace        Logging layout with stack trace
+layoutTimestamp         Logging layout with timestamp
+loadSettingsFromJson    Load a settings object from a JSON file
+logDebug                Log a message at the DEBUG level
+logError                Log a message at the ERROR level
+logFatal                Log a message at the FATAL level
+logInfo                 Log a message at the INFO level
+logTrace                Log a message at the TRACE level
+logWarn                 Log a message at the WARN level
+makeCluster             Create a cluster of nodes for parallel
+                        computation
+matchInList             In a list of object of the same type, find
+                        those that match the input
+registerLogger          Register a logger
+saveSettingsToJson      Save a settings object as JSON file
+selectFromList          Select variables from a list of objects of the
+                        same type
+stopCluster             Stop the cluster
+unregisterLogger        Unregister a logger

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Keep only persons in clinical equipoise</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for trimByPsToEquipoise {CohortMethod}"><tr><td>trimByPsToEquipoise {CohortMethod}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Keep only persons in clinical equipoise</h2>
+
+<h3>Description</h3>
+
+<p>Use the preference score to trim subjects that are not in clinical equipoise
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+trimByPsToEquipoise(population, bounds = c(0.3, 0.7))
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>population</code></td>
+<td>
+<p>A data frame with at least the three columns described below.</p>
+</td></tr>
+<tr valign="top"><td><code>bounds</code></td>
+<td>
+<p>The upper and lower bound on the preference score for keeping persons.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The data frame should have the following three columns:
+</p>
+
+<ul>
+<li><p> rowId (numeric): A unique identifier for each row (e.g. the person ID).
+</p>
+</li>
+<li><p> treatment (integer): Column indicating whether the person is in the target (1) or comparator (0) group.
+</p>
+</li>
+<li><p> propensityScore (numeric): Propensity score.
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>Returns a tibble with the same three columns as the input.
+</p>
+
+
+<h3>References</h3>
+
+<p>Walker AM, Patrick AR, Lauer MS, Hornbrook MC, Marin MG, Platt R, Roger VL, Stang P, and
+Schneeweiss S. (2013) A tool for assessing the feasibility of comparative effectiveness research,
+Comparative Effective Research, 3, 11-20
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+rowId &lt;- 1:2000
+treatment &lt;- rep(0:1, each = 1000)
+propensityScore &lt;- c(runif(1000, min = 0, max = 1), runif(1000, min = 0, max = 1))
+data &lt;- data.frame(rowId = rowId, treatment = treatment, propensityScore = propensityScore)
+result &lt;- trimByPsToEquipoise(data)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Insert a set of cohort definitions into package</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for insertCohortDefinitionSetInPackage {ROhdsiWebApi}"><tr><td>insertCohortDefinitionSetInPackage {ROhdsiWebApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Insert a set of cohort definitions into package</h2>
+
+<h3>Description</h3>
+
+<p>Insert a set of cohort definitions into package
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+insertCohortDefinitionSetInPackage(
+  fileName = "inst/settings/CohortsToCreate.csv",
+  baseUrl,
+  jsonFolder = "inst/cohorts",
+  sqlFolder = "inst/sql/sql_server",
+  rFileName = "R/CreateCohorts.R",
+  insertTableSql = TRUE,
+  insertCohortCreationR = TRUE,
+  generateStats = FALSE,
+  packageName
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>fileName</code></td>
+<td>
+<p>Name of a CSV file specifying the cohorts to insert. See details for
+the expected file format.</p>
+</td></tr>
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>jsonFolder</code></td>
+<td>
+<p>Path to the folder where the JSON representations will be saved.</p>
+</td></tr>
+<tr valign="top"><td><code>sqlFolder</code></td>
+<td>
+<p>Path to the folder where the SQL representations will be saved.</p>
+</td></tr>
+<tr valign="top"><td><code>rFileName</code></td>
+<td>
+<p>Name of R file to generate when <code>insertCohortCreationR = TRUE</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>insertTableSql</code></td>
+<td>
+<p>Should the SQL for creating the cohort table be inserted into the
+package as well? This file will be called CreateCohortTable.sql.</p>
+</td></tr>
+<tr valign="top"><td><code>insertCohortCreationR</code></td>
+<td>
+<p>Insert R code that will create the cohort table and instantiate the
+cohorts? This will create a file called R/CreateCohorts.R containing
+a function called <code>.createCohorts</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>generateStats</code></td>
+<td>
+<p>Should cohort inclusion rule statistics be created?</p>
+</td></tr>
+<tr valign="top"><td><code>packageName</code></td>
+<td>
+<p>The name of the package (only needed when inserting the R code as
+well).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The CSV file should have at least the following fields: </p>
+ <dl>
+<dt>atlasId</dt><dd><p>The cohort ID in
+ATLAS.</p>
+</dd> <dt>cohortId</dt><dd><p>The cohort ID that will be used when instantiating the cohort (can be
+different from atlasId).</p>
+</dd> <dt>name</dt><dd><p>The name to be used for the cohort. This name will be used to
+generate file names, so please use letters and numbers only (no spaces).</p>
+</dd> </dl>
+
+
+<hr /><div style="text-align: center;">[Package <em>ROhdsiWebApi</em> version 1.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

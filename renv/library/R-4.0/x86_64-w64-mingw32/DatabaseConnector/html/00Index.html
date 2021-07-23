@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>R: Connecting to Various Database Platforms</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+<h1> Connecting to Various Database Platforms
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;DatabaseConnector&rsquo; version 4.0.2</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+<li><a href="../doc/index.html">User guides, package vignettes and other documentation.</a></li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="connect.html">connect</a></td>
+<td>connect</td></tr>
+<tr><td style="width: 25%;"><a href="createConnectionDetails.html">createConnectionDetails</a></td>
+<td>createConnectionDetails</td></tr>
+<tr><td style="width: 25%;"><a href="createZipFile.html">createZipFile</a></td>
+<td>Compress files and/or folders into a single zip file</td></tr>
+<tr><td style="width: 25%;"><a href="DatabaseConnectorDriver.html">DatabaseConnectorDriver</a></td>
+<td>Create a DatabaseConnectorDriver object</td></tr>
+<tr><td style="width: 25%;"><a href="dbAppendTable-DatabaseConnectorConnection-character-data.frame-method.html">dbAppendTable-method</a></td>
+<td>Insert rows into a table</td></tr>
+<tr><td style="width: 25%;"><a href="dbClearResult-DatabaseConnectorResult-method.html">dbClearResult-method</a></td>
+<td>Clear a result set</td></tr>
+<tr><td style="width: 25%;"><a href="dbColumnInfo-DatabaseConnectorResult-method.html">dbColumnInfo-method</a></td>
+<td>Information about result types</td></tr>
+<tr><td style="width: 25%;"><a href="dbConnect-DatabaseConnectorDriver-method.html">dbConnect-method</a></td>
+<td>Create a connection to a DBMS</td></tr>
+<tr><td style="width: 25%;"><a href="dbCreateTable-DatabaseConnectorConnection-character-data.frame-method.html">dbCreateTable-method</a></td>
+<td>Create a table in the database</td></tr>
+<tr><td style="width: 25%;"><a href="dbDisconnect-DatabaseConnectorConnection-method.html">dbDisconnect-method</a></td>
+<td>Disconnect (close) a connection</td></tr>
+<tr><td style="width: 25%;"><a href="dbExecute-DatabaseConnectorConnection-character-method.html">dbExecute-method</a></td>
+<td>Execute an update statement, query number of rows affected, and then close result set</td></tr>
+<tr><td style="width: 25%;"><a href="dbExistsTable-DatabaseConnectorConnection-character-method.html">dbExistsTable-method</a></td>
+<td>Does a table exist?</td></tr>
+<tr><td style="width: 25%;"><a href="dbFetch-DatabaseConnectorResult-method.html">dbFetch-method</a></td>
+<td>Fetch records from a previously executed query</td></tr>
+<tr><td style="width: 25%;"><a href="dbGetQuery-DatabaseConnectorConnection-character-method.html">dbGetQuery-method</a></td>
+<td>Send query, retrieve results and then clear result set</td></tr>
+<tr><td style="width: 25%;"><a href="dbGetRowCount-DatabaseConnectorResult-method.html">dbGetRowCount-method</a></td>
+<td>The number of rows fetched so far</td></tr>
+<tr><td style="width: 25%;"><a href="dbGetRowsAffected-DatabaseConnectorResult-method.html">dbGetRowsAffected-method</a></td>
+<td>The number of rows affected</td></tr>
+<tr><td style="width: 25%;"><a href="dbGetStatement-DatabaseConnectorResult-method.html">dbGetStatement-method</a></td>
+<td>Get the statement associated with a result set</td></tr>
+<tr><td style="width: 25%;"><a href="dbHasCompleted-DatabaseConnectorResult-method.html">dbHasCompleted-method</a></td>
+<td>Completion status</td></tr>
+<tr><td style="width: 25%;"><a href="dbIsValid-DatabaseConnectorDbiConnection-method.html">dbIsValid-method</a></td>
+<td>Is this DBMS object still valid?</td></tr>
+<tr><td style="width: 25%;"><a href="dbIsValid-DatabaseConnectorJdbcConnection-method.html">dbIsValid-method</a></td>
+<td>Is this DBMS object still valid?</td></tr>
+<tr><td style="width: 25%;"><a href="dbListFields-DatabaseConnectorConnection-character-method.html">dbListFields-method</a></td>
+<td>List field names of a remote table</td></tr>
+<tr><td style="width: 25%;"><a href="dbListTables-DatabaseConnectorConnection-method.html">dbListTables-method</a></td>
+<td>List remote tables</td></tr>
+<tr><td style="width: 25%;"><a href="dbQuoteIdentifier-DatabaseConnectorConnection-character-method.html">dbQuoteIdentifier-method</a></td>
+<td>Quote identifiers</td></tr>
+<tr><td style="width: 25%;"><a href="dbQuoteString-DatabaseConnectorConnection-character-method.html">dbQuoteString-method</a></td>
+<td>Quote literal strings</td></tr>
+<tr><td style="width: 25%;"><a href="dbReadTable-DatabaseConnectorConnection-character-method.html">dbReadTable-method</a></td>
+<td>Copy data frames from database tables</td></tr>
+<tr><td style="width: 25%;"><a href="dbRemoveTable-DatabaseConnectorConnection-character-method.html">dbRemoveTable-method</a></td>
+<td>Remove a table from the database</td></tr>
+<tr><td style="width: 25%;"><a href="dbSendQuery-DatabaseConnectorDbiConnection-character-method.html">dbSendQuery-method</a></td>
+<td>Execute a query on a given database connection</td></tr>
+<tr><td style="width: 25%;"><a href="dbSendQuery-DatabaseConnectorJdbcConnection-character-method.html">dbSendQuery-method</a></td>
+<td>Execute a query on a given database connection</td></tr>
+<tr><td style="width: 25%;"><a href="dbSendStatement-DatabaseConnectorConnection-character-method.html">dbSendStatement-method</a></td>
+<td>Execute a data manipulation statement on a given database connection</td></tr>
+<tr><td style="width: 25%;"><a href="dbUnloadDriver-DatabaseConnectorDriver-method.html">dbUnloadDriver-method</a></td>
+<td>Load and unload database drivers</td></tr>
+<tr><td style="width: 25%;"><a href="dbWriteTable-DatabaseConnectorConnection-character-data.frame-method.html">dbWriteTable-method</a></td>
+<td>Copy data frames to database tables</td></tr>
+<tr><td style="width: 25%;"><a href="disconnect.html">disconnect</a></td>
+<td>Disconnect from the server</td></tr>
+<tr><td style="width: 25%;"><a href="downloadJdbcDrivers.html">downloadJdbcDrivers</a></td>
+<td>Download DatabaseConnector JDBC Jar files</td></tr>
+<tr><td style="width: 25%;"><a href="executeSql.html">executeSql</a></td>
+<td>Execute SQL code</td></tr>
+<tr><td style="width: 25%;"><a href="getTableNames.html">getTableNames</a></td>
+<td>List all tables in a database schema.</td></tr>
+<tr><td style="width: 25%;"><a href="insertTable.html">insertTable</a></td>
+<td>Insert a table on the server</td></tr>
+<tr><td style="width: 25%;"><a href="isSqlReservedWord.html">isSqlReservedWord</a></td>
+<td>Test a character vector of SQL names for SQL reserved words</td></tr>
+<tr><td style="width: 25%;"><a href="jdbcDrivers.html">jdbcDrivers</a></td>
+<td>How to download and use JDBC drivers for the various data platforms.</td></tr>
+<tr><td style="width: 25%;"><a href="lowLevelExecuteSql.html">lowLevelExecuteSql</a></td>
+<td>Execute SQL code</td></tr>
+<tr><td style="width: 25%;"><a href="lowLevelQuerySql.html">lowLevelQuerySql</a></td>
+<td>Low level function for retrieving data to a data frame</td></tr>
+<tr><td style="width: 25%;"><a href="lowLevelQuerySqlToAndromeda.html">lowLevelQuerySqlToAndromeda</a></td>
+<td>Low level function for retrieving data to a local Andromeda database</td></tr>
+<tr><td style="width: 25%;"><a href="querySql.html">querySql</a></td>
+<td>Retrieve data to a data.frame</td></tr>
+<tr><td style="width: 25%;"><a href="querySqlToAndromeda.html">querySqlToAndromeda</a></td>
+<td>Retrieves data to a local Andromeda database</td></tr>
+<tr><td style="width: 25%;"><a href="renderTranslateExecuteSql.html">renderTranslateExecuteSql</a></td>
+<td>Render, translate, execute SQL code</td></tr>
+<tr><td style="width: 25%;"><a href="renderTranslateQuerySql.html">renderTranslateQuerySql</a></td>
+<td>Render, translate, and query to data.frame</td></tr>
+<tr><td style="width: 25%;"><a href="renderTranslateQuerySqlToAndromeda.html">renderTranslateQuerySqlToAndromeda</a></td>
+<td>Render, translate, and query to local Andromeda</td></tr>
+<tr><td style="width: 25%;"><a href="show-DatabaseConnectorConnection-method.html">show-method</a></td>
+<td>Show an Object</td></tr>
+<tr><td style="width: 25%;"><a href="show-DatabaseConnectorDriver-method.html">show-method</a></td>
+<td>Show an Object</td></tr>
+</table>
+</body></html>

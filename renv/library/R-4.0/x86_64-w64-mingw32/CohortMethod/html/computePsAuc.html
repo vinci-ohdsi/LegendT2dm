@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Compute the area under the ROC curve</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for computePsAuc {CohortMethod}"><tr><td>computePsAuc {CohortMethod}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Compute the area under the ROC curve</h2>
+
+<h3>Description</h3>
+
+<p>Compute the area under the ROC curve of the propensity score.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+computePsAuc(data, confidenceIntervals = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>A data frame with at least the two columns described below</p>
+</td></tr>
+<tr valign="top"><td><code>confidenceIntervals</code></td>
+<td>
+<p>Compute 95 percent confidence intervals (computationally expensive for
+large data sets)</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The data frame should have a least the following two columns:
+</p>
+
+<ul>
+<li><p> treatment (integer): Column indicating whether the person is in the target (1) or comparator (0) group.
+</p>
+</li>
+<li><p> propensityScore (numeric): Propensity score.
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A tibble holding the AUC and its 95 percent confidence interval
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+treatment &lt;- rep(0:1, each = 100)
+propensityScore &lt;- c(rnorm(100, mean = 0.4, sd = 0.25), rnorm(100, mean = 0.6, sd = 0.25))
+data &lt;- data.frame(treatment = treatment, propensityScore = propensityScore)
+data &lt;- data[data$propensityScore &gt; 0 &amp; data$propensityScore &lt; 1, ]
+computePsAuc(data)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

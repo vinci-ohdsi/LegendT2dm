@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Plot negative and positive control estimates.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for plotControls {MethodEvaluation}"><tr><td>plotControls {MethodEvaluation}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Plot negative and positive control estimates.</h2>
+
+<h3>Description</h3>
+
+<p>Plot negative and positive control estimates.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+plotControls(
+  logRr,
+  seLogRr = NULL,
+  ci95Lb = NULL,
+  ci95Ub = NULL,
+  trueLogRr,
+  estimateType = "relative risk",
+  fileName = NULL,
+  title
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>logRr</code></td>
+<td>
+<p>A numeric vector of effect estimates on the log scale.</p>
+</td></tr>
+<tr valign="top"><td><code>seLogRr</code></td>
+<td>
+<p>The standard error of the log of the effect estimates. Hint: often the standard
+error = (log(&lt;lower bound 95 percent confidence interval&gt;) - log(&lt;effect
+estimate&gt;))/qnorm(0.025). If not provided the standard error will be inferred from 
+the 95 percent confidence interval.</p>
+</td></tr>
+<tr valign="top"><td><code>ci95Lb</code></td>
+<td>
+<p>The lower bound of the 95 percent confidence interval. IF not provided it will be 
+inferred from the standard error.</p>
+</td></tr>
+<tr valign="top"><td><code>ci95Ub</code></td>
+<td>
+<p>The upper bound of the 95 percent confidence interval. IF not provided it will be 
+inferred from the standard error.</p>
+</td></tr>
+<tr valign="top"><td><code>trueLogRr</code></td>
+<td>
+<p>A vector of the true effect sizes</p>
+</td></tr>
+<tr valign="top"><td><code>estimateType</code></td>
+<td>
+<p>A character string to denote the effect size estimate type. Used for the x-axis
+and the true effect size labels.</p>
+</td></tr>
+<tr valign="top"><td><code>fileName</code></td>
+<td>
+<p>Name of the file where the plot should be saved, for example 'plot.png'. See the
+function <code>ggsave</code> in the ggplot2 package for supported file formats.</p>
+</td></tr>
+<tr valign="top"><td><code>title</code></td>
+<td>
+<p>An optional title to display above the plot.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A Ggplot object. Use the <code>ggsave</code> function to save to file.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>MethodEvaluation</em> version 2.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

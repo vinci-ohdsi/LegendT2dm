@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>R: Interacting With an OHDSI WebApi Instance</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+<h1> Interacting With an OHDSI WebApi Instance
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;ROhdsiWebApi&rsquo; version 1.2.0</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+<li><a href="../doc/index.html">User guides, package vignettes and other documentation.</a></li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="authorizeWebApi.html">authorizeWebApi</a></td>
+<td>Authorize ROhdsiWebApi to access a protected instance of WebAPI Authorize the ROhdsiWebApi package to access WebApi on behalf of the user. This can be done with any of the auth methods described below. authorizeWebApi will use attempt to retrive, cache, and update a token which will grant access to webAPI by all subsequent requests made by the package.</td></tr>
+<tr><td style="width: 25%;"><a href="cancelCharacterizationGeneration.html">cancelCharacterizationGeneration</a></td>
+<td>Cancel generation of Characterization id.</td></tr>
+<tr><td style="width: 25%;"><a href="cancelCohortGeneration.html">cancelCohortGeneration</a></td>
+<td>Cancel generation of Cohort id.</td></tr>
+<tr><td style="width: 25%;"><a href="cancelGeneration.html">cancelGeneration</a></td>
+<td>Invoke generation. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="cancelIncidenceRateGeneration.html">cancelIncidenceRateGeneration</a></td>
+<td>Cancel generation of IncidenceRate id.</td></tr>
+<tr><td style="width: 25%;"><a href="cancelPathwayGeneration.html">cancelPathwayGeneration</a></td>
+<td>Cancel generation of Pathway id.</td></tr>
+<tr><td style="width: 25%;"><a href="checkInputFileEncoding.html">checkInputFileEncoding</a></td>
+<td>Check character encoding of input file</td></tr>
+<tr><td style="width: 25%;"><a href="convertConceptSetDefinitionToTable.html">convertConceptSetDefinitionToTable</a></td>
+<td>Convert a concept set definition to a table \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}</td></tr>
+<tr><td style="width: 25%;"><a href="createConceptSetWorkbook.html">createConceptSetWorkbook</a></td>
+<td>Save a set of concept sets expressions, included concepts, and mapped concepts into a workbook \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}</td></tr>
+<tr><td style="width: 25%;"><a href="deleteCharacterizationDefinition.html">deleteCharacterizationDefinition</a></td>
+<td>Delete Characterization id definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="deleteCohortDefinition.html">deleteCohortDefinition</a></td>
+<td>Delete Cohort id definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="deleteConceptSetDefinition.html">deleteConceptSetDefinition</a></td>
+<td>Delete ConceptSet id definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="deleteDefinition.html">deleteDefinition</a></td>
+<td>Delete a definition id of a chosen category. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="deleteEstimationDefinition.html">deleteEstimationDefinition</a></td>
+<td>Delete Estimation id definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="deleteIncidenceRateDefinition.html">deleteIncidenceRateDefinition</a></td>
+<td>Delete IncidenceRate id definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="deletePathwayDefinition.html">deletePathwayDefinition</a></td>
+<td>Delete Pathway id definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="deletePredictionDefinition.html">deletePredictionDefinition</a></td>
+<td>Delete Prediction id definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="detectCharacterizationsByName.html">detectCharacterizationsByName</a></td>
+<td>Detect the presence of string matched Characterization definitions. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="detectCohortsByName.html">detectCohortsByName</a></td>
+<td>Detect the presence of string matched Cohort definitions. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="detectConceptSetsByName.html">detectConceptSetsByName</a></td>
+<td>Detect the presence of string matched ConceptSet definitions. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="detectEstimationsByName.html">detectEstimationsByName</a></td>
+<td>Detect the presence of string matched Estimation definitions. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="detectIncidenceRatesByName.html">detectIncidenceRatesByName</a></td>
+<td>Detect the presence of string matched IncidenceRate definitions. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="detectPathwaysByName.html">detectPathwaysByName</a></td>
+<td>Detect the presence of string matched Pathway definitions. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="detectPredictionsByName.html">detectPredictionsByName</a></td>
+<td>Detect the presence of string matched Prediction definitions. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="existsCharacterizationName.html">existsCharacterizationName</a></td>
+<td>Check if Characterization definition name exists. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="existsCohortName.html">existsCohortName</a></td>
+<td>Check if Cohort definition name exists. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="existsConceptSetName.html">existsConceptSetName</a></td>
+<td>Check if ConceptSet definition name exists. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="existsEstimationName.html">existsEstimationName</a></td>
+<td>Check if Estimation definition name exists. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="existsIncidenceRateName.html">existsIncidenceRateName</a></td>
+<td>Check if IncidenceRate definition name exists. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="existsPathwayName.html">existsPathwayName</a></td>
+<td>Check if Pathway definition name exists. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="existsPredictionName.html">existsPredictionName</a></td>
+<td>Check if Prediction definition name exists. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getCdmSources.html">getCdmSources</a></td>
+<td>Get the data sources in the WebAPI instance \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getCharacterizationDefinition.html">getCharacterizationDefinition</a></td>
+<td>Get Characterization id definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getCharacterizationDefinitionsMetaData.html">getCharacterizationDefinitionsMetaData</a></td>
+<td>Get the meta data for Characterization definitions. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getCharacterizationGenerationInformation.html">getCharacterizationGenerationInformation</a></td>
+<td>Get generation information for Characterization id.</td></tr>
+<tr><td style="width: 25%;"><a href="getCharacterizationResults.html">getCharacterizationResults</a></td>
+<td>Get results for a Characterization Id.</td></tr>
+<tr><td style="width: 25%;"><a href="getCohortDefinition.html">getCohortDefinition</a></td>
+<td>Get Cohort id definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getCohortDefinitionExpression.html">getCohortDefinitionExpression</a></td>
+<td>(Deprecated) Get a cohort definition expression</td></tr>
+<tr><td style="width: 25%;"><a href="getCohortDefinitionName.html">getCohortDefinitionName</a></td>
+<td>(Deprecated) Get a cohort definition's name from WebAPI</td></tr>
+<tr><td style="width: 25%;"><a href="getCohortDefinitionsMetaData.html">getCohortDefinitionsMetaData</a></td>
+<td>Get the meta data for Cohort definitions. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getCohortDefinitionSql.html">getCohortDefinitionSql</a></td>
+<td>Get a cohort definition's SQL from WebAPI</td></tr>
+<tr><td style="width: 25%;"><a href="getCohortGenerationInformation.html">getCohortGenerationInformation</a></td>
+<td>Get generation information for Cohort id.</td></tr>
+<tr><td style="width: 25%;"><a href="getCohortInclusionRulesAndCounts.html">getCohortInclusionRulesAndCounts</a></td>
+<td>Get cohort inclusion rules and person counts</td></tr>
+<tr><td style="width: 25%;"><a href="getCohortResults.html">getCohortResults</a></td>
+<td>Get results for a Cohort Id.</td></tr>
+<tr><td style="width: 25%;"><a href="getCohortSql.html">getCohortSql</a></td>
+<td>Get SQL query for Cohort definition.</td></tr>
+<tr><td style="width: 25%;"><a href="getConcepts.html">getConcepts</a></td>
+<td>Get concepts \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getConceptSetDefinition.html">getConceptSetDefinition</a></td>
+<td>Get ConceptSet id definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getConceptSetDefinitionsMetaData.html">getConceptSetDefinitionsMetaData</a></td>
+<td>Get the meta data for ConceptSet definitions. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getDefinition.html">getDefinition</a></td>
+<td>Get the definition for an id of chosen category in WebApi. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getDefinitionsMetadata.html">getDefinitionsMetadata</a></td>
+<td>Retrieve the meta data for WebApi definitions of a certain category \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getEstimationDefinition.html">getEstimationDefinition</a></td>
+<td>Get Estimation id definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getEstimationDefinitionsMetaData.html">getEstimationDefinitionsMetaData</a></td>
+<td>Get the meta data for Estimation definitions. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getGenerationInformation.html">getGenerationInformation</a></td>
+<td>Get generation information. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getIncidenceRateDefinition.html">getIncidenceRateDefinition</a></td>
+<td>Get IncidenceRate id definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getIncidenceRateDefinitionsMetaData.html">getIncidenceRateDefinitionsMetaData</a></td>
+<td>Get the meta data for IncidenceRate definitions. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getIncidenceRateGenerationInformation.html">getIncidenceRateGenerationInformation</a></td>
+<td>Get generation information for IncidenceRate id.</td></tr>
+<tr><td style="width: 25%;"><a href="getIncidenceRateResults.html">getIncidenceRateResults</a></td>
+<td>Get results for a IncidenceRate Id.</td></tr>
+<tr><td style="width: 25%;"><a href="getPathwayDefinition.html">getPathwayDefinition</a></td>
+<td>Get Pathway id definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getPathwayDefinitionsMetaData.html">getPathwayDefinitionsMetaData</a></td>
+<td>Get the meta data for Pathway definitions. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getPathwayGenerationInformation.html">getPathwayGenerationInformation</a></td>
+<td>Get generation information for Pathway id.</td></tr>
+<tr><td style="width: 25%;"><a href="getPathwayResults.html">getPathwayResults</a></td>
+<td>Get results for a Pathway Id.</td></tr>
+<tr><td style="width: 25%;"><a href="getPersonProfile.html">getPersonProfile</a></td>
+<td>Get person profile data \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}</td></tr>
+<tr><td style="width: 25%;"><a href="getPredictionDefinition.html">getPredictionDefinition</a></td>
+<td>Get Prediction id definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getPredictionDefinitionsMetaData.html">getPredictionDefinitionsMetaData</a></td>
+<td>Get the meta data for Prediction definitions. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getPriorityVocabularyKey.html">getPriorityVocabularyKey</a></td>
+<td>Get Priority Vocabulary Source Key \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getResults.html">getResults</a></td>
+<td>Get generation results \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getSourceConcepts.html">getSourceConcepts</a></td>
+<td>Get source concepts that map to standard concepts \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="getWebApiVersion.html">getWebApiVersion</a></td>
+<td>Get the WebAPI version number \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="insertCohortDefinitionInPackage.html">insertCohortDefinitionInPackage</a></td>
+<td>Load a cohort definition and insert it into this package \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}</td></tr>
+<tr><td style="width: 25%;"><a href="insertCohortDefinitionSetInPackage.html">insertCohortDefinitionSetInPackage</a></td>
+<td>Insert a set of cohort definitions into package</td></tr>
+<tr><td style="width: 25%;"><a href="invokeCharacterizationGeneration.html">invokeCharacterizationGeneration</a></td>
+<td>Invoke generation of Characterization id.</td></tr>
+<tr><td style="width: 25%;"><a href="invokeCohortGeneration.html">invokeCohortGeneration</a></td>
+<td>Invoke generation of Cohort id.</td></tr>
+<tr><td style="width: 25%;"><a href="invokeGeneration.html">invokeGeneration</a></td>
+<td>Invoke generation. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="invokeIncidenceRateGeneration.html">invokeIncidenceRateGeneration</a></td>
+<td>Invoke generation of IncidenceRate id.</td></tr>
+<tr><td style="width: 25%;"><a href="invokePathwayGeneration.html">invokePathwayGeneration</a></td>
+<td>Invoke generation of Pathway id.</td></tr>
+<tr><td style="width: 25%;"><a href="isValidCharacterizationId.html">isValidCharacterizationId</a></td>
+<td>is Characterization id a valid definition in the WebApi. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="isValidCohortId.html">isValidCohortId</a></td>
+<td>is Cohort id a valid definition in the WebApi. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="isValidConceptSetId.html">isValidConceptSetId</a></td>
+<td>is ConceptSet id a valid definition in the WebApi. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="isValidEstimationId.html">isValidEstimationId</a></td>
+<td>is Estimation id a valid definition in the WebApi. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="isValidId.html">isValidId</a></td>
+<td>Check if an id is valid. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="isValidIncidenceRateId.html">isValidIncidenceRateId</a></td>
+<td>is IncidenceRate id a valid definition in the WebApi. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="isValidPathwayId.html">isValidPathwayId</a></td>
+<td>is Pathway id a valid definition in the WebApi. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="isValidPredictionId.html">isValidPredictionId</a></td>
+<td>is Prediction id a valid definition in the WebApi. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="isValidSourceKey.html">isValidSourceKey</a></td>
+<td>Check if source key is valid. \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="postCharacterizationDefinition.html">postCharacterizationDefinition</a></td>
+<td>Post Characterization definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}</td></tr>
+<tr><td style="width: 25%;"><a href="postCohortDefinition.html">postCohortDefinition</a></td>
+<td>Post Cohort definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}</td></tr>
+<tr><td style="width: 25%;"><a href="postConceptSetDefinition.html">postConceptSetDefinition</a></td>
+<td>Post ConceptSet definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}</td></tr>
+<tr><td style="width: 25%;"><a href="postDefinition.html">postDefinition</a></td>
+<td>Post a definition into WebApi \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}</td></tr>
+<tr><td style="width: 25%;"><a href="postEstimationDefinition.html">postEstimationDefinition</a></td>
+<td>Post Estimation definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}</td></tr>
+<tr><td style="width: 25%;"><a href="postIncidenceRateDefinition.html">postIncidenceRateDefinition</a></td>
+<td>Post IncidenceRate definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}</td></tr>
+<tr><td style="width: 25%;"><a href="postPathwayDefinition.html">postPathwayDefinition</a></td>
+<td>Post Pathway definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}</td></tr>
+<tr><td style="width: 25%;"><a href="postPredictionDefinition.html">postPredictionDefinition</a></td>
+<td>Post Prediction definition. \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}</td></tr>
+<tr><td style="width: 25%;"><a href="resolveConceptSet.html">resolveConceptSet</a></td>
+<td>Resolve a concept set to the included standard concept IDs \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}</td></tr>
+<tr><td style="width: 25%;"><a href="setAuthHeader.html">setAuthHeader</a></td>
+<td>Manually set the authorization http header for a WebAPI baseUrl In some cases the user may want to manually set the authorization header. An authHeader is associated with a particular baseUrl and added to to the header of all http requests sent to that url by ROhdsiWebApi.</td></tr>
+</table>
+</body></html>

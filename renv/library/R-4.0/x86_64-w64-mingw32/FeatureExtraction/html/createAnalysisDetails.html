@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create detailed covariate settings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createAnalysisDetails {FeatureExtraction}"><tr><td>createAnalysisDetails {FeatureExtraction}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create detailed covariate settings</h2>
+
+<h3>Description</h3>
+
+<p>Create detailed covariate settings
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createAnalysisDetails(
+  analysisId,
+  sqlFileName,
+  parameters,
+  includedCovariateConceptIds = c(),
+  addDescendantsToInclude = FALSE,
+  excludedCovariateConceptIds = c(),
+  addDescendantsToExclude = FALSE,
+  includedCovariateIds = c()
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>analysisId</code></td>
+<td>
+<p>An integer between 0 and 999 that uniquely identifies this
+analysis.</p>
+</td></tr>
+<tr valign="top"><td><code>sqlFileName</code></td>
+<td>
+<p>The name of the parameterized SQL file embedded in the
+<code>featureExtraction</code> package.</p>
+</td></tr>
+<tr valign="top"><td><code>parameters</code></td>
+<td>
+<p>The list of parameter values used to render the template SQL.</p>
+</td></tr>
+<tr valign="top"><td><code>includedCovariateConceptIds</code></td>
+<td>
+<p>A list of concept IDs that should be used to construct
+covariates.</p>
+</td></tr>
+<tr valign="top"><td><code>addDescendantsToInclude</code></td>
+<td>
+<p>Should descendant concept IDs be added to the list of concepts
+to include?</p>
+</td></tr>
+<tr valign="top"><td><code>excludedCovariateConceptIds</code></td>
+<td>
+<p>A list of concept IDs that should NOT be used to construct
+covariates.</p>
+</td></tr>
+<tr valign="top"><td><code>addDescendantsToExclude</code></td>
+<td>
+<p>Should descendant concept IDs be added to the list of concepts
+to exclude?</p>
+</td></tr>
+<tr valign="top"><td><code>includedCovariateIds</code></td>
+<td>
+<p>A list of covariate IDs that should be restricted to.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>creates an object specifying in detail how covariates should be contructed from data in the CDM
+model. Warning: this function is for advanced users only.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of type <code>analysisDetail</code>, to be used in
+<code><a href="createDetailedCovariateSettings.html">createDetailedCovariateSettings</a></code> or
+<code><a href="createDetailedTemporalCovariateSettings.html">createDetailedTemporalCovariateSettings</a></code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+analysisDetails &lt;- createAnalysisDetails(analysisId = 1,
+                                         sqlFileName = "DemographicsGender.sql",
+                                         parameters = list(analysisId = 1,
+                                                           analysisName = "Gender",
+                                                           domainId = "Demographics"),
+                                         includedCovariateConceptIds = c(),
+                                         addDescendantsToInclude = FALSE,
+                                         excludedCovariateConceptIds = c(),
+                                         addDescendantsToExclude = FALSE,
+                                         includedCovariateIds = c())
+
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.1.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

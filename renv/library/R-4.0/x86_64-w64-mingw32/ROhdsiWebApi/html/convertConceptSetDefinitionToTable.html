@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Convert a concept set definition to a table *[Maturing]*</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for convertConceptSetDefinitionToTable {ROhdsiWebApi}"><tr><td>convertConceptSetDefinitionToTable {ROhdsiWebApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Convert a concept set definition to a table <a href="https://lifecycle.r-lib.org/articles/stages.html#maturing"><img src="../help/figures/lifecycle-maturing.svg" alt='[Maturing]' /></a></h2>
+
+<h3>Description</h3>
+
+<p>Convert a concept set definition to a table <a href="https://lifecycle.r-lib.org/articles/stages.html#maturing"><img src="../help/figures/lifecycle-maturing.svg" alt='[Maturing]' /></a>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+convertConceptSetDefinitionToTable(conceptSetDefinition)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>conceptSetDefinition</code></td>
+<td>
+<p>A concept set definition, for example as obtained through the <code><a href="getConceptSetDefinition.html">getConceptSetDefinition</a></code> function, 
+or taken from a cohort definition.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Takes a R (list) representation of the Concept Set expression and returns a table (dataframe)
+representing the concept set expression. This is useful to create publication friendly output of
+the concept set expression.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+conceptSetDefinition &lt;- getConceptSetDefinition(conceptSetId = 282,
+                                                baseUrl = "http://server.org:80/WebAPI")
+convertConceptSetDefinitionToTable(conceptSetDefinition = conceptSetDefinition)
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>ROhdsiWebApi</em> version 1.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

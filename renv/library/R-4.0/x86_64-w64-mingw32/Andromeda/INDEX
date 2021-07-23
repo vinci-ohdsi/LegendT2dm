@@ -1,0 +1,23 @@
+Andromeda-class         The Andromeda class
+andromeda               Create an Andromeda object
+appendToTable           Append to an Andromeda table
+batchApply              Apply a function to batches of data in an
+                        Andromeda table
+batchTest               Apply a boolean test to batches of data in an
+                        Andromeda table and terminate early
+copyAndromeda           Copy Andromeda
+createIndex             Create an index on one or more columns in an
+                        Andromeda table
+getAndromedaTempDiskSpace
+                        Get the available disk space in Andromeda temp
+groupApply              Apply a function to groups of data in an
+                        Andromeda table
+isAndromeda             Check whether an object is an Andromeda object
+isValidAndromeda        Check whether an Andromeda object is still
+                        valid
+listIndices             List all indices on an Andromeda table
+loadAndromeda           Load Andromeda from file
+removeIndex             Removes an index from an Andromeda table
+restoreDate             Restore dates
+restorePosixct          Restore timestamps
+saveAndromeda           Save Andromeda to file

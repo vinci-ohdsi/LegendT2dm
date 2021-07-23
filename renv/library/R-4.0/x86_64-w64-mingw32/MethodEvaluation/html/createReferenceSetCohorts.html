@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create cohorts used in a reference set.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createReferenceSetCohorts {MethodEvaluation}"><tr><td>createReferenceSetCohorts {MethodEvaluation}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create cohorts used in a reference set.</h2>
+
+<h3>Description</h3>
+
+<p>Create cohorts used in a reference set.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createReferenceSetCohorts(
+  connectionDetails,
+  oracleTempSchema = NULL,
+  cdmDatabaseSchema,
+  exposureDatabaseSchema = cdmDatabaseSchema,
+  exposureTable = "exposures",
+  outcomeDatabaseSchema = cdmDatabaseSchema,
+  outcomeTable = "outcomes",
+  nestingDatabaseSchema = cdmDatabaseSchema,
+  nestingTable = "nesting",
+  referenceSet = "ohdsiMethodsBenchmark",
+  workFolder
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>An R object of type <code>ConnectionDetails</code> created using the
+function <code>createConnectionDetails</code> in the
+<code>DatabaseConnector</code> package.</p>
+</td></tr>
+<tr valign="top"><td><code>oracleTempSchema</code></td>
+<td>
+<p>Should be used in Oracle to specify a schema where the user has write
+privileges for storing temporary tables.</p>
+</td></tr>
+<tr valign="top"><td><code>cdmDatabaseSchema</code></td>
+<td>
+<p>A database schema containing health care data in the OMOP Commond
+Data Model. Note that for SQL Server, botth the database and schema
+should be specified, e.g. 'cdm_schema.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>exposureDatabaseSchema</code></td>
+<td>
+<p>The name of the database schema where the exposure cohorts will be 
+created. Only needed if <code>referenceSet = 'ohdsiDevelopment'</code>. Note
+that for SQL Server, both the database and schema should be specified, 
+e.g. 'cdm_schema.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>exposureTable</code></td>
+<td>
+<p>The name of the table that will be created to store the exposure 
+cohorts. Only needed if <code>referenceSet = 'ohdsiDevelopment'</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>outcomeDatabaseSchema</code></td>
+<td>
+<p>The database schema where the target outcome table is located. Note
+that for SQL Server, both the database and schema should be
+specified, e.g. 'cdm_schema.dbo'</p>
+</td></tr>
+<tr valign="top"><td><code>outcomeTable</code></td>
+<td>
+<p>The name of the table where the outcomes will be stored.</p>
+</td></tr>
+<tr valign="top"><td><code>nestingDatabaseSchema</code></td>
+<td>
+<p>(For the OHDSI Methods Benchmark and OHDSI Development Set only) The
+database schema where the nesting outcome table is located. Note that 
+for SQL Server, both the database and schema should be specified, e.g.
+'cdm_schema.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>nestingTable</code></td>
+<td>
+<p>(For the OHDSI Methods Benchmark and OHDSI Development Set only) The 
+name of the table where the nesting cohorts will be stored.</p>
+</td></tr>
+<tr valign="top"><td><code>referenceSet</code></td>
+<td>
+<p>The name of the reference set for which outcomes need to be created.
+Currently supported are &quot;omopReferenceSet&quot;, &quot;euadrReferenceSet&quot;, 
+&quot;ohdsiMethodsBenchmark&quot;, and &quot;ohdsiDevelopment&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>workFolder</code></td>
+<td>
+<p>Name of local folder to place intermediary results; make sure to use
+forward slashes (/). Do not use a folder on a network drive since
+this greatly impacts performance.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function will create the outcomes of interest and nesting cohorts referenced in the various
+reference sets. The outcomes of interest are derives using information like diagnoses, procedures,
+and drug prescriptions. The outcomes are stored in a table on the database server.
+</p>
+<p>For the 'ohdsiMethodsBenchmark' reference set, the exposures are taken from the drug_era table, and
+are therefore not generated as separate cohorts, and an exposure cohort table therefore needn't be supplied. 
+For the 'ohdsiDevelopment' reference set, exposure cohorts will be generated.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>MethodEvaluation</em> version 2.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

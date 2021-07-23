@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Add the default e-mail logger</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for addDefaultEmailLogger {ParallelLogger}"><tr><td>addDefaultEmailLogger {ParallelLogger}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Add the default e-mail logger</h2>
+
+<h3>Description</h3>
+
+<p>Add the default e-mail logger
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+addDefaultEmailLogger(
+  mailSettings,
+  label = Sys.info()["nodename"],
+  name = "DEFAULT_EMAIL_LOGGER",
+  test = FALSE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>mailSettings</code></td>
+<td>
+<p>Arguments to be passed to the send.mail function in the mailR package (except
+subject and body).</p>
+</td></tr>
+<tr valign="top"><td><code>label</code></td>
+<td>
+<p>A label to be used in the e-mail subject to identify a run. By default the
+name of the computer is used.</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>A name for the logger.</p>
+</td></tr>
+<tr valign="top"><td><code>test</code></td>
+<td>
+<p>If TRUE, a message will be displayed on the console instead of sending an
+e-mail.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Creates a logger that writes to e-mail using the &quot;FATAL&quot; threshold and the
+<code><a href="layoutEmail.html">layoutEmail</a></code> layout. This function uses the <code>mailR</code> package. Please make sure
+your e-mail settings are correct by using the mailR package before using those settings here.
+ParallelLogger will not display any messages if something goes wrong when sending the e-mail.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+mailSettings &lt;- list(from = "someone@gmail.com",
+                     to = c("someone_else@gmail.com"),
+                     smtp = list(host.name = "smtp.gmail.com",
+                                 port = 465,
+                                 user.name = "someone@gmail.com",
+                                 passwd = "super_secret!",
+                                 ssl = TRUE),
+                     authenticate = TRUE,
+                     send = TRUE)
+
+# Setting test to TRUE in this example so we don't really send an e-mail:
+addDefaultEmailLogger(mailSettings, "My R session", test = TRUE)
+logFatal("Something bad")
+
+unregisterLogger("DEFAULT")
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>ParallelLogger</em> version 2.0.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

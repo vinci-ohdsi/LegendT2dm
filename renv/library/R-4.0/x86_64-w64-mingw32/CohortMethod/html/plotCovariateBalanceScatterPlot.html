@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create a scatterplot of the covariate balance</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for plotCovariateBalanceScatterPlot {CohortMethod}"><tr><td>plotCovariateBalanceScatterPlot {CohortMethod}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create a scatterplot of the covariate balance</h2>
+
+<h3>Description</h3>
+
+<p>Create a scatterplot of the covariate balance, showing all variables with balance before and after
+matching on the x and y axis respectively. Requires running <code>computeCovariateBalance</code> first.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+plotCovariateBalanceScatterPlot(
+  balance,
+  absolute = TRUE,
+  threshold = 0,
+  title = "Standardized difference of mean",
+  fileName = NULL,
+  beforeLabel = "Before matching",
+  afterLabel = "After matching",
+  showCovariateCountLabel = FALSE,
+  showMaxLabel = FALSE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>balance</code></td>
+<td>
+<p>A data frame created by the <code>computeCovariateBalance</code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>absolute</code></td>
+<td>
+<p>Should the absolute value of the difference be used?</p>
+</td></tr>
+<tr valign="top"><td><code>threshold</code></td>
+<td>
+<p>Show a threshold value for after matching standardized difference.</p>
+</td></tr>
+<tr valign="top"><td><code>title</code></td>
+<td>
+<p>The main title for the plot.</p>
+</td></tr>
+<tr valign="top"><td><code>fileName</code></td>
+<td>
+<p>Name of the file where the plot should be saved, for example 'plot.png'. See the
+function <code>ggsave</code> in the ggplot2 package for supported file formats.</p>
+</td></tr>
+<tr valign="top"><td><code>beforeLabel</code></td>
+<td>
+<p>Label for the x-axis.</p>
+</td></tr>
+<tr valign="top"><td><code>afterLabel</code></td>
+<td>
+<p>Label for the y-axis.</p>
+</td></tr>
+<tr valign="top"><td><code>showCovariateCountLabel</code></td>
+<td>
+<p>Show a label with the number of covariates included in the plot?</p>
+</td></tr>
+<tr valign="top"><td><code>showMaxLabel</code></td>
+<td>
+<p>Show a label with the maximum absolute standardized difference after matching/stratification?</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A ggplot object. Use the <a href="../../ggplot2/html/ggsave.html">ggplot2::ggsave</a> function to save to file in a different
+format.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

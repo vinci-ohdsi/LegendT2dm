@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create a table 1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createTable1 {FeatureExtraction}"><tr><td>createTable1 {FeatureExtraction}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create a table 1</h2>
+
+<h3>Description</h3>
+
+<p>Creates a formatted table of cohort characteristics, to be included in publications or reports.
+Allows for creating a table describing a single cohort, or a table comparing two cohorts.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createTable1(
+  covariateData1,
+  covariateData2 = NULL,
+  cohortId1 = NULL,
+  cohortId2 = NULL,
+  specifications = getDefaultTable1Specifications(),
+  output = "two columns",
+  showCounts = FALSE,
+  showPercent = TRUE,
+  percentDigits = 1,
+  valueDigits = 1,
+  stdDiffDigits = 2
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>covariateData1</code></td>
+<td>
+<p>The covariate data of the cohort to be included in the table.</p>
+</td></tr>
+<tr valign="top"><td><code>covariateData2</code></td>
+<td>
+<p>The covariate data of the cohort to also be included, when comparing two
+cohorts.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortId1</code></td>
+<td>
+<p>If provided, <code>covariateData1</code> will be restricted to this cohort. If not
+provided, <code>covariateData1</code> is assumed to contain data on only 1 cohort.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortId2</code></td>
+<td>
+<p>If provided, <code>covariateData2</code> will be restricted to this cohort. If not
+provided, <code>covariateData2</code> is assumed to contain data on only 1 cohort.</p>
+</td></tr>
+<tr valign="top"><td><code>specifications</code></td>
+<td>
+<p>Specifications of which covariates to display, and how.</p>
+</td></tr>
+<tr valign="top"><td><code>output</code></td>
+<td>
+<p>The output format for the table. Options are <code>output = "two columns"</code>,
+<code>output = "one column"</code>, or <code>output = "list"</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>showCounts</code></td>
+<td>
+<p>Show the number of cohort entries having the binary covariate?</p>
+</td></tr>
+<tr valign="top"><td><code>showPercent</code></td>
+<td>
+<p>Show the percentage of cohort entries having the binary covariate?</p>
+</td></tr>
+<tr valign="top"><td><code>percentDigits</code></td>
+<td>
+<p>Number of digits to be used for percentages.</p>
+</td></tr>
+<tr valign="top"><td><code>valueDigits</code></td>
+<td>
+<p>Number of digits to be used for the values of continuous variables.</p>
+</td></tr>
+<tr valign="top"><td><code>stdDiffDigits</code></td>
+<td>
+<p>Number of digits to be used for the standardized differences.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data frame, or, when <code>output = "list"</code> a list of two data frames.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.1.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

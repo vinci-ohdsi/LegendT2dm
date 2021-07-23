@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Add the default error report logger</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for addDefaultErrorReportLogger {ParallelLogger}"><tr><td>addDefaultErrorReportLogger {ParallelLogger}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Add the default error report logger</h2>
+
+<h3>Description</h3>
+
+<p>Add the default error report logger
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+addDefaultErrorReportLogger(
+  fileName = file.path(getwd(), "errorReportR.txt"),
+  name = "DEFAULT_ERRORREPORT_LOGGER"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>fileName</code></td>
+<td>
+<p>The name of the file to write to.</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>A name for the logger.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Creates a logger that writes to a file using the &quot;FATAL&quot; threshold and the
+<code><a href="layoutErrorReport.html">layoutErrorReport</a></code> layout. The file will be overwritten if it is older than 60
+seconds. The user will be notified that the error report has been created, and where to find it.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>ParallelLogger</em> version 2.0.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

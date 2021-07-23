@@ -1,0 +1,968 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create covariate settings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createCovariateSettings {FeatureExtraction}"><tr><td>createCovariateSettings {FeatureExtraction}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create covariate settings</h2>
+
+<h3>Description</h3>
+
+<p>Create covariate settings
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createCovariateSettings(
+  useDemographicsGender = FALSE,
+  useDemographicsAge = FALSE,
+  useDemographicsAgeGroup = FALSE,
+  useDemographicsRace = FALSE,
+  useDemographicsEthnicity = FALSE,
+  useDemographicsIndexYear = FALSE,
+  useDemographicsIndexMonth = FALSE,
+  useDemographicsPriorObservationTime = FALSE,
+  useDemographicsPostObservationTime = FALSE,
+  useDemographicsTimeInCohort = FALSE,
+  useDemographicsIndexYearMonth = FALSE,
+  useConditionOccurrenceAnyTimePrior = FALSE,
+  useConditionOccurrenceLongTerm = FALSE,
+  useConditionOccurrenceMediumTerm = FALSE,
+  useConditionOccurrenceShortTerm = FALSE,
+  useConditionOccurrencePrimaryInpatientAnyTimePrior = FALSE,
+  useConditionOccurrencePrimaryInpatientLongTerm = FALSE,
+  useConditionOccurrencePrimaryInpatientMediumTerm = FALSE,
+  useConditionOccurrencePrimaryInpatientShortTerm = FALSE,
+  useConditionEraAnyTimePrior = FALSE,
+  useConditionEraLongTerm = FALSE,
+  useConditionEraMediumTerm = FALSE,
+  useConditionEraShortTerm = FALSE,
+  useConditionEraOverlapping = FALSE,
+  useConditionEraStartLongTerm = FALSE,
+  useConditionEraStartMediumTerm = FALSE,
+  useConditionEraStartShortTerm = FALSE,
+  useConditionGroupEraAnyTimePrior = FALSE,
+  useConditionGroupEraLongTerm = FALSE,
+  useConditionGroupEraMediumTerm = FALSE,
+  useConditionGroupEraShortTerm = FALSE,
+  useConditionGroupEraOverlapping = FALSE,
+  useConditionGroupEraStartLongTerm = FALSE,
+  useConditionGroupEraStartMediumTerm = FALSE,
+  useConditionGroupEraStartShortTerm = FALSE,
+  useDrugExposureAnyTimePrior = FALSE,
+  useDrugExposureLongTerm = FALSE,
+  useDrugExposureMediumTerm = FALSE,
+  useDrugExposureShortTerm = FALSE,
+  useDrugEraAnyTimePrior = FALSE,
+  useDrugEraLongTerm = FALSE,
+  useDrugEraMediumTerm = FALSE,
+  useDrugEraShortTerm = FALSE,
+  useDrugEraOverlapping = FALSE,
+  useDrugEraStartLongTerm = FALSE,
+  useDrugEraStartMediumTerm = FALSE,
+  useDrugEraStartShortTerm = FALSE,
+  useDrugGroupEraAnyTimePrior = FALSE,
+  useDrugGroupEraLongTerm = FALSE,
+  useDrugGroupEraMediumTerm = FALSE,
+  useDrugGroupEraShortTerm = FALSE,
+  useDrugGroupEraOverlapping = FALSE,
+  useDrugGroupEraStartLongTerm = FALSE,
+  useDrugGroupEraStartMediumTerm = FALSE,
+  useDrugGroupEraStartShortTerm = FALSE,
+  useProcedureOccurrenceAnyTimePrior = FALSE,
+  useProcedureOccurrenceLongTerm = FALSE,
+  useProcedureOccurrenceMediumTerm = FALSE,
+  useProcedureOccurrenceShortTerm = FALSE,
+  useDeviceExposureAnyTimePrior = FALSE,
+  useDeviceExposureLongTerm = FALSE,
+  useDeviceExposureMediumTerm = FALSE,
+  useDeviceExposureShortTerm = FALSE,
+  useMeasurementAnyTimePrior = FALSE,
+  useMeasurementLongTerm = FALSE,
+  useMeasurementMediumTerm = FALSE,
+  useMeasurementShortTerm = FALSE,
+  useMeasurementValueAnyTimePrior = FALSE,
+  useMeasurementValueLongTerm = FALSE,
+  useMeasurementValueMediumTerm = FALSE,
+  useMeasurementValueShortTerm = FALSE,
+  useMeasurementRangeGroupAnyTimePrior = FALSE,
+  useMeasurementRangeGroupLongTerm = FALSE,
+  useMeasurementRangeGroupMediumTerm = FALSE,
+  useMeasurementRangeGroupShortTerm = FALSE,
+  useObservationAnyTimePrior = FALSE,
+  useObservationLongTerm = FALSE,
+  useObservationMediumTerm = FALSE,
+  useObservationShortTerm = FALSE,
+  useCharlsonIndex = FALSE,
+  useDcsi = FALSE,
+  useChads2 = FALSE,
+  useChads2Vasc = FALSE,
+  useHfrs = FALSE,
+  useDistinctConditionCountLongTerm = FALSE,
+  useDistinctConditionCountMediumTerm = FALSE,
+  useDistinctConditionCountShortTerm = FALSE,
+  useDistinctIngredientCountLongTerm = FALSE,
+  useDistinctIngredientCountMediumTerm = FALSE,
+  useDistinctIngredientCountShortTerm = FALSE,
+  useDistinctProcedureCountLongTerm = FALSE,
+  useDistinctProcedureCountMediumTerm = FALSE,
+  useDistinctProcedureCountShortTerm = FALSE,
+  useDistinctMeasurementCountLongTerm = FALSE,
+  useDistinctMeasurementCountMediumTerm = FALSE,
+  useDistinctMeasurementCountShortTerm = FALSE,
+  useDistinctObservationCountLongTerm = FALSE,
+  useDistinctObservationCountMediumTerm = FALSE,
+  useDistinctObservationCountShortTerm = FALSE,
+  useVisitCountLongTerm = FALSE,
+  useVisitCountMediumTerm = FALSE,
+  useVisitCountShortTerm = FALSE,
+  useVisitConceptCountLongTerm = FALSE,
+  useVisitConceptCountMediumTerm = FALSE,
+  useVisitConceptCountShortTerm = FALSE,
+  longTermStartDays = -365,
+  mediumTermStartDays = -180,
+  shortTermStartDays = -30,
+  endDays = 0,
+  includedCovariateConceptIds = c(),
+  addDescendantsToInclude = FALSE,
+  excludedCovariateConceptIds = c(),
+  addDescendantsToExclude = FALSE,
+  includedCovariateIds = c()
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>useDemographicsGender</code></td>
+<td>
+<p>Gender of the subject. (analysis ID 1)</p>
+</td></tr>
+<tr valign="top"><td><code>useDemographicsAge</code></td>
+<td>
+<p>Age of the subject on the index date (in
+years). (analysis ID 2)</p>
+</td></tr>
+<tr valign="top"><td><code>useDemographicsAgeGroup</code></td>
+<td>
+<p>Age of the subject on the index date (in
+5 year age groups) (analysis ID 3)</p>
+</td></tr>
+<tr valign="top"><td><code>useDemographicsRace</code></td>
+<td>
+<p>Race of the subject. (analysis ID 4)</p>
+</td></tr>
+<tr valign="top"><td><code>useDemographicsEthnicity</code></td>
+<td>
+<p>Ethnicity of the subject. (analysis ID
+5)</p>
+</td></tr>
+<tr valign="top"><td><code>useDemographicsIndexYear</code></td>
+<td>
+<p>Year of the index date. (analysis ID 6)</p>
+</td></tr>
+<tr valign="top"><td><code>useDemographicsIndexMonth</code></td>
+<td>
+<p>Month of the index date. (analysis ID 7)</p>
+</td></tr>
+<tr valign="top"><td><code>useDemographicsPriorObservationTime</code></td>
+<td>
+<p>Number of continuous days of observation
+time preceding the index date. (analysis
+ID 8)</p>
+</td></tr>
+<tr valign="top"><td><code>useDemographicsPostObservationTime</code></td>
+<td>
+<p>Number of continuous days of observation
+time following the index date. (analysis
+ID 9)</p>
+</td></tr>
+<tr valign="top"><td><code>useDemographicsTimeInCohort</code></td>
+<td>
+<p>Number of days of observation time
+during cohort period. (analysis ID 10)</p>
+</td></tr>
+<tr valign="top"><td><code>useDemographicsIndexYearMonth</code></td>
+<td>
+<p>Both calendar year and month of the
+index date in a single variable.
+(analysis ID 11)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionOccurrenceAnyTimePrior</code></td>
+<td>
+<p>One covariate per condition in the
+condition_occurrence table starting any
+time prior to index. (analysis ID 101)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionOccurrenceLongTerm</code></td>
+<td>
+<p>One covariate per condition in the
+condition_occurrence table starting in
+the long term window. (analysis ID 102)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionOccurrenceMediumTerm</code></td>
+<td>
+<p>One covariate per condition in the
+condition_occurrence table starting in
+the medium term window. (analysis ID
+103)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionOccurrenceShortTerm</code></td>
+<td>
+<p>One covariate per condition in the
+condition_occurrence table starting in
+the short term window. (analysis ID 104)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionOccurrencePrimaryInpatientAnyTimePrior</code></td>
+<td>
+<p>One covariate per condition observed as
+a primary diagnosis in an inpatient
+setting in the condition_occurrence
+table starting any time prior to index.
+(analysis ID 105)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionOccurrencePrimaryInpatientLongTerm</code></td>
+<td>
+<p>One covariate per condition observed as
+a primary diagnosis in an inpatient
+setting in the condition_occurrence
+table starting in the long term window.
+(analysis ID 106)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionOccurrencePrimaryInpatientMediumTerm</code></td>
+<td>
+<p>One covariate per condition observed as
+a primary diagnosis in an inpatient
+setting in the condition_occurrence
+table starting in the medium term
+window. (analysis ID 107)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionOccurrencePrimaryInpatientShortTerm</code></td>
+<td>
+<p>One covariate per condition observed as
+a primary diagnosis in an inpatient
+setting in the condition_occurrence
+table starting in the short term window.
+(analysis ID 108)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionEraAnyTimePrior</code></td>
+<td>
+<p>One covariate per condition in the
+condition_era table overlapping with any
+time prior to index. (analysis ID 201)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionEraLongTerm</code></td>
+<td>
+<p>One covariate per condition in the
+condition_era table overlapping with any
+part of the long term window. (analysis
+ID 202)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionEraMediumTerm</code></td>
+<td>
+<p>One covariate per condition in the
+condition_era table overlapping with any
+part of the medium term window.
+(analysis ID 203)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionEraShortTerm</code></td>
+<td>
+<p>One covariate per condition in the
+condition_era table overlapping with any
+part of the short term window. (analysis
+ID 204)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionEraOverlapping</code></td>
+<td>
+<p>One covariate per condition in the
+condition_era table overlapping with the
+end of the risk window. (analysis ID
+205)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionEraStartLongTerm</code></td>
+<td>
+<p>One covariate per condition in the
+condition_era table starting in the long
+term window. (analysis ID 206)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionEraStartMediumTerm</code></td>
+<td>
+<p>One covariate per condition in the
+condition_era table starting in the
+medium term window. (analysis ID 207)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionEraStartShortTerm</code></td>
+<td>
+<p>One covariate per condition in the
+condition_era table starting in the
+short term window. (analysis ID 208)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionGroupEraAnyTimePrior</code></td>
+<td>
+<p>One covariate per condition era rolled
+up to groups in the condition_era table
+overlapping with any time prior to
+index. (analysis ID 209)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionGroupEraLongTerm</code></td>
+<td>
+<p>One covariate per condition era rolled
+up to groups in the condition_era table
+overlapping with any part of the long
+term window. (analysis ID 210)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionGroupEraMediumTerm</code></td>
+<td>
+<p>One covariate per condition era rolled
+up to groups in the condition_era table
+overlapping with any part of the medium
+term window. (analysis ID 211)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionGroupEraShortTerm</code></td>
+<td>
+<p>One covariate per condition era rolled
+up to groups in the condition_era table
+overlapping with any part of the short
+term window. (analysis ID 212)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionGroupEraOverlapping</code></td>
+<td>
+<p>One covariate per condition era rolled
+up to groups in the condition_era table
+overlapping with the end of the risk
+window. (analysis ID 213)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionGroupEraStartLongTerm</code></td>
+<td>
+<p>One covariate per condition era rolled
+up to groups in the condition_era table
+starting in the long term window.
+(analysis ID 214)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionGroupEraStartMediumTerm</code></td>
+<td>
+<p>One covariate per condition era rolled
+up to groups in the condition_era table
+starting in the medium term window.
+(analysis ID 215)</p>
+</td></tr>
+<tr valign="top"><td><code>useConditionGroupEraStartShortTerm</code></td>
+<td>
+<p>One covariate per condition era rolled
+up to groups in the condition_era table
+starting in the short term window.
+(analysis ID 216)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugExposureAnyTimePrior</code></td>
+<td>
+<p>One covariate per drug in the
+drug_exposure table starting any time
+prior to index. (analysis ID 301)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugExposureLongTerm</code></td>
+<td>
+<p>One covariate per drug in the
+drug_exposure table starting in the long
+term window. (analysis ID 302)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugExposureMediumTerm</code></td>
+<td>
+<p>One covariate per drug in the
+drug_exposure table starting in the
+medium term window. (analysis ID 303)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugExposureShortTerm</code></td>
+<td>
+<p>One covariate per drug in the
+drug_exposure table starting in the
+short term window. (analysis ID 304)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugEraAnyTimePrior</code></td>
+<td>
+<p>One covariate per drug in the drug_era
+table overlapping with any time prior to
+index. (analysis ID 401)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugEraLongTerm</code></td>
+<td>
+<p>One covariate per drug in the drug_era
+table overlapping with any part of the
+long term window. (analysis ID 402)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugEraMediumTerm</code></td>
+<td>
+<p>One covariate per drug in the drug_era
+table overlapping with any part of the
+medium term window. (analysis ID 403)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugEraShortTerm</code></td>
+<td>
+<p>One covariate per drug in the drug_era
+table overlapping with any part of the
+short window. (analysis ID 404)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugEraOverlapping</code></td>
+<td>
+<p>One covariate per drug in the drug_era
+table overlapping with the end of the
+risk window. (analysis ID 405)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugEraStartLongTerm</code></td>
+<td>
+<p>One covariate per drug in the drug_era
+table starting in the long term window.
+(analysis ID 406)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugEraStartMediumTerm</code></td>
+<td>
+<p>One covariate per drug in the drug_era
+table starting in the medium term
+window. (analysis ID 407)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugEraStartShortTerm</code></td>
+<td>
+<p>One covariate per drug in the drug_era
+table starting in the long short window.
+(analysis ID 408)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugGroupEraAnyTimePrior</code></td>
+<td>
+<p>One covariate per drug rolled up to ATC
+groups in the drug_era table overlapping
+with any time prior to index. (analysis
+ID 409)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugGroupEraLongTerm</code></td>
+<td>
+<p>One covariate per drug rolled up to ATC
+groups in the drug_era table overlapping
+with any part of the long term window.
+(analysis ID 410)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugGroupEraMediumTerm</code></td>
+<td>
+<p>One covariate per drug rolled up to ATC
+groups in the drug_era table overlapping
+with any part of the medium term window.
+(analysis ID 411)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugGroupEraShortTerm</code></td>
+<td>
+<p>One covariate per drug rolled up to ATC
+groups in the drug_era table overlapping
+with any part of the short term window.
+(analysis ID 412)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugGroupEraOverlapping</code></td>
+<td>
+<p>One covariate per drug rolled up to ATC
+groups in the drug_era table overlapping
+with the end of the risk window.
+(analysis ID 413)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugGroupEraStartLongTerm</code></td>
+<td>
+<p>One covariate per drug rolled up to ATC
+groups in the drug_era table starting in
+the long term window. (analysis ID 414)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugGroupEraStartMediumTerm</code></td>
+<td>
+<p>One covariate per drug rolled up to ATC
+groups in the drug_era table starting in
+the medium term window. (analysis ID
+415)</p>
+</td></tr>
+<tr valign="top"><td><code>useDrugGroupEraStartShortTerm</code></td>
+<td>
+<p>One covariate per drug rolled up to ATC
+groups in the drug_era table starting in
+the short term window. (analysis ID 416)</p>
+</td></tr>
+<tr valign="top"><td><code>useProcedureOccurrenceAnyTimePrior</code></td>
+<td>
+<p>One covariate per procedure in the
+procedure_occurrence table any time
+prior to index. (analysis ID 501)</p>
+</td></tr>
+<tr valign="top"><td><code>useProcedureOccurrenceLongTerm</code></td>
+<td>
+<p>One covariate per procedure in the
+procedure_occurrence table in the long
+term window. (analysis ID 502)</p>
+</td></tr>
+<tr valign="top"><td><code>useProcedureOccurrenceMediumTerm</code></td>
+<td>
+<p>One covariate per procedure in the
+procedure_occurrence table in the medium
+term window. (analysis ID 503)</p>
+</td></tr>
+<tr valign="top"><td><code>useProcedureOccurrenceShortTerm</code></td>
+<td>
+<p>One covariate per procedure in the
+procedure_occurrence table in the short
+term window. (analysis ID 504)</p>
+</td></tr>
+<tr valign="top"><td><code>useDeviceExposureAnyTimePrior</code></td>
+<td>
+<p>One covariate per device in the device
+exposure table starting any time prior
+to index. (analysis ID 601)</p>
+</td></tr>
+<tr valign="top"><td><code>useDeviceExposureLongTerm</code></td>
+<td>
+<p>One covariate per device in the device
+exposure table starting in the long term
+window. (analysis ID 602)</p>
+</td></tr>
+<tr valign="top"><td><code>useDeviceExposureMediumTerm</code></td>
+<td>
+<p>One covariate per device in the device
+exposure table starting in the medium
+term window. (analysis ID 603)</p>
+</td></tr>
+<tr valign="top"><td><code>useDeviceExposureShortTerm</code></td>
+<td>
+<p>One covariate per device in the device
+exposure table starting in the short
+term window. (analysis ID 604)</p>
+</td></tr>
+<tr valign="top"><td><code>useMeasurementAnyTimePrior</code></td>
+<td>
+<p>One covariate per measurement in the
+measurement table any time prior to
+index. (analysis ID 701)</p>
+</td></tr>
+<tr valign="top"><td><code>useMeasurementLongTerm</code></td>
+<td>
+<p>One covariate per measurement in the
+measurement table in the long term
+window. (analysis ID 702)</p>
+</td></tr>
+<tr valign="top"><td><code>useMeasurementMediumTerm</code></td>
+<td>
+<p>One covariate per measurement in the
+measurement table in the medium term
+window. (analysis ID 703)</p>
+</td></tr>
+<tr valign="top"><td><code>useMeasurementShortTerm</code></td>
+<td>
+<p>One covariate per measurement in the
+measurement table in the short term
+window. (analysis ID 704)</p>
+</td></tr>
+<tr valign="top"><td><code>useMeasurementValueAnyTimePrior</code></td>
+<td>
+<p>One covariate containing the value per
+measurement-unit combination any time
+prior to index. (analysis ID 705)</p>
+</td></tr>
+<tr valign="top"><td><code>useMeasurementValueLongTerm</code></td>
+<td>
+<p>One covariate containing the value per
+measurement-unit combination in the long
+term window. (analysis ID 706)</p>
+</td></tr>
+<tr valign="top"><td><code>useMeasurementValueMediumTerm</code></td>
+<td>
+<p>One covariate containing the value per
+measurement-unit combination in the
+medium term window. (analysis ID 707)</p>
+</td></tr>
+<tr valign="top"><td><code>useMeasurementValueShortTerm</code></td>
+<td>
+<p>One covariate containing the value per
+measurement-unit combination in the
+short term window. (analysis ID 708)</p>
+</td></tr>
+<tr valign="top"><td><code>useMeasurementRangeGroupAnyTimePrior</code></td>
+<td>
+<p>Covariates indicating whether
+measurements are below, within, or above
+normal range any time prior to index.
+(analysis ID 709)</p>
+</td></tr>
+<tr valign="top"><td><code>useMeasurementRangeGroupLongTerm</code></td>
+<td>
+<p>Covariates indicating whether
+measurements are below, within, or above
+normal range in the long term window.
+(analysis ID 710)</p>
+</td></tr>
+<tr valign="top"><td><code>useMeasurementRangeGroupMediumTerm</code></td>
+<td>
+<p>Covariates indicating whether
+measurements are below, within, or above
+normal range in the medium term window.
+(analysis ID 711)</p>
+</td></tr>
+<tr valign="top"><td><code>useMeasurementRangeGroupShortTerm</code></td>
+<td>
+<p>Covariates indicating whether
+measurements are below, within, or above
+normal range in the short term window.
+(analysis ID 712)</p>
+</td></tr>
+<tr valign="top"><td><code>useObservationAnyTimePrior</code></td>
+<td>
+<p>One covariate per observation in the
+observation table any time prior to
+index. (analysis ID 801)</p>
+</td></tr>
+<tr valign="top"><td><code>useObservationLongTerm</code></td>
+<td>
+<p>One covariate per observation in the
+observation table in the long term
+window. (analysis ID 802)</p>
+</td></tr>
+<tr valign="top"><td><code>useObservationMediumTerm</code></td>
+<td>
+<p>One covariate per observation in the
+observation table in the medium term
+window. (analysis ID 803)</p>
+</td></tr>
+<tr valign="top"><td><code>useObservationShortTerm</code></td>
+<td>
+<p>One covariate per observation in the
+observation table in the short term
+window. (analysis ID 804)</p>
+</td></tr>
+<tr valign="top"><td><code>useCharlsonIndex</code></td>
+<td>
+<p>The Charlson comorbidity index (Romano
+adaptation) using all conditions prior
+to the window end. (analysis ID 901)</p>
+</td></tr>
+<tr valign="top"><td><code>useDcsi</code></td>
+<td>
+<p>The Diabetes Comorbidity Severity Index
+(DCSI) using all conditions prior to the
+window end. (analysis ID 902)</p>
+</td></tr>
+<tr valign="top"><td><code>useChads2</code></td>
+<td>
+<p>The CHADS2 score using all conditions
+prior to the window end. (analysis ID
+903)</p>
+</td></tr>
+<tr valign="top"><td><code>useChads2Vasc</code></td>
+<td>
+<p>The CHADS2VASc score using all
+conditions prior to the window end.
+(analysis ID 904)</p>
+</td></tr>
+<tr valign="top"><td><code>useHfrs</code></td>
+<td>
+<p>The Hospital Frailty Risk Score score
+using all conditions prior to the window
+end. (analysis ID 926)</p>
+</td></tr>
+<tr valign="top"><td><code>useDistinctConditionCountLongTerm</code></td>
+<td>
+<p>The number of distinct condition
+concepts observed in the long term
+window. (analysis ID 905)</p>
+</td></tr>
+<tr valign="top"><td><code>useDistinctConditionCountMediumTerm</code></td>
+<td>
+<p>The number of distinct condition
+concepts observed in the medium term
+window. (analysis ID 906)</p>
+</td></tr>
+<tr valign="top"><td><code>useDistinctConditionCountShortTerm</code></td>
+<td>
+<p>The number of distinct condition
+concepts observed in the short term
+window. (analysis ID 907)</p>
+</td></tr>
+<tr valign="top"><td><code>useDistinctIngredientCountLongTerm</code></td>
+<td>
+<p>The number of distinct ingredients
+observed in the long term window.
+(analysis ID 908)</p>
+</td></tr>
+<tr valign="top"><td><code>useDistinctIngredientCountMediumTerm</code></td>
+<td>
+<p>The number of distinct ingredients
+observed in the medium term window.
+(analysis ID 909)</p>
+</td></tr>
+<tr valign="top"><td><code>useDistinctIngredientCountShortTerm</code></td>
+<td>
+<p>The number of distinct ingredients
+observed in the short term window.
+(analysis ID 910)</p>
+</td></tr>
+<tr valign="top"><td><code>useDistinctProcedureCountLongTerm</code></td>
+<td>
+<p>The number of distinct procedures
+observed in the long term window.
+(analysis ID 911)</p>
+</td></tr>
+<tr valign="top"><td><code>useDistinctProcedureCountMediumTerm</code></td>
+<td>
+<p>The number of distinct procedures
+observed in the medium term window.
+(analysis ID 912)</p>
+</td></tr>
+<tr valign="top"><td><code>useDistinctProcedureCountShortTerm</code></td>
+<td>
+<p>The number of distinct procedures
+observed in the short term window.
+(analysis ID 913)</p>
+</td></tr>
+<tr valign="top"><td><code>useDistinctMeasurementCountLongTerm</code></td>
+<td>
+<p>The number of distinct measurements
+observed in the long term window.
+(analysis ID 914)</p>
+</td></tr>
+<tr valign="top"><td><code>useDistinctMeasurementCountMediumTerm</code></td>
+<td>
+<p>The number of distinct measurements
+observed in the medium term window.
+(analysis ID 915)</p>
+</td></tr>
+<tr valign="top"><td><code>useDistinctMeasurementCountShortTerm</code></td>
+<td>
+<p>The number of distinct measurements
+observed in the short term window.
+(analysis ID 916)</p>
+</td></tr>
+<tr valign="top"><td><code>useDistinctObservationCountLongTerm</code></td>
+<td>
+<p>The number of distinct observations
+observed in the long term window.
+(analysis ID 917)</p>
+</td></tr>
+<tr valign="top"><td><code>useDistinctObservationCountMediumTerm</code></td>
+<td>
+<p>The number of distinct observations
+observed in the medium term window.
+(analysis ID 918)</p>
+</td></tr>
+<tr valign="top"><td><code>useDistinctObservationCountShortTerm</code></td>
+<td>
+<p>The number of distinct observations
+observed in the short term window.
+(analysis ID 919)</p>
+</td></tr>
+<tr valign="top"><td><code>useVisitCountLongTerm</code></td>
+<td>
+<p>The number of visits observed in the
+long term window. (analysis ID 920)</p>
+</td></tr>
+<tr valign="top"><td><code>useVisitCountMediumTerm</code></td>
+<td>
+<p>The number of visits observed in the
+medium term window. (analysis ID 921)</p>
+</td></tr>
+<tr valign="top"><td><code>useVisitCountShortTerm</code></td>
+<td>
+<p>The number of visits observed in the
+short term window. (analysis ID 922)</p>
+</td></tr>
+<tr valign="top"><td><code>useVisitConceptCountLongTerm</code></td>
+<td>
+<p>The number of visits observed in the
+long term window, stratified by visit
+concept ID. (analysis ID 923)</p>
+</td></tr>
+<tr valign="top"><td><code>useVisitConceptCountMediumTerm</code></td>
+<td>
+<p>The number of visits observed in the
+medium term window, stratified by visit
+concept ID. (analysis ID 924)</p>
+</td></tr>
+<tr valign="top"><td><code>useVisitConceptCountShortTerm</code></td>
+<td>
+<p>The number of visits observed in the
+short term window, stratified by visit
+concept ID. (analysis ID 925)</p>
+</td></tr>
+<tr valign="top"><td><code>longTermStartDays</code></td>
+<td>
+<p>What is the start day (relative to the
+index date) of the long-term window?</p>
+</td></tr>
+<tr valign="top"><td><code>mediumTermStartDays</code></td>
+<td>
+<p>What is the start day (relative to the
+index date) of the medium-term window?</p>
+</td></tr>
+<tr valign="top"><td><code>shortTermStartDays</code></td>
+<td>
+<p>What is the start day (relative to the
+index date) of the short-term window?</p>
+</td></tr>
+<tr valign="top"><td><code>endDays</code></td>
+<td>
+<p>What is the end day (relative to the
+index date) of the window?</p>
+</td></tr>
+<tr valign="top"><td><code>includedCovariateConceptIds</code></td>
+<td>
+<p>A list of concept IDs that should be
+used to construct covariates.</p>
+</td></tr>
+<tr valign="top"><td><code>addDescendantsToInclude</code></td>
+<td>
+<p>Should descendant concept IDs be added
+to the list of concepts to include?</p>
+</td></tr>
+<tr valign="top"><td><code>excludedCovariateConceptIds</code></td>
+<td>
+<p>A list of concept IDs that should NOT be
+used to construct covariates.</p>
+</td></tr>
+<tr valign="top"><td><code>addDescendantsToExclude</code></td>
+<td>
+<p>Should descendant concept IDs be added
+to the list of concepts to exclude?</p>
+</td></tr>
+<tr valign="top"><td><code>includedCovariateIds</code></td>
+<td>
+<p>A list of covariate IDs that should be
+restricted to.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>creates an object specifying how covariates should be contructed from data in the CDM model.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of type <code>covariateSettings</code>, to be used in other functions.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+settings &lt;- createCovariateSettings(useDemographicsGender = TRUE,
+                                    useDemographicsAge = FALSE,
+                                    useDemographicsAgeGroup = TRUE,
+                                    useDemographicsRace = TRUE,
+                                    useDemographicsEthnicity = TRUE,
+                                    useDemographicsIndexYear = TRUE,
+                                    useDemographicsIndexMonth = TRUE,
+                                    useDemographicsPriorObservationTime = FALSE,
+                                    useDemographicsPostObservationTime = FALSE,
+                                    useDemographicsTimeInCohort = FALSE,
+                                    useDemographicsIndexYearMonth = FALSE,
+                                    useConditionOccurrenceAnyTimePrior = FALSE,
+                                    useConditionOccurrenceLongTerm = FALSE,
+                                    useConditionOccurrenceMediumTerm = FALSE,
+                                    useConditionOccurrenceShortTerm = FALSE,
+                                    useConditionOccurrencePrimaryInpatientAnyTimePrior = FALSE,
+                                    useConditionOccurrencePrimaryInpatientLongTerm = FALSE,
+                                    useConditionOccurrencePrimaryInpatientMediumTerm = FALSE,
+                                    useConditionOccurrencePrimaryInpatientShortTerm = FALSE,
+                                    useConditionEraAnyTimePrior = FALSE,
+                                    useConditionEraLongTerm = FALSE,
+                                    useConditionEraMediumTerm = FALSE,
+                                    useConditionEraShortTerm = FALSE,
+                                    useConditionEraOverlapping = FALSE,
+                                    useConditionEraStartLongTerm = FALSE,
+                                    useConditionEraStartMediumTerm = FALSE,
+                                    useConditionEraStartShortTerm = FALSE,
+                                    useConditionGroupEraAnyTimePrior = FALSE,
+                                    useConditionGroupEraLongTerm = TRUE,
+                                    useConditionGroupEraMediumTerm = FALSE,
+                                    useConditionGroupEraShortTerm = TRUE,
+                                    useConditionGroupEraOverlapping = FALSE,
+                                    useConditionGroupEraStartLongTerm = FALSE,
+                                    useConditionGroupEraStartMediumTerm = FALSE,
+                                    useConditionGroupEraStartShortTerm = FALSE,
+                                    useDrugExposureAnyTimePrior = FALSE,
+                                    useDrugExposureLongTerm = FALSE,
+                                    useDrugExposureMediumTerm = FALSE,
+                                    useDrugExposureShortTerm = FALSE,
+                                    useDrugEraAnyTimePrior = FALSE,
+                                    useDrugEraLongTerm = FALSE,
+                                    useDrugEraMediumTerm = FALSE,
+                                    useDrugEraShortTerm = FALSE,
+                                    useDrugEraOverlapping = FALSE,
+                                    useDrugEraStartLongTerm = FALSE,
+                                    useDrugEraStartMediumTerm = FALSE,
+                                    useDrugEraStartShortTerm = FALSE,
+                                    useDrugGroupEraAnyTimePrior = FALSE,
+                                    useDrugGroupEraLongTerm = TRUE,
+                                    useDrugGroupEraMediumTerm = FALSE,
+                                    useDrugGroupEraShortTerm = TRUE,
+                                    useDrugGroupEraOverlapping = TRUE,
+                                    useDrugGroupEraStartLongTerm = FALSE,
+                                    useDrugGroupEraStartMediumTerm = FALSE,
+                                    useDrugGroupEraStartShortTerm = FALSE,
+                                    useProcedureOccurrenceAnyTimePrior = FALSE,
+                                    useProcedureOccurrenceLongTerm = TRUE,
+                                    useProcedureOccurrenceMediumTerm = FALSE,
+                                    useProcedureOccurrenceShortTerm = TRUE,
+                                    useDeviceExposureAnyTimePrior = FALSE,
+                                    useDeviceExposureLongTerm = TRUE,
+                                    useDeviceExposureMediumTerm = FALSE,
+                                    useDeviceExposureShortTerm = TRUE,
+                                    useMeasurementAnyTimePrior = FALSE,
+                                    useMeasurementLongTerm = TRUE,
+                                    useMeasurementMediumTerm = FALSE,
+                                    useMeasurementShortTerm = TRUE,
+                                    useMeasurementValueAnyTimePrior = FALSE,
+                                    useMeasurementValueLongTerm = FALSE,
+                                    useMeasurementValueMediumTerm = FALSE,
+                                    useMeasurementValueShortTerm = FALSE,
+                                    useMeasurementRangeGroupAnyTimePrior = FALSE,
+                                    useMeasurementRangeGroupLongTerm = TRUE,
+                                    useMeasurementRangeGroupMediumTerm = FALSE,
+                                    useMeasurementRangeGroupShortTerm = FALSE,
+                                    useObservationAnyTimePrior = FALSE,
+                                    useObservationLongTerm = TRUE,
+                                    useObservationMediumTerm = FALSE,
+                                    useObservationShortTerm = TRUE,
+                                    useCharlsonIndex = TRUE,
+                                    useDcsi = TRUE,
+                                    useChads2 = TRUE,
+                                    useChads2Vasc = TRUE,
+                                    useHfrs = FALSE,
+                                    useDistinctConditionCountLongTerm = FALSE,
+                                    useDistinctConditionCountMediumTerm = FALSE,
+                                    useDistinctConditionCountShortTerm = FALSE,
+                                    useDistinctIngredientCountLongTerm = FALSE,
+                                    useDistinctIngredientCountMediumTerm = FALSE,
+                                    useDistinctIngredientCountShortTerm = FALSE,
+                                    useDistinctProcedureCountLongTerm = FALSE,
+                                    useDistinctProcedureCountMediumTerm = FALSE,
+                                    useDistinctProcedureCountShortTerm = FALSE,
+                                    useDistinctMeasurementCountLongTerm = FALSE,
+                                    useDistinctMeasurementCountMediumTerm = FALSE,
+                                    useDistinctMeasurementCountShortTerm = FALSE,
+                                    useDistinctObservationCountLongTerm = FALSE,
+                                    useDistinctObservationCountMediumTerm = FALSE,
+                                    useDistinctObservationCountShortTerm = FALSE,
+                                    useVisitCountLongTerm = FALSE,
+                                    useVisitCountMediumTerm = FALSE,
+                                    useVisitCountShortTerm = FALSE,
+                                    useVisitConceptCountLongTerm = FALSE,
+                                    useVisitConceptCountMediumTerm = FALSE,
+                                    useVisitConceptCountShortTerm = FALSE,
+                                    longTermStartDays = -365,
+                                    mediumTermStartDays = -180,
+                                    shortTermStartDays = -30,
+                                    endDays = 0,
+                                    includedCovariateConceptIds = c(),
+                                    addDescendantsToInclude = FALSE,
+                                    excludedCovariateConceptIds = c(),
+                                    addDescendantsToExclude = FALSE,
+                                    includedCovariateIds = c())
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.1.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

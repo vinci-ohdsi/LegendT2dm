@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: The OMOP reference set A reference set of 165 drug-outcome...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for omopReferenceSet {MethodEvaluation}"><tr><td>omopReferenceSet {MethodEvaluation}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>The OMOP reference set A reference set of 165 drug-outcome pairs where we believe the drug causes
+the outcome ( positive controls) and 234 drug-outcome pairs where we believe the drug does not
+cause the outcome (negative controls). The controls involve 4 health outcomes of interest: acute
+liver injury, acute kidney injury, acute myocardial infarction, and GI bleeding.</h2>
+
+<h3>Description</h3>
+
+<p>The OMOP reference set A reference set of 165 drug-outcome pairs where we believe the drug causes
+the outcome ( positive controls) and 234 drug-outcome pairs where we believe the drug does not
+cause the outcome (negative controls). The controls involve 4 health outcomes of interest: acute
+liver injury, acute kidney injury, acute myocardial infarction, and GI bleeding.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+data(omopReferenceSet)
+</pre>
+
+
+<h3>Format</h3>
+
+<p>A data frame with 399 rows and 10 variables: </p>
+ <dl>
+<dt>exposureId</dt><dd><p>Concept ID identifying
+the exposure</p>
+</dd> <dt>exposureName</dt><dd><p>Name of the exposure</p>
+</dd> <dt>outcomeId</dt><dd><p>Concept ID identifying the
+outcome</p>
+</dd> <dt>outcomeName</dt><dd><p>Name of the outcome</p>
+</dd> <dt>groundTruth</dt><dd><p>0 = negative control, 1 =
+positive control</p>
+</dd> <dt>indicationId</dt><dd><p>Concept Id identifying the (primary) indication of the drug.
+To be used when one wants to nest the analysis within the indication</p>
+</dd> <dt>indicationName</dt><dd><p>Name of
+the indication</p>
+</dd> <dt>comparatorId</dt><dd><p>Concept ID identifying a comparator drug that can be used as a
+counterfactual</p>
+</dd> <dt>comparatorName</dt><dd><p>Name of the comparator drug</p>
+</dd> <dt>comparatorType</dt><dd><p>How the
+comparator was selected</p>
+</dd> </dl>
+
+
+
+<h3>References</h3>
+
+<p>Ryan PB, Schuemie MJ, Welebob E, Duke J, Valentine S, Hartzema AG. Defining a reference set to
+support methodological research in drug safety. Drug Safety 36 Suppl 1:S33-47, 2013
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>MethodEvaluation</em> version 2.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

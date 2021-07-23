@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Plot time-to-event</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for plotTimeToEvent {CohortMethod}"><tr><td>plotTimeToEvent {CohortMethod}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Plot time-to-event</h2>
+
+<h3>Description</h3>
+
+<p>Plot time-to-event
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+plotTimeToEvent(
+  cohortMethodData,
+  population = NULL,
+  outcomeId,
+  firstExposureOnly = FALSE,
+  restrictToCommonPeriod = FALSE,
+  washoutPeriod = 0,
+  removeDuplicateSubjects = FALSE,
+  minDaysAtRisk = 1,
+  riskWindowStart = 0,
+  addExposureDaysToStart = NULL,
+  startAnchor = "cohort start",
+  riskWindowEnd = 0,
+  addExposureDaysToEnd = NULL,
+  endAnchor = "cohort end",
+  censorAtNewRiskWindow = FALSE,
+  periodLength = 7,
+  numberOfPeriods = 52,
+  showFittedLines = TRUE,
+  targetLabel = "Target",
+  comparatorLabel = "Comparator",
+  title = NULL,
+  fileName = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>cohortMethodData</code></td>
+<td>
+<p>An object of type <a href="CohortMethodData-class.html">CohortMethodData</a> as generated using
+<code><a href="getDbCohortMethodData.html">getDbCohortMethodData()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>population</code></td>
+<td>
+<p>If specified, this population will be used as the starting
+point instead of the cohorts in the <code>cohortMethodData</code> object.</p>
+</td></tr>
+<tr valign="top"><td><code>outcomeId</code></td>
+<td>
+<p>The ID of the outcome. If not specified, no outcome-specific
+transformations will be performed.</p>
+</td></tr>
+<tr valign="top"><td><code>firstExposureOnly</code></td>
+<td>
+<p>Should only the first exposure per subject be included?</p>
+</td></tr>
+<tr valign="top"><td><code>restrictToCommonPeriod</code></td>
+<td>
+<p>Restrict the analysis to the period when both exposures are observed?</p>
+</td></tr>
+<tr valign="top"><td><code>washoutPeriod</code></td>
+<td>
+<p>The minimum required continuous observation time prior to
+index date for a person to be included in the cohort.</p>
+</td></tr>
+<tr valign="top"><td><code>removeDuplicateSubjects</code></td>
+<td>
+<p>Remove subjects that are in both the target and comparator
+cohort? See details for allowed values.</p>
+</td></tr>
+<tr valign="top"><td><code>minDaysAtRisk</code></td>
+<td>
+<p>The minimum required number of days at risk.</p>
+</td></tr>
+<tr valign="top"><td><code>riskWindowStart</code></td>
+<td>
+<p>The start of the risk window (in days) relative to the <code>startAnchor</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>addExposureDaysToStart</code></td>
+<td>
+<p>DEPRECATED: Add the length of exposure the start of the risk window?
+Use <code>startAnchor</code> instead.</p>
+</td></tr>
+<tr valign="top"><td><code>startAnchor</code></td>
+<td>
+<p>The anchor point for the start of the risk window. Can be <code>"cohort start"</code>
+or <code>"cohort end"</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>riskWindowEnd</code></td>
+<td>
+<p>The end of the risk window (in days) relative to the <code>endAnchor</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>addExposureDaysToEnd</code></td>
+<td>
+<p>DEPRECATED: Add the length of exposure the risk window?
+Use <code>endAnchor</code> instead.</p>
+</td></tr>
+<tr valign="top"><td><code>endAnchor</code></td>
+<td>
+<p>The anchor point for the end of the risk window. Can be <code>"cohort start"</code>
+or <code>"cohort end"</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>censorAtNewRiskWindow</code></td>
+<td>
+<p>If a subject is in multiple cohorts, should time-at-risk be censored
+when the new time-at-risk starts to prevent overlap?</p>
+</td></tr>
+<tr valign="top"><td><code>periodLength</code></td>
+<td>
+<p>The length in days of each period shown in the plot.</p>
+</td></tr>
+<tr valign="top"><td><code>numberOfPeriods</code></td>
+<td>
+<p>Number of periods to show in the plot. The periods are
+equally divided before and after the index date.</p>
+</td></tr>
+<tr valign="top"><td><code>showFittedLines</code></td>
+<td>
+<p>Fit lines to the proportions and show them in the plot?</p>
+</td></tr>
+<tr valign="top"><td><code>targetLabel</code></td>
+<td>
+<p>A label to us for the target cohort.</p>
+</td></tr>
+<tr valign="top"><td><code>comparatorLabel</code></td>
+<td>
+<p>A label to us for the comparator cohort.</p>
+</td></tr>
+<tr valign="top"><td><code>title</code></td>
+<td>
+<p>Optional: the main title for the plot.</p>
+</td></tr>
+<tr valign="top"><td><code>fileName</code></td>
+<td>
+<p>Name of the file where the plot should be saved, for example
+'plot.png'. See <code><a href="../../ggplot2/html/ggsave.html">ggplot2::ggsave()</a></code> for supported file formats.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Creates a plot showing the number of events over time in the target and comparator cohorts, both before and after
+index date. The plot also distinguishes between events inside and outside the time-at-risk period. This requires
+the user to (re)specify the time-at-risk using the same arguments as the <code><a href="createStudyPopulation.html">createStudyPopulation()</a></code> function.
+Note that it is not possible to specify that people with the outcome prior should be removed, since the plot will
+show these prior events.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A ggplot object. Use the <code><a href="../../ggplot2/html/ggsave.html">ggplot2::ggsave()</a></code> function to save to file in a different
+format.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

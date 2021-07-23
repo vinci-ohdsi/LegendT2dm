@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Instantiate a set of cohort</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for instantiateCohortSet {CohortDiagnostics}"><tr><td>instantiateCohortSet {CohortDiagnostics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Instantiate a set of cohort</h2>
+
+<h3>Description</h3>
+
+<p>This function instantiates a set of cohort in the cohort table, using definitions that are fetched from a WebApi interface.
+Optionally, the inclusion rule statistics are computed and stored in the <code>inclusionStatisticsFolder</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+instantiateCohortSet(
+  connectionDetails = NULL,
+  connection = NULL,
+  cdmDatabaseSchema,
+  vocabularyDatabaseSchema = cdmDatabaseSchema,
+  tempEmulationSchema = NULL,
+  oracleTempSchema = NULL,
+  cohortDatabaseSchema = cdmDatabaseSchema,
+  cohortTable = "cohort",
+  cohortIds = NULL,
+  packageName = NULL,
+  cohortToCreateFile = "settings/CohortsToCreate.csv",
+  baseUrl = NULL,
+  cohortSetReference = NULL,
+  generateInclusionStats = FALSE,
+  inclusionStatisticsFolder = NULL,
+  createCohortTable = TRUE,
+  incremental = FALSE,
+  incrementalFolder = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>An object of type <code>connectionDetails</code> as created using the
+<code><a href="../../DatabaseConnector/html/createConnectionDetails.html">createConnectionDetails</a></code> function in the
+DatabaseConnector package. Can be left NULL if <code>connection</code> is
+provided.</p>
+</td></tr>
+<tr valign="top"><td><code>connection</code></td>
+<td>
+<p>An object of type <code>connection</code> as created using the
+<code><a href="../../DatabaseConnector/html/connect.html">connect</a></code> function in the
+DatabaseConnector package. Can be left NULL if <code>connectionDetails</code>
+is provided, in which case a new connection will be opened at the start
+of the function, and closed when the function finishes.</p>
+</td></tr>
+<tr valign="top"><td><code>cdmDatabaseSchema</code></td>
+<td>
+<p>Schema name where your patient-level data in OMOP CDM format resides.
+Note that for SQL Server, this should include both the database and
+schema name, for example 'cdm_data.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>vocabularyDatabaseSchema</code></td>
+<td>
+<p>Schema name where your OMOP vocabulary data resides. This is 
+commonly the same as cdmDatabaseSchema. Note that for 
+SQL Server, this should include both the database and
+schema name, for example 'vocabulary.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>tempEmulationSchema</code></td>
+<td>
+<p>Some database platforms like Oracle and Impala do not truly support temp tables. To emulate temp 
+tables, provide a schema with write privileges where temp tables can be created.</p>
+</td></tr>
+<tr valign="top"><td><code>oracleTempSchema</code></td>
+<td>
+<p>DEPRECATED by DatabaseConnector: use <code>tempEmulationSchema</code> instead.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortDatabaseSchema</code></td>
+<td>
+<p>Schema name where your cohort table resides. Note that for SQL Server,
+this should include both the database and schema name, for example
+'scratch.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortTable</code></td>
+<td>
+<p>Name of the cohort table.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortIds</code></td>
+<td>
+<p>Optionally, provide a subset of cohort IDs to restrict the
+construction to.</p>
+</td></tr>
+<tr valign="top"><td><code>packageName</code></td>
+<td>
+<p>The name of the package containing the cohort definitions. Can be left NULL if 
+<code>baseUrl</code> and <code>cohortSetReference</code> have been specified.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortToCreateFile</code></td>
+<td>
+<p>The location of the cohortToCreate file within the package. Is ignored if 
+<code>baseUrl</code> and <code>cohortSetReference</code> have been specified. The
+cohortToCreateFile must be .csv file that is expected to be read into 
+a dataframe object identical to requirements for <code>cohortSetReference</code> argument. 
+This csv file is expected to be encoded in either ASCII or UTF-8, if not, an 
+error message will be displayed and process stopped.</p>
+</td></tr>
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;. Can be left NULL if 
+<code>packageName</code> and <code>cohortToCreateFile</code> have been specified.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortSetReference</code></td>
+<td>
+<p>A data frame with four columns, as described in the details. Can be left NULL if 
+<code>packageName</code> and <code>cohortToCreateFile</code> have been specified.</p>
+</td></tr>
+<tr valign="top"><td><code>generateInclusionStats</code></td>
+<td>
+<p>Compute and store inclusion rule statistics?</p>
+</td></tr>
+<tr valign="top"><td><code>inclusionStatisticsFolder</code></td>
+<td>
+<p>The folder where the inclusion rule statistics are stored. Can be
+left NULL if <code>generateInclusionStats = FALSE</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>createCohortTable</code></td>
+<td>
+<p>Create the cohort table? If <code>incremental = TRUE</code> and the table
+already exists this will be skipped.</p>
+</td></tr>
+<tr valign="top"><td><code>incremental</code></td>
+<td>
+<p>Create only cohorts that haven't been created before?</p>
+</td></tr>
+<tr valign="top"><td><code>incrementalFolder</code></td>
+<td>
+<p>If <code>incremental = TRUE</code>, specify a folder where records are kept
+of which definition has been executed.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Currently two ways of executing this function are supported, either 
+(1) [Package Mode] embedded in a study package, assuming the cohort definitions are stored in that package using the <code>ROhdsiWebApi::insertCohortDefinitionSetInPackage</code>, or 
+(2) [WebApi Mode] By using a WebApi interface to retrieve the cohort definitions.
+</p>
+<p>When using this function in Package Mode: Use the <code>packageName</code> and <code>cohortToCreateFile</code> to specify
+the name of the study package, and the name of the cohortToCreate file within that package, respectively
+</p>
+<p>When using this function in WebApi Mode: use the <code>baseUrl</code> and <code>cohortSetReference</code> to specify how to 
+connect to the WebApi, and which cohorts to fetch, respectively.
+</p>
+<p>Note: if the parameters for both Package Mode and WebApi Mode are provided, then Package mode is preferred.
+</p>
+<p>The <code>cohortSetReference</code> argument must be a data frame with  the following columns:
+</p>
+
+<dl>
+<dt>referentConceptId</dt><dd><p>A standard omop concept id that serves as the referent phenotype definition for the cohort Id.</p>
+</dd>
+<dt>cohortId</dt><dd><p>The cohort Id is the id used to identify  a cohort definition. This is required to be unique. It will be used to create file names. It is recommended to be (referrentConceptId * 1000) + a number between 3 to 999</p>
+</dd>
+<dt>webApiCohortId</dt><dd><p>Cohort Id in the webApi/atlas instance. It is a required field to run Cohort Diagnostics in WebApi mode. It is discarded in package mode.</p>
+</dd>
+<dt>cohortName</dt><dd><p>The full name of the cohort. This will be shown in the Shiny app.</p>
+</dd>
+<dt>logicDescription</dt><dd><p>A human understandable brief description of the cohort definition. This logic does not have to a 
+fully specified description of the cohort definition, but should provide enough context to help user understand the
+meaning of the cohort definition</p>
+</dd>
+</dl>
+
+
+
+<h3>Value</h3>
+
+<p>A data frame with cohort counts
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>CohortDiagnostics</em> version 2.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

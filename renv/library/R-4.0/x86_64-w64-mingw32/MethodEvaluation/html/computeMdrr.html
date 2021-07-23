@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Compute minimal detectable relative risk (MDRR)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for computeMdrr {MethodEvaluation}"><tr><td>computeMdrr {MethodEvaluation}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Compute minimal detectable relative risk (MDRR)</h2>
+
+<h3>Description</h3>
+
+<p><code>computeMdrr</code> computes the minimal detectable relative risk (MDRR) for drug-outcome pairs
+using a standard approach that stratifies by age and gender (Armstrong 1987).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+computeMdrr(
+  connectionDetails,
+  cdmDatabaseSchema,
+  oracleTempSchema = cdmDatabaseSchema,
+  exposureOutcomePairs,
+  exposureDatabaseSchema = cdmDatabaseSchema,
+  exposureTable = "drug_era",
+  outcomeDatabaseSchema = cdmDatabaseSchema,
+  outcomeTable = "condition_era",
+  cdmVersion = "5"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>An R object of type <code>ConnectionDetails</code> created using the
+function <code>createConnectionDetails</code> in the
+<code>DatabaseConnector</code> package.</p>
+</td></tr>
+<tr valign="top"><td><code>cdmDatabaseSchema</code></td>
+<td>
+<p>Name of database schema that contains OMOP CDM and vocabulary.</p>
+</td></tr>
+<tr valign="top"><td><code>oracleTempSchema</code></td>
+<td>
+<p>For Oracle only: the name of the database schema where you want all
+temporary tables to be managed. Requires create/insert permissions
+to this database.</p>
+</td></tr>
+<tr valign="top"><td><code>exposureOutcomePairs</code></td>
+<td>
+<p>A data frame with at least two columns:
+</p>
+
+<ul>
+<li> <p>&quot;exposureId&quot; or &quot;targetId&quot; containing the drug_concept_ID or
+cohort_definition_id of the exposure variable
+</p>
+</li>
+<li> <p>&quot;outcomeId&quot; containing the condition_concept_ID or
+cohort_definition_id of the outcome variable
+</p>
+</li></ul>
+</td></tr>
+<tr valign="top"><td><code>exposureDatabaseSchema</code></td>
+<td>
+<p>The name of the database schema that is the location where the
+exposure data used to define the exposure cohorts is available.  If
+exposureTable = DRUG_ERA, exposureDatabaseSchema is not used by
+assumed to be cdmSchema.  Requires read permissions to this
+database.</p>
+</td></tr>
+<tr valign="top"><td><code>exposureTable</code></td>
+<td>
+<p>The tablename that contains the exposure cohorts.  If exposureTable
+&lt;&gt; DRUG_ERA, then expectation is exposureTable has format of COHORT
+table: COHORT_DEFINITION_ID, SUBJECT_ID, COHORT_START_DATE,
+COHORT_END_DATE.</p>
+</td></tr>
+<tr valign="top"><td><code>outcomeDatabaseSchema</code></td>
+<td>
+<p>The name of the database schema that is the location where the data
+used to define the outcome cohorts is available. If exposureTable =
+CONDITION_ERA, exposureDatabaseSchema is not used by assumed to be
+cdmSchema.  Requires read permissions to this database.</p>
+</td></tr>
+<tr valign="top"><td><code>outcomeTable</code></td>
+<td>
+<p>The tablename that contains the outcome cohorts.  If outcomeTable &lt;&gt;
+CONDITION_OCCURRENCE, then expectation is outcomeTable has format of
+COHORT table: COHORT_DEFINITION_ID, SUBJECT_ID, COHORT_START_DATE,
+COHORT_END_DATE.</p>
+</td></tr>
+<tr valign="top"><td><code>cdmVersion</code></td>
+<td>
+<p>Define the OMOP CDM version used: currently support &quot;4&quot; and &quot;5&quot;.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data frame containing the MDRRs for the given exposure-outcome pairs.
+</p>
+
+
+<h3>References</h3>
+
+<p>Armstrong B. A simple estimator of minimum detectable relative risk, sample size, or power in
+cohort studies. American journal of epidemiology. 1987; 126: 356-8.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+connectionDetails &lt;- createConnectionDetails(dbms = "sql server",
+                                             server = "RNDUSRDHIT07.jnj.com")
+exposureOutcomePairs &lt;- data.frame(exposureId = c(767410, 1314924, 907879),
+                                   outcomeId = c(444382, 79106, 138825))
+mdrrs &lt;- computeMdrr(connectionDetails,
+                     "cdm_truven_mdcr",
+                     exposureOutcomePairs,
+                     outcomeTable = "condition_era")
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>MethodEvaluation</em> version 2.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Detect the presence of string matched ConceptSet definitions....</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for detectConceptSetsByName {ROhdsiWebApi}"><tr><td>detectConceptSetsByName {ROhdsiWebApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Detect the presence of string matched ConceptSet definitions. <a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img src="../help/figures/lifecycle-stable.svg" alt='[Stable]' /></a></h2>
+
+<h3>Description</h3>
+
+<p>Detect the presence of string matched ConceptSet definitions. <a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img src="../help/figures/lifecycle-stable.svg" alt='[Stable]' /></a>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+detectConceptSetsByName(pattern, negate = FALSE, baseUrl)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>pattern</code></td>
+<td>
+<p>A pattern to look for. See <a href="../../stringr/html/str_detect.html">str_detect</a> for details.</p>
+</td></tr>
+<tr valign="top"><td><code>negate</code></td>
+<td>
+<p>If TRUE, return non-matching elements. See <a href="../../stringr/html/str_detect.html">str_detect</a> for details.</p>
+</td></tr>
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;. Note, there is no trailing '/'.
+If trailing '/' is used, you may receive an error.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Detect string matched ConceptSet definition names from the WebApi, and retrieve metadata
+definitions.
+</p>
+
+
+<h3>Value</h3>
+
+<p>FALSE if no matches. If matched - output from <a href="getConceptSetDefinitionsMetaData.html">getConceptSetDefinitionsMetaData</a>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+detectConceptSets(pattern = "this text string to search in pattern",
+                  baseUrl = "http://server.org:80/WebAPI")
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>ROhdsiWebApi</em> version 1.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

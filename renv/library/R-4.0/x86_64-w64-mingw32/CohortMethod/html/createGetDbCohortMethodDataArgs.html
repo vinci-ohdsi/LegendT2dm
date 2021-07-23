@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create a parameter object for the function...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createGetDbCohortMethodDataArgs {CohortMethod}"><tr><td>createGetDbCohortMethodDataArgs {CohortMethod}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create a parameter object for the function getDbCohortMethodData</h2>
+
+<h3>Description</h3>
+
+<p>Create a parameter object for the function getDbCohortMethodData
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createGetDbCohortMethodDataArgs(
+  studyStartDate = "",
+  studyEndDate = "",
+  excludeDrugsFromCovariates = NULL,
+  firstExposureOnly = FALSE,
+  removeDuplicateSubjects = FALSE,
+  restrictToCommonPeriod = FALSE,
+  washoutPeriod = 0,
+  maxCohortSize = 0,
+  covariateSettings
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>studyStartDate</code></td>
+<td>
+<p>A calendar date specifying the minimum date that a cohort index
+date can appear. Date format is 'yyyymmdd'.</p>
+</td></tr>
+<tr valign="top"><td><code>studyEndDate</code></td>
+<td>
+<p>A calendar date specifying the maximum date that a cohort index
+date can appear. Date format is 'yyyymmdd'. Important: the study
+end data is also used to truncate risk windows, meaning no
+outcomes beyond the study end date will be considered.</p>
+</td></tr>
+<tr valign="top"><td><code>excludeDrugsFromCovariates</code></td>
+<td>
+<p>DEPRECATED: Should the target and comparator drugs (and their
+descendant concepts) be excluded from the covariates? Note that
+this will work if the drugs are actually drug concept IDs (and
+not cohort IDs).</p>
+</td></tr>
+<tr valign="top"><td><code>firstExposureOnly</code></td>
+<td>
+<p>Should only the first exposure per subject be included? Note
+that this is typically done in the createStudyPopulation()
+function, but can already be done here for efficiency reasons.</p>
+</td></tr>
+<tr valign="top"><td><code>removeDuplicateSubjects</code></td>
+<td>
+<p>Remove subjects that are in both the target and comparator
+cohort? See details for allowed values.Note that this is
+typically done in the createStudyPopulation function, but can
+already be done here for efficiency reasons.</p>
+</td></tr>
+<tr valign="top"><td><code>restrictToCommonPeriod</code></td>
+<td>
+<p>Restrict the analysis to the period when both treatments are
+observed?</p>
+</td></tr>
+<tr valign="top"><td><code>washoutPeriod</code></td>
+<td>
+<p>The minimum required continuous observation time prior to index
+date for a person to be included in the cohort. Note that this
+is typically done in the createStudyPopulation function, but can
+already be done here for efficiency reasons.</p>
+</td></tr>
+<tr valign="top"><td><code>maxCohortSize</code></td>
+<td>
+<p>If either the target or the comparator cohort is larger than
+this number it will be sampled to this size. maxCohortSize = 0
+indicates no maximum size.</p>
+</td></tr>
+<tr valign="top"><td><code>covariateSettings</code></td>
+<td>
+<p>An object of type covariateSettings as created using the
+FeatureExtraction::createCovariateSettings() function.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Create an object defining the parameter values.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

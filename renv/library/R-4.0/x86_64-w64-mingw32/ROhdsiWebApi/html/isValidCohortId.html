@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: is Cohort id a valid definition in the WebApi. *[Stable]*</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for isValidCohortId {ROhdsiWebApi}"><tr><td>isValidCohortId {ROhdsiWebApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>is Cohort id a valid definition in the WebApi. <a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img src="../help/figures/lifecycle-stable.svg" alt='[Stable]' /></a></h2>
+
+<h3>Description</h3>
+
+<p>is Cohort id a valid definition in the WebApi. <a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img src="../help/figures/lifecycle-stable.svg" alt='[Stable]' /></a>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+isValidCohortId(cohortIds, baseUrl)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>cohortIds</code></td>
+<td>
+<p>A list of integer id(s) of the Cohort to be tested for validity.</p>
+</td></tr>
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;. Note, there is no trailing '/'.
+If trailing '/' is used, you may receive an error.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Checks if a set of id for a Cohort is valid. The following checks are performed. 1) checks if all
+the ids exists in the WebApi i.e. valid.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A logical vector indicating if an ID is valid.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+isValidCohortId(cohortIds = c(13242, 3423, 34), baseUrl = "http://server.org:80/WebAPI")
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>ROhdsiWebApi</em> version 1.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

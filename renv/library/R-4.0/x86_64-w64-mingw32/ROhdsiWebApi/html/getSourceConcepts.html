@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get source concepts that map to standard concepts *[Stable]*</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for getSourceConcepts {ROhdsiWebApi}"><tr><td>getSourceConcepts {ROhdsiWebApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get source concepts that map to standard concepts <a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img src="../help/figures/lifecycle-stable.svg" alt='[Stable]' /></a></h2>
+
+<h3>Description</h3>
+
+<p>Get source concepts that map to standard concepts <a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img src="../help/figures/lifecycle-stable.svg" alt='[Stable]' /></a>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+getSourceConcepts(
+  conceptIds,
+  baseUrl,
+  vocabularySourceKey = NULL,
+  snakeCaseToCamelCase = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>conceptIds</code></td>
+<td>
+<p>A list of concept IDs referring to standard concepts.</p>
+</td></tr>
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;. Note, there is no trailing '/'.
+If trailing '/' is used, you may receive an error.</p>
+</td></tr>
+<tr valign="top"><td><code>vocabularySourceKey</code></td>
+<td>
+<p>The source key of the Vocabulary. By default, the priority Vocabulary is
+used.</p>
+</td></tr>
+<tr valign="top"><td><code>snakeCaseToCamelCase</code></td>
+<td>
+<p>Should the column names of the result be converted to camelCase?</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A tibble containing information on the source concepts.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+conceptSet &lt;- getConceptSetDefinition(conceptSetId = 282,
+                                      baseUrl = "http://server.org:80/WebAPI")
+conceptIds &lt;- resolveConceptSet(conceptSet = conceptSet, baseUrl = "http://server.org:80/WebAPI")
+sourceConcepts &lt;- getSourceConcepts(conceptIds = conceptIds,
+                                    baseUrl = "http://server.org:80/WebAPI")
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>ROhdsiWebApi</em> version 1.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

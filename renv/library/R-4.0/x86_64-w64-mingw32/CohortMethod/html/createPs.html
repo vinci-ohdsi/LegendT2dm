@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create propensity scores</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createPs {CohortMethod}"><tr><td>createPs {CohortMethod}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create propensity scores</h2>
+
+<h3>Description</h3>
+
+<p>Creates propensity scores using a regularized logistic regression.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createPs(
+  cohortMethodData,
+  population = NULL,
+  excludeCovariateIds = c(),
+  includeCovariateIds = c(),
+  maxCohortSizeForFitting = 250000,
+  errorOnHighCorrelation = TRUE,
+  stopOnError = TRUE,
+  prior = createPrior("laplace", exclude = c(0), useCrossValidation = TRUE),
+  control = createControl(noiseLevel = "silent", cvType = "auto", seed = 1, tolerance =
+    2e-07, cvRepetitions = 10, startingVariance = 0.01)
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>cohortMethodData</code></td>
+<td>
+<p>An object of type <a href="CohortMethodData-class.html">CohortMethodData</a> as generated using
+<code><a href="getDbCohortMethodData.html">getDbCohortMethodData()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>population</code></td>
+<td>
+<p>A data frame describing the population. This should at least have a
+<code>rowId</code> column corresponding to the <code>rowId</code> column in the
+<a href="CohortMethodData-class.html">CohortMethodData</a> covariates object and a <code>treatment</code> column.
+If population is not specified, the full population in the
+<a href="CohortMethodData-class.html">CohortMethodData</a> will be used.</p>
+</td></tr>
+<tr valign="top"><td><code>excludeCovariateIds</code></td>
+<td>
+<p>Exclude these covariates from the propensity model.</p>
+</td></tr>
+<tr valign="top"><td><code>includeCovariateIds</code></td>
+<td>
+<p>Include only these covariates in the propensity model.</p>
+</td></tr>
+<tr valign="top"><td><code>maxCohortSizeForFitting</code></td>
+<td>
+<p>If the target or comparator cohort are larger than this number, they
+will be downsampled before fitting the propensity model. The model
+will be used to compute propensity scores for all subjects. The
+purpose of the sampling is to gain speed. Setting this number to 0
+means no downsampling will be applied.</p>
+</td></tr>
+<tr valign="top"><td><code>errorOnHighCorrelation</code></td>
+<td>
+<p>If true, the function will test each covariate for correlation with
+the treatment assignment. If any covariate has an unusually high
+correlation (either positive or negative), this will throw and
+error.</p>
+</td></tr>
+<tr valign="top"><td><code>stopOnError</code></td>
+<td>
+<p>If an error occur, should the function stop? Else, the two cohorts
+will be assumed to be perfectly separable.</p>
+</td></tr>
+<tr valign="top"><td><code>prior</code></td>
+<td>
+<p>The prior used to fit the model. See
+<code><a href="../../Cyclops/html/createPrior.html">Cyclops::createPrior()</a></code> for details.</p>
+</td></tr>
+<tr valign="top"><td><code>control</code></td>
+<td>
+<p>The control object used to control the cross-validation used to
+determine the hyperparameters of the prior (if applicable). See
+<code><a href="../../Cyclops/html/createControl.html">Cyclops::createControl()</a></code> for details.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+data(cohortMethodDataSimulationProfile)
+cohortMethodData &lt;- simulateCohortMethodData(cohortMethodDataSimulationProfile, n = 1000)
+ps &lt;- createPs(cohortMethodData)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

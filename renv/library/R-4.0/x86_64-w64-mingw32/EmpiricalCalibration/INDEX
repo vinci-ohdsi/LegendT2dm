@@ -1,0 +1,37 @@
+calibrateConfidenceInterval
+                        Calibrate confidence intervals
+calibrateP              Calibrate the p-value
+caseControl             Odds ratios from a case-control design
+cohortMethod            Relative risks from a new-user cohort design
+computeExpectedAbsoluteSystematicError
+                        Compute the expected absolute systematic error
+computeTraditionalCi    Compute the (traditional) confidence interval
+computeTraditionalP     Compute the (traditional) p-value
+convertNullToErrorModel
+                        Convert empirical null distribution to
+                        systematic error model
+evaluateCiCalibration   Evaluate confidence interval calibration
+fitMcmcNull             Fit the null distribution using MCMC
+fitNull                 Fit the null distribution
+fitSystematicErrorModel
+                        Fit a systematic error model
+grahamReplication       Relative risks from an adjusted new-user cohort
+                        design
+plotCalibration         Create a calibration plot
+plotCalibrationEffect   Plot the effect of the calibration
+plotCiCalibration       Create a confidence interval calibration plot
+plotCiCalibrationEffect
+                        Plot the effect of the CI calibration
+plotCiCoverage          Create a confidence interval coverage plot
+plotErrorModel          Plot the systematic error model
+plotExpectedType1Error
+                        Plot the expected type 1 error as a function of
+                        standard error
+plotForest              Create a forest plot
+plotMcmcTrace           Plot the MCMC trace
+plotTrueAndObserved     Plot true and observed values
+sccs                    Incidence rate ratios from Self-Controlled Case
+                        Series
+simulateControls        Simulate (negative) controls
+southworthReplication   Relative risks from an unadjusted new-user
+                        cohort design

@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create a parameter object for the function stratifyByPs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createStratifyByPsArgs {CohortMethod}"><tr><td>createStratifyByPsArgs {CohortMethod}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create a parameter object for the function stratifyByPs</h2>
+
+<h3>Description</h3>
+
+<p>Create a parameter object for the function stratifyByPs
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createStratifyByPsArgs(
+  numberOfStrata = 5,
+  stratificationColumns = c(),
+  baseSelection = "all"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>numberOfStrata</code></td>
+<td>
+<p>How many strata? The boundaries of the strata are automatically
+defined to contain equal numbers of target persons.</p>
+</td></tr>
+<tr valign="top"><td><code>stratificationColumns</code></td>
+<td>
+<p>Names of one or more columns in the data data.frame on which subjects
+should also be stratified in addition to stratification on propensity
+score.</p>
+</td></tr>
+<tr valign="top"><td><code>baseSelection</code></td>
+<td>
+<p>What is the base selection of subjects where the strata bounds are to
+be determined? Strata are defined as equally-sized strata inside this
+selection. Possible values are &quot;all&quot;, &quot;target&quot;, and &quot;comparator&quot;.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Create an object defining the parameter values.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

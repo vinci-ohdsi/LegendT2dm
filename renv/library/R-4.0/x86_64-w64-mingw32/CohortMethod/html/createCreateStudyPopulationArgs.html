@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create a parameter object for the function...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createCreateStudyPopulationArgs {CohortMethod}"><tr><td>createCreateStudyPopulationArgs {CohortMethod}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create a parameter object for the function createStudyPopulation</h2>
+
+<h3>Description</h3>
+
+<p>Create a parameter object for the function createStudyPopulation
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createCreateStudyPopulationArgs(
+  firstExposureOnly = FALSE,
+  restrictToCommonPeriod = FALSE,
+  washoutPeriod = 0,
+  removeDuplicateSubjects = FALSE,
+  removeSubjectsWithPriorOutcome = TRUE,
+  priorOutcomeLookback = 99999,
+  minDaysAtRisk = 1,
+  maxDaysAtRisk = 99999,
+  riskWindowStart = 0,
+  addExposureDaysToStart = NULL,
+  startAnchor = "cohort start",
+  riskWindowEnd = 0,
+  addExposureDaysToEnd = NULL,
+  endAnchor = "cohort end",
+  censorAtNewRiskWindow = FALSE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>firstExposureOnly</code></td>
+<td>
+<p>Should only the first exposure per subject be included?</p>
+</td></tr>
+<tr valign="top"><td><code>restrictToCommonPeriod</code></td>
+<td>
+<p>Restrict the analysis to the period when both exposures are
+observed?</p>
+</td></tr>
+<tr valign="top"><td><code>washoutPeriod</code></td>
+<td>
+<p>The minimum required continuous observation time prior to
+index date for a person to be included in the cohort.</p>
+</td></tr>
+<tr valign="top"><td><code>removeDuplicateSubjects</code></td>
+<td>
+<p>Remove subjects that are in both the target and comparator
+cohort? See details for allowed values.</p>
+</td></tr>
+<tr valign="top"><td><code>removeSubjectsWithPriorOutcome</code></td>
+<td>
+<p>Remove subjects that have the outcome prior to the risk
+window start?</p>
+</td></tr>
+<tr valign="top"><td><code>priorOutcomeLookback</code></td>
+<td>
+<p>How many days should we look back when identifying prior
+outcomes?</p>
+</td></tr>
+<tr valign="top"><td><code>minDaysAtRisk</code></td>
+<td>
+<p>The minimum required number of days at risk. Risk windows
+with fewer days than this number are removed from the
+analysis.</p>
+</td></tr>
+<tr valign="top"><td><code>maxDaysAtRisk</code></td>
+<td>
+<p>The maximum allowed number of days at risk. Risk windows
+that are longer will be truncated to this number of days.</p>
+</td></tr>
+<tr valign="top"><td><code>riskWindowStart</code></td>
+<td>
+<p>The start of the risk window (in days) relative to the
+startAnchor.</p>
+</td></tr>
+<tr valign="top"><td><code>addExposureDaysToStart</code></td>
+<td>
+<p>DEPRECATED: Add the length of exposure the start of the risk
+window? Use startAnchor instead.</p>
+</td></tr>
+<tr valign="top"><td><code>startAnchor</code></td>
+<td>
+<p>The anchor point for the start of the risk window. Can be
+&quot;cohort start&quot; or &quot;cohort end&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>riskWindowEnd</code></td>
+<td>
+<p>The end of the risk window (in days) relative to the
+endAnchor.</p>
+</td></tr>
+<tr valign="top"><td><code>addExposureDaysToEnd</code></td>
+<td>
+<p>DEPRECATED: Add the length of exposure the risk window? Use
+endAnchor instead.</p>
+</td></tr>
+<tr valign="top"><td><code>endAnchor</code></td>
+<td>
+<p>The anchor point for the end of the risk window. Can be
+&quot;cohort start&quot; or &quot;cohort end&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>censorAtNewRiskWindow</code></td>
+<td>
+<p>If a subject is in multiple cohorts, should time-at-risk be
+censored when the new time-at-risk starts to prevent
+overlap?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Create an object defining the parameter values.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

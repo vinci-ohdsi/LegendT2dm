@@ -1,0 +1,15 @@
+1.1
+ - Fix autobrew for OSX Mavericks
+
+1.0
+ - Remove the deprecated aes128()
+ - Windows: update libsodium to 1.0.12
+ - OSX: autobrew script moved to separate repo
+
+0.4
+ - Update Homebrew URL in configure script
+ - Workaround for random WARNING in vignette for null strings
+ - Add Travis and README file
+
+0.2
+ - Add 2 vignettes

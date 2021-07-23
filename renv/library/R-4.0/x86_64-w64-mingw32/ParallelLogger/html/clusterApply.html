@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Apply a function to a list using the cluster</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for clusterApply {ParallelLogger}"><tr><td>clusterApply {ParallelLogger}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Apply a function to a list using the cluster</h2>
+
+<h3>Description</h3>
+
+<p>Apply a function to a list using the cluster
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+clusterApply(cluster, x, fun, ..., stopOnError = FALSE, progressBar = TRUE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>cluster</code></td>
+<td>
+<p>The cluster of threads to run the function.</p>
+</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>The list on which the function will be applied.</p>
+</td></tr>
+<tr valign="top"><td><code>fun</code></td>
+<td>
+<p>The function to apply. Note that the context in which the function is specifies
+matters (see details).</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Additional parameters for the function.</p>
+</td></tr>
+<tr valign="top"><td><code>stopOnError</code></td>
+<td>
+<p>Stop when one of the threads reports an error? If FALSE, all errors will be
+reported at the end.</p>
+</td></tr>
+<tr valign="top"><td><code>progressBar</code></td>
+<td>
+<p>Show a progress bar?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The function will be executed on each element of x in the threads of the cluster. If there are more
+elements than threads, the elements will be queued. The progress bar will show the number of
+elements that have been completed. It can sometimes be important to realize that the context in
+which a function is created is also transmitted to the worker node. If a function is defined inside
+another function, and that outer function is called with a large argument, that argument will be
+transmitted to the worker node each time the function is executed. It can therefore make sense to
+define the function to be called at the package level rather than inside a function, to save
+overhead.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list with the result of the function on each item in x.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+fun &lt;- function(x) {
+  return (x^2)
+}
+
+cluster &lt;- makeCluster(numberOfThreads = 3)
+clusterApply(cluster, 1:10, fun)
+stopCluster(cluster)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>ParallelLogger</em> version 2.0.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

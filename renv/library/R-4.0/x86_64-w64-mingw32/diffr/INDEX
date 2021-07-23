@@ -1,0 +1,2 @@
+diffr                   Diff 2 files side by side
+diffrOutput             Wrapper functions for using diffr in shiny

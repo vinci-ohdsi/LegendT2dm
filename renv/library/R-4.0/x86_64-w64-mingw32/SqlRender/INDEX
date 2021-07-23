@@ -1,0 +1,25 @@
+camelCaseToSnakeCase    Convert a camel case string to snake case
+camelCaseToTitleCase    Convert a camel case string to title case
+createRWrapperForSql    Create an R wrapper for SQL
+launchSqlRenderDeveloper
+                        Launch the SqlRender Developer Shiny app
+loadRenderTranslateSql
+                        Load, render, and translate a SQL file in a
+                        package
+readSql                 Reads a SQL file
+render                  Render SQL code based on parameterized SQL and
+                        parameter values
+renderSql               Deprecated: Render SQL code based on
+                        parameterized SQL and parameter values
+renderSqlFile           Render a SQL file
+snakeCaseToCamelCase    Convert a snake case string to camel case
+splitSql                Split a single SQL string into one or more SQL
+                        statements
+translate               Translates SQL from one dialect to another
+translateSingleStatement
+                        Translates a single SQL statement from one
+                        dialect to another
+translateSql            Deprecated: Translates SQL from one dialect to
+                        another
+translateSqlFile        Translate a SQL file
+writeSql                Write SQL to a SQL (text) file

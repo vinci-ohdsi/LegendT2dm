@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create default covariate settings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createDefaultCovariateSettings {FeatureExtraction}"><tr><td>createDefaultCovariateSettings {FeatureExtraction}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create default covariate settings</h2>
+
+<h3>Description</h3>
+
+<p>Create default covariate settings
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createDefaultCovariateSettings(
+  includedCovariateConceptIds = c(),
+  addDescendantsToInclude = FALSE,
+  excludedCovariateConceptIds = c(),
+  addDescendantsToExclude = FALSE,
+  includedCovariateIds = c()
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>includedCovariateConceptIds</code></td>
+<td>
+<p>A list of concept IDs that should be used to construct
+covariates.</p>
+</td></tr>
+<tr valign="top"><td><code>addDescendantsToInclude</code></td>
+<td>
+<p>Should descendant concept IDs be added to the list of concepts
+to include?</p>
+</td></tr>
+<tr valign="top"><td><code>excludedCovariateConceptIds</code></td>
+<td>
+<p>A list of concept IDs that should NOT be used to construct
+covariates.</p>
+</td></tr>
+<tr valign="top"><td><code>addDescendantsToExclude</code></td>
+<td>
+<p>Should descendant concept IDs be added to the list of concepts
+to exclude?</p>
+</td></tr>
+<tr valign="top"><td><code>includedCovariateIds</code></td>
+<td>
+<p>A list of covariate IDs that should be restricted to.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An object of type <code>covariateSettings</code>, to be used in other functions.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.1.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

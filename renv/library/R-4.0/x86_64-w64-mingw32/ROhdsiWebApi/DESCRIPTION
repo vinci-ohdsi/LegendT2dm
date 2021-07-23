@@ -1,0 +1,46 @@
+Package: ROhdsiWebApi
+Type: Package
+Title: Interacting With an OHDSI WebApi Instance
+Version: 1.2.0
+Date: 2021-03-31
+Authors@R: c(
+ person("Gowtham", "Rao", email = "rao@ohdsi.org", role = c("aut", "cre")),
+ person("Martijn", "Schuemie", role = c("aut")),
+ person("Jamie", "Gilbert", email = "JGilber2@its.jnj.com", role = c("aut")),
+ person("Observational Health Data Science and Informatics", role = c("cph"))
+ )
+Maintainer: Gowtham Rao <rao@ohdsi.org>
+Description: ROhdsiWebApi is an R based interface to OHDSI WebAPI services, and performs GET/PULL/POST/DELETE calls via the WebApi.
+ All objects starting from R or output to R - are analysis ready R-objects like list and data.frame.
+ The package handles the intermediary steps by converting R-objects to JSON and vice versa.
+License: Apache License 2.0
+Depends: R (>= 3.1.0),
+Imports: checkmate, dplyr, httr (>= 1.3.1), lifecycle, lubridate, openxlsx (>=
+    4.0.17), purrr, readr, RJSONIO, scales, SqlRender, stringr, tibble, tidyr,
+    rlang
+Suggests: testthat, knitr, rmarkdown, httpuv, jsonlite, plumber, callr
+URL: https://ohdsi.github.io/ROhdsiWebApi/,
+    https://github.com/OHDSI/ROhdsiWebApi
+BugReports: https://github.com/OHDSI/ROhdsiWebApi/issues
+NeedsCompilation: no
+RoxygenNote: 7.1.1
+Encoding: UTF-8
+VignetteBuilder: knitr
+Language: en-US
+RdMacros: lifecycle
+Author: Gowtham Rao [aut, cre],
+ Martijn Schuemie [aut],
+ Jamie Gilbert [aut],
+ Observational Health Data Science and Informatics [cph]
+Built: R 4.0.3; ; 2021-07-08 21:04:36 UTC; windows
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: ROhdsiWebApi
+RemoteUsername: OHDSI
+RemoteRef: master
+RemoteSha: db363a4e5d77dfa1a68267a9e1e4697ec46c02f1
+GithubHost: api.github.com
+GithubRepo: ROhdsiWebApi
+GithubUsername: OHDSI
+GithubRef: master
+GithubSHA1: db363a4e5d77dfa1a68267a9e1e4697ec46c02f1

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: In a list of object of the same type, find those that match...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for matchInList {ParallelLogger}"><tr><td>matchInList {ParallelLogger}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>In a list of object of the same type, find those that match the input</h2>
+
+<h3>Description</h3>
+
+<p>In a list of object of the same type, find those that match the input
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+matchInList(x, toMatch)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>A list of objects of the same type.</p>
+</td></tr>
+<tr valign="top"><td><code>toMatch</code></td>
+<td>
+<p>The object to match.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Typically, toMatch will contain a subset of the variables that are in the objects in the list. Any
+object matching all variables in <code>toMatch</code> will be included in the result.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list of objects that match the <code>toMatch</code> object.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+x &lt;- list(a = list(name = "John", age = 25, gender = "M"),
+          b = list(name = "Mary", age = 24, gender = "F"))
+
+matchInList(x, list(name = "Mary"))
+
+# $a
+# $a$name
+# [1] "John"
+# 
+# $a$age
+# [1] 25
+# 
+# 
+# $b
+# $b$name
+# [1] "Mary"
+# 
+# $b$age
+# [1] 24
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>ParallelLogger</em> version 2.0.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

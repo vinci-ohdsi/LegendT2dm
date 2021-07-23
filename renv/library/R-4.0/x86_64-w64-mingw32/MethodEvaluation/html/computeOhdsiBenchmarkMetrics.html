@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Generate perfomance metrics for the OHDSI Methods Benchmark</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for computeOhdsiBenchmarkMetrics {MethodEvaluation}"><tr><td>computeOhdsiBenchmarkMetrics {MethodEvaluation}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Generate perfomance metrics for the OHDSI Methods Benchmark</h2>
+
+<h3>Description</h3>
+
+<p>Generate perfomance metrics for the OHDSI Methods Benchmark
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+computeOhdsiBenchmarkMetrics(
+  exportFolder,
+  mdrr = 1.25,
+  stratum = "All",
+  trueEffectSize = "Overall",
+  calibrated = FALSE,
+  comparative = FALSE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>exportFolder</code></td>
+<td>
+<p>The folder containing the CSV files created using the
+<code><a href="packageOhdsiBenchmarkResults.html">packageOhdsiBenchmarkResults</a></code> function. This folder can contain
+results from various methods, analyses, and databases.</p>
+</td></tr>
+<tr valign="top"><td><code>mdrr</code></td>
+<td>
+<p>The minimum detectable relative risk (MDRR). Only controls with this MDRR
+will be used to compute the performance metrics. Set to &quot;All&quot; to include all
+controls.</p>
+</td></tr>
+<tr valign="top"><td><code>stratum</code></td>
+<td>
+<p>The stratum for which to compute the metrics, e.g. 'Acute Pancreatitis'. Set
+to 'All' to use all controls.</p>
+</td></tr>
+<tr valign="top"><td><code>trueEffectSize</code></td>
+<td>
+<p>Should the analysis be limited to a specific true effect size? Set to
+&quot;Overall&quot; to include all.</p>
+</td></tr>
+<tr valign="top"><td><code>calibrated</code></td>
+<td>
+<p>Should confidence intervals and p-values be empirically calibrated before
+computing the metrics?</p>
+</td></tr>
+<tr valign="top"><td><code>comparative</code></td>
+<td>
+<p>Should the methods be evaluated on the task of comprative effect estimation?
+If FALSE, they will be evaluated on the task of effect estimation.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data frame with the various metrics per method - analysisId - database combination.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>MethodEvaluation</em> version 2.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

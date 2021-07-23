@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create a logger</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createLogger {ParallelLogger}"><tr><td>createLogger {ParallelLogger}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create a logger</h2>
+
+<h3>Description</h3>
+
+<p>Create a logger
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createLogger(
+  name = "SIMPLE",
+  threshold = "INFO",
+  appenders = list(createConsoleAppender())
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>A name for the logger.</p>
+</td></tr>
+<tr valign="top"><td><code>threshold</code></td>
+<td>
+<p>The threshold to be used for reporting.</p>
+</td></tr>
+<tr valign="top"><td><code>appenders</code></td>
+<td>
+<p>A list of one or more appenders as created for example using the
+<code><a href="createConsoleAppender.html">createConsoleAppender</a></code> or <code><a href="createFileAppender.html">createFileAppender</a></code> function.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Creates a logger that will log messages to its appenders. The logger will only log messages at a
+level equal to or higher than its threshold. For example, if the threshold is &quot;INFO&quot; then messages
+marked &quot;INFO&quot; will be logged, but messages marked &quot;TRACE&quot; will not. The order of levels is &quot;TRACE&quot;,
+&quot;DEBUG&quot;, &quot;INFO&quot;, &quot;WARN&quot;, &quot;ERROR, &quot;and FATAL&quot;.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of type <code>Logger</code>, to be used with the <code><a href="registerLogger.html">registerLogger</a></code> function.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+appender &lt;- createConsoleAppender(layout = layoutTimestamp)
+
+logger &lt;- createLogger(name = "SIMPLE",
+                       threshold = "INFO",
+                       appenders = list(appender))
+registerLogger(logger)                      
+logTrace("This event is below the threshold (INFO)")
+logInfo("Hello world")                       
+unregisterLogger("SIMPLE")                     
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>ParallelLogger</em> version 2.0.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

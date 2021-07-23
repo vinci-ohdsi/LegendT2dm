@@ -1,0 +1,47 @@
+CovariateData-class     Covariate Data
+aggregateCovariates     Aggregate covariate data
+computeStandardizedDifference
+                        Compute standardized difference of mean for all
+                        covariates.
+convertPrespecSettingsToDetailedSettings
+                        Convert prespecified covariate settings into
+                        detailed covariate settings
+createAnalysisDetails   Create detailed covariate settings
+createCohortAttrCovariateSettings
+                        Create cohort attribute covariate settings
+createCovariateSettings
+                        Create covariate settings
+createDefaultCovariateSettings
+                        Create default covariate settings
+createDefaultTemporalCovariateSettings
+                        Create default covariate settings
+createDetailedCovariateSettings
+                        Create detailed covariate settings
+createDetailedTemporalCovariateSettings
+                        Create detailed temporal covariate settings
+createTable1            Create a table 1
+createTable1CovariateSettings
+                        Create covariate settings for a table 1
+createTemporalCovariateSettings
+                        Create covariate settings
+filterByCohortDefinitionId
+                        Filter covariates by cohort definition ID
+filterByRowId           Filter covariates by row ID
+getDbCohortAttrCovariatesData
+                        Getcovariate information from the database
+                        through the cohort_attribute table
+getDbCovariateData      Get covariate information from the database
+getDbDefaultCovariateData
+                        Get default covariate information from the
+                        database
+getDefaultTable1Specifications
+                        Get the default table 1 specifications
+isAggregatedCovariateData
+                        Check whether covariate data is aggregated
+isCovariateData         Check whether an object is a CovariateData
+                        object
+isTemporalCovariateData
+                        Check whether covariate data is temporal
+loadCovariateData       Load the covariate data from a folder
+saveCovariateData       Save the covariate data to folder
+tidyCovariateData       Tidy covariate data

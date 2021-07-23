@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>R: Package for Evaluation of Estimation Methods</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+<h1> Package for Evaluation of Estimation Methods
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;MethodEvaluation&rsquo; version 2.1.0</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+<li><a href="../doc/index.html">User guides, package vignettes and other documentation.</a></li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="computeMdrr.html">computeMdrr</a></td>
+<td>Compute minimal detectable relative risk (MDRR)</td></tr>
+<tr><td style="width: 25%;"><a href="computeMetrics.html">computeMetrics</a></td>
+<td>Compute method performance metrics</td></tr>
+<tr><td style="width: 25%;"><a href="computeOhdsiBenchmarkMetrics.html">computeOhdsiBenchmarkMetrics</a></td>
+<td>Generate perfomance metrics for the OHDSI Methods Benchmark</td></tr>
+<tr><td style="width: 25%;"><a href="createReferenceSetCohorts.html">createReferenceSetCohorts</a></td>
+<td>Create cohorts used in a reference set.</td></tr>
+<tr><td style="width: 25%;"><a href="euadrReferenceSet.html">euadrReferenceSet</a></td>
+<td>The EU-ADR reference set A reference set of 43 drug-outcome pairs where we believe the drug causes the outcome ( positive controls) and 50 drug-outcome pairs where we believe the drug does not cause the outcome (negative controls). The controls involve 10 health outcomes of interest. Note that originally, there was an additional positive control (Nimesulide and acute liver injury), but Nimesulide is not in RxNorm, and is not available in many countries.</td></tr>
+<tr><td style="width: 25%;"><a href="injectSignals.html">injectSignals</a></td>
+<td>Inject signals in database</td></tr>
+<tr><td style="width: 25%;"><a href="launchMethodEvaluationApp.html">launchMethodEvaluationApp</a></td>
+<td>Launch the Method Evaluation Shiny app</td></tr>
+<tr><td style="width: 25%;"><a href="ohdsiDevelopmentNegativeControls.html">ohdsiDevelopmentNegativeControls</a></td>
+<td>The OHDSI Development Set - Negative Controls A set of 76 negative control outcomes, all for the exposures of ACE inhibitors (compared to thiazides and thiazide-like diuretics). This set is a much small set than the he OHDSI Method Evaluation Benchmark, but follows the same principles. It is intended to be used when developing methods, leaving the Methods Benchark untouched until a final evaluation of the method, thus preventing 'training' on the evaluation set. The negative controls are borrowed from the LEGEND Hypertension study. The exposure, outcome, and nesting cohorts can be created using the 'createReferenceSetCohorts' function. These negative controls can form the basis to generate positive controls using the 'injectSignals' function.</td></tr>
+<tr><td style="width: 25%;"><a href="ohdsiNegativeControls.html">ohdsiNegativeControls</a></td>
+<td>The OHDSI Method Evaluation Benchmark - Negative Controls A set of 200 negative controls, centered around four outcomes of interest (acute pancreatitis, GI bleeding, Stroke, and IBD), and 4 exposures of interest (diclofenac, ciprofloxacin, metformin, and sertraline), which 25 negative controls each. Each drug-outcome pair also includes a comparator drug (where the comparator is also a negative control), allowing for evaluation of comparative effect estimation, and a nesting cohort for evaluating methods such as the nested case-control design. The exposure, outcome, and nesting cohorts can be created using the 'createReferenceSetCohorts' function. These negative controls can form the basis to generate positive controls using the 'injectSignals' function.</td></tr>
+<tr><td style="width: 25%;"><a href="omopReferenceSet.html">omopReferenceSet</a></td>
+<td>The OMOP reference set A reference set of 165 drug-outcome pairs where we believe the drug causes the outcome ( positive controls) and 234 drug-outcome pairs where we believe the drug does not cause the outcome (negative controls). The controls involve 4 health outcomes of interest: acute liver injury, acute kidney injury, acute myocardial infarction, and GI bleeding.</td></tr>
+<tr><td style="width: 25%;"><a href="packageOhdsiBenchmarkResults.html">packageOhdsiBenchmarkResults</a></td>
+<td>Package results of a method on the OHDSI Methods Benchmark</td></tr>
+<tr><td style="width: 25%;"><a href="plotControls.html">plotControls</a></td>
+<td>Plot negative and positive control estimates.</td></tr>
+<tr><td style="width: 25%;"><a href="plotCoverageInjectedSignals.html">plotCoverageInjectedSignals</a></td>
+<td>Plot the coverage</td></tr>
+<tr><td style="width: 25%;"><a href="plotRocsInjectedSignals.html">plotRocsInjectedSignals</a></td>
+<td>Plot the ROC curves for various injected signal sizes</td></tr>
+<tr><td style="width: 25%;"><a href="synthesizePositiveControls.html">synthesizePositiveControls</a></td>
+<td>Synthesize positive controls</td></tr>
+<tr><td style="width: 25%;"><a href="synthesizeReferenceSetPositiveControls.html">synthesizeReferenceSetPositiveControls</a></td>
+<td>Synthesize positive controls for reference set</td></tr>
+</table>
+</body></html>

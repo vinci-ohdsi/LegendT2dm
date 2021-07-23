@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Match persons by propensity score</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for matchOnPs {CohortMethod}"><tr><td>matchOnPs {CohortMethod}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Match persons by propensity score</h2>
+
+<h3>Description</h3>
+
+<p>Use the provided propensity scores to match target to comparator persons.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+matchOnPs(
+  population,
+  caliper = 0.2,
+  caliperScale = "standardized logit",
+  maxRatio = 1,
+  allowReverseMatch = FALSE,
+  stratificationColumns = c()
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>population</code></td>
+<td>
+<p>A data frame with the three columns described below.</p>
+</td></tr>
+<tr valign="top"><td><code>caliper</code></td>
+<td>
+<p>The caliper for matching. A caliper is the distance which is
+acceptable for any match. Observations which are outside of the
+caliper are dropped. A caliper of 0 means no caliper is used.</p>
+</td></tr>
+<tr valign="top"><td><code>caliperScale</code></td>
+<td>
+<p>The scale on which the caliper is defined. Three scales are supported:
+<code>caliperScale = 'propensity score'</code>, <code>caliperScale = 'standardized'</code>, or <code>caliperScale = 'standardized logit'</code>.
+On the standardized scale, the caliper is interpreted in standard
+deviations of the propensity score distribution. 'standardized logit'
+is similar, except that the propensity score is transformed to the logit
+scale because the PS is more likely to be normally distributed on that scale
+(Austin, 2011).</p>
+</td></tr>
+<tr valign="top"><td><code>maxRatio</code></td>
+<td>
+<p>The maximum number of persons in the comparator arm to be matched to
+each person in the treatment arm. A maxRatio of 0 means no maximum:
+all comparators will be assigned to a target person.</p>
+</td></tr>
+<tr valign="top"><td><code>allowReverseMatch</code></td>
+<td>
+<p>Allows n-to-1 matching if target arm is larger</p>
+</td></tr>
+<tr valign="top"><td><code>stratificationColumns</code></td>
+<td>
+<p>Names or numbers of one or more columns in the <code>data</code> data.frame
+on which subjects should be stratified prior to matching. No persons
+will be matched with persons outside of the strata identified by the
+values in these columns.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The data frame should have the following three columns:
+</p>
+
+<ul>
+<li><p> rowId (numeric): A unique identifier for each row (e.g. the person ID).
+</p>
+</li>
+<li><p> treatment (integer): Column indicating whether the person is in the target (1) or comparator (0) group.
+</p>
+</li>
+<li><p> propensityScore (numeric): Propensity score.
+</p>
+</li></ul>
+
+<p>The default caliper (0.2 on the standardized logit scale) is the one recommended by Austin (2011).
+</p>
+
+
+<h3>Value</h3>
+
+<p>Returns a date frame with the same columns as the input data plus one extra column: stratumId. Any
+rows that could not be matched are removed
+</p>
+
+
+<h3>References</h3>
+
+<p>Rassen JA, Shelat AA, Myers J, Glynn RJ, Rothman KJ, Schneeweiss S. (2012) One-to-many propensity
+score matching in cohort studies, Pharmacoepidemiology and Drug Safety, May, 21 Suppl 2:69-80.
+</p>
+<p>Austin, PC. (2011) Optimal caliper widths for propensity-score matching when estimating differences in
+means and differences in proportions in observational studies, Pharmaceutical statistics, March, 10(2):150-161.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+rowId &lt;- 1:5
+treatment &lt;- c(1, 0, 1, 0, 1)
+propensityScore &lt;- c(0, 0.1, 0.3, 0.4, 1)
+age_group &lt;- c(1, 1, 1, 1, 1)
+data &lt;- data.frame(rowId = rowId,
+                   treatment = treatment,
+                   propensityScore = propensityScore,
+                   age_group = age_group)
+result &lt;- matchOnPs(data, caliper = 0, maxRatio = 1, stratificationColumns = "age_group")
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

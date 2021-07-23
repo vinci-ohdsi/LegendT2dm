@@ -1,0 +1,11 @@
+Authenticated encryption
+                        Authenticated Encryption
+Diffie-Hellman          Diffie-Hellman
+Hash functions          Hash Functions
+Key generation          Keypair Generation
+Password storage        Password Storage
+Signatures              Create and Verify Signatures
+Simple encryption       Anonymous Public-key Encryption (Sealed Box)
+Sodium utilities        Sodium Utilities
+Stream ciphers          Stream Ciphers
+Symmetric encryption    Symmetric Encryption and Tagging

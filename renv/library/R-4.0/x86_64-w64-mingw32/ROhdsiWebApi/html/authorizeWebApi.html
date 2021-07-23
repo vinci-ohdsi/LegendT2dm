@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Authorize ROhdsiWebApi to access a protected instance of...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for authorizeWebApi {ROhdsiWebApi}"><tr><td>authorizeWebApi {ROhdsiWebApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Authorize ROhdsiWebApi to access a protected instance of WebAPI Authorize the ROhdsiWebApi package
+to access WebApi on behalf of the user. This can be done with any of the auth methods described
+below. authorizeWebApi will use attempt to retrive, cache, and update a token which will grant
+access to webAPI by all subsequent requests made by the package.</h2>
+
+<h3>Description</h3>
+
+<p>Authorize ROhdsiWebApi to access a protected instance of WebAPI Authorize the ROhdsiWebApi package
+to access WebApi on behalf of the user. This can be done with any of the auth methods described
+below. authorizeWebApi will use attempt to retrive, cache, and update a token which will grant
+access to webAPI by all subsequent requests made by the package.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+authorizeWebApi(
+  baseUrl,
+  authMethod,
+  webApiUsername = NULL,
+  webApiPassword = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;. Note, there is no trailing '/'.
+If trailing '/' is used, you may receive an error.</p>
+</td></tr>
+<tr valign="top"><td><code>authMethod</code></td>
+<td>
+<p>The method used for authentication to WebAPI. Options are
+</p>
+
+<ul>
+<li> <p>&quot;db&quot;Database authentication using Atlas/WebAPI built in auth
+</p>
+</li>
+<li> <p>&quot;ad&quot;Active Directory
+</p>
+</li>
+<li> <p>&quot;windows&quot;Windows NT authentication
+</p>
+</li></ul>
+
+<p>The auth method must be enabled in the instance of WebAPI pointed to by
+baseUrl.</p>
+</td></tr>
+<tr valign="top"><td><code>webApiUsername</code></td>
+<td>
+<p>A character string containing the WebApi username passed on to
+authentication methods</p>
+</td></tr>
+<tr valign="top"><td><code>webApiPassword</code></td>
+<td>
+<p>An character string containing a WebApi password passed on to authentication
+methods. By default the user will be prompted for their password when
+needed.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>ROhdsiWebApi</em> version 1.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

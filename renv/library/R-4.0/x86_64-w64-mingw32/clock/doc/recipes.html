@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Examples and Recipes</title>
+
+<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Examples and Recipes</h1>
+
+
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(clock)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span></code></pre></div>
+<p>This vignette shows common examples and recipes that might be useful when learning about clock. Where possible, both the high and low level API are shown.</p>
+<p>Many of these examples are adapted from the date C++ library’s <a href="https://github.com/HowardHinnant/date/wiki/Examples-and-Recipes">Examples and Recipes</a> page.</p>
+<div id="the-current-local-time" class="section level2">
+<h2>The current local time</h2>
+<p><code>zoned_time_now()</code> returns the current time in a particular time zone. It will display up to nanosecond precision, but the exact amount is OS dependent (on a Mac this displays microsecond level information at nanosecond resolution).</p>
+<p>Using <code>&quot;&quot;</code> as the time zone string will try and use whatever R thinks your local time zone is (i.e. from <code>Sys.timezone()</code>).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">zoned_time_now</span>(<span class="st">&quot;&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;nanosecond&gt;&lt;America/New_York (current)&gt;[1]&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2021-02-10 15:54:29.875011000-05:00&quot;</span></span></code></pre></div>
+</div>
+<div id="the-current-time-somewhere-else" class="section level2">
+<h2>The current time somewhere else</h2>
+<p>Pass a time zone name to <code>zoned_time_now()</code> to get the current time somewhere else.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">zoned_time_now</span>(<span class="st">&quot;Asia/Shanghai&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;nanosecond&gt;&lt;Asia/Shanghai&gt;[1]&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2021-02-11 04:54:29.875011000+08:00&quot;</span></span></code></pre></div>
+</div>
+<div id="set-a-meeting-across-time-zones" class="section level2">
+<h2>Set a meeting across time zones</h2>
+<p>Say you need to set a meeting with someone in Shanghai, but you live in New York. If you set a meeting for 9am, what time is that for them?</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_time <span class="ot">&lt;-</span> <span class="fu">year_month_day</span>(<span class="dv">2019</span>, <span class="dv">1</span>, <span class="dv">30</span>, <span class="dv">9</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_naive_time</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_zoned_time</span>(<span class="st">&quot;America/New_York&quot;</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>my_time</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;America/New_York&gt;[1]&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-30 09:00:00-05:00&quot;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>their_time <span class="ot">&lt;-</span> <span class="fu">zoned_time_set_zone</span>(my_time, <span class="st">&quot;Asia/Shanghai&quot;</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>their_time</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;Asia/Shanghai&gt;[1]&gt;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-30 22:00:00+08:00&quot;</span></span></code></pre></div>
+<div id="high-level-api" class="section level3">
+<h3>High level API</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_time <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">&quot;2019-01-30 09:00:00&quot;</span>, <span class="st">&quot;America/New_York&quot;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">date_set_zone</span>(my_time, <span class="st">&quot;Asia/Shanghai&quot;</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-30 22:00:00 CST&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="force-a-specific-time-zone" class="section level2">
+<h2>Force a specific time zone</h2>
+<p>Say your co-worker in Shanghai (from the last example) accidentally logged on at 9am <em>their time</em>. What time would this be for you?</p>
+<p>The first step to solve this is to force <code>my_time</code> to have the same printed time, but use the Asia/Shanghai time zone. You can do this by going through naive-time:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>my_time <span class="ot">&lt;-</span> <span class="fu">year_month_day</span>(<span class="dv">2019</span>, <span class="dv">1</span>, <span class="dv">30</span>, <span class="dv">9</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_naive_time</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_zoned_time</span>(<span class="st">&quot;America/New_York&quot;</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>my_time</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;America/New_York&gt;[1]&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-30 09:00:00-05:00&quot;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the time zone information, retaining the printed time</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>my_time <span class="sc">%&gt;%</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_naive_time</span>()</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;time_point&lt;naive&gt;&lt;second&gt;[1]&gt;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-30 09:00:00&quot;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the correct time zone name back on,</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># again retaining the printed time</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>their_9am <span class="ot">&lt;-</span> my_time <span class="sc">%&gt;%</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_naive_time</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_zoned_time</span>(<span class="st">&quot;Asia/Shanghai&quot;</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>their_9am</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;Asia/Shanghai&gt;[1]&gt;</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-30 09:00:00+08:00&quot;</span></span></code></pre></div>
+<p>Note that a conversion like this isn’t always possible due to daylight saving time issues, in which case you might need to set the <code>nonexistent</code> and <code>ambiguous</code> arguments of <code>as_zoned_time()</code>.</p>
+<p>What time would this have been for you in New York?</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">zoned_time_set_zone</span>(their_9am, <span class="st">&quot;America/New_York&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;America/New_York&gt;[1]&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-29 20:00:00-05:00&quot;</span></span></code></pre></div>
+<div id="high-level-api-1" class="section level3">
+<h3>High level API</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>my_time <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">&quot;2019-01-30 09:00:00&quot;</span>, <span class="st">&quot;America/New_York&quot;</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>my_time <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_naive_time</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.POSIXct</span>(<span class="st">&quot;Asia/Shanghai&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">date_set_zone</span>(<span class="st">&quot;America/New_York&quot;</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-29 20:00:00 EST&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="finding-the-next-monday-or-thursday" class="section level2">
+<h2>Finding the next Monday (or Thursday)</h2>
+<p>Given a particular day precision naive-time, how can you compute the next Monday? This is very easily accomplished with <code>time_point_shift()</code>. It takes a time point vector and a “target” weekday, and shifts the time points to that target weekday.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>days <span class="ot">&lt;-</span> <span class="fu">as_naive_time</span>(<span class="fu">year_month_day</span>(<span class="dv">2019</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dv">1</span>))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># A Tuesday and a Friday</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">as_weekday</span>(days)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;weekday[2]&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] Tue Fri</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>monday <span class="ot">&lt;-</span> <span class="fu">weekday</span>(clock_weekdays<span class="sc">$</span>monday)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">time_point_shift</span>(days, monday)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;time_point&lt;naive&gt;&lt;day&gt;[2]&gt;</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-07&quot; &quot;2019-02-04&quot;</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">as_weekday</span>(<span class="fu">time_point_shift</span>(days, monday))</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;weekday[2]&gt;</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] Mon Mon</span></span></code></pre></div>
+<p>You can also shift to the previous instance of the target weekday:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">time_point_shift</span>(days, monday, <span class="at">which =</span> <span class="st">&quot;previous&quot;</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;time_point&lt;naive&gt;&lt;day&gt;[2]&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2018-12-31&quot; &quot;2019-01-28&quot;</span></span></code></pre></div>
+<p>If you happen to already be on the target weekday, the default behavior returns the input unchanged. However, you can also chose to advance to the next instance of the target.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tuesday <span class="ot">&lt;-</span> <span class="fu">weekday</span>(clock_weekdays<span class="sc">$</span>tuesday)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">time_point_shift</span>(days, tuesday)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;time_point&lt;naive&gt;&lt;day&gt;[2]&gt;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-01&quot; &quot;2019-02-05&quot;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">time_point_shift</span>(days, tuesday, <span class="at">boundary =</span> <span class="st">&quot;advance&quot;</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;time_point&lt;naive&gt;&lt;day&gt;[2]&gt;</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-08&quot; &quot;2019-02-05&quot;</span></span></code></pre></div>
+<p>While <code>time_point_shift()</code> is built in to clock, it can be useful to discuss the arithmetic going on in the underlying weekday type which powers this function. To do so, we will build some parts of <code>time_point_shift()</code> from scratch.</p>
+<p>The weekday type represents a single day of the week and implements <em>circular arithmetic</em>. Let’s see the code for a simple version of <code>time_point_shift()</code> that just shifts to the next target weekday:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>next_weekday <span class="ot">&lt;-</span> <span class="cf">function</span>(x, target) {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> (target <span class="sc">-</span> <span class="fu">as_weekday</span>(x))</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">next_weekday</span>(days, monday)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;time_point&lt;naive&gt;&lt;day&gt;[2]&gt;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-07&quot; &quot;2019-02-04&quot;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">as_weekday</span>(<span class="fu">next_weekday</span>(days, monday))</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;weekday[2]&gt;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] Mon Mon</span></span></code></pre></div>
+<p>Let’s break down how <code>next_weekday()</code> works. The first step takes the difference between two weekday vectors. It does this using circular arithmetic. Once we get passed the 7th day of the week (whatever that may be), it wraps back around to the 1st day of the week. Implementing weekday arithmetic in this way means that the following nicely returns the number of days until the next Monday as a day based duration:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>monday <span class="sc">-</span> <span class="fu">as_weekday</span>(days)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;duration&lt;day&gt;[2]&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 6 3</span></span></code></pre></div>
+<p>Which can be added to our day precision <code>days</code> vector to get the date of the next Monday:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>days <span class="sc">+</span> (monday <span class="sc">-</span> <span class="fu">as_weekday</span>(days))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;time_point&lt;naive&gt;&lt;day&gt;[2]&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-07&quot; &quot;2019-02-04&quot;</span></span></code></pre></div>
+<p>The current implementation will return the input if it is already on the target weekday. To use the <code>boundary = &quot;advance&quot;</code> behavior, you could implement <code>next_weekday()</code> as:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>next_weekday2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, target) {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="fu">duration_days</span>(1L)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> (target <span class="sc">-</span> <span class="fu">as_weekday</span>(x))</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>a_monday <span class="ot">&lt;-</span> <span class="fu">as_naive_time</span>(<span class="fu">year_month_day</span>(<span class="dv">2018</span>, <span class="dv">12</span>, <span class="dv">31</span>))</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">as_weekday</span>(a_monday)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;weekday[1]&gt;</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] Mon</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">next_weekday2</span>(a_monday, monday)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;time_point&lt;naive&gt;&lt;day&gt;[1]&gt;</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-07&quot;</span></span></code></pre></div>
+<div id="high-level-api-2" class="section level3">
+<h3>High level API</h3>
+<p>In the high level API, you can use <code>date_shift()</code>:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>monday <span class="ot">&lt;-</span> <span class="fu">weekday</span>(clock_weekdays<span class="sc">$</span>monday)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2019-01-01&quot;</span>, <span class="st">&quot;2019-02-01&quot;</span>))</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date_shift</span>(x, monday)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-07&quot; &quot;2019-02-04&quot;</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># With a date-time</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&quot;2019-01-01 02:30:30&quot;</span>, <span class="st">&quot;2019-02-01 05:20:22&quot;</span>), </span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;America/New_York&quot;</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="fu">date_shift</span>(y, monday)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-07 02:30:30 EST&quot; &quot;2019-02-04 05:20:22 EST&quot;</span></span></code></pre></div>
+<p>Note that adding weekdays to a POSIXct could generate nonexistent or ambiguous times due to daylight saving time, which would have to be handled by supplying <code>nonexistent</code> and <code>ambiguous</code> arguments to <code>date_shift()</code>.</p>
+</div>
+</div>
+<div id="generate-sequences-of-dates-and-date-times" class="section level2">
+<h2>Generate sequences of dates and date-times</h2>
+<p>clock implements S3 methods for the <code>seq()</code> generic function for the calendar and time point types it provides. The precision that you can generate sequences for depends on the type.</p>
+<ul>
+<li>year-month-day: Yearly or monthly sequences</li>
+<li>year-quarter-day: Yearly or quarterly sequences</li>
+<li>sys-time / naive-time: Weekly, Daily, Hourly, …, Subsecond sequences</li>
+</ul>
+<p>When generating sequences, the type and precision of <code>from</code> determine the result. For example:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>ym <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">year_month_day</span>(<span class="dv">2019</span>, <span class="dv">1</span>), <span class="at">by =</span> <span class="dv">2</span>, <span class="at">length.out =</span> <span class="dv">10</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>ym</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;year_month_day&lt;month&gt;[10]&gt;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2019-01&quot; &quot;2019-03&quot; &quot;2019-05&quot; &quot;2019-07&quot; &quot;2019-09&quot; &quot;2019-11&quot; &quot;2020-01&quot;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [8] &quot;2020-03&quot; &quot;2020-05&quot; &quot;2020-07&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>yq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">year_quarter_day</span>(<span class="dv">2019</span>, <span class="dv">1</span>), <span class="at">by =</span> <span class="dv">2</span>, <span class="at">length.out =</span> <span class="dv">10</span>)</span></code></pre></div>
+<p>This allows you to generate sequences of year-months or year-quarters without having to worry about the day of the month/quarter becoming invalid. You can set the day of the results to get to a day precision calendar. For example, to get the last days of the month/quarter for this sequence:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set_day</span>(ym, <span class="st">&quot;last&quot;</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;year_month_day&lt;day&gt;[10]&gt;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2019-01-31&quot; &quot;2019-03-31&quot; &quot;2019-05-31&quot; &quot;2019-07-31&quot; &quot;2019-09-30&quot;</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;2019-11-30&quot; &quot;2020-01-31&quot; &quot;2020-03-31&quot; &quot;2020-05-31&quot; &quot;2020-07-31&quot;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set_day</span>(yq, <span class="st">&quot;last&quot;</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;year_quarter_day&lt;January&gt;&lt;day&gt;[10]&gt;</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2019-Q1-90&quot; &quot;2019-Q3-92&quot; &quot;2020-Q1-91&quot; &quot;2020-Q3-92&quot; &quot;2021-Q1-90&quot;</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;2021-Q3-92&quot; &quot;2022-Q1-90&quot; &quot;2022-Q3-92&quot; &quot;2023-Q1-90&quot; &quot;2023-Q3-92&quot;</span></span></code></pre></div>
+<p>You won’t be able to generate day precision sequences with calendars. Instead, you should use a time point.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>from <span class="ot">&lt;-</span> <span class="fu">as_naive_time</span>(<span class="fu">year_month_day</span>(<span class="dv">2019</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>to <span class="ot">&lt;-</span> <span class="fu">as_naive_time</span>(<span class="fu">year_month_day</span>(<span class="dv">2019</span>, <span class="dv">5</span>, <span class="dv">15</span>))</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(from, to, <span class="at">by =</span> <span class="dv">20</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;time_point&lt;naive&gt;&lt;day&gt;[7]&gt;</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-01&quot; &quot;2019-01-21&quot; &quot;2019-02-10&quot; &quot;2019-03-02&quot; &quot;2019-03-22&quot;</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [6] &quot;2019-04-11&quot; &quot;2019-05-01&quot;</span></span></code></pre></div>
+<p>If you use an integer <code>by</code> value, it is interpreted as a duration at the same precision as <code>from</code>. You can also use a duration object that can be cast to the same precision as <code>from</code>. For example, to generate a sequence spaced out by 90 minutes for these second precision end points:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>from <span class="ot">&lt;-</span> <span class="fu">as_naive_time</span>(<span class="fu">year_month_day</span>(<span class="dv">2019</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">30</span>, <span class="dv">00</span>))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>to <span class="ot">&lt;-</span> <span class="fu">as_naive_time</span>(<span class="fu">year_month_day</span>(<span class="dv">2019</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">12</span>, <span class="dv">30</span>, <span class="dv">00</span>))</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(from, to, <span class="at">by =</span> <span class="fu">duration_minutes</span>(<span class="dv">90</span>))</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;time_point&lt;naive&gt;&lt;second&gt;[7]&gt;</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-01 02:30:00&quot; &quot;2019-01-01 04:00:00&quot; &quot;2019-01-01 05:30:00&quot;</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4] &quot;2019-01-01 07:00:00&quot; &quot;2019-01-01 08:30:00&quot; &quot;2019-01-01 10:00:00&quot;</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [7] &quot;2019-01-01 11:30:00&quot;</span></span></code></pre></div>
+<div id="high-level-api-3" class="section level3">
+<h3>High level API</h3>
+<p>In the high level API, you can use <code>date_seq()</code> to generate sequences. This doesn’t have all of the flexibility of the <code>seq()</code> methods above, but is still extremely useful and has the added benefit of switching between calendars, sys-times, and naive-times automatically for you.</p>
+<p>If an integer <code>by</code> is supplied with a date <code>from</code>, it defaults to a daily sequence:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">date_seq</span>(<span class="fu">date_build</span>(<span class="dv">2019</span>, <span class="dv">1</span>), <span class="at">by =</span> <span class="dv">2</span>, <span class="at">total_size =</span> <span class="dv">10</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2019-01-01&quot; &quot;2019-01-03&quot; &quot;2019-01-05&quot; &quot;2019-01-07&quot; &quot;2019-01-09&quot;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;2019-01-11&quot; &quot;2019-01-13&quot; &quot;2019-01-15&quot; &quot;2019-01-17&quot; &quot;2019-01-19&quot;</span></span></code></pre></div>
+<p>You can generate a monthly sequence by supplying a month precision duration for <code>by</code>.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">date_seq</span>(<span class="fu">date_build</span>(<span class="dv">2019</span>, <span class="dv">1</span>), <span class="at">by =</span> <span class="fu">duration_months</span>(<span class="dv">2</span>), <span class="at">total_size =</span> <span class="dv">10</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2019-01-01&quot; &quot;2019-03-01&quot; &quot;2019-05-01&quot; &quot;2019-07-01&quot; &quot;2019-09-01&quot;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;2019-11-01&quot; &quot;2020-01-01&quot; &quot;2020-03-01&quot; &quot;2020-05-01&quot; &quot;2020-07-01&quot;</span></span></code></pre></div>
+<p>If you supply <code>to</code>, be aware that all components of <code>to</code> that are more precise than the precision of <code>by</code> must match <code>from</code> exactly. For example, the day component of <code>from</code> and <code>to</code> doesn’t match here, so the sequence isn’t defined.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">date_seq</span>(</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">date_build</span>(<span class="dv">2019</span>, <span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">to =</span> <span class="fu">date_build</span>(<span class="dv">2019</span>, <span class="dv">10</span>, <span class="dv">2</span>),</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">duration_months</span>(<span class="dv">2</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: All components of `from` and `to` more precise than &#39;month&#39; must match.</span></span></code></pre></div>
+<p><code>date_seq()</code> also catches invalid dates for you, forcing you to specify the <code>invalid</code> argument to specify how to handle them.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>jan31 <span class="ot">&lt;-</span> <span class="fu">date_build</span>(<span class="dv">2019</span>, <span class="dv">1</span>, <span class="dv">31</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>dec31 <span class="ot">&lt;-</span> <span class="fu">date_build</span>(<span class="dv">2019</span>, <span class="dv">12</span>, <span class="dv">31</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date_seq</span>(jan31, <span class="at">to =</span> dec31, <span class="at">by =</span> <span class="fu">duration_months</span>(<span class="dv">1</span>))</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: Invalid date found at location 2.</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ Resolve invalid date issues by specifying the `invalid` argument.</span></span></code></pre></div>
+<p>By specifying <code>invalid = &quot;previous&quot;</code> here, we can generate month end values.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">date_seq</span>(jan31, <span class="at">to =</span> dec31, <span class="at">by =</span> <span class="fu">duration_months</span>(<span class="dv">1</span>), <span class="at">invalid =</span> <span class="st">&quot;previous&quot;</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2019-01-31&quot; &quot;2019-02-28&quot; &quot;2019-03-31&quot; &quot;2019-04-30&quot; &quot;2019-05-31&quot;</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;2019-06-30&quot; &quot;2019-07-31&quot; &quot;2019-08-31&quot; &quot;2019-09-30&quot; &quot;2019-10-31&quot;</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [11] &quot;2019-11-30&quot; &quot;2019-12-31&quot;</span></span></code></pre></div>
+<p>Compare this with the automatic “overflow” behavior of <code>seq()</code>, which is often a source of confusion.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(jan31, <span class="at">to =</span> dec31, <span class="at">by =</span> <span class="st">&quot;1 month&quot;</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2019-01-31&quot; &quot;2019-03-03&quot; &quot;2019-03-31&quot; &quot;2019-05-01&quot; &quot;2019-05-31&quot;</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;2019-07-01&quot; &quot;2019-07-31&quot; &quot;2019-08-31&quot; &quot;2019-10-01&quot; &quot;2019-10-31&quot;</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [11] &quot;2019-12-01&quot; &quot;2019-12-31&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="grouping-by-months-or-quarters" class="section level2">
+<h2>Grouping by months or quarters</h2>
+<p>When working on a data analysis, you might be required to summarize certain metrics at a monthly or quarterly level. With <code>calendar_group()</code>, you can easily summarize at the granular precision that you care about. Take this vector of day precision naive-times in 2019:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>from <span class="ot">&lt;-</span> <span class="fu">as_naive_time</span>(<span class="fu">year_month_day</span>(<span class="dv">2019</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>to <span class="ot">&lt;-</span> <span class="fu">as_naive_time</span>(<span class="fu">year_month_day</span>(<span class="dv">2019</span>, <span class="dv">12</span>, <span class="dv">31</span>))</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(from, to, <span class="at">by =</span> <span class="fu">duration_days</span>(<span class="dv">20</span>))</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;time_point&lt;naive&gt;&lt;day&gt;[19]&gt;</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2019-01-01&quot; &quot;2019-01-21&quot; &quot;2019-02-10&quot; &quot;2019-03-02&quot; &quot;2019-03-22&quot;</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;2019-04-11&quot; &quot;2019-05-01&quot; &quot;2019-05-21&quot; &quot;2019-06-10&quot; &quot;2019-06-30&quot;</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [11] &quot;2019-07-20&quot; &quot;2019-08-09&quot; &quot;2019-08-29&quot; &quot;2019-09-18&quot; &quot;2019-10-08&quot;</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16] &quot;2019-10-28&quot; &quot;2019-11-17&quot; &quot;2019-12-07&quot; &quot;2019-12-27&quot;</span></span></code></pre></div>
+<p>To group by month, first convert to a year-month-day:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>ymd <span class="ot">&lt;-</span> <span class="fu">as_year_month_day</span>(x)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ymd)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;year_month_day&lt;day&gt;[6]&gt;</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-01-01&quot; &quot;2019-01-21&quot; &quot;2019-02-10&quot; &quot;2019-03-02&quot; &quot;2019-03-22&quot;</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [6] &quot;2019-04-11&quot;</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar_group</span>(ymd, <span class="st">&quot;month&quot;</span>)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;year_month_day&lt;month&gt;[19]&gt;</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2019-01&quot; &quot;2019-01&quot; &quot;2019-02&quot; &quot;2019-03&quot; &quot;2019-03&quot; &quot;2019-04&quot; &quot;2019-05&quot;</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [8] &quot;2019-05&quot; &quot;2019-06&quot; &quot;2019-06&quot; &quot;2019-07&quot; &quot;2019-08&quot; &quot;2019-08&quot; &quot;2019-09&quot;</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [15] &quot;2019-10&quot; &quot;2019-10&quot; &quot;2019-11&quot; &quot;2019-12&quot; &quot;2019-12&quot;</span></span></code></pre></div>
+<p>To group by quarter, convert to a year-quarter-day:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>yqd <span class="ot">&lt;-</span> <span class="fu">as_year_quarter_day</span>(x)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(yqd)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;year_quarter_day&lt;January&gt;&lt;day&gt;[6]&gt;</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-Q1-01&quot; &quot;2019-Q1-21&quot; &quot;2019-Q1-41&quot; &quot;2019-Q1-61&quot; &quot;2019-Q1-81&quot;</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [6] &quot;2019-Q2-11&quot;</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar_group</span>(yqd, <span class="st">&quot;quarter&quot;</span>)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;year_quarter_day&lt;January&gt;&lt;quarter&gt;[19]&gt;</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2019-Q1&quot; &quot;2019-Q1&quot; &quot;2019-Q1&quot; &quot;2019-Q1&quot; &quot;2019-Q1&quot; &quot;2019-Q2&quot; &quot;2019-Q2&quot;</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [8] &quot;2019-Q2&quot; &quot;2019-Q2&quot; &quot;2019-Q2&quot; &quot;2019-Q3&quot; &quot;2019-Q3&quot; &quot;2019-Q3&quot; &quot;2019-Q3&quot;</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [15] &quot;2019-Q4&quot; &quot;2019-Q4&quot; &quot;2019-Q4&quot; &quot;2019-Q4&quot; &quot;2019-Q4&quot;</span></span></code></pre></div>
+<p>If you need to group by a multiple of months / quarters, you can do that too:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar_group</span>(ymd, <span class="st">&quot;month&quot;</span>, <span class="at">n =</span> <span class="dv">2</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;year_month_day&lt;month&gt;[19]&gt;</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2019-01&quot; &quot;2019-01&quot; &quot;2019-01&quot; &quot;2019-03&quot; &quot;2019-03&quot; &quot;2019-03&quot; &quot;2019-05&quot;</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [8] &quot;2019-05&quot; &quot;2019-05&quot; &quot;2019-05&quot; &quot;2019-07&quot; &quot;2019-07&quot; &quot;2019-07&quot; &quot;2019-09&quot;</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [15] &quot;2019-09&quot; &quot;2019-09&quot; &quot;2019-11&quot; &quot;2019-11&quot; &quot;2019-11&quot;</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar_group</span>(yqd, <span class="st">&quot;quarter&quot;</span>, <span class="at">n =</span> <span class="dv">2</span>)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;year_quarter_day&lt;January&gt;&lt;quarter&gt;[19]&gt;</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2019-Q1&quot; &quot;2019-Q1&quot; &quot;2019-Q1&quot; &quot;2019-Q1&quot; &quot;2019-Q1&quot; &quot;2019-Q1&quot; &quot;2019-Q1&quot;</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [8] &quot;2019-Q1&quot; &quot;2019-Q1&quot; &quot;2019-Q1&quot; &quot;2019-Q3&quot; &quot;2019-Q3&quot; &quot;2019-Q3&quot; &quot;2019-Q3&quot;</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [15] &quot;2019-Q3&quot; &quot;2019-Q3&quot; &quot;2019-Q3&quot; &quot;2019-Q3&quot; &quot;2019-Q3&quot;</span></span></code></pre></div>
+<p>Note that the returned calendar vector is at the precision we grouped by, not at the original precision with, say, the day of the month / quarter set to <code>1</code>.</p>
+<p>Additionally, be aware that <code>calendar_group()</code> groups “within” the component that is one unit of precision larger than the <code>precision</code> you specify. So, when grouping by <code>&quot;day&quot;</code>, this groups by “day of the month”, which can’t cross the month or year boundary. If you need to bundle dates together by something like 60 days (i.e. crossing the month boundary), then you should use <code>time_point_floor()</code>.</p>
+<div id="high-level-api-4" class="section level3">
+<h3>High level API</h3>
+<p>In the high level API, you can use <code>date_group()</code> to group Date vectors by one of their 3 components: year, month, or day. Since month precision dates can’t be represented with Date vectors, <code>date_group()</code> sets the day of the month to 1.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2019-01-01&quot;</span>), <span class="fu">as.Date</span>(<span class="st">&quot;2019-12-31&quot;</span>), <span class="at">by =</span> <span class="dv">20</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">date_group</span>(x, <span class="st">&quot;month&quot;</span>)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2019-01-01&quot; &quot;2019-01-01&quot; &quot;2019-02-01&quot; &quot;2019-03-01&quot; &quot;2019-03-01&quot;</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;2019-04-01&quot; &quot;2019-05-01&quot; &quot;2019-05-01&quot; &quot;2019-06-01&quot; &quot;2019-06-01&quot;</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [11] &quot;2019-07-01&quot; &quot;2019-08-01&quot; &quot;2019-08-01&quot; &quot;2019-09-01&quot; &quot;2019-10-01&quot;</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16] &quot;2019-10-01&quot; &quot;2019-11-01&quot; &quot;2019-12-01&quot; &quot;2019-12-01&quot;</span></span></code></pre></div>
+<p>You won’t be able to group by <code>&quot;quarter&quot;</code>, since this isn’t one of the 3 components that the high level API lets you work with. Instead, this is a case where you should convert to a year-quarter-day, group on that type, then convert back to Date.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_year_quarter_day</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calendar_group</span>(<span class="st">&quot;quarter&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_day</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.Date</span>()</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2019-01-01&quot; &quot;2019-01-01&quot; &quot;2019-01-01&quot; &quot;2019-01-01&quot; &quot;2019-01-01&quot;</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;2019-04-01&quot; &quot;2019-04-01&quot; &quot;2019-04-01&quot; &quot;2019-04-01&quot; &quot;2019-04-01&quot;</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [11] &quot;2019-07-01&quot; &quot;2019-07-01&quot; &quot;2019-07-01&quot; &quot;2019-07-01&quot; &quot;2019-10-01&quot;</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16] &quot;2019-10-01&quot; &quot;2019-10-01&quot; &quot;2019-10-01&quot; &quot;2019-10-01&quot;</span></span></code></pre></div>
+<p>This is actually equivalent to <code>date_group(x, &quot;month&quot;, n = 3)</code>. If your fiscal year starts in January, you can use that instead. However, if your fiscal year starts in a different month, say, June, you’ll need to use the approach from above like so:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_year_quarter_day</span>(<span class="at">start =</span> clock_months<span class="sc">$</span>june) <span class="sc">%&gt;%</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calendar_group</span>(<span class="st">&quot;quarter&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_day</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.Date</span>()</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2018-12-01&quot; &quot;2018-12-01&quot; &quot;2018-12-01&quot; &quot;2019-03-01&quot; &quot;2019-03-01&quot;</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;2019-03-01&quot; &quot;2019-03-01&quot; &quot;2019-03-01&quot; &quot;2019-06-01&quot; &quot;2019-06-01&quot;</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [11] &quot;2019-06-01&quot; &quot;2019-06-01&quot; &quot;2019-06-01&quot; &quot;2019-09-01&quot; &quot;2019-09-01&quot;</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16] &quot;2019-09-01&quot; &quot;2019-09-01&quot; &quot;2019-12-01&quot; &quot;2019-12-01&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="flooring-by-days" class="section level2">
+<h2>Flooring by days</h2>
+<p>While <code>calendar_group()</code> can group by “component”, it isn’t useful for bundling together sets of time points that can cross month/year boundaries, like “60 days” of data. For that, you are better off <em>flooring</em> by rolling sets of 60 days.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>from <span class="ot">&lt;-</span> <span class="fu">as_naive_time</span>(<span class="fu">year_month_day</span>(<span class="dv">2019</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>to <span class="ot">&lt;-</span> <span class="fu">as_naive_time</span>(<span class="fu">year_month_day</span>(<span class="dv">2019</span>, <span class="dv">12</span>, <span class="dv">31</span>))</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(from, to, <span class="at">by =</span> <span class="fu">duration_days</span>(<span class="dv">20</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">time_point_floor</span>(x, <span class="st">&quot;day&quot;</span>, <span class="at">n =</span> <span class="dv">60</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;time_point&lt;naive&gt;&lt;day&gt;[19]&gt;</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2018-12-15&quot; &quot;2018-12-15&quot; &quot;2018-12-15&quot; &quot;2019-02-13&quot; &quot;2019-02-13&quot;</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;2019-02-13&quot; &quot;2019-04-14&quot; &quot;2019-04-14&quot; &quot;2019-04-14&quot; &quot;2019-06-13&quot;</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [11] &quot;2019-06-13&quot; &quot;2019-06-13&quot; &quot;2019-08-12&quot; &quot;2019-08-12&quot; &quot;2019-08-12&quot;</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16] &quot;2019-10-11&quot; &quot;2019-10-11&quot; &quot;2019-10-11&quot; &quot;2019-12-10&quot;</span></span></code></pre></div>
+<p>Flooring operates on the underlying duration, which for day precision time points is a count of days since the <em>origin</em>, 1970-01-01.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unclass</span>(x[<span class="dv">1</span>])</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ticks</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 17897</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; attr(,&quot;clock&quot;)</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; attr(,&quot;precision&quot;)</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4</span></span></code></pre></div>
+<p>The 60 day counter starts here, which means that any times between <code>[1970-01-01, 1970-03-02)</code> are all floored to 1970-01-01. At <code>1970-03-02</code>, the counter starts again.</p>
+<p>If you would like to change this origin, you can provide a time point to start counting from with the <code>origin</code> argument. This is mostly useful if you are flooring by weeks and you want to change the day of the week that the count starts on. Since 1970-01-01 is a Thursday, flooring by 14 days defaults to returning all Thursdays.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">as_naive_time</span>(<span class="fu">year_month_day</span>(<span class="dv">2019</span>, <span class="dv">1</span>, <span class="dv">1</span>)), <span class="at">by =</span> <span class="dv">3</span>, <span class="at">length.out =</span> <span class="dv">10</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;time_point&lt;naive&gt;&lt;day&gt;[10]&gt;</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2019-01-01&quot; &quot;2019-01-04&quot; &quot;2019-01-07&quot; &quot;2019-01-10&quot; &quot;2019-01-13&quot;</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;2019-01-16&quot; &quot;2019-01-19&quot; &quot;2019-01-22&quot; &quot;2019-01-25&quot; &quot;2019-01-28&quot;</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>thursdays <span class="ot">&lt;-</span> <span class="fu">time_point_floor</span>(x, <span class="st">&quot;day&quot;</span>, <span class="at">n =</span> <span class="dv">14</span>)</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>thursdays</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;time_point&lt;naive&gt;&lt;day&gt;[10]&gt;</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2018-12-27&quot; &quot;2018-12-27&quot; &quot;2018-12-27&quot; &quot;2019-01-10&quot; &quot;2019-01-10&quot;</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;2019-01-10&quot; &quot;2019-01-10&quot; &quot;2019-01-10&quot; &quot;2019-01-24&quot; &quot;2019-01-24&quot;</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="fu">as_weekday</span>(thursdays)</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;weekday[10]&gt;</span></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] Thu Thu Thu Thu Thu Thu Thu Thu Thu Thu</span></span></code></pre></div>
+<p>You can use <code>origin</code> to change this to floor to Mondays.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>origin <span class="ot">&lt;-</span> <span class="fu">as_naive_time</span>(<span class="fu">year_month_day</span>(<span class="dv">2018</span>, <span class="dv">12</span>, <span class="dv">31</span>))</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as_weekday</span>(origin)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;weekday[1]&gt;</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] Mon</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>mondays <span class="ot">&lt;-</span> <span class="fu">time_point_floor</span>(x, <span class="st">&quot;day&quot;</span>, <span class="at">n =</span> <span class="dv">14</span>, <span class="at">origin =</span> origin)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>mondays</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;time_point&lt;naive&gt;&lt;day&gt;[10]&gt;</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2018-12-31&quot; &quot;2018-12-31&quot; &quot;2018-12-31&quot; &quot;2018-12-31&quot; &quot;2018-12-31&quot;</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;2019-01-14&quot; &quot;2019-01-14&quot; &quot;2019-01-14&quot; &quot;2019-01-14&quot; &quot;2019-01-28&quot;</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a><span class="fu">as_weekday</span>(mondays)</span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;weekday[10]&gt;</span></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] Mon Mon Mon Mon Mon Mon Mon Mon Mon Mon</span></span></code></pre></div>
+<div id="high-level-api-5" class="section level3">
+<h3>High level API</h3>
+<p>You can use <code>date_floor()</code> with Date and POSIXct types.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2019-01-01&quot;</span>), <span class="fu">as.Date</span>(<span class="st">&quot;2019-12-31&quot;</span>), <span class="at">by =</span> <span class="dv">20</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">date_floor</span>(x, <span class="st">&quot;day&quot;</span>, <span class="at">n =</span> <span class="dv">60</span>)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2018-12-15&quot; &quot;2018-12-15&quot; &quot;2018-12-15&quot; &quot;2019-02-13&quot; &quot;2019-02-13&quot;</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;2019-02-13&quot; &quot;2019-04-14&quot; &quot;2019-04-14&quot; &quot;2019-04-14&quot; &quot;2019-06-13&quot;</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [11] &quot;2019-06-13&quot; &quot;2019-06-13&quot; &quot;2019-08-12&quot; &quot;2019-08-12&quot; &quot;2019-08-12&quot;</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16] &quot;2019-10-11&quot; &quot;2019-10-11&quot; &quot;2019-10-11&quot; &quot;2019-12-10&quot;</span></span></code></pre></div>
+<p>The <code>origin</code> you provide should be another Date. For week precision flooring with Dates, you can specify <code>&quot;week&quot;</code> as the precision.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2019-01-01&quot;</span>), <span class="at">by =</span> <span class="dv">3</span>, <span class="at">length.out =</span> <span class="dv">10</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>origin <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;2018-12-31&quot;</span>)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date_floor</span>(x, <span class="st">&quot;week&quot;</span>, <span class="at">n =</span> <span class="dv">2</span>, <span class="at">origin =</span> origin)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;2018-12-31&quot; &quot;2018-12-31&quot; &quot;2018-12-31&quot; &quot;2018-12-31&quot; &quot;2018-12-31&quot;</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;2019-01-14&quot; &quot;2019-01-14&quot; &quot;2019-01-14&quot; &quot;2019-01-14&quot; &quot;2019-01-28&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="day-of-the-year" class="section level2">
+<h2>Day of the year</h2>
+<p>To get the day of the year, convert to the year-day calendar type and extract the day with <code>get_day()</code>.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">year_month_day</span>(<span class="dv">2019</span>, clock_months<span class="sc">$</span>july, <span class="dv">4</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>yd <span class="ot">&lt;-</span> <span class="fu">as_year_day</span>(x)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>yd</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;year_day&lt;day&gt;[1]&gt;</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-185&quot;</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="fu">get_day</span>(yd)</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 185</span></span></code></pre></div>
+<div id="high-level-api-6" class="section level3">
+<h3>High level API</h3>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;2019-07-04&quot;</span>)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%&gt;%</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_year_day</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_day</span>()</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 185</span></span></code></pre></div>
+</div>
+</div>
+<div id="converting-a-time-zone-abbreviation-into-a-time-zone-name" class="section level2">
+<h2>Converting a time zone abbreviation into a time zone name</h2>
+<p>It is possible that you might run into date-time strings of the form <code>&quot;2020-10-25 01:30:00 IST&quot;</code>, which contain a time zone <em>abbreviation</em> rather than a full time zone name. Because time zone maintainers change the abbreviation they use throughout time, and because multiple time zones sometimes use the same abbreviation, it is generally impossible to parse strings of this form without more information. That said, if you know what time zone this abbreviation goes with, you can parse this time with <code>zoned_time_parse_abbrev()</code>, supplying the <code>zone</code>.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;2020-10-25 01:30:00 IST&quot;</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">zoned_time_parse_abbrev</span>(x, <span class="st">&quot;Asia/Kolkata&quot;</span>)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;Asia/Kolkata&gt;[1]&gt;</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2020-10-25 01:30:00+05:30&quot;</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="fu">zoned_time_parse_abbrev</span>(x, <span class="st">&quot;Asia/Jerusalem&quot;</span>)</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;Asia/Jerusalem&gt;[1]&gt;</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2020-10-25 01:30:00+02:00&quot;</span></span></code></pre></div>
+<p>If you <em>don’t</em> know what time zone this abbreviation goes with, then generally you are out of luck. However, there are low-level tools in this library that can help you generate a list of <em>possible</em> zoned-times this could map to.</p>
+<p>Assuming that <code>x</code> is a naive-time with its corresponding time zone abbreviation attached, the first thing to do is to parse this string as a naive-time.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">naive_time_parse</span>(x)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;time_point&lt;naive&gt;&lt;second&gt;[1]&gt;</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2020-10-25 01:30:00&quot;</span></span></code></pre></div>
+<p>Next, we’ll develop a function that attempts to turn this naive-time into a zoned-time, iterating through all of the time zone names available in the time zone database. These time zone names are accessible through <code>tzdb_names()</code>. By using the low-level <code>naive_time_info()</code>, rather than <code>as_zoned_time()</code>, to lookup zone specific information, we’ll also get back information about the UTC offset and time zone abbreviation that is currently in use. By matching this abbreviation against our input abbreviation, we can generate a list of zoned-times that use the abbreviation we care about at that particular instance in time.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>naive_find_by_abbrev <span class="ot">&lt;-</span> <span class="cf">function</span>(x, abbrev) {</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is_naive_time</span>(x)) {</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">abort</span>(<span class="st">&quot;`x` must be a naive-time.&quot;</span>)</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(x) <span class="sc">!=</span> 1L) {</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">abort</span>(<span class="st">&quot;`x` must be length 1.&quot;</span>)</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>rlang<span class="sc">::</span><span class="fu">is_string</span>(abbrev)) {</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">abort</span>(<span class="st">&quot;`abbrev` must be a single string.&quot;</span>)</span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>  zones <span class="ot">&lt;-</span> <span class="fu">tzdb_names</span>()</span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a>  info <span class="ot">&lt;-</span> <span class="fu">naive_time_info</span>(x, zones)</span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a>  info<span class="sc">$</span>zones <span class="ot">&lt;-</span> zones</span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(</span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">compute_uniques</span>(x, info, abbrev),</span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">compute_ambiguous</span>(x, info, abbrev)</span>
+<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-22"><a href="#cb46-22" aria-hidden="true" tabindex="-1"></a>compute_uniques <span class="ot">&lt;-</span> <span class="cf">function</span>(x, info, abbrev) {</span>
+<span id="cb46-23"><a href="#cb46-23" aria-hidden="true" tabindex="-1"></a>  info <span class="ot">&lt;-</span> info[info<span class="sc">$</span>type <span class="sc">==</span> <span class="st">&quot;unique&quot;</span>,]</span>
+<span id="cb46-24"><a href="#cb46-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-25"><a href="#cb46-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If the abbreviation of the unique time matches the input `abbrev`,</span></span>
+<span id="cb46-26"><a href="#cb46-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># then that candidate zone should be in the output</span></span>
+<span id="cb46-27"><a href="#cb46-27" aria-hidden="true" tabindex="-1"></a>  matches <span class="ot">&lt;-</span> info<span class="sc">$</span>first<span class="sc">$</span>abbreviation <span class="sc">==</span> abbrev</span>
+<span id="cb46-28"><a href="#cb46-28" aria-hidden="true" tabindex="-1"></a>  zones <span class="ot">&lt;-</span> info<span class="sc">$</span>zones[matches]</span>
+<span id="cb46-29"><a href="#cb46-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-30"><a href="#cb46-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lapply</span>(zones, as_zoned_time, <span class="at">x =</span> x)</span>
+<span id="cb46-31"><a href="#cb46-31" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb46-32"><a href="#cb46-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-33"><a href="#cb46-33" aria-hidden="true" tabindex="-1"></a>compute_ambiguous <span class="ot">&lt;-</span> <span class="cf">function</span>(x, info, abbrev) {</span>
+<span id="cb46-34"><a href="#cb46-34" aria-hidden="true" tabindex="-1"></a>  info <span class="ot">&lt;-</span> info[info<span class="sc">$</span>type <span class="sc">==</span> <span class="st">&quot;ambiguous&quot;</span>,]</span>
+<span id="cb46-35"><a href="#cb46-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-36"><a href="#cb46-36" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Of the two possible times,</span></span>
+<span id="cb46-37"><a href="#cb46-37" aria-hidden="true" tabindex="-1"></a>  <span class="co"># does the abbreviation of the earliest match the input `abbrev`?</span></span>
+<span id="cb46-38"><a href="#cb46-38" aria-hidden="true" tabindex="-1"></a>  matches <span class="ot">&lt;-</span> info<span class="sc">$</span>first<span class="sc">$</span>abbreviation <span class="sc">==</span> abbrev</span>
+<span id="cb46-39"><a href="#cb46-39" aria-hidden="true" tabindex="-1"></a>  zones <span class="ot">&lt;-</span> info<span class="sc">$</span>zones[matches]</span>
+<span id="cb46-40"><a href="#cb46-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-41"><a href="#cb46-41" aria-hidden="true" tabindex="-1"></a>  earliest <span class="ot">&lt;-</span> <span class="fu">lapply</span>(zones, as_zoned_time, <span class="at">x =</span> x, <span class="at">ambiguous =</span> <span class="st">&quot;earliest&quot;</span>)</span>
+<span id="cb46-42"><a href="#cb46-42" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-43"><a href="#cb46-43" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Of the two possible times,</span></span>
+<span id="cb46-44"><a href="#cb46-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># does the abbreviation of the latest match the input `abbrev`?</span></span>
+<span id="cb46-45"><a href="#cb46-45" aria-hidden="true" tabindex="-1"></a>  matches <span class="ot">&lt;-</span> info<span class="sc">$</span>second<span class="sc">$</span>abbreviation <span class="sc">==</span> abbrev</span>
+<span id="cb46-46"><a href="#cb46-46" aria-hidden="true" tabindex="-1"></a>  zones <span class="ot">&lt;-</span> info<span class="sc">$</span>zones[matches]</span>
+<span id="cb46-47"><a href="#cb46-47" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-48"><a href="#cb46-48" aria-hidden="true" tabindex="-1"></a>  latest <span class="ot">&lt;-</span> <span class="fu">lapply</span>(zones, as_zoned_time, <span class="at">x =</span> x, <span class="at">ambiguous =</span> <span class="st">&quot;latest&quot;</span>)</span>
+<span id="cb46-49"><a href="#cb46-49" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-50"><a href="#cb46-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(earliest, latest)</span>
+<span id="cb46-51"><a href="#cb46-51" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>candidates <span class="ot">&lt;-</span> <span class="fu">naive_find_by_abbrev</span>(x, <span class="st">&quot;IST&quot;</span>)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>candidates</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;Asia/Calcutta&gt;[1]&gt;</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2020-10-25 01:30:00+05:30&quot;</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;Asia/Kolkata&gt;[1]&gt;</span></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2020-10-25 01:30:00+05:30&quot;</span></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[3]]</span></span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;Eire&gt;[1]&gt;</span></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2020-10-25 01:30:00+01:00&quot;</span></span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[4]]</span></span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;Europe/Dublin&gt;[1]&gt;</span></span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2020-10-25 01:30:00+01:00&quot;</span></span>
+<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[5]]</span></span>
+<span id="cb47-20"><a href="#cb47-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;Asia/Jerusalem&gt;[1]&gt;</span></span>
+<span id="cb47-21"><a href="#cb47-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2020-10-25 01:30:00+02:00&quot;</span></span>
+<span id="cb47-22"><a href="#cb47-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb47-23"><a href="#cb47-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[6]]</span></span>
+<span id="cb47-24"><a href="#cb47-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;Asia/Tel_Aviv&gt;[1]&gt;</span></span>
+<span id="cb47-25"><a href="#cb47-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2020-10-25 01:30:00+02:00&quot;</span></span>
+<span id="cb47-26"><a href="#cb47-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb47-27"><a href="#cb47-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[7]]</span></span>
+<span id="cb47-28"><a href="#cb47-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;Israel&gt;[1]&gt;</span></span>
+<span id="cb47-29"><a href="#cb47-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2020-10-25 01:30:00+02:00&quot;</span></span></code></pre></div>
+<p>While it looks like we got 7 candidates, in reality we only have 3. Asia/Kolkata, Europe/Dublin, and Asia/Jerusalem are our 3 candidates. The others are aliases of those 3 that have been retired but are kept for backwards compatibility.</p>
+<p>Looking at the code, there are two ways to add a candidate time zone name to the list.</p>
+<p>If there is a unique mapping from <code>{naive-time, zone}</code> to <code>sys-time</code>, then we check if the abbreviation that goes with that unique mapping matches our input abbreviation. If so, then we convert <code>x</code> to a zoned-time with that time zone.</p>
+<p>If there is an ambiguous mapping from <code>{naive-time, zone}</code> to <code>sys-time</code>, which is due to a daylight saving fallback, then we check the abbreviation of both the <em>earliest</em> and <em>latest</em> possible times. If either matches, then we convert <code>x</code> to a zoned-time using that time zone and the information about which of the two ambiguous times were used.</p>
+<p>This example is particularly interesting, since each of the 3 candidates came from a different path. The Asia/Kolkata one is unique, the Europe/Dublin one is ambiguous but the earliest was chosen, and the Asia/Jerusalem one is ambiguous but the latest was chosen:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_zoned_time</span>(x, <span class="st">&quot;Asia/Kolkata&quot;</span>)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;Asia/Kolkata&gt;[1]&gt;</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2020-10-25 01:30:00+05:30&quot;</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">as_zoned_time</span>(x, <span class="st">&quot;Europe/Dublin&quot;</span>, <span class="at">ambiguous =</span> <span class="st">&quot;earliest&quot;</span>)</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;Europe/Dublin&gt;[1]&gt;</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2020-10-25 01:30:00+01:00&quot;</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="fu">as_zoned_time</span>(x, <span class="st">&quot;Asia/Jerusalem&quot;</span>, <span class="at">ambiguous =</span> <span class="st">&quot;latest&quot;</span>)</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;Asia/Jerusalem&gt;[1]&gt;</span></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2020-10-25 01:30:00+02:00&quot;</span></span></code></pre></div>
+</div>
+<div id="when-is-the-next-daylight-saving-time-event" class="section level2">
+<h2>When is the next daylight saving time event?</h2>
+<p>Given a particular zoned-time, when will it next be affected by daylight saving time? For this, we can use a relatively low level helper, <code>sys_time_info()</code>. It returns a data frame of information about the current daylight saving time transition points, along with information about the offset, the current time zone abbreviation, and whether or not daylight saving time is currently active or not.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">zoned_time_parse_complete</span>(<span class="st">&quot;2019-01-01 00:00:00-05:00[America/New_York]&quot;</span>)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>info <span class="ot">&lt;-</span> <span class="fu">sys_time_info</span>(<span class="fu">as_sys_time</span>(x), <span class="fu">zoned_time_zone</span>(x))</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Beginning of the current DST range</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="fu">as_zoned_time</span>(info<span class="sc">$</span>begin, <span class="fu">zoned_time_zone</span>(x))</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;America/New_York&gt;[1]&gt;</span></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2018-11-04 01:00:00-05:00&quot;</span></span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Beginning of the next DST range</span></span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a><span class="fu">as_zoned_time</span>(info<span class="sc">$</span>end, <span class="fu">zoned_time_zone</span>(x))</span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;America/New_York&gt;[1]&gt;</span></span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-03-10 03:00:00-04:00&quot;</span></span></code></pre></div>
+<p>So on 2018-11-04 at (the second) 1 o’clock hour, daylight saving time was turned off. On 2019-03-10 at 3 o’clock, daylight saving time will be considered on again. This is the next moment in time right after a daylight saving time gap of 1 hour, which you can see by subtracting 1 second (in sys-time):</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Last moment in time in the current DST range</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>info<span class="sc">$</span>end <span class="sc">%&gt;%</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_seconds</span>(<span class="sc">-</span><span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_zoned_time</span>(<span class="fu">zoned_time_zone</span>(x))</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;zoned_time&lt;second&gt;&lt;America/New_York&gt;[1]&gt;</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2019-03-10 01:59:59-05:00&quot;</span></span></code></pre></div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

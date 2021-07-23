@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Plot the propensity score distribution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for plotPs {CohortMethod}"><tr><td>plotPs {CohortMethod}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Plot the propensity score distribution</h2>
+
+<h3>Description</h3>
+
+<p>Plots the propensity (or preference) score distribution.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+plotPs(
+  data,
+  unfilteredData = NULL,
+  scale = "preference",
+  type = "density",
+  binWidth = 0.05,
+  targetLabel = "Target",
+  comparatorLabel = "Comparator",
+  showCountsLabel = FALSE,
+  showAucLabel = FALSE,
+  showEquiposeLabel = FALSE,
+  equipoiseBounds = c(0.3, 0.7),
+  unitOfAnalysis = "subjects",
+  title = NULL,
+  fileName = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>A data frame with at least the two columns described below</p>
+</td></tr>
+<tr valign="top"><td><code>unfilteredData</code></td>
+<td>
+<p>To be used when computing preference scores on data from which subjects
+have already been removed, e.g. through trimming and/or matching. This data
+frame should have the same structure as <code>data</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>scale</code></td>
+<td>
+<p>The scale of the graph. Two scales are supported: <code>scale = 'propensity'</code> or <code>scale = 'preference'</code>. The preference score scale is
+defined by Walker et al (2013).</p>
+</td></tr>
+<tr valign="top"><td><code>type</code></td>
+<td>
+<p>Type of plot. Four possible values: <code>type = 'density'</code>  <code>type = 'histogram'</code>, <code>type = 'histogramCount'</code>,
+or <code>type = 'histogramProportion'</code>. <code>'histogram'</code> defaults to <code>'histogramCount'</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>binWidth</code></td>
+<td>
+<p>For histograms, the width of the bins</p>
+</td></tr>
+<tr valign="top"><td><code>targetLabel</code></td>
+<td>
+<p>A label to us for the target cohort.</p>
+</td></tr>
+<tr valign="top"><td><code>comparatorLabel</code></td>
+<td>
+<p>A label to us for the comparator cohort.</p>
+</td></tr>
+<tr valign="top"><td><code>showCountsLabel</code></td>
+<td>
+<p>Show subject counts?</p>
+</td></tr>
+<tr valign="top"><td><code>showAucLabel</code></td>
+<td>
+<p>Show the AUC?</p>
+</td></tr>
+<tr valign="top"><td><code>showEquiposeLabel</code></td>
+<td>
+<p>Show the percentage of the population in equipoise?</p>
+</td></tr>
+<tr valign="top"><td><code>equipoiseBounds</code></td>
+<td>
+<p>The bounds on the preference score to determine whether a subject is in
+equipoise.</p>
+</td></tr>
+<tr valign="top"><td><code>unitOfAnalysis</code></td>
+<td>
+<p>The unit of analysis in the input data. Defaults to 'subjects'.</p>
+</td></tr>
+<tr valign="top"><td><code>title</code></td>
+<td>
+<p>Optional: the main title for the plot.</p>
+</td></tr>
+<tr valign="top"><td><code>fileName</code></td>
+<td>
+<p>Name of the file where the plot should be saved, for example 'plot.png'.
+See the function <code><a href="../../ggplot2/html/ggsave.html">ggplot2::ggsave()</a></code> for supported file formats.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The data frame should have a least the following two columns:
+</p>
+
+<ul>
+<li><p> treatment (integer): Column indicating whether the person is in the target (1) or comparator (0) group
+</p>
+</li>
+<li><p> propensityScore (numeric): Propensity score
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A ggplot object. Use the <code><a href="../../ggplot2/html/ggsave.html">ggplot2::ggsave()</a></code> function to save to file in a different
+format.
+</p>
+
+
+<h3>References</h3>
+
+<p>Walker AM, Patrick AR, Lauer MS, Hornbrook MC, Marin MG, Platt R, Roger VL, Stang P, and
+Schneeweiss S. (2013) A tool for assessing the feasibility of comparative effectiveness research,
+Comparative Effective Research, 3, 11-20
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+treatment &lt;- rep(0:1, each = 100)
+propensityScore &lt;- c(rnorm(100, mean = 0.4, sd = 0.25), rnorm(100, mean = 0.6, sd = 0.25))
+data &lt;- data.frame(treatment = treatment, propensityScore = propensityScore)
+data &lt;- data[data$propensityScore &gt; 0 &amp; data$propensityScore &lt; 1, ]
+plotPs(data)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Log a message at the INFO level</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for logInfo {ParallelLogger}"><tr><td>logInfo {ParallelLogger}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Log a message at the INFO level</h2>
+
+<h3>Description</h3>
+
+<p>Log a message at the INFO level
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+logInfo(...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Zero or more objects which can be coerced to character (and which are pasted together
+with no separator).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Log a message at the specified level. The message will be sent to all the registered loggers.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+appender &lt;- createConsoleAppender(layout = layoutTimestamp)
+
+logger &lt;- createLogger(name = "SIMPLE",
+                       threshold = "INFO",
+                       appenders = list(appender))
+registerLogger(logger)                      
+logTrace("This event is below the threshold (INFO)")
+logInfo("Hello world")                       
+unregisterLogger("SIMPLE")                     
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>ParallelLogger</em> version 2.0.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

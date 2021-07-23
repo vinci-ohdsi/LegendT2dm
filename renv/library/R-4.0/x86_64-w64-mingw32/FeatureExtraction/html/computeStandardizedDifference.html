@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Compute standardized difference of mean for all covariates.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for computeStandardizedDifference {FeatureExtraction}"><tr><td>computeStandardizedDifference {FeatureExtraction}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Compute standardized difference of mean for all covariates.</h2>
+
+<h3>Description</h3>
+
+<p>Computes the standardized difference for all covariates between two cohorts. The standardized
+difference is defined as the difference between the mean divided by the overall standard deviation.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+computeStandardizedDifference(
+  covariateData1,
+  covariateData2,
+  cohortId1 = NULL,
+  cohortId2 = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>covariateData1</code></td>
+<td>
+<p>The covariate data of the first cohort. Needs to be in aggregated format.</p>
+</td></tr>
+<tr valign="top"><td><code>covariateData2</code></td>
+<td>
+<p>The covariate data of the second cohort. Needs to be in aggregated format.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortId1</code></td>
+<td>
+<p>If provided, <code>covariateData1</code> will be restricted to this cohort. If not
+provided, <code>covariateData1</code> is assumed to contain data on only 1 cohort.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortId2</code></td>
+<td>
+<p>If provided, <code>covariateData2</code> will be restricted to this cohort. If not
+provided, <code>covariateData2</code> is assumed to contain data on only 1 cohort.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data frame with means and standard deviations per cohort as well as the standardized difference
+of mean.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.1.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

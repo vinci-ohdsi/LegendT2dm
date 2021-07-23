@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create a CohortMethod analysis specification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createCmAnalysis {CohortMethod}"><tr><td>createCmAnalysis {CohortMethod}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create a CohortMethod analysis specification</h2>
+
+<h3>Description</h3>
+
+<p>Create a CohortMethod analysis specification
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createCmAnalysis(
+  analysisId = 1,
+  description = "",
+  targetType = NULL,
+  comparatorType = NULL,
+  getDbCohortMethodDataArgs,
+  createStudyPopArgs,
+  createPs = FALSE,
+  createPsArgs = NULL,
+  trimByPs = FALSE,
+  trimByPsArgs = NULL,
+  trimByPsToEquipoise = FALSE,
+  trimByPsToEquipoiseArgs = NULL,
+  trimByIptw = FALSE,
+  trimByIptwArgs = NULL,
+  matchOnPs = FALSE,
+  matchOnPsArgs = NULL,
+  matchOnPsAndCovariates = FALSE,
+  matchOnPsAndCovariatesArgs = NULL,
+  stratifyByPs = FALSE,
+  stratifyByPsArgs = NULL,
+  stratifyByPsAndCovariates = FALSE,
+  stratifyByPsAndCovariatesArgs = NULL,
+  fitOutcomeModel = FALSE,
+  fitOutcomeModelArgs = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>analysisId</code></td>
+<td>
+<p>An integer that will be used later to refer to this specific
+set of analysis choices.</p>
+</td></tr>
+<tr valign="top"><td><code>description</code></td>
+<td>
+<p>A short description of the analysis.</p>
+</td></tr>
+<tr valign="top"><td><code>targetType</code></td>
+<td>
+<p>If more than one target is provided for each
+drugComparatorOutcome, this field should be used to select
+the specific target to use in this analysis.</p>
+</td></tr>
+<tr valign="top"><td><code>comparatorType</code></td>
+<td>
+<p>If more than one comparator is provided for each
+drugComparatorOutcome, this field should be used to select
+the specific comparator to use in this analysis.</p>
+</td></tr>
+<tr valign="top"><td><code>getDbCohortMethodDataArgs</code></td>
+<td>
+<p>An object representing the arguments to be used when calling
+the <code><a href="getDbCohortMethodData.html">getDbCohortMethodData()</a></code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>createStudyPopArgs</code></td>
+<td>
+<p>An object representing the arguments to be used when calling
+the <code><a href="createStudyPopulation.html">createStudyPopulation()</a></code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>createPs</code></td>
+<td>
+<p>Should the <code><a href="createPs.html">createPs()</a></code> function be used in this
+analysis?</p>
+</td></tr>
+<tr valign="top"><td><code>createPsArgs</code></td>
+<td>
+<p>An object representing the arguments to be used when calling
+the <code><a href="createPs.html">createPs()</a></code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>trimByPs</code></td>
+<td>
+<p>Should the <code><a href="trimByPs.html">trimByPs()</a></code> function be used in this
+analysis?</p>
+</td></tr>
+<tr valign="top"><td><code>trimByPsArgs</code></td>
+<td>
+<p>An object representing the arguments to be used when calling
+the <code><a href="trimByPs.html">trimByPs()</a></code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>trimByPsToEquipoise</code></td>
+<td>
+<p>Should the <code><a href="trimByPsToEquipoise.html">trimByPsToEquipoise()</a></code> function be used
+in this analysis?</p>
+</td></tr>
+<tr valign="top"><td><code>trimByPsToEquipoiseArgs</code></td>
+<td>
+<p>An object representing the arguments to be used when calling
+the <code><a href="trimByPsToEquipoise.html">trimByPsToEquipoise()</a></code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>trimByIptw</code></td>
+<td>
+<p>Should the <code><a href="trimByPsToEquipoise.html">trimByPsToEquipoise()</a></code> function be used
+in this analysis?</p>
+</td></tr>
+<tr valign="top"><td><code>trimByIptwArgs</code></td>
+<td>
+<p>An object representing the arguments to be used when calling
+the <code><a href="trimByIptw.html">trimByIptw()</a></code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>matchOnPs</code></td>
+<td>
+<p>Should the <code><a href="matchOnPs.html">matchOnPs()</a></code> function be used in this
+analysis?</p>
+</td></tr>
+<tr valign="top"><td><code>matchOnPsArgs</code></td>
+<td>
+<p>An object representing the arguments to be used when calling
+the <code><a href="matchOnPs.html">matchOnPs()</a></code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>matchOnPsAndCovariates</code></td>
+<td>
+<p>Should the <code><a href="matchOnPsAndCovariates.html">matchOnPsAndCovariates()</a></code> function be
+used in this analysis?</p>
+</td></tr>
+<tr valign="top"><td><code>matchOnPsAndCovariatesArgs</code></td>
+<td>
+<p>An object representing the arguments to be used when calling
+the <code><a href="matchOnPsAndCovariates.html">matchOnPsAndCovariates()</a></code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>stratifyByPs</code></td>
+<td>
+<p>Should the <code><a href="stratifyByPs.html">stratifyByPs()</a></code> function be used in
+this analysis?</p>
+</td></tr>
+<tr valign="top"><td><code>stratifyByPsArgs</code></td>
+<td>
+<p>An object representing the arguments to be used when calling
+the <code><a href="stratifyByPs.html">stratifyByPs()</a></code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>stratifyByPsAndCovariates</code></td>
+<td>
+<p>Should the <code><a href="stratifyByPsAndCovariates.html">stratifyByPsAndCovariates()</a></code> function
+be used in this analysis?</p>
+</td></tr>
+<tr valign="top"><td><code>stratifyByPsAndCovariatesArgs</code></td>
+<td>
+<p>An object representing the arguments to be used when calling
+the <code><a href="stratifyByPsAndCovariates.html">stratifyByPsAndCovariates()</a></code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>fitOutcomeModel</code></td>
+<td>
+<p>Should the <code><a href="fitOutcomeModel.html">fitOutcomeModel()</a></code> function be used in
+this analysis?</p>
+</td></tr>
+<tr valign="top"><td><code>fitOutcomeModelArgs</code></td>
+<td>
+<p>An object representing the arguments to be used when calling
+the <code><a href="fitOutcomeModel.html">fitOutcomeModel()</a></code> function.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Create a set of analysis choices, to be used with the <code><a href="runCmAnalyses.html">runCmAnalyses()</a></code> function.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+</body></html>
