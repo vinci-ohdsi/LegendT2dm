@@ -32,15 +32,15 @@ Author: Gowtham Rao [aut, cre],
  Martijn Schuemie [aut],
  Jamie Gilbert [aut],
  Observational Health Data Science and Informatics [cph]
-Built: R 4.0.3; ; 2021-07-08 21:04:36 UTC; windows
+Built: R 4.0.3; ; 2021-07-23 22:45:12 UTC; windows
 RemoteType: github
 RemoteHost: api.github.com
+RemoteUsername: ohdsi
 RemoteRepo: ROhdsiWebApi
-RemoteUsername: OHDSI
 RemoteRef: master
 RemoteSha: db363a4e5d77dfa1a68267a9e1e4697ec46c02f1
 GithubHost: api.github.com
 GithubRepo: ROhdsiWebApi
-GithubUsername: OHDSI
+GithubUsername: ohdsi
 GithubRef: master
 GithubSHA1: db363a4e5d77dfa1a68267a9e1e4697ec46c02f1
