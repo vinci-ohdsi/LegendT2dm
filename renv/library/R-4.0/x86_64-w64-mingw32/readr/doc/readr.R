@@ -69,7 +69,7 @@ spec(df2)
 ## -----------------------------------------------------------------------------
 df3 <- read_csv(
   readr_example("challenge.csv"), 
-  col_types = cols(
+  col_types = list(
     x = col_double(),
     y = col_date(format = "")
   )

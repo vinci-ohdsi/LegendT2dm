@@ -1,3 +1,195 @@
+# readr 2.1.0
+
+* All readr functions again read eagerly by default. Unfortunately many users
+  experienced frustration from the drawbacks of lazy reading, in particular
+  locking files on Windows, so it was decided to disable lazy reading default.
+  However `options(readr.read_lazy = TRUE)` can be used to set the default to by lazy if desired.
+* New `readr.read_lazy` global option to control if readr reads files lazily or not (#1266)
+
+# readr 2.0.2
+
+* minor test tweak for compatibility with testthat 3.1.0 (#@lionel-, #1304)
+
+* `write_rds()` gains a `text=` argument, to control using a text based object representation, like the `ascii=` argument in `saveRDS()` (#1270)
+
+# readr 2.0.1
+
+* `options(readr.show_col_types = FALSE)` now works as intended (#1250)
+
+* `read_delim_chunked()` now again correctly respects the `chunk_size` parameter (#1248)
+
+* `type_convert()` gains a `guess_integer` argument, passed to `guess_parser()` (@jmbarbone, #1264)
+
+* `read_tsv()` now correctly passes the `quote` and `na` arguments to `vroom::vroom()` (#1254, #1255)
+
+* Avoid spurious byte compilation errors due to the programmatically generated `spec_*()` functions.
+
+# readr 2.0.0
+
+## second edition changes
+
+readr 2.0.0 is a major release of readr and introduces a new second edition parsing and writing engine implemented via the [vroom](https://vroom.r-lib.org/) package.
+
+This engine takes advantage of lazy reading, multi-threading and performance characteristics of modern SSD drives to significantly improve the performance of reading and writing compared to the first edition engine.
+
+We will continue to support the first edition for a number of releases, but eventually this support will be first deprecated and then removed.
+
+You can use the `with_edition()` or `local_edition()` functions to temporarily change the edition of readr for a section of code.
+
+e.g.
+
+- `with_edition(1, read_csv("my_file.csv"))` will read `my_file.csv` with the first edition of readr.
+
+- `readr::local_edition(1)` placed at the top of your function or script will use the first edition for the rest of the function or script.
+
+
+### Lazy reading
+
+Edition two uses lazy reading by default.
+When you first call a `read_*()` function the delimiters and newlines throughout the entire file are found, but the data is not actually read until it is used in your program.
+This can provide substantial speed improvements for reading character data.
+It is particularly useful during interactive exploration of only a subset of a full dataset.
+
+However this also means that problematic values are not necessarily seen
+immediately, only when they are actually read.
+Because of this a warning will be issued the first time a problem is encountered,
+which may happen after initial reading.
+
+Run `problems()` on your dataset to read the entire dataset and return all of the problems found.
+Run `problems(lazy = TRUE)` if you only want to retrieve the problems found so far.
+
+Deleting files after reading is also impacted by laziness.
+On Windows open files cannot be deleted as long as a process has the file open.
+Because readr keeps a file open when reading lazily this means you cannot read, then immediately delete the file.
+readr will in most cases close the file once it has been completely read.
+However, if you know you want to be able to delete the file after reading it is best to pass `lazy = FALSE` when reading the file.
+
+### Reading multiple files at once
+
+Edition two has built-in support for reading sets of files with the
+same columns into one output table in a single command.
+Just pass the filenames to be read in the same vector to the reading function.
+
+First we generate some files to read by splitting the nycflights dataset by
+airline.
+
+```{r}
+library(nycflights13)
+purrr::iwalk(
+  split(flights, flights$carrier),
+  ~ { .x$carrier[[1]]; vroom::vroom_write(.x, glue::glue("flights_{.y}.tsv"), delim = "\t") }
+)
+```
+
+Then we can efficiently read them into one tibble by passing the filenames
+directly to readr.
+
+```{r}
+files <- fs::dir_ls(glob = "flights*tsv")
+files
+readr::read_tsv(files)
+```
+
+If the filenames contain data, such as the date when the sample was collected,
+use `id` argument to include the paths as a column in the data.
+You will likely have to post-process the paths to keep only the relevant portion for your use case.
+
+### Delimiter guessing
+
+Edition two supports automatic guessing of delimiters.
+Because of this you can now use `read_delim()` without specifying a `delim` argument in many cases.
+
+```{r}
+x <- read_delim(readr_example("mtcars.csv"))
+```
+
+### Literal data
+
+In edition one the reading functions treated any input with a newline in it or vectors of length > 1 as literal data.
+In edition two vectors of length > 1 are now assumed to correspond to multiple files.
+Because of this we now have a more explicit way to represent literal data, by putting `I()` around the input.
+
+```{r}
+readr::read_csv(I("a,b\n1,2"))
+```
+
+### License changes
+
+We are systematically re-licensing tidyverse and r-lib packages to use the MIT license, to make our package licenses as clear and permissive as possible.
+
+To this end the readr and vroom packages are now released under the MIT license.
+
+### Deprecated or superseded functions and features
+
+* `melt_csv()`, `melt_delim()`, `melt_tsv()` and `melt_fwf()` have been superseded by functions in the same name in the meltr package.
+  The versions in readr have been deprecated.
+  These functions rely on the first edition parsing code and would be challenging to update to the new parser.
+  When the first edition parsing code is eventually removed from readr they will be removed.
+
+* `read_table2()` has been renamed to `read_table()`, as most users expect `read_table()` to work like `utils::read.table()`.
+  If you want the previous strict behavior of the `read_table()` you can use `read_fwf()` with `fwf_empty()` directly (#717).
+
+* Normalizing newlines in files with just carriage returns `\r` is no longer supported.
+  The last major OS to use only CR as the newline was 'classic' Mac OS, which had its final release in 2001.
+
+### Other second edition changes
+
+* `read_*_chunked()` functions now include their specification as an attribute (#1143)
+
+* All `read_*()` functions gain a `col_select` argument to more easily choose which columns to select.
+
+* All `read_*()` functions gain a `id` argument to optionally store the file paths when reading multiple files.
+
+* All `read_*()` functions gain a `name_repair` argument to control how column names are repaired.
+
+* All `read_*()` and `write_*()` functions gain a `num_threads` argument to control the number of processing threads they use (#1201)
+
+* All `write_*()` and `format_*()` functions gain `quote` and `escape` arguments, to explicitly control how fields are quoted and how double quotes are escaped. (#653, #759, #844, #993, #1018, #1083)
+
+* All `write_*()` functions gain a `progress` argument and display a progress bar when writing (#791).
+
+* write_excel_csv() now defaults to `quote = "all"` (#759)
+
+* write_tsv() now defaults to `quote = "none"` (#993)
+
+* `read_table()` now handles skipped lines with unpaired quotes properly (#1180)
+
+## Additional features and fixes
+
+* The BH package is no longer a dependency.
+  The boost C++ headers in BH have thousands of files, so can take a long time to extract and compiling them takes a great deal of memory, which made readr difficult to compile on systems with limited memory (#1147).
+
+* readr now uses the tzdb package when parsing date-times (@DavisVaughan, r-lib/vroom#273)
+
+* Chunked readers now support files with more than `INT_MAX` (~ 2 Billion) number of lines (#1177)
+
+* Memory no longer inadvertently leaks when reading memory from R connections (#1161)
+
+* Invalid date formats no longer can potentially crash R (#1151)
+
+* `col_factor()` now throws a more informative error message if given non-character levels (#1140)
+
+* `problems()` now takes `.Last.value` as its default argument.
+  This lets you run `problems()` without an argument to see the problems in the previously read dataset.
+
+* `read_delim()` fails when sample of parsing problems contains non-ASCII characters (@hidekoji, #1136)
+
+* `read_log()` gains a `trim_ws` argument (#738)
+
+* `read_rds()` and `write_rds()` gain a `refhook` argument, to pass functions that handle references objects (#1206)
+
+* `read_rds()` can now read .Rds files from URLs (#1186)
+
+* `read_*()` functions gain a `show_col_types` argument, if set to `FALSE` this turns off showing the column types unconditionally.
+
+* `type_convert()` now throws a warning if the input has no character columns (#1020)
+
+* `write_csv()` now errors if given a matrix column (#1171)
+
+* `write_csv()` now again is able to write data with duplicated column names (#1169)
+
+* `write_file()` now forces its argument before opening the output file (#1158)
+
 # readr 1.4.0
 
 ## Breaking changes
@@ -77,6 +269,8 @@
 * `type_convert()` removes a 'spec' attribute, because the current columns likely have modified data types.  The 'spec' attribute is set by functions like `read_delim()` (@jimhester, @wibeasley, #1032).
 
 * `write_rds()` now can specify the Rds version to use. The default value is 2 as it's compatible to R versions prior to 3.5.0 (@shrektan, #1001).
+
+* Fixes for issues related to variable initialization in C++ code (@michaelquinn32, ##1133).
 
 # readr 1.3.1
 

@@ -25,6 +25,7 @@ date_names	date_names
 date_names_lang	date_names
 date_names_langs	date_names
 default_locale	locale
+edition_get	edition_get
 format_csv	format_delim
 format_csv2	format_delim
 format_delim	format_delim
@@ -37,6 +38,7 @@ guess_encoding	encoding
 guess_parser	parse_guess
 ListCallback	callback
 locale	locale
+local_edition	with_edition
 melt_csv	melt_delim
 melt_csv2	melt_delim
 melt_csv2_chunked	melt_delim_chunked
@@ -63,6 +65,7 @@ parse_vector	parse_vector
 problems	problems
 readr	readr-package
 readr_example	readr_example
+readr_threads	readr_threads
 read_builtin	read_builtin
 read_csv	read_delim
 read_csv2	read_delim
@@ -80,9 +83,11 @@ read_lines_raw_chunked	read_lines_chunked
 read_log	read_log
 read_rds	read_rds
 read_table	read_table
-read_table2	read_table
+read_table2	read_table2
 read_tsv	read_delim
 read_tsv_chunked	read_delim_chunked
+should_read_lazy	should_read_lazy
+should_show_types	should_show_types
 show_progress	show_progress
 SideEffectChunkCallback	callback
 spec	spec
@@ -90,7 +95,6 @@ spec_csv	spec_delim
 spec_csv2	spec_delim
 spec_delim	spec_delim
 spec_table	spec_delim
-spec_table2	spec_delim
 spec_tsv	spec_delim
 stop_for_problems	problems
 tokenize	tokenize
@@ -103,6 +107,7 @@ tokenizer_log	Tokenizers
 tokenizer_tsv	Tokenizers
 tokenizer_ws	Tokenizers
 type_convert	type_convert
+with_edition	with_edition
 write_csv	write_delim
 write_csv2	write_delim
 write_delim	write_delim
