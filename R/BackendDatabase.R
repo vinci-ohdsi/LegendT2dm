@@ -15,14 +15,18 @@
 # limitations under the License.
 #
 
-#' Create a SQL file to construct data model tables on a database server.
+#' Grant read-permission on server
 #'
 #' @details
 #' Only PostgreSQL servers are supported.
 #'
-#' @param specifications Specifications data table
-#' @param fileName       Output name for SQL file
-#' @param tab            Tab characters to use
+#'
+#' @param connectionDetails   An object of type \code{connectionDetails} as created using the
+#'                            \code{\link[DatabaseConnector]{createConnectionDetails}} function in the
+#'                            DatabaseConnector package. Can be left NULL if \code{connection} is
+#'                            provided.
+#' @param schema        Schema name for read-permission
+#' @param user          User name for read-permission
 #'
 #' @export
 grantPermissionOnServer <- function(connectionDetails,
@@ -63,13 +67,13 @@ createDataModelSqlFile <- function(specifications,
 
       writeLines(sprintf("CREATE TABLE %s (", table$tableName[1]))
 
-      write.table(table %>% mutate(notNull = ifelse(tolower(isRequired) == "yes", "NOT NULL", ""),
-                                   type = toupper(type),
+      write.table(table %>% mutate(notNull = ifelse(tolower(.data$isRequired) == "yes", "NOT NULL", ""),
+                                   type = toupper(.data$type),
                                    tab = tab) %>%
-                    select(tab, fieldName, type, notNull),
+                    select(.data$tab, .data$fieldName, .data$type, .data$notNull),
                   quote = FALSE, row.names = FALSE, col.names = FALSE, eol = ",\n")
 
-      keys <- paste(table %>% filter(tolower(primaryKey) == "yes") %>% pull(fieldName), collapse = ", ")
+      keys <- paste(table %>% filter(tolower(.data$primaryKey) == "yes") %>% pull(.data$fieldName), collapse = ", ")
       writeLines(sprintf("%s PRIMARY KEY(%s)", tab, keys))
       writeLines(");\n")
     }
@@ -77,14 +81,23 @@ createDataModelSqlFile <- function(specifications,
   close(zz)
 }
 
-# file.show(fileName)
-
 #' Create the data model tables on a database server.
 #'
 #' @details
 #' Only PostgreSQL servers are supported.
 #'
+#' @param connectionDetails   An object of type \code{connectionDetails} as created using the
+#'                            \code{\link[DatabaseConnector]{createConnectionDetails}} function in the
+#'                            DatabaseConnector package. Can be left NULL if \code{connection} is
+#'                            provided.
+#' @param connection          An object of type \code{connection} as created using the
+#'                            \code{\link[DatabaseConnector]{connect}} function in the
+#'                            DatabaseConnector package. Can be left NULL if \code{connectionDetails}
+#'                            is provided, in which case a new connection will be opened at the start
+#'                            of the function, and closed when the function finishes.
 #' @param schema         The schema on the postgres server where the tables will be created.
+#' @param sqlFileName    File name of table creation SQL within \code{package}.
+#' @param package        Package name containing the \code{sqlFileName} file.
 #'
 #' @export
 createDataModelOnServer <- function(connection = NULL,
@@ -210,7 +223,7 @@ checkAndFixDataTypes <-
   function(table,
            tableName,
            zipFileName,
-           specifications = getResultsDataModelSpecifications()) {
+           specifications) {
     tableSpecs <- specifications %>%
       filter(.data$tableName == !!tableName)
 
@@ -284,7 +297,7 @@ checkAndFixDuplicateRows <-
   function(table,
            tableName,
            zipFileName,
-           specifications = getResultsDataModelSpecifications()) {
+           specifications) {
     primaryKeys <- specifications %>%
       dplyr::filter(.data$tableName == !!tableName &
                       .data$primaryKey == "Yes") %>%
@@ -310,7 +323,7 @@ appendNewRows <-
   function(data,
            newData,
            tableName,
-           specifications = getResultsDataModelSpecifications()) {
+           specifications) {
     if (nrow(data) > 0) {
       primaryKeys <- specifications %>%
         dplyr::filter(.data$tableName == !!tableName &
@@ -346,17 +359,18 @@ naToZero <- function(x) {
 #'                            DatabaseConnector package.
 #' @param schema         Schema on the postgres server where the tables have been created.
 #' @param zipFileName    Name of single or vector of multiple zip files.
+#' @param specifications Specification of results tables
 #' @param forceOverWriteOfSpecifications  If TRUE, specifications of the phenotypes, cohort definitions, and analysis
 #'                       will be overwritten if they already exist on the database. Only use this if these specifications
 #'                       have changed since the last upload.
 #' @param purgeSiteDataBeforeUploading If TRUE, before inserting data for a specific databaseId all the data for
 #'                       that site will be dropped. This assumes the input zip file contains the full data for that
 #'                       data site.
+#' @param convertFromCamelCase  Convert column names from camelCase to snake_case when uploading?                       .
 #' @param tempFolder     Folder on the local file system where the zip files are extracted to. Will be cleaned
 #'                       up when the function is finished. Can be used to specify a temp folder on a drive that
 #'                       has sufficient space if the default system temp space is too limited.
 #'
-#' @import dplyr
 #'
 #' @export
 uploadResultsToDatabase <- function(connectionDetails,

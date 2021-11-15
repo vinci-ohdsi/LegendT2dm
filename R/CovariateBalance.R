@@ -76,6 +76,7 @@ computeCovariateBalance <- function(indicationId = "legendt2dm",
 
     d <- merge(exposureSummary[, c("targetId", "comparatorId")],
                outcomeModelReference)
+    d <- d[isOt1(d$targetId),] # Restrict to OT1/ITT cohorts
 
     rm(exposureSummary)
     rm(outcomeModelReference)
@@ -91,7 +92,7 @@ computeCovariateBalance <- function(indicationId = "legendt2dm",
     d <- split(d, paste(d$targetId, d$comparatorId))
     ParallelLogger::clusterApply(cluster = cluster,
                                  x = d,
-                                 fun = LegendT2dm:::computeBalance,
+                                 fun = computeBalance,
                                  studyPopArgs = studyPopArgs,
                                  stratifyByPsArgs = stratifyByPsArgs,
                                  matchOnPsArgs = matchOnPsArgs,
@@ -140,7 +141,7 @@ computeBalance <- function(subset,
     # }
 
     psFile <- file.path(indicationFolder, "cmOutput",
-                        (subset %>% filter(analysisId == stratificationId) %>% pull(sharedPsFile))[1])
+                        (subset %>% filter(analysisId == stratificationId) %>% pull(.data$sharedPsFile))[1])
     ps <- readRDS(psFile)
 
     # Compute balance when stratifying. Not specific to one outcome, so create hypothetical study

@@ -7,6 +7,7 @@
 execute(
   connectionDetails,
   cdmDatabaseSchema,
+  vocabularyDatabaseSchema = cdmDatabaseSchema,
   oracleTempSchema,
   cohortDatabaseSchema,
   outputFolder,
@@ -15,6 +16,7 @@ execute(
   databaseId = "Unknown",
   databaseName = "Unknown",
   databaseDescription = "Unknown",
+  minCohortSize = 1000,
   minCellCount = 5,
   imputeExposureLengthWhenMissing = FALSE,
   createExposureCohorts = TRUE,
@@ -40,6 +42,10 @@ function in the DatabaseConnector package.}
 format resides. Note that for SQL Server, this should
 include both the database and schema name, for example
 'cdm_data.dbo'.}
+
+\item{vocabularyDatabaseSchema}{Schema name where your vocabulary tables in OMOP CDM format resides.
+Note that for SQL Server, this should include both the database and
+schema name, for example 'cdm_data.dbo'.}
 
 \item{oracleTempSchema}{Should be used in Oracle to specify a schema where the
 user has write priviliges for storing temporary tables.}
@@ -86,7 +92,13 @@ data and injected signals?}
 \item{runCohortMethod}{Run the CohortMethod package to produce the outcome
 models?}
 
+\item{computeCovariateBalance}{Report covariate balance statistics across comparisons?}
+
 \item{exportToCsv}{Export all results to CSV files?}
+
+\item{filterExposureCohorts}{Optional subset of exposure cohorts to use; \code{NULL} implies all.}
+
+\item{filterOutcomeCohorts}{Options subset of outcome cohorts to use; \code{NULL} implies all.}
 
 \item{maxCores}{How many parallel cores should be used? If more cores
 are made available this can speed up the analyses.}

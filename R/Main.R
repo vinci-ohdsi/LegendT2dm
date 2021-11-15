@@ -27,6 +27,9 @@
 #'                                             format resides. Note that for SQL Server, this should
 #'                                             include both the database and schema name, for example
 #'                                             'cdm_data.dbo'.
+#' @param vocabularyDatabaseSchema             Schema name where your vocabulary tables in OMOP CDM format resides.
+#'                                             Note that for SQL Server, this should include both the database and
+#'                                             schema name, for example 'cdm_data.dbo'.
 #' @param oracleTempSchema                     Should be used in Oracle to specify a schema where the
 #'                                             user has write priviliges for storing temporary tables.
 #' @param cohortDatabaseSchema                 Schema name where intermediate data can be stored. You
@@ -56,13 +59,17 @@
 #'                                             data and injected signals?
 #' @param runCohortMethod                      Run the CohortMethod package to produce the outcome
 #'                                             models?
+#' @param computeCovariateBalance              Report covariate balance statistics across comparisons?
 #' @param exportToCsv                          Export all results to CSV files?
+#' @param filterExposureCohorts  Optional subset of exposure cohorts to use; \code{NULL} implies all.
+#' @param filterOutcomeCohorts   Options subset of outcome cohorts to use; \code{NULL} implies all.
 #' @param maxCores                             How many parallel cores should be used? If more cores
 #'                                             are made available this can speed up the analyses.
 #'
 #' @export
 execute <- function(connectionDetails,
                     cdmDatabaseSchema,
+                    vocabularyDatabaseSchema = cdmDatabaseSchema,
                     oracleTempSchema,
                     cohortDatabaseSchema,
                     outputFolder,
@@ -71,6 +78,7 @@ execute <- function(connectionDetails,
                     databaseId = "Unknown",
                     databaseName = "Unknown",
                     databaseDescription = "Unknown",
+                    minCohortSize = 1000,
                     minCellCount = 5,
                     imputeExposureLengthWhenMissing = FALSE,
                     createExposureCohorts = TRUE,
@@ -98,9 +106,13 @@ execute <- function(connectionDetails,
     sink(sinkFile, split = TRUE)
     on.exit(sink(), add = TRUE)
 
+    ParallelLogger::logInfo(sprintf("Starting execute() for LEGEND-T2DM %s-vs-%s studies",
+                                    indicationId, indicationId))
+
     if (createExposureCohorts) {
         createExposureCohorts(connectionDetails = connectionDetails,
                               cdmDatabaseSchema = cdmDatabaseSchema,
+                              vocabularyDatabaseSchema = vocabularyDatabaseSchema,
                               cohortDatabaseSchema = cohortDatabaseSchema,
                               tablePrefix = tablePrefix,
                               indicationId = indicationId,
@@ -109,13 +121,16 @@ execute <- function(connectionDetails,
                               databaseId = databaseId,
                               filterExposureCohorts = filterExposureCohorts,
                               imputeExposureLengthWhenMissing = imputeExposureLengthWhenMissing)
-
-        writePairedCounts(indicationId)
-        filterByExposureCohortsSize(outputFolder = outputFolder, indicationId = indicationId)
     }
+
+    writePairedCounts(outputFolder = outputFolder, indicationId = indicationId)
+    filterByExposureCohortsSize(outputFolder = outputFolder, indicationId = indicationId,
+                                minCohortSize = minCohortSize)
+
     if (createOutcomeCohorts) {
         createOutcomeCohorts(connectionDetails = connectionDetails,
                              cdmDatabaseSchema = cdmDatabaseSchema,
+                             vocabularyDatabaseSchema = vocabularyDatabaseSchema,
                              cohortDatabaseSchema = cohortDatabaseSchema,
                              tablePrefix = tablePrefix,
                              oracleTempSchema = oracleTempSchema,
@@ -189,24 +204,26 @@ execute <- function(connectionDetails,
                       maxCores = maxCores)
     }
 
-    ParallelLogger::logInfo("Finished")
+    ParallelLogger::logInfo(sprintf("Finished execute() for LEGEND-T2DM %s-vs-%s studies",
+                                    indicationId, indicationId))
 }
 
-writePairedCounts <- function(indicationId) {
+writePairedCounts <- function(outputFolder, indicationId) {
+
     tcos <- readr::read_csv(file = system.file("settings", paste0(indicationId, "TcosOfInterest.csv"),
                                                package = "LegendT2dm"),
                             col_types = readr::cols())
     counts <- readr::read_csv(file = file.path(outputFolder, indicationId, "cohortCounts.csv"),
                               col_types = readr::cols()) %>%
-        select(cohortDefinitionId, cohortCount)
+        select(.data$cohortDefinitionId, .data$cohortCount)
 
     tmp <- tcos %>%
-        left_join(counts, by = c("targetId" = "cohortDefinitionId")) %>% rename(targetPairedPersons = cohortCount) %>%
-        left_join(counts, by = c("comparatorId" = "cohortDefinitionId")) %>% rename(comparatorPairedPersons = cohortCount)
+        left_join(counts, by = c("targetId" = "cohortDefinitionId")) %>% rename(targetPairedPersons = .data$cohortCount) %>%
+        left_join(counts, by = c("comparatorId" = "cohortDefinitionId")) %>% rename(comparatorPairedPersons = .data$cohortCount)
 
     tmp <- tmp %>%
-        mutate(targetPairedPersons = ifelse(is.na(targetPairedPersons), 0, targetPairedPersons)) %>%
-        mutate(comparatorPairedPersons = ifelse(is.na(comparatorPairedPersons), 0, comparatorPairedPersons))
+        mutate(targetPairedPersons = ifelse(is.na(.data$targetPairedPersons), 0, .data$targetPairedPersons)) %>%
+        mutate(comparatorPairedPersons = ifelse(is.na(.data$comparatorPairedPersons), 0, .data$comparatorPairedPersons))
 
     readr::write_csv(tmp, file = file.path(outputFolder, indicationId, "pairedExposureSummary.csv"))
 }

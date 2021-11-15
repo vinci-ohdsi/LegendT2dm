@@ -7,8 +7,10 @@
 assessPhenotypes(
   connectionDetails,
   cdmDatabaseSchema,
+  vocabularyDatabaseSchema = cdmDatabaseSchema,
   cohortDatabaseSchema,
   tablePrefix = "legend_t2dm",
+  indicationId = "class",
   oracleTempSchema,
   outputFolder,
   sampleSize = 1e+05,
@@ -33,12 +35,19 @@ the DatabaseConnector package.}
 Note that for SQL Server, this should include both the database and
 schema name, for example 'cdm_data.dbo'.}
 
+\item{vocabularyDatabaseSchema}{Schema name where your vocabulary tables in OMOP CDM format resides.
+Note that for SQL Server, this should include both the database and
+schema name, for example 'cdm_data.dbo'.}
+
 \item{cohortDatabaseSchema}{Schema name where intermediate data can be stored. You will need to
 have write priviliges in this schema. Note that for SQL Server, this
 should include both the database and schema name, for example
 'cdm_data.dbo'.}
 
 \item{tablePrefix}{A prefix to be used for all table names created for this study.}
+
+\item{indicationId}{A string denoting the indicationId for which the exposure cohorts
+should be created; should be 'class' or 'drug'}
 
 \item{oracleTempSchema}{Should be used in Oracle to specify a schema where the user has write
 priviliges for storing temporary tables.}
@@ -51,6 +60,24 @@ slashes (/)}
 \item{minCellCount}{The minimum cell count for fields contains person counts or fractions.}
 
 \item{databaseId}{A short string for identifying the database (e.g. 'Synpuf').}
+
+\item{databaseName}{Full name for the database.}
+
+\item{databaseDescription}{Brief description of population in database}
+
+\item{createExposureCohorts}{Boolean: execute exposure cohort instantiation? \code{FALSE} will
+attempt to re-use the cohort table in \code{cohortDatabaseSchema}}
+
+\item{runExposureCohortDiagnostics}{Boolean: execute cohort diagnostics on exposure cohorts?}
+
+\item{createOutcomeCohorts}{Boolean: execute outcome cohort instantiation? \code{FALSE} will
+attempt to re-use the cohort table in \code{cohortDatabaseSchema}}
+
+\item{runOutcomeCohortDiagnostics}{Boolean: execute cohort diagnostics on outcome cohorts?}
+
+\item{filterExposureCohorts}{Optional subset of exposure cohorts to use; \code{NULL} implies all.}
+
+\item{filterOutcomeCohorts}{Options subset of outcome cohorts to use; \code{NULL} implies all.}
 }
 \description{
 Assess propensity models

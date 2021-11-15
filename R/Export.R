@@ -84,7 +84,7 @@ exportResults <- function(indicationId = "class",
 
     # Add all to zip file -------------------------------------------------------------------------------
     ParallelLogger::logInfo("Adding results to zip file")
-    zipName <- file.path(exportFolder, paste0("Results", "_", indicationId, "_", databaseId, ".zip"))
+    zipName <- file.path(exportFolder, paste0("Results_", indicationId, "_study_", databaseId, ".zip"))
     files <- list.files(exportFolder, pattern = ".*\\.csv$")
     oldWd <- setwd(exportFolder)
     on.exit(setwd(oldWd))
@@ -100,14 +100,14 @@ swapColumnContents <- function(df, column1 = "targetId", column2 = "comparatorId
 }
 
 
-getAsymAnalysisIds <- function() {
-    cmAnalysisListFile <- system.file("settings",
-                                      sprintf("cmAnalysisListAsym%s.json", indicationId),
-                                      package = "Legend")
-    cmAnalysisListAsym <- CohortMethod::loadCmAnalysisList(cmAnalysisListFile)
-    analysisIds <- as.vector(unlist(ParallelLogger::selectFromList(cmAnalysisListAsym, "analysisId")))
-    return(analysisIds)
-}
+# getAsymAnalysisIds <- function() {
+#     cmAnalysisListFile <- system.file("settings",
+#                                       sprintf("cmAnalysisListAsym%s.json", indicationId),
+#                                       package = "Legend")
+#     cmAnalysisListAsym <- CohortMethod::loadCmAnalysisList(cmAnalysisListFile)
+#     analysisIds <- as.vector(unlist(ParallelLogger::selectFromList(cmAnalysisListAsym, "analysisId")))
+#     return(analysisIds)
+# }
 
 
 enforceMinCellValue <- function(data, fieldName, minValues, silent = FALSE) {

@@ -1,0 +1,123 @@
+---
+fontsize: 12pt
+geometry: margin=1in
+output:
+  html_document:
+    toc: no
+    df_print: paged
+  bookdown::pdf_document2:
+    keep_tex: yes
+    latex_engine: xelatex
+    md_extensions: +raw_attribute
+    toc: no
+    number_sections: yes
+  word_document:
+    reference_docx: bmj-open-style.docx
+  pdf_document:
+    toc: no
+header-includes:
+- \usepackage[numbers,sort&compress]{natbib}
+- \usepackage{booktabs}
+- \usepackage{longtable}
+- \usepackage{array}
+- \usepackage{multirow}
+- \usepackage{wrapfig}
+- \usepackage{float}
+- \usepackage{colortbl}
+- \usepackage{pdflscape}
+- \usepackage{tabu}
+- \usepackage{threeparttable}
+- \usepackage{threeparttablex}
+- \usepackage[normalem]{ulem}
+- \usepackage{makecell}
+- \usepackage{caption}
+- \usepackage{rotating}
+- \usepackage{multirow}
+- \usepackage{mwe,tikz}
+- \usepackage[percent]{overpic}
+- \usepackage{enumitem}
+- \usepackage{hyperref}
+- \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+- \newcommand{\footerDate}{`r params$date`}
+- \renewcommand{\and}{\\}
+- \usepackage{setspace}\doublespacing
+- \usepackage{lineno}\linenumbers
+- \usepackage[nolists]{endfloat}
+- \DeclareDelayedFloatFlavour*{longtable}{table}
+longtable: yes
+mainfont: Arial
+bibliography: Protocol.bib
+params:
+  date: ''
+  version: 1.0.0
+  avoidLongTable: yes
+link-citations: yes
+csl: jamia.csl
+---
+
+```{r setup, include=FALSE}
+library(LegendT2dm)
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE)
+options(kableExtra.latex.load_packages = FALSE)
+library(kableExtra)
+library(dplyr)
+options(knitr.kable.NA = "")
+options(knitr.table.format = function() {
+  if (knitr::is_latex_output()) {
+    "latex"
+  } else if (knitr::is_html_output()) {
+    "html"
+  } else {
+    "pipe"
+  }
+})
+
+latex_table_font_size <- 8
+```
+
+```{r child = "BmjTitlePage.Rmd"}
+```
+
+\clearpage
+
+# Abstract {-}
+
+```{r child = "ShorterAbstract.Rmd"}
+```
+
+\clearpage
+
+# Article Summary {-}
+
+```{r child = "BMJOpenArticleSummary.Rmd"}
+```
+
+\clearpage
+
+```{r child = "BMJOpenMainText.Rmd"}
+```
+
+## Acknowledgements {-}
+
+```{r child = "BMJOpenAcknowledgements.Rmd"}
+```
+
+
+# References {-}
+
+<div id="refs"></div>
+
+\clearpage
+\processdelayedfloats
+\clearpage
+
+# (APPENDIX) Appendix {-}
+
+\begin{center}
+  {\Huge Appendix}
+\end{center}
+\setcounter{page}{1}
+\singlespace
+
+```{r child = "Appendix.Rmd"}
+```

@@ -11,16 +11,12 @@ baseUrlWebApi <- keyring::key_get("baseUrl")
 
 # baseCohort <- ROhdsiWebApi::getCohortDefinition(1487, baseUrl = "http://atlas-covid19.ohdsi.org/WebAPI")
 # baseCohortJson <- RJSONIO::toJSON(baseCohort$expression, indent = 2, digits = 50)
-# SqlRender::writeSql(baseCohortJson, targetFile = "baseCohort.json")
-# saveRDS(baseCohort, file = "baseCohort.rds")
-
-# json <- SqlRender::readSql("baseCohort.json")
-# baseCohort <- RJSONIO::fromJSON(json, digits = 50)
-# saveRDS(baseCohort, file = "baseCohort.rds")
+# SqlRender::writeSql(baseCohortJson, targetFile = "inst/settings/baseCohort.json")
+# saveRDS(baseCohort, file = "inst/settings/baseCohort.rds")
 
 # Inclusion rules: Age == 1, Sex == 2, Race == 3, CVD == 4, Renal == 5, PriorMet == 6, NoMet == 7
 
-baseCohort <- readRDS("baseCohort.rds")
+baseCohort <- readRDS("inst/settings/baseCohort.rds")
 
 generateStats <- TRUE
 
@@ -358,6 +354,7 @@ makeTCOs <- function(tarId, metId, ageId, sexId, raceId, cvdId, renalId) {
 classTcos <- rbind(
   # Order: tar, met, age, sex, race, cvd, renal
   #
+  # OT1
   # Main
   makeTCOs("ot1", "with", "any", "any", "any", "any", "any"),
   # Age
@@ -374,7 +371,26 @@ classTcos <- rbind(
   makeTCOs("ot1", "with", "any", "any", "any", "higher", "any"),
   # Renal dz
   makeTCOs("ot1", "with", "any", "any", "any", "any", "without"),
-  makeTCOs("ot1", "with", "any", "any", "any", "any", "with")
+  makeTCOs("ot1", "with", "any", "any", "any", "any", "with"),
+  #
+  # OT2
+  # Main
+  makeTCOs("ot2", "with", "any", "any", "any", "any", "any"),
+  # Age
+  makeTCOs("ot2", "with", "younger", "any", "any", "any", "any"),
+  makeTCOs("ot2", "with", "middle", "any", "any", "any", "any"),
+  makeTCOs("ot2", "with", "older", "any", "any", "any", "any"),
+  # Sex
+  makeTCOs("ot2", "with", "any", "female", "any", "any", "any"),
+  makeTCOs("ot2", "with", "any", "male", "any", "any", "any"),
+  # Race
+  makeTCOs("ot2", "with", "any", "any", "black", "any", "any"),
+  # CV risk
+  makeTCOs("ot2", "with", "any", "any", "any", "low", "any"),
+  makeTCOs("ot2", "with", "any", "any", "any", "higher", "any"),
+  # Renal dz
+  makeTCOs("ot2", "with", "any", "any", "any", "any", "without"),
+  makeTCOs("ot2", "with", "any", "any", "any", "any", "with")
 )
 readr::write_csv(classTcos, "inst/settings/classTcosOfInterest.csv")
 

@@ -14,6 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+#' Print cohort definition with specified name
+#'
+#' @description
+#' Outputs a cohort definition into human-readable \code{markdown}
+#'
+#' @param name                  Cohort name listed as section title
+#' @param json                  JSON cohort definition to be printed
+#' @param obj                   Cohort object outputted from \code{CirceR} to be printed; can be \code{NULL}
+#'                              in which case \code{json} is used.
+#' @param withConcepts          Boolean: Include concept lists in output?
+#' @param withClosing           Boolean: Add the output from \code{printCohortClose} to end?
+#'
 #' @export
 printCohortDefinitionFromNameAndJson <- function(name, json = NULL, obj = NULL,
                                                  withConcepts = TRUE,
@@ -54,37 +66,54 @@ printCohortDefinitionFromNameAndJson <- function(name, json = NULL, obj = NULL,
   }
 }
 
+
+#' Print concept set
+#'
+#' @description
+#' Outputs a concept set into human-readable \code{markdown}
+#'
+#' @param conceptSet            JSON concept set definition to be printed
+#' @param latexTableFontSize    Font size to use if output will be converted to PDF via \code{latex}
+#'
 #' @export
-printConceptSet <- function(conceptSet) {
+printConceptSet <- function(conceptSet,
+                            latexTableFontSize = 8) {
 
   markdown <- CirceR::conceptSetPrintFriendly(conceptSet)
   rows <- unlist(strsplit(markdown, "\\r\\n"))
   rows <- gsub("^\\|", "", rows)
+  rows <- gsub("\\|$", "", rows)
   header <- rows[1]
   data <- readr::read_delim(paste(rows[c(2,4:(length(rows)-2))],
-                                  collapse = '\n'), delim = '|',)
+                                  collapse = '\n'),
+                            delim = '|', col_types = "ccccccc")
 
   header <- gsub("###", "### Concept:", header)
 
-  tab <- data %>% mutate_if(is.numeric, format, digits = 10) %>% kable(linesep = "", booktabs = TRUE, longtable = TRUE)
+  tab <- data %>% mutate_if(is.numeric, format, digits = 10) %>% knitr::kable(linesep = "", booktabs = TRUE, longtable = TRUE)
 
   if (knitr::is_latex_output()) {
     writeLines(header)
 
     writeLines(tab %>%
-                 kable_styling(latex_options = "striped", font_size = latex_table_font_size) %>%
-                 column_spec(1, width = "5em") %>%
-                 column_spec(2, width = "20em"))
+                 kableExtra::kable_styling(latex_options = "striped", font_size = latexTableFontSize) %>%
+                 kableExtra::column_spec(1, width = "5em") %>%
+                 kableExtra::column_spec(2, width = "20em"))
   } else if (knitr::is_html_output()) {
     writeLines(header)
 
     writeLines(tab %>%
-                 kable_styling(bootstrap_options = "striped"))
+                 kableExtra::kable_styling(bootstrap_options = "striped"))
   } else {
     writeLines(markdown)
   }
 }
 
+#' Print cohort closing line
+#'
+#' @description
+#' Outputs a cohort closing line in  \code{markdown}
+#'
 #' @export
 printCohortClose <- function() {
   writeLines("")
@@ -96,12 +125,29 @@ printCohortClose <- function() {
   writeLines("")
 }
 
+#' Print cohort definition from file name
+#'
+#' @description
+#' Outputs a cohort definition into human-readable \code{markdown}
+#'
+#' @param info                  List with two entries: \code{name} (text name for printing) and
+#'                              \code{jsonFileName} (JSON file name)
+#'
 #' @export
 printCohortDefinition <- function(info) {
   json <- SqlRender::readSql(info$jsonFileName)
   printCohortDefinitionFromNameAndJson(info$name, json)
 }
 
+#' Print inclusion criteria
+#'
+#' @description
+#' Outputs inclusion criteria into human-readable \code{markdown}
+#'
+#' @param obj                   Cohort object outputted from \code{CirceR} to be printed
+#'                              in which case \code{json} is used.
+#' @param removeDescription           Currently not used (TODO fix)
+#'
 #' @export
 printInclusionCriteria <- function(obj, removeDescription = FALSE) {
 
@@ -118,6 +164,14 @@ printInclusionCriteria <- function(obj, removeDescription = FALSE) {
   writeLines(markdown)
 }
 
+#' Print exit criteria
+#'
+#' @description
+#' Outputs exit criteria into human-readable \code{markdown}
+#'
+#' @param obj                   Cohort object outputted from \code{CirceR} to be printed
+#'                              in which case \code{json} is used.
+#'
 #' @export
 printExitCriteria <- function(obj) {
 
