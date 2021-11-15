@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Save a set of concept sets expressions, included concepts,...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createConceptSetWorkbook {OhdsiRTools}"><tr><td>createConceptSetWorkbook {OhdsiRTools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Save a set of concept sets expressions, included concepts, and mapped concepts into a workbook</h2>
+
+<h3>Description</h3>
+
+<p>Save a set of concept sets expressions, included concepts, and mapped concepts into a workbook
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createConceptSetWorkbook(
+  conceptSetIds,
+  workFolder = NULL,
+  baseUrl,
+  included = FALSE,
+  mapped = FALSE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>conceptSetIds</code></td>
+<td>
+<p>A vector of concept set IDs.</p>
+</td></tr>
+<tr valign="top"><td><code>workFolder</code></td>
+<td>
+<p>Directory location where the workbook will be saved, defaults to working
+directory.</p>
+</td></tr>
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>included</code></td>
+<td>
+<p>Should included concepts be included in the workbook?</p>
+</td></tr>
+<tr valign="top"><td><code>mapped</code></td>
+<td>
+<p>Should mapped concepts be included in the workbook?</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A xlsx workbook (conceptSetExpressions.xlsx) that includes a list of all concept set IDs and names
+and a worksheet for the concepts in each set. Options to include an included concepts and mapped
+concepts worksheet for each concept set are available.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>OhdsiRTools</em> version 1.10.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

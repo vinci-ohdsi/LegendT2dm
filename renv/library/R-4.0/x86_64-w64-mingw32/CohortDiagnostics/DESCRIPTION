@@ -35,17 +35,19 @@ Author: Gowtham Rao [aut, cre],
  James Weaver [aut],
  Jamie Gilbert [aut],
  Observational Health Data Science and Informatics [cph]
-Built: R 4.0.3; ; 2021-07-23 22:45:27 UTC; windows
+Built: R 4.0.3; ; 2021-11-15 14:19:02 UTC; windows
 RemoteType: github
+Remotes: ohdsi/Eunomia, ohdsi/FeatureExtraction, ohdsi/ROhdsiWebApi,
+    ohdsi/CirceR
 RemoteHost: api.github.com
-RemoteUsername: OHDSI
 RemoteRepo: CohortDiagnostics
+RemoteUsername: OHDSI
 RemoteRef: va_patch
-RemoteSha: 47cc274404dac79ab077cc83e9c58dd13ea47af6
+RemoteSha: 80ea4d0cf02759d66192109ce55c6f5ad0382874
 GithubHost: api.github.com
 GithubRepo: CohortDiagnostics
 GithubUsername: OHDSI
 GithubRef: va_patch
-GithubSHA1: 47cc274404dac79ab077cc83e9c58dd13ea47af6
+GithubSHA1: 80ea4d0cf02759d66192109ce55c6f5ad0382874
 Remotes: ohdsi/Eunomia, ohdsi/FeatureExtraction, ohdsi/ROhdsiWebApi,
     ohdsi/CirceR

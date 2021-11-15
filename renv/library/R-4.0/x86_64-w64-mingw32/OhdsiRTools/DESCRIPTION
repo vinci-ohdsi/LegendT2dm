@@ -1,0 +1,37 @@
+Package: OhdsiRTools
+Type: Package
+Title: Tools Used by Observational Health Data Science and Informatics (OHDSI)
+Version: 1.10.0
+Date: 2021-05-17
+Authors@R: c(
+ person("Martijn", "Schuemie", email = "schuemie@ohdsi.org", role = c("aut", "cre")),
+ person("Marc", "Suchard", role = c("aut")),
+ person("Observational Health Data Science and Informatics", role = c("cph"))
+ )
+Maintainer: Martijn Schuemie <schuemie@ohdsi.org>
+Description: Includes functions to format and check syntax of R code and packages following the 'OHDSI'
+ R style guidelines. Generate renv lock files for OHDSI study packages.
+License: Apache License 2.0
+Imports: remotes, codetools, formatR, RJSONIO, httr (>= 1.3.1), openxlsx (>=
+    4.0.17), methods, utils
+Suggests: testthat
+URL: http://ohdsi.github.io/OhdsiRTools/, https://github.com/OHDSI/OhdsiRTools
+BugReports: https://github.com/OHDSI/OhdsiRTools/issues
+NeedsCompilation: no
+RoxygenNote: 7.1.1
+Encoding: UTF-8
+Author: Martijn Schuemie [aut, cre],
+ Marc Suchard [aut],
+ Observational Health Data Science and Informatics [cph]
+Built: R 4.0.3; ; 2021-11-15 14:19:31 UTC; windows
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: OhdsiRTools
+RemoteUsername: ohdsi
+RemoteRef: HEAD
+RemoteSha: 6da158e8ae99bf174419b7b9121f2896d61a6d67
+GithubHost: api.github.com
+GithubRepo: OhdsiRTools
+GithubUsername: ohdsi
+GithubRef: HEAD
+GithubSHA1: 6da158e8ae99bf174419b7b9121f2896d61a6d67

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Load a cohort definition and insert it into this package</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for insertCohortDefinitionInPackage {OhdsiRTools}"><tr><td>insertCohortDefinitionInPackage {OhdsiRTools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Load a cohort definition and insert it into this package</h2>
+
+<h3>Description</h3>
+
+<p>Load a cohort definition and insert it into this package
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+insertCohortDefinitionInPackage(
+  definitionId,
+  name = NULL,
+  baseUrl,
+  generateStats = FALSE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>definitionId</code></td>
+<td>
+<p>The number indicating which cohort definition to fetch.</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>The name that will be used for the json and SQL files. If not provided, the
+name in cohort will be used, but this may not lead to valid file names.</p>
+</td></tr>
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>generateStats</code></td>
+<td>
+<p>Should the SQL include the code for generating inclusion rule statistics?
+Note that if TRUE, several additional tables are expected to exists as
+described in the details.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Load a cohort definition from a WebApi instance and insert it into this package. This will fetch
+the json object and store it in the 'inst/cohorts' folder, and fetch the template SQL and store it
+in the 'inst/sql/sql_server' folder. Both folders will be created if they don't exist. When using
+generateStats = TRUE, the following tables are required to exist when executing the SQL:
+cohort_inclusion, cohort_inclusion_result, cohort_inclusion_stats, and cohort_summary_stats. Also
+note that the cohort_inclusion table should be populated with the names of the rules prior to
+executing the cohort definition SQL.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+# This will create 'inst/cohorts/Angioedema.json' and 'inst/sql/sql_server/Angioedema.sql':
+
+insertCohortDefinitionInPackage(definitionId = 282,
+                                name = "Angioedema",
+                                baseUrl = "http://server.org:80/WebAPI")
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>OhdsiRTools</em> version 1.10.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

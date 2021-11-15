@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get a cohort definition expression</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for getCohortDefinitionExpression {OhdsiRTools}"><tr><td>getCohortDefinitionExpression {OhdsiRTools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get a cohort definition expression</h2>
+
+<h3>Description</h3>
+
+<p>Get a cohort definition expression
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+getCohortDefinitionExpression(definitionId, baseUrl)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>definitionId</code></td>
+<td>
+<p>The number indicating which cohort definition to fetch.</p>
+</td></tr>
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Obtain the JSON expression from WebAPI for a given cohort id
+</p>
+
+
+<h3>Value</h3>
+
+<p>A JSON list object representing the cohort definition
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+# This will obtain a cohort definition's JSON expression:
+
+getCohortDefinitionExpression(definitionId = 282, baseUrl = "http://server.org:80/WebAPI")
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>OhdsiRTools</em> version 1.10.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

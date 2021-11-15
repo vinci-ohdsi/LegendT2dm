@@ -291,3 +291,12 @@ setAuthHeader           Manually set the authorization http header for
                         An authHeader is associated with a particular
                         baseUrl and added to to the header of all http
                         requests sent to that url by ROhdsiWebApi.
+updateCohortDefinition
+                        Update a Cohort definition. \Sexpr[results=rd,
+                        stage=render]{lifecycle::badge("maturing")}
+updateConceptSetDefinition
+                        Update a ConceptSet definition.
+                        \Sexpr[results=rd,
+                        stage=render]{lifecycle::badge("maturing")}
+updateDefinition        Update definition \Sexpr[results=rd,
+                        stage=render]{lifecycle::badge("maturing")}

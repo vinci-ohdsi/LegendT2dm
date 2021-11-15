@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get element attributes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for html_attr {rvest}"><tr><td>html_attr {rvest}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get element attributes</h2>
+
+<h3>Description</h3>
+
+<p><code>html_attr()</code> gets a single attribute; <code>html_attrs()</code> gets all attributes.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+html_attr(x, name, default = NA_character_)
+
+html_attrs(x)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>A document (from <code><a href="reexports.html">read_html()</a></code>), node set (from <code><a href="html_element.html">html_elements()</a></code>),
+node (from <code><a href="html_element.html">html_element()</a></code>), or session (from <code><a href="session.html">session()</a></code>).</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>Name of attribute to retrieve.</p>
+</td></tr>
+<tr valign="top"><td><code>default</code></td>
+<td>
+<p>A string used as a default value when the attribute does
+not exist in every element.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A character vector (for <code>html_attr()</code>) or list (<code>html_attrs()</code>)
+the same length as <code>x</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+url &lt;- "https://en.wikipedia.org/w/index.php?title=The_Lego_Movie&amp;oldid=998422565"
+html &lt;- read_html(url)
+
+cast &lt;- html_elements(html, "tr:nth-child(8) .plainlist a")
+cast %&gt;% html_text2()
+cast %&gt;% html_attrs()
+cast %&gt;% html_attr("href")
+
+# If needed, use url_absolute() to convert to complete urls
+url_absolute(html_attr(cast, "href"), url)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>rvest</em> version 1.0.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

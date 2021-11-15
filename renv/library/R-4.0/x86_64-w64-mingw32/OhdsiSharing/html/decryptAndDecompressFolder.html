@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Decrypt and decompress a folder</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for decryptAndDecompressFolder {OhdsiSharing}"><tr><td>decryptAndDecompressFolder {OhdsiSharing}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Decrypt and decompress a folder</h2>
+
+<h3>Description</h3>
+
+<p>Decrypt and decompress a folder
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+decryptAndDecompressFolder(sourceFileName, targetFolder, privateKeyFileName)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>sourceFileName</code></td>
+<td>
+<p>Name of the file that must be decrypted.</p>
+</td></tr>
+<tr valign="top"><td><code>targetFolder</code></td>
+<td>
+<p>Name of the folder that will hold the unencrypted data.</p>
+</td></tr>
+<tr valign="top"><td><code>privateKeyFileName</code></td>
+<td>
+<p>Name of the file where the private key is stored.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Decrypts the data using the provided private key and extracts all files to a folder.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+generateKeyPair("public.key", "private.key")
+
+# Create a folder with some data
+dir.create("test")
+data &lt;- data.frame(x = runif(1000), y = 1:1000)
+saveRDS(data, "test/data1.rds")
+saveRDS(data, "test/data2.rds")
+
+compressAndEncryptFolder("test", "data.zip.enc", "public.key")
+decryptAndDecompressFolder("data.zip.enc", "test2", "private.key")
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>OhdsiSharing</em> version 0.2.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

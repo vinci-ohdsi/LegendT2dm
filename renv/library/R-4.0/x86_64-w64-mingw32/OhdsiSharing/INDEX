@@ -1,0 +1,21 @@
+compressAndEncryptFolder
+                        Compress and encrypt a folder
+compressFolder          Compress a folder
+decompressFolder        Decompress a folder
+decryptAndDecompressFolder
+                        Decrypt and decompress a folder
+decryptFile             Decrypt a data file
+encryptFile             Encrypt a data file
+generateKeyPair         Create a public-private key pair
+sftPwd                  Get the present working directory
+sftpCd                  Change the current working director
+sftpConnect             Connect to the OHDSI SFTP server
+sftpDisconnect          Disconnect from the OHDSI SFTP server.
+sftpGetFiles            Get one or more files from the SFTP server
+sftpLs                  List the files in folder on the server.
+sftpMkdir               Make a directory
+sftpPutFile             Put a file on the SFTP server
+sftpRename              Rename a file or folder
+sftpRm                  Remove one or more files
+sftpRmdir               Remove a directory
+sftpUploadFile          Upload a single file to the OHDSI SFTP server

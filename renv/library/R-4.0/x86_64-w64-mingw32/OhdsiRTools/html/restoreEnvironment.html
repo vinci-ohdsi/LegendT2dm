@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Restore the R environment to a snapshot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for restoreEnvironment {OhdsiRTools}"><tr><td>restoreEnvironment {OhdsiRTools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Restore the R environment to a snapshot</h2>
+
+<h3>Description</h3>
+
+<p>Restore the R environment to a snapshot
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+restoreEnvironment(
+  snapshot,
+  stopOnWrongRVersion = FALSE,
+  strict = FALSE,
+  skipLast = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>snapshot</code></td>
+<td>
+<p>The snapshot data frame as generated using the
+<code><a href="takeEnvironmentSnapshot.html">takeEnvironmentSnapshot</a></code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>stopOnWrongRVersion</code></td>
+<td>
+<p>Should the function stop when the wrong version of R is installed? Else
+just a warning will be thrown when the version doesn't match.</p>
+</td></tr>
+<tr valign="top"><td><code>strict</code></td>
+<td>
+<p>If TRUE, the exact version of each package will installed. If FALSE, a
+package will only be installed if (a) a newer version is required than
+currently installed, or (b) the major version number is different.</p>
+</td></tr>
+<tr valign="top"><td><code>skipLast</code></td>
+<td>
+<p>Skip last entry in snapshot? This is usually the study package that
+needs to be installed manually.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function restores the R environment to a previous snapshot, meaning all the packages will be
+restored to the versions they were at at the time of the snapshot. Note: on Windows you will very
+likely need to have RTools installed to build the various packages.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+snapshot &lt;- takeEnvironmentSnapshot("OhdsiRTools")
+write.csv(snapshot, "snapshot.csv")
+
+# 5 years later
+
+snapshot &lt;- read.csv("snapshot.csv")
+restoreEnvironment(snapshot)
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>OhdsiRTools</em> version 1.10.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -23,15 +23,15 @@ Language: en-US
 Encoding: UTF-8
 Author: Chris Knoll [aut, cre],
  Martijn Schuemie [aut]
-Built: R 4.0.3; ; 2021-07-23 22:45:07 UTC; windows
+Built: R 4.0.3; ; 2021-11-15 14:18:22 UTC; windows
 RemoteType: github
 RemoteHost: api.github.com
 RemoteUsername: ohdsi
 RemoteRepo: CirceR
 RemoteRef: master
-RemoteSha: dc8d462560a22e962f75e5604282e383410afa08
+RemoteSha: eb27c4bd43f02c68a8bce6a01e02f9fe2b923b5c
 GithubHost: api.github.com
 GithubRepo: CirceR
 GithubUsername: ohdsi
 GithubRef: master
-GithubSHA1: dc8d462560a22e962f75e5604282e383410afa08
+GithubSHA1: eb27c4bd43f02c68a8bce6a01e02f9fe2b923b5c

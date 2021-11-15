@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Compress a folder</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for compressFolder {OhdsiSharing}"><tr><td>compressFolder {OhdsiSharing}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Compress a folder</h2>
+
+<h3>Description</h3>
+
+<p>Compress a folder
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+compressFolder(sourceFolder, targetFileName)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>sourceFolder</code></td>
+<td>
+<p>Name of the folder that must be compressed.</p>
+</td></tr>
+<tr valign="top"><td><code>targetFileName</code></td>
+<td>
+<p>Name of the file that will hold the compressed data.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Compresses all files in a folder and its subfolders, and stores it in a single zip file.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+# Create a folder with some data
+dir.create("test")
+data &lt;- data.frame(x = runif(1000), y = 1:1000)
+saveRDS(data, "test/data1.rds")
+saveRDS(data, "test/data2.rds")
+
+compressFolder("test", "data.zip")
+decompressFolder("data.zip", "test2")
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>OhdsiSharing</em> version 0.2.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

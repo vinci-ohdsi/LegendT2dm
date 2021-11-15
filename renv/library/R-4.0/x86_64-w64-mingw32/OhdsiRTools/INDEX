@@ -1,0 +1,64 @@
+checkUsagePackage       Check all code in a package
+createConceptSetWorkbook
+                        Save a set of concept sets expressions,
+                        included concepts, and mapped concepts into a
+                        workbook
+createRenvLockFile      Create a renv lock file
+findNonAsciiStringsInFolder
+                        Find non-ASCII strings in R files
+fixHadesLogo            Fix HADES logo in pkgdown output
+formatRFile             Format an R file
+formatRFolder           Format all R files in a folder
+formatRText             Format R code
+getCohortDefinitionExpression
+                        Get a cohort definition expression
+getCohortDefinitionName
+                        Get a cohort definition's name from WebAPI
+getCohortDefinitionSql
+                        Get a cohort definition's SQL from WebAPI
+getCohortGenerationStatuses
+                        Get Cohort Generation Statuses
+getConceptSetConceptIds
+                        Get Concept Set Concept Ids
+getConceptSetExpression
+                        Get a concept set expression
+getConceptSetName       Get a concept set's name from WebAPI
+getConceptSetsAndConceptsFromCohort
+                        Get a list of concept sets and concepts from a
+                        cohort definition
+getCorePackages         Get a list of R core packages
+getOhdsiGitHubPackages
+                        Get a list of packages in the OHDSI GitHub.
+getPriorityVocabKey     Get Priority Vocab Source Key
+getSetExpressionConceptIds
+                        Get Concepts from a Concept Set Expression
+insertCohortDefinitionInPackage
+                        Load a cohort definition and insert it into
+                        this package
+insertCohortDefinitionSetInPackage
+                        Insert a set of cohort definitions into package
+insertConceptSetConceptIdsInPackage
+                        Insert a set of concept sets' concept ids into
+                        package
+insertEnvironmentSnapshotInPackage
+                        Store snapshot of the R environment in the
+                        package
+invokeCohortSetGeneration
+                        Invoke the generation of a set of cohort
+                        definitions
+restoreEnvironment      Restore the R environment to a snapshot
+restoreEnvironmentFromPackage
+                        Restore environment stored in package
+restoreEnvironmentFromPackageOnGithub
+                        Restore environment stored in package
+takeEnvironmentSnapshot
+                        Take a snapshot of the R environment
+updateCopyrightYearFile
+                        Update the copyright year in a R or SQL file
+updateCopyrightYearFolder
+                        Update the copyright year in all R and SQL
+                        files in a folder
+updatePackageName       Update the package name in a R or SQL file
+updatePackageNameFolder
+                        Update the package name in all R and SQL files
+                        in a folder

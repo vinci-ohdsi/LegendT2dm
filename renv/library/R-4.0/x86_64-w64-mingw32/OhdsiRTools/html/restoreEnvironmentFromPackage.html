@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Restore environment stored in package</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for restoreEnvironmentFromPackage {OhdsiRTools}"><tr><td>restoreEnvironmentFromPackage {OhdsiRTools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Restore environment stored in package</h2>
+
+<h3>Description</h3>
+
+<p>Restore environment stored in package
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+restoreEnvironmentFromPackage(
+  pathToCsv = "inst/settings/rEnvironmentSnapshot.csv",
+  stopOnWrongRVersion = FALSE,
+  strict = FALSE,
+  skipLast = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>pathToCsv</code></td>
+<td>
+<p>The path for saving the snapshot (as CSV file).</p>
+</td></tr>
+<tr valign="top"><td><code>stopOnWrongRVersion</code></td>
+<td>
+<p>Should the function stop when the wrong version of R is installed? Else
+just a warning will be thrown when the version doesn't match.</p>
+</td></tr>
+<tr valign="top"><td><code>strict</code></td>
+<td>
+<p>If TRUE, the exact version of each package will installed. If FALSE, a
+package will only be installed if (a) a newer version is required than
+currently installed, or (b) the major version number is different.</p>
+</td></tr>
+<tr valign="top"><td><code>skipLast</code></td>
+<td>
+<p>Skip last entry in snapshot? This is usually the study package that
+needs to be installed manually.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function restores all packages (and package versions) described in the environment snapshot
+stored in the package currently being developed. The default location is
+<code>inst/settings/rEnvironmentSnapshot.csv</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+restoreEnvironmentFromPackage()
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>OhdsiRTools</em> version 1.10.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

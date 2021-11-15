@@ -1,7 +1,7 @@
 Package: ROhdsiWebApi
 Type: Package
 Title: Interacting With an OHDSI WebApi Instance
-Version: 1.2.0
+Version: 1.2.1
 Date: 2021-03-31
 Authors@R: c(
  person("Gowtham", "Rao", email = "rao@ohdsi.org", role = c("aut", "cre")),
@@ -18,7 +18,8 @@ Depends: R (>= 3.1.0),
 Imports: checkmate, dplyr, httr (>= 1.3.1), lifecycle, lubridate, openxlsx (>=
     4.0.17), purrr, readr, RJSONIO, scales, SqlRender, stringr, tibble, tidyr,
     rlang
-Suggests: testthat, knitr, rmarkdown, httpuv, jsonlite, plumber, callr
+Suggests: testthat, knitr, rmarkdown, httpuv, jsonlite, withr, httptest,
+    stringi
 URL: https://ohdsi.github.io/ROhdsiWebApi/,
     https://github.com/OHDSI/ROhdsiWebApi
 BugReports: https://github.com/OHDSI/ROhdsiWebApi/issues
@@ -32,15 +33,15 @@ Author: Gowtham Rao [aut, cre],
  Martijn Schuemie [aut],
  Jamie Gilbert [aut],
  Observational Health Data Science and Informatics [cph]
-Built: R 4.0.3; ; 2021-07-23 22:45:12 UTC; windows
+Built: R 4.0.3; ; 2021-11-15 14:18:35 UTC; windows
 RemoteType: github
 RemoteHost: api.github.com
 RemoteUsername: ohdsi
 RemoteRepo: ROhdsiWebApi
 RemoteRef: master
-RemoteSha: db363a4e5d77dfa1a68267a9e1e4697ec46c02f1
+RemoteSha: 5eba1e59c3d466fb862cd3f0a6c536c2e401bbb4
 GithubHost: api.github.com
 GithubRepo: ROhdsiWebApi
 GithubUsername: ohdsi
 GithubRef: master
-GithubSHA1: db363a4e5d77dfa1a68267a9e1e4697ec46c02f1
+GithubSHA1: 5eba1e59c3d466fb862cd3f0a6c536c2e401bbb4

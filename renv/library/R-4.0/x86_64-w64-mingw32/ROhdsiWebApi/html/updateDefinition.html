@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Update definition *[Maturing]*</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for updateDefinition {ROhdsiWebApi}"><tr><td>updateDefinition {ROhdsiWebApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Update definition <a href="https://lifecycle.r-lib.org/articles/stages.html#maturing"><img src="../help/figures/lifecycle-maturing.svg" alt='[Maturing]' /></a></h2>
+
+<h3>Description</h3>
+
+<p>Update definition <a href="https://lifecycle.r-lib.org/articles/stages.html#maturing"><img src="../help/figures/lifecycle-maturing.svg" alt='[Maturing]' /></a>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+updateDefinition(definition, baseUrl, category)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>definition</code></td>
+<td>
+<p>An R list object containing the expression for the specification. This will be
+converted to JSON expression by function and posted into the WebApi.</p>
+</td></tr>
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>category</code></td>
+<td>
+<p>These are the categories in WebApi. The valid string options are 'conceptSet', 
+'cohort', 'characterization', 'pathway, 'incidenceRate', 'estimation', 'prediction'.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Update a definition in WebAPI. Currently only cohorts are supported.
+Takes the definition as a parameter and converts it to json. This is the full definition
+(i.e. including name and id fields)
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+definition &lt;- getDefinition(id = 13242, baseUrl = "http://server.org:80/WebAPI", category = "cohort")
+definition$name &lt;- "My new name for this"
+updateDefinition(definition, baseUrl, category = "cohort")
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>ROhdsiWebApi</em> version 1.2.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

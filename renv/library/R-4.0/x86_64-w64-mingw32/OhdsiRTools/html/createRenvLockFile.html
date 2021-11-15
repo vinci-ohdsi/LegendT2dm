@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create a renv lock file</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createRenvLockFile {OhdsiRTools}"><tr><td>createRenvLockFile {OhdsiRTools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create a renv lock file</h2>
+
+<h3>Description</h3>
+
+<p>Create a renv lock file
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createRenvLockFile(
+  rootPackage,
+  includeRootPackage = TRUE,
+  additionalRequiredPackages = NULL,
+  ohdsiGitHubPackages = getOhdsiGitHubPackages(),
+  ohdsiStudiesGitHubPackages = rootPackage,
+  fileName = "renv.lock"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>rootPackage</code></td>
+<td>
+<p>The name of the root package, the package that we'd like to be
+able to run in the end.</p>
+</td></tr>
+<tr valign="top"><td><code>includeRootPackage</code></td>
+<td>
+<p>Include the root package in the renv file?</p>
+</td></tr>
+<tr valign="top"><td><code>additionalRequiredPackages</code></td>
+<td>
+<p>Additional packages we want to have installed (with their 
+dependencies), such as 'keyring'.</p>
+</td></tr>
+<tr valign="top"><td><code>ohdsiGitHubPackages</code></td>
+<td>
+<p>Names of R packages that need to be installed from the OHDSI
+GitHub.</p>
+</td></tr>
+<tr valign="top"><td><code>ohdsiStudiesGitHubPackages</code></td>
+<td>
+<p>Names of R packages that need to be installed from the
+OHDSI-Studies GitHub.</p>
+</td></tr>
+<tr valign="top"><td><code>fileName</code></td>
+<td>
+<p>Name of the lock file to be generated.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Create a lock file that allows reconstruction of the R environment using the <code>renv</code> package.
+This function will include the root file and all of its dependencies in the lock file, requiring
+the same package versions as currently installed on this computer.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Does not return a value. Is executed for the side-effect of creating the lock file.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>OhdsiRTools</em> version 1.10.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Invoke the generation of a set of cohort definitions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for invokeCohortSetGeneration {OhdsiRTools}"><tr><td>invokeCohortSetGeneration {OhdsiRTools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Invoke the generation of a set of cohort definitions</h2>
+
+<h3>Description</h3>
+
+<p>Invoke the generation of a set of cohort definitions
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+invokeCohortSetGeneration(baseUrl, sourceKeys, definitionIds)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>sourceKeys</code></td>
+<td>
+<p>A list of CDM source keys. These can be found in Atlas -&gt; Configure.</p>
+</td></tr>
+<tr valign="top"><td><code>definitionIds</code></td>
+<td>
+<p>A list of cohort definition Ids</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Invokes the generation of a set of cohort definitions across a set of CDMs set up in WebAPI. Use
+<code>getCohortGenerationStatuses</code> to check the progress of the set.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>OhdsiRTools</em> version 1.10.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

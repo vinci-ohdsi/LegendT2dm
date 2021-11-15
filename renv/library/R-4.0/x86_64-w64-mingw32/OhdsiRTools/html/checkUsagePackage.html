@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Check all code in a package</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for checkUsagePackage {OhdsiRTools}"><tr><td>checkUsagePackage {OhdsiRTools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Check all code in a package</h2>
+
+<h3>Description</h3>
+
+<p>Check all code in a package
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+checkUsagePackage(
+  package,
+  ignoreHiddenFunctions = TRUE,
+  suppressBindingKeywords = c("ggplot2", "ffwhich", "subset.ffdf", "glm")
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>package</code></td>
+<td>
+<p>The name of the package to check.</p>
+</td></tr>
+<tr valign="top"><td><code>ignoreHiddenFunctions</code></td>
+<td>
+<p>Ignore functions for which the definition cannot be retrieved?</p>
+</td></tr>
+<tr valign="top"><td><code>suppressBindingKeywords</code></td>
+<td>
+<p>A set of keywords that are indicative of non-standard evaluation.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function uses the codetools package to check the code from problems. Heuristics are used to
+eliminate false positives due to non-standard evaluation.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+checkUsagePackage("OhdsiRTools")
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>OhdsiRTools</em> version 1.10.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

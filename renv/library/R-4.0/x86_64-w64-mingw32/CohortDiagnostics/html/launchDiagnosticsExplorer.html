@@ -26,7 +26,8 @@ launchDiagnosticsExplorer(
   aboutText = NULL,
   runOverNetwork = FALSE,
   port = 80,
-  launch.browser = FALSE
+  launch.browser = FALSE,
+  appDir = system.file("shiny", "DiagnosticsExplorer", package = "CohortDiagnostics")
 )
 </pre>
 
@@ -85,6 +86,10 @@ If not provided, no About tab will be shown.</p>
 <td>
 <p>Should the app be launched in your default browser, or in a Shiny window.
 Note: copying to clipboard will not work in a Shiny window.</p>
+</td></tr>
+<tr valign="top"><td><code>appDir</code></td>
+<td>
+<p>Top directory of Shiny app</p>
 </td></tr>
 </table>
 

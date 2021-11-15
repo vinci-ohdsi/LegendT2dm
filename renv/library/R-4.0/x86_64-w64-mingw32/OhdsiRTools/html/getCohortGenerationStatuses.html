@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get Cohort Generation Statuses</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for getCohortGenerationStatuses {OhdsiRTools}"><tr><td>getCohortGenerationStatuses {OhdsiRTools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get Cohort Generation Statuses</h2>
+
+<h3>Description</h3>
+
+<p>Get Cohort Generation Statuses
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+getCohortGenerationStatuses(baseUrl, definitionIds, sourceKeys)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>baseUrl</code></td>
+<td>
+<p>The base URL for the WebApi instance, for example:
+&quot;http://server.org:80/WebAPI&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>definitionIds</code></td>
+<td>
+<p>A list of cohort definition Ids</p>
+</td></tr>
+<tr valign="top"><td><code>sourceKeys</code></td>
+<td>
+<p>A list of CDM source keys. These can be found in Atlas -&gt; Configure.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Obtains cohort generation statuses for a collection of cohort definition Ids and CDM sources.
+Useful if running multiple cohort generation jobs that are long-running.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A data frame of cohort generation statuses, start times, and execution durations per definition id
+and source key.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>OhdsiRTools</em> version 1.10.0 <a href="00Index.html">Index</a>]</div>
+</body></html>
