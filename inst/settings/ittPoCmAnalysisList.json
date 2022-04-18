@@ -1,7 +1,7 @@
 [
   {
-    "analysisId": 7,
-    "description": "Unadjusted, on-treatment2",
+    "analysisId": 14,
+    "description": "Unadjusted, intent-to-treat, with prior outcome",
     "getDbCohortMethodDataArgs": {
       "studyStartDate": "",
       "studyEndDate": "",
@@ -55,13 +55,13 @@
       "restrictToCommonPeriod": true,
       "washoutPeriod": 0,
       "removeDuplicateSubjects": false,
-      "removeSubjectsWithPriorOutcome": true,
+      "removeSubjectsWithPriorOutcome": false,
       "priorOutcomeLookback": 99999,
       "minDaysAtRisk": 0,
       "maxDaysAtRisk": 99999,
       "riskWindowStart": 1,
       "startAnchor": "cohort start",
-      "riskWindowEnd": 0,
+      "riskWindowEnd": 99999,
       "endAnchor": "cohort end",
       "censorAtNewRiskWindow": false,
       "attr_class": "args"
@@ -122,8 +122,8 @@
     "attr_class": "cmAnalysis"
   },
   {
-    "analysisId": 8,
-    "description": "PS matching, on-treatment2",
+    "analysisId": 15,
+    "description": "PS matching, intent-to-treat, with prior outcome",
     "getDbCohortMethodDataArgs": {
       "studyStartDate": "",
       "studyEndDate": "",
@@ -177,13 +177,13 @@
       "restrictToCommonPeriod": true,
       "washoutPeriod": 0,
       "removeDuplicateSubjects": false,
-      "removeSubjectsWithPriorOutcome": true,
+      "removeSubjectsWithPriorOutcome": false,
       "priorOutcomeLookback": 99999,
       "minDaysAtRisk": 0,
       "maxDaysAtRisk": 99999,
       "riskWindowStart": 1,
       "startAnchor": "cohort start",
-      "riskWindowEnd": 0,
+      "riskWindowEnd": 99999,
       "endAnchor": "cohort end",
       "censorAtNewRiskWindow": false,
       "attr_class": "args"
@@ -291,8 +291,8 @@
     "attr_class": "cmAnalysis"
   },
   {
-    "analysisId": 9,
-    "description": "PS stratification, on-treatment2",
+    "analysisId": 16,
+    "description": "PS stratification, intent-to-treat, with prior outcome",
     "getDbCohortMethodDataArgs": {
       "studyStartDate": "",
       "studyEndDate": "",
@@ -346,13 +346,13 @@
       "restrictToCommonPeriod": true,
       "washoutPeriod": 0,
       "removeDuplicateSubjects": false,
-      "removeSubjectsWithPriorOutcome": true,
+      "removeSubjectsWithPriorOutcome": false,
       "priorOutcomeLookback": 99999,
       "minDaysAtRisk": 0,
       "maxDaysAtRisk": 99999,
       "riskWindowStart": 1,
       "startAnchor": "cohort start",
-      "riskWindowEnd": 0,
+      "riskWindowEnd": 99999,
       "endAnchor": "cohort end",
       "censorAtNewRiskWindow": false,
       "attr_class": "args"

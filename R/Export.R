@@ -82,6 +82,10 @@ exportResults <- function(indicationId = "class",
                       minCellCount = minCellCount,
                       maxCores = maxCores)
 
+    exportDateTime(indicationId = indicationId,
+                   databaseId = databaseId,
+                   exportFolder = exportFolder)
+
     # Add all to zip file -------------------------------------------------------------------------------
     ParallelLogger::logInfo("Adding results to zip file")
     zipName <- file.path(exportFolder, paste0("Results_", indicationId, "_study_", databaseId, ".zip"))
@@ -149,13 +153,11 @@ exportAnalyses <- function(indicationId, outputFolder, exportFolder, databaseId)
 
     tempFileName <- tempfile()
 
-    ot1CmAnalysisListFile <- system.file("settings", "ot1CmAnalysisList.json", package = "LegendT2dm")
-    ittCmAnalysisListFile <- system.file("settings", "ittCmAnalysisList.json", package = "LegendT2dm")
-    ot2CmAnalysisListFile <- system.file("settings", "ot2CmAnalysisList.json", package = "LegendT2dm")
-
-    ot1CmAnalysisList <- CohortMethod::loadCmAnalysisList(ot1CmAnalysisListFile)
-    ittCmAnalysisList <- CohortMethod::loadCmAnalysisList(ittCmAnalysisListFile)
-    # ot2CmAnalysisList <- CohortMethod::loadCmAnalysisList(ot2CmAnalysisListFile)
+    loadList <- function(fileName) {
+      CohortMethod::loadCmAnalysisList(system.file("settings",
+                                                   fileName,
+                                                   package = "LegendT2dm"))
+    }
 
     cmAnalysisToRow <- function(cmAnalysis) {
         ParallelLogger::saveSettingsToJson(cmAnalysis, tempFileName)
@@ -165,9 +167,12 @@ exportAnalyses <- function(indicationId, outputFolder, exportFolder, databaseId)
         return(row)
     }
 
-    cmAnalysisList <- c(ot1CmAnalysisList, ittCmAnalysisList
-                        # , ot2CmAnalysisList
-                            )
+    cmAnalysisList <- c(loadList("ot1CmAnalysisList.json"),
+                        loadList("ittCmAnalysisList.json"),
+                        loadList("ot2CmAnalysisList.json"),
+                        loadList("ot1PoCmAnalysisList.json"),
+                        loadList("ittPoCmAnalysisList.json"),
+                        loadList("ot2PoCmAnalysisList.json"))
 
     cohortMethodAnalysis <- lapply(cmAnalysisList, cmAnalysisToRow)
     cohortMethodAnalysis <- do.call("rbind", cohortMethodAnalysis)
@@ -454,6 +459,10 @@ exportMetadata <- function(indicationId,
                                c(0, 0.1, 0.25, 0.5, 0.85, 0.9, 1))
         comparatorDist <- quantile(strataPop$survivalTime[strataPop$treatment == 0],
                                    c(0, 0.1, 0.25, 0.5, 0.85, 0.9, 1))
+
+        numZeroTarget <- sum(strataPop$survivalTime[strataPop$treatment == 1] == 0)
+        numZeroComparator <- sum(strataPop$survivalTime[strataPop$treatment == 0] == 0)
+
         row <- tibble::tibble(target_id = reference$targetId[i],
                               comparator_id = reference$comparatorId[i],
                               outcome_id = reference$outcomeId[i],
@@ -465,13 +474,15 @@ exportMetadata <- function(indicationId,
                               target_p75_days = targetDist[5],
                               target_p90_days = targetDist[6],
                               target_max_days = targetDist[7],
+                              target_zero_days = numZeroTarget,
                               comparator_min_days = comparatorDist[1],
                               comparator_p10_days = comparatorDist[2],
                               comparator_p25_days = comparatorDist[3],
                               comparator_median_days = comparatorDist[4],
                               comparator_p75_days = comparatorDist[5],
                               comparator_p90_days = comparatorDist[6],
-                              comparator_max_days = comparatorDist[7])
+                              comparator_max_days = comparatorDist[7],
+                              comparator_zero_days = numZeroComparator)
         return(row)
     }
     outcomesOfInterest <- getOutcomesOfInterest(indicationId)
@@ -629,40 +640,36 @@ exportMainResults <- function(indicationId,
 }
 
 calibrate <- function(subset, allControls) {
-    ncs <- subset[subset$outcomeId %in% allControls$outcomeId[allControls$targetEffectSize == 1], ]
+    ncs <- subset[subset$outcomeId %in% allControls$cohortId[allControls$targetEffectSize == 1], ]
     ncs <- ncs[!is.na(ncs$seLogRr), ]
     if (nrow(ncs) > 5) {
+        set.seed(123)
         null <- EmpiricalCalibration::fitMcmcNull(ncs$logRr, ncs$seLogRr)
         calibratedP <- EmpiricalCalibration::calibrateP(null = null,
                                                         logRr = subset$logRr,
                                                         seLogRr = subset$seLogRr)
-        subset$calibratedP <- calibratedP$p
-    } else {
-        subset$calibratedP <- rep(NA, nrow(subset))
-    }
-    pcs <- subset[subset$outcomeId %in% allControls$outcomeId[allControls$targetEffectSize != 1], ]
-    pcs <- pcs[!is.na(pcs$seLogRr), ]
-    if (nrow(pcs) > 5) {
-        controls <- merge(subset, allControls[, c("targetId", "comparatorId", "outcomeId", "targetEffectSize")])
-        model <- EmpiricalCalibration::fitSystematicErrorModel(logRr = controls$logRr,
-                                                               seLogRr = controls$seLogRr,
-                                                               trueLogRr = log(controls$targetEffectSize),
-                                                               estimateCovarianceMatrix = FALSE)
+
+        # Update from LEGEND-HTN.  Now calibrating effect and CI based on negative-control distribution
+        model <- EmpiricalCalibration::convertNullToErrorModel(null)
         calibratedCi <- EmpiricalCalibration::calibrateConfidenceInterval(logRr = subset$logRr,
                                                                           seLogRr = subset$seLogRr,
-                                                                          model = model)
-        subset$calibratedRr <- exp(calibratedCi$logRr)
-        subset$calibratedCi95Lb <- exp(calibratedCi$logLb95Rr)
-        subset$calibratedCi95Ub <- exp(calibratedCi$logUb95Rr)
+                                                                          model = model,
+                                                                          ciWidth = 0.95)
+        subset$calibratedP <- calibratedP$p
         subset$calibratedLogRr <- calibratedCi$logRr
         subset$calibratedSeLogRr <- calibratedCi$seLogRr
+        subset$calibratedCi95Lb <- exp(calibratedCi$logLb95Rr)
+        subset$calibratedCi95Ub <- exp(calibratedCi$logUb95Rr)
+        subset$calibratedRr <- exp(calibratedCi$logRr)
     } else {
+        subset$calibratedP <- rep(NA, nrow(subset))
         subset$calibratedRr <- rep(NA, nrow(subset))
         subset$calibratedCi95Lb <- rep(NA, nrow(subset))
         subset$calibratedCi95Ub <- rep(NA, nrow(subset))
         subset$calibratedLogRr <- rep(NA, nrow(subset))
         subset$calibratedSeLogRr <- rep(NA, nrow(subset))
     }
+
     subset$i2 <- rep(NA, nrow(subset))
     subset <- subset[, c("targetId",
                          "comparatorId",
@@ -717,6 +724,7 @@ calibrateInteractions <- function(subset, negativeControls) {
     ncs <- subset[subset$outcomeId %in% negativeControls$outcomeId, ]
     ncs <- ncs[!is.na(pull(ncs, .data$seLogRrr)), ]
     if (nrow(ncs) > 5) {
+        set.seed(123)
         null <- EmpiricalCalibration::fitMcmcNull(ncs$logRrr, ncs$seLogRrr)
         calibratedP <- EmpiricalCalibration::calibrateP(null = null,
                                                         logRr = subset$logRrr,
@@ -727,6 +735,31 @@ calibrateInteractions <- function(subset, negativeControls) {
     }
     return(subset)
 }
+
+exportDateTime <- function(indicationId,
+                           databaseId,
+                           exportFolder) {
+    ParallelLogger::logInfo("Exporting results date/time")
+    ParallelLogger::logInfo("- results_date_time table")
+    fileName <- file.path(exportFolder, "results_date_time.csv")
+    if (file.exists(fileName)) {
+        unlink(fileName)
+    }
+    dateTime <- data.frame(
+        indicationId = c(indicationId),
+        databaseId = c(databaseId),
+        dateTime = c(Sys.time()),
+        packageVersion = packageVersion("LegendT2dm"))
+
+    colnames(dateTime) <- SqlRender::camelCaseToSnakeCase(colnames(dateTime))
+    write.table(x = dateTime,
+                file = fileName,
+                row.names = FALSE,
+                sep = ",",
+                dec = ".",
+                qmethod = "double")
+}
+
 
 exportDiagnostics <- function(indicationId,
                               outputFolder,
@@ -1144,17 +1177,17 @@ prepareKaplanMeier <- function(population) {
     } else {
         population$stratumSizeT <- 1
         strataSizesT <- aggregate(stratumSizeT ~ stratumId, population[population$treatment == 1, ], sum)
-        if (max(strataSizesT$stratumSizeT) == 1) {
-            # variable ratio matching: use propensity score to compute IPTW
-            if (is.null(population$propensityScore)) {
-                stop("Variable ratio matching detected, but no propensity score found")
-            }
-            weights <- aggregate(propensityScore ~ stratumId, population, mean)
-            if (max(weights$propensityScore) > 0.99999) {
-                return(NULL)
-            }
-            weights$weight <- weights$propensityScore / (1 - weights$propensityScore)
-        } else {
+        # if (max(strataSizesT$stratumSizeT) == 1) {
+        #     # variable ratio matching: use propensity score to compute IPTW
+        #     if (is.null(population$propensityScore)) {
+        #         stop("Variable ratio matching detected, but no propensity score found")
+        #     }
+        #     weights <- aggregate(propensityScore ~ stratumId, population, mean)
+        #     if (max(weights$propensityScore) > 0.99999) {
+        #         return(NULL)
+        #     }
+        #     weights$weight <- weights$propensityScore / (1 - weights$propensityScore)
+        # } else {
             # stratification: infer probability of treatment from subject counts
             strataSizesC <- aggregate(stratumSizeT ~ stratumId, population[population$treatment == 0, ], sum)
             colnames(strataSizesC)[2] <- "stratumSizeC"
@@ -1164,7 +1197,7 @@ prepareKaplanMeier <- function(population) {
                 return(NULL)
             }
             weights$weight <- weights$stratumSizeT/weights$stratumSizeC
-        }
+        # }
         population <- merge(population, weights[, c("stratumId", "weight")])
         population$weight[population$treatment == 1] <- 1
         idx <- population$treatment == 1

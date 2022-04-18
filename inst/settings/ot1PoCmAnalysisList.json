@@ -1,7 +1,7 @@
 [
   {
-    "analysisId": 7,
-    "description": "Unadjusted, on-treatment2",
+    "analysisId": 11,
+    "description": "Unadjusted, on-treatment1, with prior outcome",
     "getDbCohortMethodDataArgs": {
       "studyStartDate": "",
       "studyEndDate": "",
@@ -55,7 +55,7 @@
       "restrictToCommonPeriod": true,
       "washoutPeriod": 0,
       "removeDuplicateSubjects": false,
-      "removeSubjectsWithPriorOutcome": true,
+      "removeSubjectsWithPriorOutcome": false,
       "priorOutcomeLookback": 99999,
       "minDaysAtRisk": 0,
       "maxDaysAtRisk": 99999,
@@ -122,8 +122,8 @@
     "attr_class": "cmAnalysis"
   },
   {
-    "analysisId": 8,
-    "description": "PS matching, on-treatment2",
+    "analysisId": 12,
+    "description": "PS matching, on-treatment1, with prior outcome",
     "getDbCohortMethodDataArgs": {
       "studyStartDate": "",
       "studyEndDate": "",
@@ -177,7 +177,7 @@
       "restrictToCommonPeriod": true,
       "washoutPeriod": 0,
       "removeDuplicateSubjects": false,
-      "removeSubjectsWithPriorOutcome": true,
+      "removeSubjectsWithPriorOutcome": false,
       "priorOutcomeLookback": 99999,
       "minDaysAtRisk": 0,
       "maxDaysAtRisk": 99999,
@@ -291,8 +291,8 @@
     "attr_class": "cmAnalysis"
   },
   {
-    "analysisId": 9,
-    "description": "PS stratification, on-treatment2",
+    "analysisId": 13,
+    "description": "PS stratification, on-treatment1, with prior outcome",
     "getDbCohortMethodDataArgs": {
       "studyStartDate": "",
       "studyEndDate": "",
@@ -346,7 +346,7 @@
       "restrictToCommonPeriod": true,
       "washoutPeriod": 0,
       "removeDuplicateSubjects": false,
-      "removeSubjectsWithPriorOutcome": true,
+      "removeSubjectsWithPriorOutcome": false,
       "priorOutcomeLookback": 99999,
       "minDaysAtRisk": 0,
       "maxDaysAtRisk": 99999,
