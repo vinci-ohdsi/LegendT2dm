@@ -26,6 +26,7 @@ execute(
   synthesizePositiveControls = FALSE,
   generateAllCohortMethodDataObjects = TRUE,
   runCohortMethod = TRUE,
+  runSections = c(1:6),
   computeCovariateBalance = TRUE,
   exportToCsv = TRUE,
   filterExposureCohorts = NULL,
@@ -94,6 +95,8 @@ data and injected signals?}
 
 \item{runCohortMethod}{Run the CohortMethod package to produce the outcome
 models?}
+
+\item{runSections}{Run specific sections through CohortMethod}
 
 \item{computeCovariateBalance}{Report covariate balance statistics across comparisons?}
 
