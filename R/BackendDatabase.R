@@ -229,10 +229,16 @@ checkAndFixDataTypes <-
 
     observedTypes <- sapply(table, class)
     for (i in 1:length(observedTypes)) {
+
       fieldName <- names(observedTypes)[i]
       expectedType <-
         gsub("\\(.*\\)", "", tolower(tableSpecs$type[tableSpecs$fieldName == fieldName]))
       if (expectedType == "bigint" || expectedType == "float" || expectedType == "numeric") {
+
+        if (expectedType == "numeric") {
+          table[which(table[,i] == Inf), i] <- NA # TODO Update
+        }
+
         if (observedTypes[i] != "numeric" && observedTypes[i] != "double") {
           ParallelLogger::logDebug(
             sprintf(
@@ -349,6 +355,11 @@ naToZero <- function(x) {
   return(x)
 }
 
+infToLargeNumber <- function(x) {
+  x[is.infinite(x)] <- 99999
+  return(x)
+}
+
 #' Upload results to the database server.
 #'
 #' @description
@@ -369,7 +380,8 @@ naToZero <- function(x) {
 #' @param purgeSiteDataBeforeUploading If TRUE, before inserting data for a specific databaseId all the data for
 #'                       that site will be dropped. This assumes the input zip file contains the full data for that
 #'                       data site.
-#' @param convertFromCamelCase  Convert column names from camelCase to snake_case when uploading?                       .
+#' @param convertFromCamelCase  Convert column names from camelCase to snake_case when uploading?
+#' @param replaceInfinities Value to which to change infinities, NULL does not change                   .
 #' @param tempFolder     Folder on the local file system where the zip files are extracted to. Will be cleaned
 #'                       up when the function is finished. Can be used to specify a temp folder on a drive that
 #'                       has sufficient space if the default system temp space is too limited.
@@ -383,6 +395,7 @@ uploadResultsToDatabase <- function(connectionDetails,
                                     forceOverWriteOfSpecifications = FALSE,
                                     purgeSiteDataBeforeUploading = FALSE,
                                     convertFromCamelCase = FALSE,
+                                    replaceInfinities = NULL,
                                     tempFolder = tempdir()) {
 
   if (length(zipFileName) > 1) {
