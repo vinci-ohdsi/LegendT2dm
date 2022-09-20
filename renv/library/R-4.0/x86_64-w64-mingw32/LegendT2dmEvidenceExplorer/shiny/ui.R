@@ -44,7 +44,7 @@ shinyUI(
             checkboxGroupInput("database", "Data source", database$databaseId, selected = database$databaseId),
             # checkboxGroupInput("analysis", "Analysis", cohortMethodAnalysis$description,  selected = cohortMethodAnalysis$description),
             checkboxGroupInput("propensityScore", "Propensity score", propensityScoreMask$label,  selected = propensityScoreMask$label),
-            checkboxGroupInput("timeAtRisk", "Time at risk", timeAtRiskMask$label, selected = timeAtRiskMask$label),
+            checkboxGroupInput("timeAtRisk", "Time at risk", timeAtRiskMask$label, selected = timeAtRiskMask$label[c(1:2)]),
             radioButtons("metformin", "Metformin", c("prior", "none"), selected = "prior"),
             radioButtons("heterogeneity", "Heterogeneity stratum",
                          cohortMask %>% dplyr::filter(!is.na(.data$label)) %>% dplyr::pull(.data$label),

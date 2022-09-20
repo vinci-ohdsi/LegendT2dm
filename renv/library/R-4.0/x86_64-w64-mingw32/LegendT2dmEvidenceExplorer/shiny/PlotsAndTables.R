@@ -86,7 +86,8 @@ prepareFollowUpDistTable <- function(followUpDist) {
                           Median = followUpDist$targetMedianDays,
                           P75 = followUpDist$targetP75Days,
                           P90 = followUpDist$targetP90Days,
-                          Max = followUpDist$targetMaxDays)
+                          Max = followUpDist$targetMaxDays,
+                          NumZero = followUpDist$targetZeroDays)
   comparatorRow <- data.frame(Cohort = "Comparator",
                               Min = followUpDist$comparatorMinDays,
                               P10 = followUpDist$comparatorP10Days,
@@ -94,7 +95,8 @@ prepareFollowUpDistTable <- function(followUpDist) {
                               Median = followUpDist$comparatorMedianDays,
                               P75 = followUpDist$comparatorP75Days,
                               P90 = followUpDist$comparatorP90Days,
-                              Max = followUpDist$comparatorMaxDays)
+                              Max = followUpDist$comparatorMaxDays,
+                              NumZero = followUpDist$comparatorZeroDays)
   table <- rbind(targetRow, comparatorRow)
   table$Min <- formatC(table$Min, big.mark = ",", format = "d")
   table$P10 <- formatC(table$P10, big.mark = ",", format = "d")
@@ -103,6 +105,7 @@ prepareFollowUpDistTable <- function(followUpDist) {
   table$P75 <- formatC(table$P75, big.mark = ",", format = "d")
   table$P90 <- formatC(table$P90, big.mark = ",", format = "d")
   table$Max <- formatC(table$Max, big.mark = ",", format = "d")
+  table$NumZero <- formatC(table$NumZero, big.mark = ",", format = "d")
   return(table)
 }
 
@@ -319,6 +322,7 @@ prepareTable1 <- function(balance,
       }
     }
   }
+
   resultsTable$beforeMatchingMeanTreated <- formatPercent(resultsTable$beforeMatchingMeanTreated)
   resultsTable$beforeMatchingMeanComparator <- formatPercent(resultsTable$beforeMatchingMeanComparator)
   resultsTable$beforeMatchingStdDiff <- formatStdDiff(resultsTable$beforeMatchingStdDiff)

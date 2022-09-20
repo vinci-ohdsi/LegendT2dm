@@ -1,29 +1,30 @@
 Package: LegendT2dmEvidenceExplorer
 Type: Package
 Title: LEGEND-T2DM Evidence Explorer
-Version: 0.1.0
+Version: 0.2.0
 Author: Marc A. Suchard [aut, cre],
- Martijn J. Schuemie [aut]
+    Martijn J. Schuemie [aut]
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: Evidence explorer shinyApp for the Large-Scale Evidence Generation and Evaluation
- across a Network of Databases for Type 2 Diabetes Mellitus
+    across a Network of Databases for Type 2 Diabetes Mellitus
 License: Apache License 2.0
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 4.0),
-Imports: checkmate, DatabaseConnector, dplyr, DT, ggplot2, ggiraph, gtable,
-    htmltools, lubridate, pool, purrr, scales, shiny, shinydashboard,
-    shinyWidgets, stringr, SqlRender, tidyr
+Imports: checkmate, DatabaseConnector, dplyr, DT, ggplot2, ggiraph,
+        gtable, htmltools, lubridate, pool, purrr, scales, shiny,
+        shinydashboard, shinyWidgets, stringr, SqlRender, tidyr
 RoxygenNote: 7.1.1
-Built: R 4.0.3; ; 2021-11-15 14:19:26 UTC; windows
 RemoteType: github
 RemoteHost: api.github.com
 RemoteRepo: LegendT2dmEvidenceExplorer
 RemoteUsername: ohdsi-studies
 RemoteRef: HEAD
-RemoteSha: 50876d5b8986e8113578477d689b16a4097c5e1e
-GithubHost: api.github.com
+RemoteSha: 81911a1ce1b3411ae60e0ae133f31233440d1656
 GithubRepo: LegendT2dmEvidenceExplorer
 GithubUsername: ohdsi-studies
 GithubRef: HEAD
-GithubSHA1: 50876d5b8986e8113578477d689b16a4097c5e1e
+GithubSHA1: 81911a1ce1b3411ae60e0ae133f31233440d1656
+NeedsCompilation: no
+Packaged: 2022-09-20 17:26:02 UTC; msuch
+Built: R 4.0.3; ; 2022-09-20 17:26:03 UTC; windows
