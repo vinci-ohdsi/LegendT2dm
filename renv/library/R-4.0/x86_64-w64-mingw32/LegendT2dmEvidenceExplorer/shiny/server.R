@@ -27,7 +27,7 @@ mainColumnNames <- c("<span title=\"Analysis\">Analysis</span>",
 showTermsOfUseModal <- function() {
   showModal(
     modalDialog(
-      title="Terms of Use",
+      title = "Terms of Use",
       includeMarkdown("md/terms_of_use.md"),
       footer = tagList(
         actionButton("termsOfUseReject", "Reject", style="color: white", class="btn-danger"),

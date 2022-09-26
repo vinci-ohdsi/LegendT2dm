@@ -1,7 +1,7 @@
 Package: LegendT2dmEvidenceExplorer
 Type: Package
 Title: LEGEND-T2DM Evidence Explorer
-Version: 0.2.0
+Version: 0.2.1
 Author: Marc A. Suchard [aut, cre],
     Martijn J. Schuemie [aut]
 Maintainer: The package maintainer <yourself@somewhere.net>
@@ -20,11 +20,11 @@ RemoteHost: api.github.com
 RemoteRepo: LegendT2dmEvidenceExplorer
 RemoteUsername: ohdsi-studies
 RemoteRef: HEAD
-RemoteSha: 81911a1ce1b3411ae60e0ae133f31233440d1656
+RemoteSha: 63eb47f36a28559e01fc96aacab62eb334924ce4
 GithubRepo: LegendT2dmEvidenceExplorer
 GithubUsername: ohdsi-studies
 GithubRef: HEAD
-GithubSHA1: 81911a1ce1b3411ae60e0ae133f31233440d1656
+GithubSHA1: 63eb47f36a28559e01fc96aacab62eb334924ce4
 NeedsCompilation: no
-Packaged: 2022-09-20 17:26:02 UTC; msuch
-Built: R 4.0.3; ; 2022-09-20 17:26:03 UTC; windows
+Packaged: 2022-09-26 21:55:50 UTC; msuch
+Built: R 4.0.3; ; 2022-09-26 21:55:51 UTC; windows
