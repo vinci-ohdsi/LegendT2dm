@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Upload the study results to OHDSI server</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for uploadStudyResults {LegendT2dm}"><tr><td>uploadStudyResults {LegendT2dm}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Upload the study results to OHDSI server</h2>
+
+<h3>Description</h3>
+
+<p>Upload the study results to OHDSI server
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+uploadStudyResults(cohorts, outputFolder, privateKeyFileName, userName)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>cohorts</code></td>
+<td>
+<p>Specifies which set of cohorts to upload</p>
+</td></tr>
+<tr valign="top"><td><code>outputFolder</code></td>
+<td>
+<p>Name of local folder to place results; make sure to use forward slashes
+(/). Do not use a folder on a network drive since this greatly impacts
+performance.</p>
+</td></tr>
+<tr valign="top"><td><code>privateKeyFileName</code></td>
+<td>
+<p>A character string denoting the path to the RSA private key provided by the study coordinator.</p>
+</td></tr>
+<tr valign="top"><td><code>userName</code></td>
+<td>
+<p>A character string containing the user name provided by the study coordinator.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function uploads the 'Results_&lt;databaseId&gt;.zip' to the OHDSI SFTP server. Before sending, you can inspect the zip file,
+which contains (zipped) CSV files. You can send the zip file from a different computer than the one on which is was created.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>LegendT2dm</em> version 1.1.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

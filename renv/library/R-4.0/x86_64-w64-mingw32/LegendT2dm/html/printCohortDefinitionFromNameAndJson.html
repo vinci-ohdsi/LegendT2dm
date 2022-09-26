@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Print cohort definition with specified name</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for printCohortDefinitionFromNameAndJson {LegendT2dm}"><tr><td>printCohortDefinitionFromNameAndJson {LegendT2dm}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Print cohort definition with specified name</h2>
+
+<h3>Description</h3>
+
+<p>Outputs a cohort definition into human-readable <code>markdown</code>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+printCohortDefinitionFromNameAndJson(
+  name,
+  json = NULL,
+  obj = NULL,
+  withConcepts = TRUE,
+  withClosing = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>Cohort name listed as section title</p>
+</td></tr>
+<tr valign="top"><td><code>json</code></td>
+<td>
+<p>JSON cohort definition to be printed</p>
+</td></tr>
+<tr valign="top"><td><code>obj</code></td>
+<td>
+<p>Cohort object outputted from <code>CirceR</code> to be printed; can be <code>NULL</code>
+in which case <code>json</code> is used.</p>
+</td></tr>
+<tr valign="top"><td><code>withConcepts</code></td>
+<td>
+<p>Boolean: Include concept lists in output?</p>
+</td></tr>
+<tr valign="top"><td><code>withClosing</code></td>
+<td>
+<p>Boolean: Add the output from <code>printCohortClose</code> to end?</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>LegendT2dm</em> version 1.1.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

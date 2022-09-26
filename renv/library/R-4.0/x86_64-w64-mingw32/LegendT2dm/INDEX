@@ -1,0 +1,44 @@
+assessPhenotypes        Assess propensity models
+assessPropensityModels
+                        Assess propensity models
+computeCovariateBalance
+                        Compute covariate balance for each comparison
+createDataModelOnServer
+                        Create the data model tables on a database
+                        server.
+createDataModelSqlFile
+                        Create a SQL file to construct data model
+                        tables on a database server.
+createExposureCohorts   Create the exposure cohorts
+createOutcomeCohorts    Create the outcome cohorts
+execute                 Execute OHDSI LEGEND study
+exportResults           Export all results to tables
+fetchAllDataFromServer
+                        Fetch all data on the cohorts for analysis
+filterByExposureCohortsSize
+                        Filter exposure pairs by size of the cohorts
+generateAllCohortMethodDataObjects
+                        Construct all cohortMethodData object
+grantPermissionOnServer
+                        Grant read-permission on server
+prepareForEvidenceExplorer
+                        Prepare results for the LEGEND-T2DM Evidence
+                        Explorer Shiny app.
+printCohortClose        Print cohort closing line
+printCohortDefinition   Print cohort definition from file name
+printCohortDefinitionFromNameAndJson
+                        Print cohort definition with specified name
+printConceptSet         Print concept set
+printExitCriteria       Print exit criteria
+printInclusionCriteria
+                        Print inclusion criteria
+runCohortMethod         Run the cohort method package
+uploadPhenotypeResults
+                        Upload cohort diagnostic results to OHDSI
+                        server
+uploadPsAssessmentResults
+                        Upload propensity score assessment results to
+                        OHDSI server
+uploadResultsToDatabase
+                        Upload results to the database server.
+uploadStudyResults      Upload the study results to OHDSI server

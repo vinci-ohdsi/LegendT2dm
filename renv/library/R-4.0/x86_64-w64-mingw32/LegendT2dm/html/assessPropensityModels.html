@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Assess propensity models</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for assessPropensityModels {LegendT2dm}"><tr><td>assessPropensityModels {LegendT2dm}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Assess propensity models</h2>
+
+<h3>Description</h3>
+
+<p>Assess propensity models
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+assessPropensityModels(
+  connectionDetails,
+  cdmDatabaseSchema,
+  cohortDatabaseSchema,
+  tablePrefix = "legend_t2dm",
+  indicationId = "class",
+  oracleTempSchema,
+  outputFolder,
+  minCohortSize = 1000,
+  sampleSize = 1000,
+  maxCores = 4,
+  databaseId,
+  preferenceScoreBounds = c(0.3, 0.7),
+  forceNewCmDataObjects = FALSE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>An object of type <code>connectionDetails</code> as created using the
+<code><a href="../../DatabaseConnector/html/createConnectionDetails.html">createConnectionDetails</a></code> function in
+the DatabaseConnector package.</p>
+</td></tr>
+<tr valign="top"><td><code>cdmDatabaseSchema</code></td>
+<td>
+<p>Schema name where your patient-level data in OMOP CDM format resides.
+Note that for SQL Server, this should include both the database and
+schema name, for example 'cdm_data.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortDatabaseSchema</code></td>
+<td>
+<p>Schema name where intermediate data can be stored. You will need to
+have write priviliges in this schema. Note that for SQL Server, this
+should include both the database and schema name, for example
+'cdm_data.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>tablePrefix</code></td>
+<td>
+<p>A prefix to be used for all table names created for this study.</p>
+</td></tr>
+<tr valign="top"><td><code>indicationId</code></td>
+<td>
+<p>A string denoting the indicationId for which the exposure cohorts
+should be created; should be 'class' or 'drug'</p>
+</td></tr>
+<tr valign="top"><td><code>oracleTempSchema</code></td>
+<td>
+<p>Should be used in Oracle to specify a schema where the user has write
+priviliges for storing temporary tables.</p>
+</td></tr>
+<tr valign="top"><td><code>outputFolder</code></td>
+<td>
+<p>Name of local folder to place results; make sure to use forward
+slashes (/)</p>
+</td></tr>
+<tr valign="top"><td><code>minCohortSize</code></td>
+<td>
+<p>Minimum number of people that have to be in each cohort to keep a pair of
+cohorts.</p>
+</td></tr>
+<tr valign="top"><td><code>sampleSize</code></td>
+<td>
+<p>What is the maximum sample size for each exposure cohort?</p>
+</td></tr>
+<tr valign="top"><td><code>maxCores</code></td>
+<td>
+<p>How many parallel cores should be used? If more cores are made
+available this can speed up the analyses.</p>
+</td></tr>
+<tr valign="top"><td><code>databaseId</code></td>
+<td>
+<p>A short string for identifying the database (e.g. 'Synpuf').</p>
+</td></tr>
+<tr valign="top"><td><code>preferenceScoreBounds</code></td>
+<td>
+<p>Preference score bounds to use when reporting proportion of subjects in
+empirical clinical equipoise.</p>
+</td></tr>
+<tr valign="top"><td><code>forceNewCmDataObjects</code></td>
+<td>
+<p>Force recreation of <code>CohortMethod</code> data objects?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function will sample the exposure cohorts, and fit propensity models to identify issues.
+Assumes the exposure and outcome cohorts have already been created.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>LegendT2dm</em> version 1.1.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

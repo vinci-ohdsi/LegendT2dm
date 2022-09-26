@@ -1,0 +1,101 @@
+origin,conceptId,cohortId,name
+cem,439935,1001,Abnormal posture
+cem,443585,1002,Abrasion and/or friction burn of multiple sites
+cem,4092879,1003,Absent kidney
+cem,45757682,1004,Anomaly of jaw size
+cem,81878,1005,Benign paroxysmal positional vertigo
+cem,4216219,1006,Bizarre personal appearance
+cem,134765,1007,Cachexia
+cem,4201390,1008,Colostomy present
+cem,434675,1009,Complication of gastrostomy
+cem,436077,1010,Developmental delay
+cem,377910,1011,Deviated nasal septum
+cem/htn,4170770,1012,Epidermoid cyst
+cem,437448,1013,Exhaustion due to excessive exertion
+cem,4092896,1014,Feces contents abnormal
+cem,374801,1015,Foreign body in ear
+cem,4096540,1016,Foreskin deficient
+cem,439788,1017,Galactosemia
+cem,40481632,1018,Ganglion cyst
+cem,4168318,1019,Genetic disorder carrier
+cem,374375,1020,Impacted cerumen
+cem,40481897,1021,Inadequate sleep hygiene
+cem,4265896,1022,Jellyfish poisoning
+cem,381021,1023,Lagophthalmos
+cem,4027782,1024,Lipid storage disease
+cem,433997,1025,Lymphangioma
+cem,4051630,1026,Malingering
+cem,258540,1027,Marfan's syndrome
+cem,432798,1028,"Mechanical complication of internal orthopedic device, implant AND/OR graft"
+cem,439795,1029,Minimal cognitive impairment
+cem,4209423,1030,Nicotine dependence
+cem,40480893,1031,Nonspecific tuberculin test reaction
+cem,438130,1032,Opioid abuse
+cem,4299094,1033,Opioid intoxication
+cem,437092,1034,Physiological development failure
+cem,433951,1035,Poisoning by tranquilizer
+cem,4019836,1036,Social exclusion
+cem,432436,1037,Symbolic dysfunction
+cem,433244,1038,Tooth loss
+cem,436876,1039,Toxic effect of lead compound
+cem,440612,1040,Toxic effect of tobacco and nicotine
+cem,4201387,1041,Tracheostomy present
+cem,45757285,1042,Unsatisfactory tooth restoration
+htn,436409,1043,Abnormal pupil
+htn,199192,1044,Abrasion and/or friction burn of trunk without infection
+htn,4088290,1045,Absence of breast
+htn,75911,1046,Acquired hallux valgus
+htn,137951,1047,Acquired keratoderma
+htn,73241,1048,Anal and rectal polyp
+htn,133655,1049,Burn of forearm
+htn,73560,1050,Calcaneal spur
+htn,434327,1051,Cannabis abuse
+htn,140842,1052,Changes in skin texture
+htn,81378,1053,Chondromalacia of patella
+htn,432303,1054,Cocaine abuse
+htn,46269889,1055,Complication due to Crohn's disease
+htn,134438,1056,Contact dermatitis
+htn,78619,1057,Contusion of knee
+htn,201606,1058,Crohn's disease
+htn,76786,1059,Derangement of knee
+htn,4115402,1060,Difficulty sleeping
+htn,45757370,1061,Disproportion of reconstructed breast
+htn,433111,1062,Effects of hunger
+htn,433527,1063,Endometriosis
+htn,4092896,1064,Feces contents abnormal
+htn,259995,1065,Foreign body in orifice
+htn,40481632,1066,Ganglion cyst
+htn,433577,1067,Hammer toe
+htn,4231770,1068,Hereditary thrombophilia
+htn,4012570,1069,High risk sexual behavior
+htn,4012934,1070,Homocystinuria
+htn,374375,1071,Impacted cerumen
+htn,4344500,1072,Impingement syndrome of shoulder region
+htn,139099,1073,Ingrowing nail
+htn,444132,1074,Injury of knee
+htn,432593,1075,Kwashiorkor
+htn,434203,1076,Late effect of contusion
+htn,438329,1077,Late effect of motor vehicle accident
+htn,4083487,1078,Macular drusen
+htn,4103703,1079,Melena
+htn,4209423,1080,Nicotine dependence
+htn,377572,1081,Noise effects on inner ear
+htn,136368,1082,Non-toxic multinodular goiter
+htn,40480893,1083,Nonspecific tuberculin test reaction
+htn,438130,1084,Opioid abuse
+htn,4091513,1085,Passing flatus
+htn,4202045,1086,Postviral fatigue syndrome
+htn,373478,1087,Presbyopia
+htn,439790,1088,Psychalgia
+htn,81634,1089,Ptotic breast
+htn,380706,1090,Regular astigmatism
+htn,141932,1091,Senile hyperkeratosis
+htn,36713918,1092,Somatic dysfunction of lumbar region
+htn,443172,1093,Splinter of face without major open wound
+htn,81151,1094,Sprain of ankle
+htn,72748,1095,Strain of rotator cuff capsule
+htn,378427,1096,Tear film insufficiency
+htn,437264,1097,Tobacco dependence syndrome
+htn,140641,1098,Verruca vulgaris
+htn,4115367,1099,Wrist joint pain
+htn,440193,1100,Wristdrop

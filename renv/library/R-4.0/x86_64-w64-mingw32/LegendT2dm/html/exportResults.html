@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Export all results to tables</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for exportResults {LegendT2dm}"><tr><td>exportResults {LegendT2dm}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Export all results to tables</h2>
+
+<h3>Description</h3>
+
+<p>Outputs all results to a folder called 'export', and zips them.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+exportResults(
+  indicationId = "class",
+  outputFolder,
+  databaseId,
+  databaseName,
+  databaseDescription,
+  runSections,
+  minCellCount = 5,
+  maxCores
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>indicationId</code></td>
+<td>
+<p>A string denoting the indicationId for which the results should be
+exported.</p>
+</td></tr>
+<tr valign="top"><td><code>outputFolder</code></td>
+<td>
+<p>Name of local folder to place results; make sure to use forward slashes
+(/). Do not use a folder on a network drive since this greatly impacts
+performance.</p>
+</td></tr>
+<tr valign="top"><td><code>databaseId</code></td>
+<td>
+<p>A short string for identifying the database (e.g. 'Synpuf').</p>
+</td></tr>
+<tr valign="top"><td><code>databaseName</code></td>
+<td>
+<p>The full name of the database.</p>
+</td></tr>
+<tr valign="top"><td><code>databaseDescription</code></td>
+<td>
+<p>A short description (several sentences) of the database.</p>
+</td></tr>
+<tr valign="top"><td><code>runSections</code></td>
+<td>
+<p>Run specific sections through CohortMethod</p>
+</td></tr>
+<tr valign="top"><td><code>minCellCount</code></td>
+<td>
+<p>The minimum cell count for fields contains person counts or fractions.</p>
+</td></tr>
+<tr valign="top"><td><code>maxCores</code></td>
+<td>
+<p>How many parallel cores should be used? If more cores are made
+available this can speed up the analyses.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>LegendT2dm</em> version 1.1.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

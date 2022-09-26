@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Compute covariate balance for each comparison</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for computeCovariateBalance {LegendT2dm}"><tr><td>computeCovariateBalance {LegendT2dm}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Compute covariate balance for each comparison</h2>
+
+<h3>Description</h3>
+
+<p>Compute covariate balance for each comparison
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+computeCovariateBalance(indicationId = "legendt2dm", outputFolder, maxCores)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>indicationId</code></td>
+<td>
+<p>A string denoting the indicationId for which the covariate balance should be
+computed.</p>
+</td></tr>
+<tr valign="top"><td><code>outputFolder</code></td>
+<td>
+<p>Name of local folder to place results; make sure to use forward slashes (/)</p>
+</td></tr>
+<tr valign="top"><td><code>maxCores</code></td>
+<td>
+<p>How many parallel cores should be used? If more cores are made available this
+can speed up the analyses.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Compute covariate balance for each comparison. We do not compute balance for all covariates for every TCO,
+as this would be prohibitively large. Instead, we compute balance considering the entire target
+and comparator cohort, so not removing subjects with prior outcomes. We do compute covariate balance
+for every TCO for a small subset of covariates of interest (those used in the typical table 1).
+Stores the results in a subfolder called 'balance'.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>LegendT2dm</em> version 1.1.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

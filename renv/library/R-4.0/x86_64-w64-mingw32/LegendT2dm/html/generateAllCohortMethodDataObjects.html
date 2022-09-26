@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Construct all cohortMethodData object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for generateAllCohortMethodDataObjects {LegendT2dm}"><tr><td>generateAllCohortMethodDataObjects {LegendT2dm}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Construct all cohortMethodData object</h2>
+
+<h3>Description</h3>
+
+<p>Construct all cohortMethodData object
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+generateAllCohortMethodDataObjects(
+  outputFolder,
+  indicationId = "legendt2dm",
+  useSample = FALSE,
+  restrictToOt1 = FALSE,
+  maxCores = 4
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>outputFolder</code></td>
+<td>
+<p>Name of local folder to place results; make sure to use forward slashes (/)</p>
+</td></tr>
+<tr valign="top"><td><code>indicationId</code></td>
+<td>
+<p>A string denoting the indicationId.</p>
+</td></tr>
+<tr valign="top"><td><code>useSample</code></td>
+<td>
+<p>Use the sampled cohort table instead of the main cohort table (for PS model
+feasibility).</p>
+</td></tr>
+<tr valign="top"><td><code>restrictToOt1</code></td>
+<td>
+<p>Limit <code>CohortMethod</code> data objects to only comparisons that use On-Treatment-1?</p>
+</td></tr>
+<tr valign="top"><td><code>maxCores</code></td>
+<td>
+<p>How many parallel cores should be used? If more cores are made available this
+can speed up the analyses.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function constructs all cohortMethodData objects using the data fetched earlier using the
+<code><a href="fetchAllDataFromServer.html">fetchAllDataFromServer</a></code> function.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>LegendT2dm</em> version 1.1.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

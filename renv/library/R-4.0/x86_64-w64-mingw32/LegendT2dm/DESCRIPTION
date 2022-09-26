@@ -1,0 +1,32 @@
+Package: LegendT2dm
+Title: Large-Scale Evidence Generation and Evaluation in a Network of
+        Databases
+Version: 1.1.4
+Author: Marc A. Suchard [aut, cre],
+    Martijn J. Schuemie [aut],
+    Patrick B. Ryan [aut]
+Maintainer: Marc A. Suchard <msuchard@ucla.edu>
+Description: Large-Scale Evidence Generation and Evaluation in a Network of Databases
+    for Type 2 Diabetes (LEGEND-T2DM) studies the comparative effectiveness and safety
+    of second-line T2DM agents.  This systematic, large-scale data experiment follows
+    Open Science principles and aims to deliver reliable and actionable healthcare
+    information for T2DM stakeholders, including patients, their care-givers and
+    physicians.
+Depends: R (>= 4.0), DatabaseConnector (>= 3.0.0)
+Imports: Cyclops (>= 3.0), Andromeda (>= 0.3.2), SqlRender (>= 1.6.6),
+        FeatureExtraction (>= 3.0.1), CohortMethod (>= 4.0.0),
+        EmpiricalCalibration (>= 1.4.0), MethodEvaluation (>= 2.0.0),
+        ParallelLogger (>= 2.0.0), CohortDiagnostics (>= 1.1.0), CirceR
+        (>= 0.0.1), readr (>= 1.4.0), tibble, plyr, dplyr, meta, diffr,
+        purrr, survival, RJSONIO, zip
+Suggests: testthat, ROhdsiWebApi, shiny, shinydashboard, shinyWidgets,
+        DT, htmltools, scales, pool, tidyr, ggiraph, stringr,
+        LegendT2dmEvidenceExplorer, knitr, bookdown, kableExtra
+Remotes: ohdsi/FeatureExtraction, ohdsi/CohortMethod,
+        ohdsi/MethodEvaluation, ohdsi/CohortDiagnostics,
+        ohdsi/ROhdsiWebApi, ohdsi/PhenotypeLibrary, ohdsi/CirceR
+License: Apache License 2.0
+LazyData: true
+RoxygenNote: 7.1.1
+Encoding: UTF-8
+Built: R 4.0.3; ; 2022-09-20 17:36:55 UTC; windows

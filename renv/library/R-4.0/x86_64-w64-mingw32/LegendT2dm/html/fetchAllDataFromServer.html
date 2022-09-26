@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Fetch all data on the cohorts for analysis</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for fetchAllDataFromServer {LegendT2dm}"><tr><td>fetchAllDataFromServer {LegendT2dm}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Fetch all data on the cohorts for analysis</h2>
+
+<h3>Description</h3>
+
+<p>Fetch all data on the cohorts for analysis
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+fetchAllDataFromServer(
+  connectionDetails,
+  cdmDatabaseSchema,
+  cohortDatabaseSchema,
+  oracleTempSchema,
+  indicationId = "class",
+  tablePrefix = "legendt2dm",
+  useSample = FALSE,
+  forceNewObjects = FALSE,
+  studyEndDate = "",
+  outputFolder
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>An object of type <code>connectionDetails</code> as created using the
+<code><a href="../../DatabaseConnector/html/createConnectionDetails.html">createConnectionDetails</a></code> function in
+the DatabaseConnector package.</p>
+</td></tr>
+<tr valign="top"><td><code>cdmDatabaseSchema</code></td>
+<td>
+<p>Schema name where your patient-level data in OMOP CDM format resides.
+Note that for SQL Server, this should include both the database and
+schema name, for example 'cdm_data.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>cohortDatabaseSchema</code></td>
+<td>
+<p>Schema name where intermediate data can be stored. You will need to
+have write priviliges in this schema. Note that for SQL Server, this
+should include both the database and schema name, for example
+'cdm_data.dbo'.</p>
+</td></tr>
+<tr valign="top"><td><code>oracleTempSchema</code></td>
+<td>
+<p>Should be used in Oracle to specify a schema where the user has write
+priviliges for storing temporary tables.</p>
+</td></tr>
+<tr valign="top"><td><code>indicationId</code></td>
+<td>
+<p>A string denoting the indicationId.</p>
+</td></tr>
+<tr valign="top"><td><code>tablePrefix</code></td>
+<td>
+<p>A prefix to be used for all table names created for this study.</p>
+</td></tr>
+<tr valign="top"><td><code>useSample</code></td>
+<td>
+<p>Use the sampled cohort table instead of the main cohort table (for PS
+model feasibility).</p>
+</td></tr>
+<tr valign="top"><td><code>forceNewObjects</code></td>
+<td>
+<p>Force recreation of <code>CohortMethod</code> data objects?</p>
+</td></tr>
+<tr valign="top"><td><code>studyEndDate</code></td>
+<td>
+<p>Optionally specify a study end date</p>
+</td></tr>
+<tr valign="top"><td><code>outputFolder</code></td>
+<td>
+<p>Schema name where intermediate data can be stored. You will need to
+have write priviliges in this schema. Note that for SQL Server, this
+should include both the database and schema name, for example
+'cdm_data.dbo'.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function will create covariates and fetch outcomes and person information from the server.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>LegendT2dm</em> version 1.1.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

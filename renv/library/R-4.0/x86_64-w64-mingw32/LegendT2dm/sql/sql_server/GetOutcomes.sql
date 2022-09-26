@@ -1,0 +1,45 @@
+/************************************************************************
+@file GetOutcomes.sql
+
+Copyright 2021 Observational Health Data Sciences and Informatics
+
+This file is part of CohortMethod
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+************************************************************************/
+
+{DEFAULT @cdm_database_schema = 'CDM_SIM' }
+{DEFAULT @outcome_database_schema = 'CDM_SIM' }
+{DEFAULT @outcome_table = 'condition_era' }
+{DEFAULT @outcome_ids = ''}
+{DEFAULT @cdm_version = '5'}
+{DEFAULT @sampled = FALSE}
+
+SELECT DISTINCT ec.row_id,
+	outcome.cohort_definition_id AS outcome_id,
+	DATEDIFF(DAY, cohort_person.cohort_start_date, outcome.cohort_start_date) AS days_to_event,
+	cohort_person.row_id AS cm_row_id
+{@sampled} ? {
+FROM #cohort_sample cohort_person
+} : {
+FROM #cohort_person cohort_person
+}
+INNER JOIN @outcome_database_schema.@outcome_table outcome
+	ON cohort_person.subject_id = outcome.subject_id
+INNER JOIN #exposure_cohorts ec
+  ON cohort_person.subject_id = ec.subject_id
+  AND cohort_person.cohort_start_date = ec.cohort_start_date
+WHERE DATEDIFF(DAY, outcome.cohort_start_date, cohort_person.cohort_start_date) <= days_from_obs_start
+	AND DATEDIFF(DAY, cohort_person.cohort_start_date, outcome.cohort_start_date) <= days_to_obs_end
+	AND outcome.cohort_definition_id IN (@outcome_ids)
+
