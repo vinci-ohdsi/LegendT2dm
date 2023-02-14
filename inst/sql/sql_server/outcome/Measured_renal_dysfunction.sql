@@ -17,6 +17,72 @@ UNION  select c.concept_id
 ) I
 ) C
 ;
+ CREATE CLUSTERED COLUMNSTORE INDEX idx ON #Codesets;
+-- Begin Measurement Criteria
+select C.person_id, C.measurement_id as event_id, C.measurement_date as start_date, DATEADD(d,1,C.measurement_date) as END_DATE,
+       C.visit_occurrence_id, C.measurement_date as sort_date
+INTO #MeasurementCrit0_4
+from 
+(
+  select m.* 
+  FROM @cdm_database_schema.MEASUREMENT m
+JOIN #Codesets codesets on ((m.measurement_concept_id = codesets.concept_id and codesets.codeset_id = 0))
+) C
+
+WHERE C.value_as_number > 3.0000
+AND C.unit_concept_id in (8840)
+;
+ CREATE CLUSTERED COLUMNSTORE INDEX idx ON #MeasurementCrit0_4;
+-- End Measurement Criteria
+-- Begin Measurement Criteria
+select C.person_id, C.measurement_id as event_id, C.measurement_date as start_date, DATEADD(d,1,C.measurement_date) as END_DATE,
+       C.visit_occurrence_id, C.measurement_date as sort_date
+INTO #MeasurementCrit0_2
+from 
+(
+  select m.* 
+  FROM @cdm_database_schema.MEASUREMENT m
+JOIN #Codesets codesets on ((m.measurement_concept_id = codesets.concept_id and codesets.codeset_id = 0))
+) C
+
+WHERE C.value_as_number > 265.0000
+AND C.unit_concept_id in (3194935)
+;
+ CREATE CLUSTERED COLUMNSTORE INDEX idx ON #MeasurementCrit0_2;
+-- End Measurement Criteria
+-- Begin Measurement Criteria
+select C.person_id, C.measurement_id as event_id, C.measurement_date as start_date, DATEADD(d,1,C.measurement_date) as END_DATE,
+       C.visit_occurrence_id, C.measurement_date as sort_date
+INTO #MeasurementCrit0_1
+from 
+(
+  select m.* 
+  FROM @cdm_database_schema.MEASUREMENT m
+JOIN #Codesets codesets on ((m.measurement_concept_id = codesets.concept_id and codesets.codeset_id = 0))
+) C
+
+WHERE C.value_as_number > 0.2650
+AND C.unit_concept_id in (8753)
+;
+ CREATE CLUSTERED COLUMNSTORE INDEX idx ON #MeasurementCrit0_1;
+-- End Measurement Criteria
+-- Begin Measurement Criteria
+select C.person_id, C.measurement_id as event_id, C.measurement_date as start_date, DATEADD(d,1,C.measurement_date) as END_DATE,
+       C.visit_occurrence_id, C.measurement_date as sort_date
+INTO #MeasurementCrit0_3
+from 
+(
+  select m.* 
+  FROM @cdm_database_schema.MEASUREMENT m
+JOIN #Codesets codesets on ((m.measurement_concept_id = codesets.concept_id and codesets.codeset_id = 0))
+) C
+
+WHERE C.value_as_number > 3.0000
+AND C.unit_concept_id in (8576)
+;
+ CREATE CLUSTERED COLUMNSTORE INDEX idx ON #MeasurementCrit0_3;
+-- End Measurement Criteria
+
 
 with primary_events (event_id, person_id, start_date, end_date, op_start_date, op_end_date, visit_occurrence_id) as
 (
@@ -29,64 +95,19 @@ FROM
          OP.observation_period_start_date as op_start_date, OP.observation_period_end_date as op_end_date, cast(E.visit_occurrence_id as bigint) as visit_occurrence_id
   FROM 
   (
-  -- Begin Measurement Criteria
-select C.person_id, C.measurement_id as event_id, C.measurement_date as start_date, DATEADD(d,1,C.measurement_date) as END_DATE,
-       C.visit_occurrence_id, C.measurement_date as sort_date
-from 
-(
-  select m.* 
-  FROM @cdm_database_schema.MEASUREMENT m
-JOIN #Codesets codesets on ((m.measurement_concept_id = codesets.concept_id and codesets.codeset_id = 0))
-) C
+  SELECT * FROM #MeasurementCrit0_4
 
-WHERE C.value_as_number > 3.0000
-AND C.unit_concept_id in (8840)
--- End Measurement Criteria
 
 UNION ALL
--- Begin Measurement Criteria
-select C.person_id, C.measurement_id as event_id, C.measurement_date as start_date, DATEADD(d,1,C.measurement_date) as END_DATE,
-       C.visit_occurrence_id, C.measurement_date as sort_date
-from 
-(
-  select m.* 
-  FROM @cdm_database_schema.MEASUREMENT m
-JOIN #Codesets codesets on ((m.measurement_concept_id = codesets.concept_id and codesets.codeset_id = 0))
-) C
+SELECT * FROM #MeasurementCrit0_2
 
-WHERE C.value_as_number > 265.0000
-AND C.unit_concept_id in (3194935)
--- End Measurement Criteria
 
 UNION ALL
--- Begin Measurement Criteria
-select C.person_id, C.measurement_id as event_id, C.measurement_date as start_date, DATEADD(d,1,C.measurement_date) as END_DATE,
-       C.visit_occurrence_id, C.measurement_date as sort_date
-from 
-(
-  select m.* 
-  FROM @cdm_database_schema.MEASUREMENT m
-JOIN #Codesets codesets on ((m.measurement_concept_id = codesets.concept_id and codesets.codeset_id = 0))
-) C
+SELECT * FROM #MeasurementCrit0_1
 
-WHERE C.value_as_number > 0.2650
-AND C.unit_concept_id in (8753)
--- End Measurement Criteria
 
 UNION ALL
--- Begin Measurement Criteria
-select C.person_id, C.measurement_id as event_id, C.measurement_date as start_date, DATEADD(d,1,C.measurement_date) as END_DATE,
-       C.visit_occurrence_id, C.measurement_date as sort_date
-from 
-(
-  select m.* 
-  FROM @cdm_database_schema.MEASUREMENT m
-JOIN #Codesets codesets on ((m.measurement_concept_id = codesets.concept_id and codesets.codeset_id = 0))
-) C
-
-WHERE C.value_as_number > 3.0000
-AND C.unit_concept_id in (8576)
--- End Measurement Criteria
+SELECT * FROM #MeasurementCrit0_3
 
   ) E
 	JOIN @cdm_database_schema.observation_period OP on E.person_id = OP.person_id and E.start_date >=  OP.observation_period_start_date and E.start_date <= op.observation_period_end_date
@@ -243,3 +264,16 @@ DROP TABLE #included_events;
 
 TRUNCATE TABLE #Codesets;
 DROP TABLE #Codesets;
+ 
+-- DELETE TEMP TABLES
+ TRUNCATE TABLE #MeasurementCrit0_4;
+DROP TABLE #MeasurementCrit0_4;
+
+TRUNCATE TABLE #MeasurementCrit0_2;
+DROP TABLE #MeasurementCrit0_2;
+
+TRUNCATE TABLE #MeasurementCrit0_1;
+DROP TABLE #MeasurementCrit0_1;
+
+TRUNCATE TABLE #MeasurementCrit0_3;
+DROP TABLE #MeasurementCrit0_3;

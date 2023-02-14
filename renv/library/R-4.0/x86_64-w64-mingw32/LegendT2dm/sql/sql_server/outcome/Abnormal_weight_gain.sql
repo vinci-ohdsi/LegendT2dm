@@ -17,6 +17,23 @@ UNION  select c.concept_id
 ) I
 ) C
 ;
+ CREATE CLUSTERED COLUMNSTORE INDEX idx ON #Codesets;
+-- Begin Observation Criteria
+select C.person_id, C.observation_id as event_id, C.observation_date as start_date, DATEADD(d,1,C.observation_date) as END_DATE,
+       C.visit_occurrence_id, C.observation_date as sort_date
+INTO #ObservationCrit11_1
+from 
+(
+  select o.* 
+  FROM @cdm_database_schema.OBSERVATION o
+JOIN #Codesets codesets on ((o.observation_concept_id = codesets.concept_id and codesets.codeset_id = 11))
+) C
+
+
+;
+ CREATE CLUSTERED COLUMNSTORE INDEX idx ON #ObservationCrit11_1;
+-- End Observation Criteria
+
 
 with primary_events (event_id, person_id, start_date, end_date, op_start_date, op_end_date, visit_occurrence_id) as
 (
@@ -29,18 +46,8 @@ FROM
          OP.observation_period_start_date as op_start_date, OP.observation_period_end_date as op_end_date, cast(E.visit_occurrence_id as bigint) as visit_occurrence_id
   FROM 
   (
-  -- Begin Observation Criteria
-select C.person_id, C.observation_id as event_id, C.observation_date as start_date, DATEADD(d,1,C.observation_date) as END_DATE,
-       C.visit_occurrence_id, C.observation_date as sort_date
-from 
-(
-  select o.* 
-  FROM @cdm_database_schema.OBSERVATION o
-JOIN #Codesets codesets on ((o.observation_concept_id = codesets.concept_id and codesets.codeset_id = 11))
-) C
+  SELECT * FROM #ObservationCrit11_1
 
-
--- End Observation Criteria
 
   ) E
 	JOIN @cdm_database_schema.observation_period OP on E.person_id = OP.person_id and E.start_date >=  OP.observation_period_start_date and E.start_date <= op.observation_period_end_date
@@ -197,3 +204,7 @@ DROP TABLE #included_events;
 
 TRUNCATE TABLE #Codesets;
 DROP TABLE #Codesets;
+ 
+-- DELETE TEMP TABLES
+ TRUNCATE TABLE #ObservationCrit11_1;
+DROP TABLE #ObservationCrit11_1;

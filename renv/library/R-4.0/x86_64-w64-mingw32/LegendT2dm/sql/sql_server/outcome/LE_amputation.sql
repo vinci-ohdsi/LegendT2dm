@@ -28,6 +28,23 @@ UNION  select c.concept_id
 WHERE E.concept_id is null
 ) C
 ;
+ CREATE CLUSTERED COLUMNSTORE INDEX idx ON #Codesets;
+-- Begin Procedure Occurrence Criteria
+select C.person_id, C.procedure_occurrence_id as event_id, C.procedure_date as start_date, DATEADD(d,1,C.procedure_date) as END_DATE,
+       C.visit_occurrence_id, C.procedure_date as sort_date
+INTO #ProcedureCrit0_1
+from 
+(
+  select po.* 
+  FROM @cdm_database_schema.PROCEDURE_OCCURRENCE po
+JOIN #Codesets codesets on ((po.procedure_concept_id = codesets.concept_id and codesets.codeset_id = 0))
+) C
+
+
+;
+ CREATE CLUSTERED COLUMNSTORE INDEX idx ON #ProcedureCrit0_1;
+-- End Procedure Occurrence Criteria
+
 
 with primary_events (event_id, person_id, start_date, end_date, op_start_date, op_end_date, visit_occurrence_id) as
 (
@@ -40,18 +57,8 @@ FROM
          OP.observation_period_start_date as op_start_date, OP.observation_period_end_date as op_end_date, cast(E.visit_occurrence_id as bigint) as visit_occurrence_id
   FROM 
   (
-  -- Begin Procedure Occurrence Criteria
-select C.person_id, C.procedure_occurrence_id as event_id, C.procedure_date as start_date, DATEADD(d,1,C.procedure_date) as END_DATE,
-       C.visit_occurrence_id, C.procedure_date as sort_date
-from 
-(
-  select po.* 
-  FROM @cdm_database_schema.PROCEDURE_OCCURRENCE po
-JOIN #Codesets codesets on ((po.procedure_concept_id = codesets.concept_id and codesets.codeset_id = 0))
-) C
+  SELECT * FROM #ProcedureCrit0_1
 
-
--- End Procedure Occurrence Criteria
 
   ) E
 	JOIN @cdm_database_schema.observation_period OP on E.person_id = OP.person_id and E.start_date >=  OP.observation_period_start_date and E.start_date <= op.observation_period_end_date
@@ -84,18 +91,7 @@ LEFT JOIN (
 SELECT p.person_id, p.event_id 
 FROM primary_events P
 JOIN (
-  -- Begin Procedure Occurrence Criteria
-select C.person_id, C.procedure_occurrence_id as event_id, C.procedure_date as start_date, DATEADD(d,1,C.procedure_date) as END_DATE,
-       C.visit_occurrence_id, C.procedure_date as sort_date
-from 
-(
-  select po.* 
-  FROM @cdm_database_schema.PROCEDURE_OCCURRENCE po
-JOIN #Codesets codesets on ((po.procedure_concept_id = codesets.concept_id and codesets.codeset_id = 0))
-) C
-
-
--- End Procedure Occurrence Criteria
+  SELECT * FROM #ProcedureCrit0_1
 
 ) A on A.person_id = P.person_id  AND A.START_DATE >= P.OP_START_DATE AND A.START_DATE <= P.OP_END_DATE AND A.START_DATE >= DATEADD(day,-30,P.START_DATE) AND A.START_DATE <= DATEADD(day,-1,P.START_DATE) ) cc on p.person_id = cc.person_id and p.event_id = cc.event_id
 GROUP BY p.person_id, p.event_id
@@ -249,3 +245,7 @@ DROP TABLE #included_events;
 
 TRUNCATE TABLE #Codesets;
 DROP TABLE #Codesets;
+ 
+-- DELETE TEMP TABLES
+ TRUNCATE TABLE #ProcedureCrit0_1;
+DROP TABLE #ProcedureCrit0_1;
