@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Remove results from the database server.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for removeResultsFromDatabase {LegendT2dm}"><tr><td>removeResultsFromDatabase {LegendT2dm}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Remove results from the database server.</h2>
+
+<h3>Description</h3>
+
+<p>Requires the results data model tables have been created using the <code><a href="../../CohortDiagnostics/html/createResultsDataModel.html">createResultsDataModel</a></code> function.
+</p>
+<p>Set the POSTGRES_PATH environmental variable to the path to the folder containing the psql executable to enable
+bulk upload (recommended).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+removeResultsFromDatabase(
+  connectionDetails,
+  schema,
+  databaseId,
+  specifications
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>Object of type <code>connectionDetails</code> as created using the
+<code><a href="../../DatabaseConnector/html/createConnectionDetails.html">createConnectionDetails</a></code> function in the
+DatabaseConnector package.</p>
+</td></tr>
+<tr valign="top"><td><code>schema</code></td>
+<td>
+<p>Schema on the postgres server where the tables have been created.</p>
+</td></tr>
+<tr valign="top"><td><code>databaseId</code></td>
+<td>
+<p>Data sources to remove</p>
+</td></tr>
+<tr valign="top"><td><code>specifications</code></td>
+<td>
+<p>Specification of results tables</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>LegendT2dm</em> version 2.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

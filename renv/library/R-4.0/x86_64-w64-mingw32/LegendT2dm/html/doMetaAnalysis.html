@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Perform random-effects meta-analysis on CES results on data...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for doMetaAnalysis {LegendT2dm}"><tr><td>doMetaAnalysis {LegendT2dm}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Perform random-effects meta-analysis on CES results on data server</h2>
+
+<h3>Description</h3>
+
+<p>Perform random-effects meta-analysis on CES results on data server
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+doMetaAnalysis(
+  connectionDetails,
+  indicationId = "class",
+  resultsDatabaseSchema,
+  maExportFolder,
+  maName = "Meta-analysis",
+  diagnosticsFilter = NULL,
+  maxCores,
+  cacheFileName = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connectionDetails</code></td>
+<td>
+<p>DatabaseConnector details to public LEGEND-T2DM db server</p>
+</td></tr>
+<tr valign="top"><td><code>resultsDatabaseSchema</code></td>
+<td>
+<p>Schema on the postgres server where the tables have been created.</p>
+</td></tr>
+<tr valign="top"><td><code>maExportFolder</code></td>
+<td>
+<p>A local folder where the meta-anlysis results will be written.</p>
+</td></tr>
+<tr valign="top"><td><code>diagnosticsFilter</code></td>
+<td>
+<p>Table of which target-comparator-outcome-analysis-database tuples pass diagnostics;
+can be NULL</p>
+</td></tr>
+<tr valign="top"><td><code>maxCores</code></td>
+<td>
+<p>How many parallel cores should be used? If more cores are made available
+this can speed up the analyses.</p>
+</td></tr>
+<tr valign="top"><td><code>cacheFileName</code></td>
+<td>
+<p>Use (if exists) or cache database results in file</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function executes a meta-analysis across data source results.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>LegendT2dm</em> version 2.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

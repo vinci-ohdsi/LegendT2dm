@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Collapse a vector into a string scalar</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for ansi_collapse {cli}"><tr><td>ansi_collapse {cli}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Collapse a vector into a string scalar</h2>
+
+<h3>Description</h3>
+
+<p>Features:
+</p>
+
+<ul>
+<li><p> custom separator,
+</p>
+</li>
+<li><p> custom last separator: <code>last</code> argument,
+</p>
+</li>
+<li><p> adds ellipsis to truncated strings,
+</p>
+</li>
+<li><p> uses Unicode ellipsis character on UTF-8 console,
+</p>
+</li>
+<li><p> can collapse &quot;from both ends&quot;, with <code>style = "both-ends"</code>,
+</p>
+</li>
+<li><p> can consider a limit for the display width of the result, in characters,
+</p>
+</li>
+<li><p> handles ANSI control sequences correctly when measuring display width.
+</p>
+</li></ul>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+ansi_collapse(
+  x,
+  sep = ", ",
+  last = ", and ",
+  trunc = Inf,
+  width = Inf,
+  ellipsis = symbol$ellipsis,
+  style = c("both-ends", "head")
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>Character vector, or an object with an <code>as.character()</code> method
+to collapse.</p>
+</td></tr>
+<tr valign="top"><td><code>sep</code></td>
+<td>
+<p>Character string, separator.</p>
+</td></tr>
+<tr valign="top"><td><code>last</code></td>
+<td>
+<p>Last separator, if there is no truncation. E.g. use
+<code>", and "</code> for the Oxford comma.</p>
+</td></tr>
+<tr valign="top"><td><code>trunc</code></td>
+<td>
+<p>Maximum number of elements to show. For <code>style = "head"</code>
+at least <code>trunc = 1</code> is used. For <code>style = "both-ends"</code> at least
+<code>trunc = 5</code> is used, even if a smaller number is specified.</p>
+</td></tr>
+<tr valign="top"><td><code>width</code></td>
+<td>
+<p>Limit for the display width of the result, in characters.
+This is a hard limit, and the output will never exceed it.
+This argument is not implemented for the <code>"both-ends"</code> style, which
+always uses <code>Inf</code>, with a warning if a fininte <code>width</code> value is set.</p>
+</td></tr>
+<tr valign="top"><td><code>ellipsis</code></td>
+<td>
+<p>Character string to use at the place of the truncation.
+By default, the Unicode ellipsis character is used if the console is
+UTF-8, and three dots otherwise.</p>
+</td></tr>
+<tr valign="top"><td><code>style</code></td>
+<td>
+<p>Truncation style:
+</p>
+
+<ul>
+<li> <p><code>both-ends</code>: the default, shows the beginning and end of the vector,
+and skips elements in the middle if needed.
+</p>
+</li>
+<li> <p><code>head</code>: shows the beginning of the vector, and skips elements at the
+end, if needed.
+</p>
+</li></ul>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Character scalar. It is <code>NA_character_</code> if any elements in the
+vector are <code>NA</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>glue_collapse</code> in the glue package inspired this function
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+ansi_collapse(letters)
+
+# truncate
+ansi_collapse(letters, trunc = 5)
+
+# head style
+ansi_collapse(letters, trunc = 5, style = "head")
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>cli</em> version 3.6.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

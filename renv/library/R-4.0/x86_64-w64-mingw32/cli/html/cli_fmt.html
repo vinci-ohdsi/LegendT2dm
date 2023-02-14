@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Capture the output of cli functions instead of printing it</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for cli_fmt {cli}"><tr><td>cli_fmt {cli}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Capture the output of cli functions instead of printing it</h2>
+
+<h3>Description</h3>
+
+<p>Capture the output of cli functions instead of printing it
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+cli_fmt(expr, collapse = FALSE, strip_newline = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>expr</code></td>
+<td>
+<p>Expression to evaluate, containing <code style="white-space: pre;">cli_*()</code> calls,
+typically.</p>
+</td></tr>
+<tr valign="top"><td><code>collapse</code></td>
+<td>
+<p>Whether to collapse the output into a single character
+scalar, or return a character vector with one element for each line.</p>
+</td></tr>
+<tr valign="top"><td><code>strip_newline</code></td>
+<td>
+<p>Whether to strip the trailing newline.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+cli_fmt({
+  cli_alert_info("Loading data file")
+  cli_alert_success("Loaded data file")
+})
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>cli</em> version 3.6.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

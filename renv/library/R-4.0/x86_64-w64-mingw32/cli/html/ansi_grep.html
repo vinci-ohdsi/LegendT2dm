@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Like 'base::grep()' and 'base::grepl()', but for ANSI strings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for ansi_grep {cli}"><tr><td>ansi_grep {cli}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Like <code><a href="../../base/html/grep.html">base::grep()</a></code> and <code><a href="../../base/html/grep.html">base::grepl()</a></code>, but for ANSI strings</h2>
+
+<h3>Description</h3>
+
+<p>First ANSI sequences will be stripped with <code><a href="ansi_strip.html">ansi_strip()</a></code>, both
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ansi_grep(pattern, x, ignore.case = FALSE, perl = FALSE, value = FALSE, ...)
+
+ansi_grepl(pattern, x, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>pattern</code></td>
+<td>
+<p>Character scalar, regular expression or fixed string
+(if <code>fixed = TRUE</code>), the pattern to search for. Other objects will be
+coerced using <code><a href="../../base/html/character.html">as.character()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>Character vector to search in. Other objects will be coerced
+using <code><a href="../../base/html/character.html">as.character()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>ignore.case, perl, value</code></td>
+<td>
+<p>Passed to <code><a href="../../base/html/grep.html">base::grep()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Extra arguments are passed to <code><a href="../../base/html/grep.html">base::grep()</a></code> or <code><a href="../../base/html/grep.html">base::grepl()</a></code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Note that these functions work on code points (or bytes if
+<code>useBytes = TRUE</code>), and not graphemes.
+</p>
+<p>Unlike <code><a href="../../base/html/grep.html">base::grep()</a></code> and <code><a href="../../base/html/grep.html">base::grepl()</a></code> these functions do not special
+case factors.
+</p>
+<p>Both <code>pattern</code> and <code>x</code> are converted to UTF-8.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The same as <code><a href="../../base/html/grep.html">base::grep()</a></code> and <code><a href="../../base/html/grep.html">base::grepl()</a></code>, respectively.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+red_needle &lt;- col_red("needle")
+haystack &lt;- c("foo", "needle", "foo")
+green_haystack &lt;- col_green(haystack)
+ansi_grepl(red_needle, haystack)
+ansi_grepl(red_needle, green_haystack)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>cli</em> version 3.6.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

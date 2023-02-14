@@ -1,3 +1,5 @@
+addDatabaseIdToTables   Add databaseId column to tables in results
+                        *.zip files
 assessPhenotypes        Assess propensity models
 assessPropensityModels
                         Assess propensity models
@@ -11,6 +13,8 @@ createDataModelSqlFile
                         tables on a database server.
 createExposureCohorts   Create the exposure cohorts
 createOutcomeCohorts    Create the outcome cohorts
+doMetaAnalysis          Perform random-effects meta-analysis on CES
+                        results on data server
 execute                 Execute OHDSI LEGEND study
 exportResults           Export all results to tables
 fetchAllDataFromServer
@@ -32,7 +36,12 @@ printConceptSet         Print concept set
 printExitCriteria       Print exit criteria
 printInclusionCriteria
                         Print inclusion criteria
+removeResultsFromDatabase
+                        Remove results from the database server.
 runCohortMethod         Run the cohort method package
+unnumberAdditionalCriteria
+                        Find the subsections corresponding to
+                        additional criteria and unnumber them.
 uploadPhenotypeResults
                         Upload cohort diagnostic results to OHDSI
                         server

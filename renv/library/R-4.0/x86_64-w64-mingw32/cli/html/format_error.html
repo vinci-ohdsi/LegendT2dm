@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Format an error, warning or diagnostic message</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for format_error {cli}"><tr><td>format_error {cli}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Format an error, warning or diagnostic message</h2>
+
+<h3>Description</h3>
+
+<p>You can then throw this message with <code><a href="../../base/html/stop.html">stop()</a></code> or <code>rlang::abort()</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+format_error(message, .envir = parent.frame())
+
+format_warning(message, .envir = parent.frame())
+
+format_message(message, .envir = parent.frame())
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>message</code></td>
+<td>
+<p>It is formatted via a call to <code><a href="cli_bullets.html">cli_bullets()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>.envir</code></td>
+<td>
+<p>Environment to evaluate the glue expressions in.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The messages can use inline styling, pluralization and glue
+substitutions.
+</p>
+<div class="sourceCode r"><pre>n &lt;- "boo"
+stop(format_error(c(
+        "{.var n} must be a numeric vector",
+  "x" = "You've supplied a {.cls {class(n)}} vector."
+)))
+</pre></div>
+<div class="asciicast" style="color: #172431;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
+#> Error: `n` must be a numeric vector                                             
+#> <span style="color: #DC322F;">✖</span> You've supplied a <span style="color: #268BD2;">&lt;character&gt;</span> vector.                                         
+</pre></div>
+
+<div class="sourceCode r"><pre>len &lt;- 26
+idx &lt;- 100
+stop(format_error(c(
+        "Must index an existing element:",
+  "i" = "There {?is/are} {len} element{?s}.",
+  "x" = "You've tried to subset element {idx}."
+)))
+</pre></div>
+<div class="asciicast" style="color: #172431;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
+#> Error: Must index an existing element:                                          
+#> <span style="color: #2AA198;">ℹ</span> There are 26 elements.                                                        
+#> <span style="color: #DC322F;">✖</span> You've tried to subset element 100.                                           
+</pre></div>
+
+
+<hr /><div style="text-align: center;">[Package <em>cli</em> version 3.6.0 <a href="00Index.html">Index</a>]</div>
+</body></html>
