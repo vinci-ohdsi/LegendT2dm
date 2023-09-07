@@ -1,7 +1,7 @@
 ## ----set-options,echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE-------------
 options(width = 200)
 library(FeatureExtraction)
-vignetteFolder <- "s:/temp/vignetteFeatureExtraction"
+vignetteFolder <- "c:/temp/vignetteFeatureExtraction"
 
 
 ## -----------------------------------------------------------------------------
@@ -9,36 +9,44 @@ settings <- createDefaultCovariateSettings()
 
 
 ## -----------------------------------------------------------------------------
-settings <- createDefaultCovariateSettings(excludedCovariateConceptIds = 1124300, 
-                                           addDescendantsToExclude = TRUE)
+settings <- createDefaultCovariateSettings(
+  excludedCovariateConceptIds = 1124300,
+  addDescendantsToExclude = TRUE
+)
 
 
 ## -----------------------------------------------------------------------------
-settings <- createCovariateSettings(useDemographicsGender = TRUE,
-                                    useDemographicsAgeGroup = TRUE,
-                                    useConditionOccurrenceAnyTimePrior = TRUE)
+settings <- createCovariateSettings(
+  useDemographicsGender = TRUE,
+  useDemographicsAgeGroup = TRUE,
+  useConditionOccurrenceAnyTimePrior = TRUE
+)
 
 
 ## -----------------------------------------------------------------------------
-settings <- createCovariateSettings(useConditionEraLongTerm = TRUE,
-                                    useConditionEraShortTerm = TRUE,
-                                    useDrugEraLongTerm = TRUE,
-                                    useDrugEraShortTerm = TRUE,
-                                    longTermStartDays = -180,
-                                    shortTermStartDays = -14,
-                                    endDays = -1)
+settings <- createCovariateSettings(
+  useConditionEraLongTerm = TRUE,
+  useConditionEraShortTerm = TRUE,
+  useDrugEraLongTerm = TRUE,
+  useDrugEraShortTerm = TRUE,
+  longTermStartDays = -180,
+  shortTermStartDays = -14,
+  endDays = -1
+)
 
 
 ## -----------------------------------------------------------------------------
-settings <- createCovariateSettings(useConditionEraLongTerm = TRUE,
-                                    useConditionEraShortTerm = TRUE,
-                                    useDrugEraLongTerm = TRUE,
-                                    useDrugEraShortTerm = TRUE,
-                                    longTermStartDays = -180,
-                                    shortTermStartDays = -14,
-                                    endDays = -1,
-                                    excludedCovariateConceptIds = 1124300, 
-                                    addDescendantsToExclude = TRUE)
+settings <- createCovariateSettings(
+  useConditionEraLongTerm = TRUE,
+  useConditionEraShortTerm = TRUE,
+  useDrugEraLongTerm = TRUE,
+  useDrugEraShortTerm = TRUE,
+  longTermStartDays = -180,
+  shortTermStartDays = -14,
+  endDays = -1,
+  excludedCovariateConceptIds = 1124300,
+  addDescendantsToExclude = TRUE
+)
 
 
 ## -----------------------------------------------------------------------------
@@ -48,16 +56,20 @@ settings2$analyses[[1]]
 
 
 ## -----------------------------------------------------------------------------
-analysisDetails <- createAnalysisDetails(analysisId = 1,
-                                         sqlFileName = "DemographicsGender.sql",
-                                         parameters = list(analysisId = 1,
-                                                           analysisName = "Gender",
-                                                           domainId = "Demographics"),
-                                         includedCovariateConceptIds = c(),
-                                         addDescendantsToInclude = FALSE,
-                                         excludedCovariateConceptIds = c(),
-                                         addDescendantsToExclude = FALSE,
-                                         includedCovariateIds = c())
+analysisDetails <- createAnalysisDetails(
+  analysisId = 1,
+  sqlFileName = "DemographicsGender.sql",
+  parameters = list(
+    analysisId = 1,
+    analysisName = "Gender",
+    domainId = "Demographics"
+  ),
+  includedCovariateConceptIds = c(),
+  addDescendantsToInclude = FALSE,
+  excludedCovariateConceptIds = c(),
+  addDescendantsToExclude = FALSE,
+  includedCovariateIds = c()
+)
 
 settings <- createDetailedCovariateSettings(list(analysisDetails))
 
@@ -67,37 +79,47 @@ settings <- createDefaultTemporalCovariateSettings()
 
 
 ## -----------------------------------------------------------------------------
-settings <- createTemporalCovariateSettings(useConditionOccurrence = TRUE,
-                                            useMeasurementValue = TRUE)
+settings <- createTemporalCovariateSettings(
+  useConditionOccurrence = TRUE,
+  useMeasurementValue = TRUE
+)
 
 
 ## -----------------------------------------------------------------------------
-settings <- createTemporalCovariateSettings(useConditionOccurrence = TRUE,
-                                            useMeasurementValue = TRUE,
-                                            temporalStartDays = seq(-364, -7, by = 7),
-                                            temporalEndDays = seq(-358, -1, by = 7))
+settings <- createTemporalCovariateSettings(
+  useConditionOccurrence = TRUE,
+  useMeasurementValue = TRUE,
+  temporalStartDays = seq(-364, -7, by = 7),
+  temporalEndDays = seq(-358, -1, by = 7)
+)
 
 
 ## -----------------------------------------------------------------------------
-analysisDetails <- createAnalysisDetails(analysisId = 1,
-                                         sqlFileName = "MeasurementValue.sql",
-                                         parameters = list(analysisId = 1,
-                                                           analysisName = "MeasurementValue",
-                                                           domainId = "Measurement"),
-                                         includedCovariateConceptIds = c(),
-                                         addDescendantsToInclude = FALSE,
-                                         excludedCovariateConceptIds = c(),
-                                         addDescendantsToExclude = FALSE,
-                                         includedCovariateIds = c())
+analysisDetails <- createAnalysisDetails(
+  analysisId = 1,
+  sqlFileName = "MeasurementValue.sql",
+  parameters = list(
+    analysisId = 1,
+    analysisName = "MeasurementValue",
+    domainId = "Measurement"
+  ),
+  includedCovariateConceptIds = c(),
+  addDescendantsToInclude = FALSE,
+  excludedCovariateConceptIds = c(),
+  addDescendantsToExclude = FALSE,
+  includedCovariateIds = c()
+)
 
-settings <-  createDetailedTemporalCovariateSettings(list(analysisDetails))
+settings <- createDetailedTemporalCovariateSettings(list(analysisDetails))
 
 
 ## ----tidy=FALSE,eval=FALSE----------------------------------------------------
-## connectionDetails <- createConnectionDetails(dbms = "postgresql",
-##                                              server = "localhost/ohdsi",
-##                                              user = "joe",
-##                                              password = "supersecret")
+## connectionDetails <- createConnectionDetails(
+##   dbms = "postgresql",
+##   server = "localhost/ohdsi",
+##   user = "joe",
+##   password = "supersecret"
+## )
 ## 
 ## cdmDatabaseSchema <- "my_cdm_data"
 ## resultsDatabaseSchema <- "my_results"
@@ -107,8 +129,9 @@ settings <-  createDetailedTemporalCovariateSettings(list(analysisDetails))
 ## library(SqlRender)
 ## sql <- readSql("cohortsOfInterest.sql")
 ## sql <- render(sql,
-##               cdmDatabaseSchema = cdmDatabaseSchema,
-##               resultsDatabaseSchema = resultsDatabaseSchema)
+##   cdmDatabaseSchema = cdmDatabaseSchema,
+##   resultsDatabaseSchema = resultsDatabaseSchema
+## )
 ## sql <- translate(sql, targetDialect = connectionDetails$dbms)
 ## 
 ## connection <- connect(connectionDetails)
@@ -116,9 +139,11 @@ settings <-  createDetailedTemporalCovariateSettings(list(analysisDetails))
 
 
 ## ----tidy=FALSE,eval=FALSE----------------------------------------------------
-## sql <- paste("SELECT cohort_definition_id, COUNT(*) AS count",
-##              "FROM @resultsDatabaseSchema.cohorts_of_interest",
-##              "GROUP BY cohort_definition_id")
+## sql <- paste(
+##   "SELECT cohort_definition_id, COUNT(*) AS count",
+##   "FROM @resultsDatabaseSchema.cohorts_of_interest",
+##   "GROUP BY cohort_definition_id"
+## )
 ## sql <- render(sql, resultsDatabaseSchema = resultsDatabaseSchema)
 ## sql <- translate(sql, targetDialect = connectionDetails$dbms)
 ## 
@@ -131,13 +156,15 @@ data.frame(cohort_concept_id = c(1124300, 1118084), count = c(240761, 47293))
 ## ----eval=FALSE---------------------------------------------------------------
 ## covariateSettings <- createDefaultCovariateSettings()
 ## 
-## covariateData <- getDbCovariateData(connectionDetails = connectionDetails,
-##                                     cdmDatabaseSchema = cdmDatabaseSchema,
-##                                     cohortDatabaseSchema = resultsDatabaseSchema,
-##                                     cohortTable = "cohorts_of_interest",
-##                                     cohortId = 1118084,
-##                                     rowIdField = "subject_id",
-##                                     covariateSettings = covariateSettings)
+## covariateData <- getDbCovariateData(
+##   connectionDetails = connectionDetails,
+##   cdmDatabaseSchema = cdmDatabaseSchema,
+##   cohortDatabaseSchema = resultsDatabaseSchema,
+##   cohortTable = "cohorts_of_interest",
+##   cohortId = 1118084,
+##   rowIdField = "subject_id",
+##   covariateSettings = covariateSettings
+## )
 ## 
 ## summary(covariateData)
 
@@ -164,9 +191,10 @@ if (file.exists(file.path(vignetteFolder, "covariatesPerPerson"))) {
 
 ## ----eval=FALSE---------------------------------------------------------------
 ## tidyCovariates <- tidyCovariateData(covariateData,
-##                                     minFraction = 0.001,
-##                                     normalize = TRUE,
-##                                     removeRedundancy = TRUE)
+##   minFraction = 0.001,
+##   normalize = TRUE,
+##   removeRedundancy = TRUE
+## )
 
 
 ## ----eval=FALSE---------------------------------------------------------------
@@ -185,7 +213,7 @@ if (file.exists(file.path(vignetteFolder, "deletedInfrequentCovariateIds.rds")))
 ## head(deletedCovariateIds)
 
 ## ----echo=FALSE,message=FALSE-------------------------------------------------
-if (file.exists(file.path(vignetteFolder, "deletedRedundantCovariateIds.rds"))){
+if (file.exists(file.path(vignetteFolder, "deletedRedundantCovariateIds.rds"))) {
   deletedCovariateIds <- readRDS(file.path(vignetteFolder, "deletedRedundantCovariateIds.rds"))
   head(deletedCovariateIds)
 }
@@ -202,7 +230,7 @@ library(Andromeda)
 if (file.exists(file.path(vignetteFolder, "deletedRedundantCovariateIds.rds"))) {
   truncRight <- function(x, n) {
     nc <- nchar(x)
-    x[nc > (n - 3)] <- paste('...',substr(x[nc > (n - 3)], nc[nc > (n - 3)] - n + 1, nc[nc > (n - 3)]), sep = "")
+    x[nc > (n - 3)] <- paste("...", substr(x[nc > (n - 3)], nc[nc > (n - 3)] - n + 1, nc[nc > (n - 3)]), sep = "")
     x
   }
   cr <- covariateData$covariateRef %>%
@@ -220,13 +248,15 @@ if (file.exists(file.path(vignetteFolder, "deletedRedundantCovariateIds.rds"))) 
 ## ----eval=FALSE---------------------------------------------------------------
 ## covariateSettings <- createDefaultCovariateSettings()
 ## 
-## covariateData2 <- getDbCovariateData(connectionDetails = connectionDetails,
-##                                      cdmDatabaseSchema = cdmDatabaseSchema,
-##                                      cohortDatabaseSchema = resultsDatabaseSchema,
-##                                      cohortTable = "cohorts_of_interest",
-##                                      cohortId = 1118084,
-##                                      covariateSettings = covariateSettings,
-##                                      aggregated = TRUE)
+## covariateData2 <- getDbCovariateData(
+##   connectionDetails = connectionDetails,
+##   cdmDatabaseSchema = cdmDatabaseSchema,
+##   cohortDatabaseSchema = resultsDatabaseSchema,
+##   cohortTable = "cohorts_of_interest",
+##   cohortId = 1118084,
+##   covariateSettings = covariateSettings,
+##   aggregated = TRUE
+## )
 ## summary(covariateData2)
 
 ## ----echo=FALSE,message=FALSE-------------------------------------------------
@@ -254,13 +284,18 @@ if (file.exists(file.path(vignetteFolder, "aggregatedCovariates"))) {
 
 
 ## ----eval=FALSE---------------------------------------------------------------
-## result <- createTable1(covariateData2)
+## result <- createTable1(
+##   covariateData1 = covariateData2
+## )
 ## print(result, row.names = FALSE, right = FALSE)
 
 
 ## ----comment=NA,echo=FALSE,message=FALSE--------------------------------------
 if (file.exists(file.path(vignetteFolder, "aggregatedCovariates"))) {
-  result <- createTable1(covariateData2)
+  result <- createTable1(
+    covariateData1 = covariateData2,
+    output = "one column"
+  )
   print(result, row.names = FALSE, right = FALSE)
 }
 
@@ -268,13 +303,15 @@ if (file.exists(file.path(vignetteFolder, "aggregatedCovariates"))) {
 ## ----eval=FALSE---------------------------------------------------------------
 ## covariateSettings <- createTable1CovariateSettings()
 ## 
-## covariateData2b <- getDbCovariateData(connectionDetails = connectionDetails,
-##                                       cdmDatabaseSchema = cdmDatabaseSchema,
-##                                       cohortDatabaseSchema = resultsDatabaseSchema,
-##                                       cohortTable = "cohorts_of_interest",
-##                                       cohortId = 1118084,
-##                                       covariateSettings = covariateSettings,
-##                                       aggregated = TRUE)
+## covariateData2b <- getDbCovariateData(
+##   connectionDetails = connectionDetails,
+##   cdmDatabaseSchema = cdmDatabaseSchema,
+##   cohortDatabaseSchema = resultsDatabaseSchema,
+##   cohortTable = "cohorts_of_interest",
+##   cohortId = 1118084,
+##   covariateSettings = covariateSettings,
+##   aggregated = TRUE
+## )
 ## summary(covariateData2b)
 
 ## ----echo=FALSE,message=FALSE-------------------------------------------------
@@ -285,24 +322,30 @@ if (file.exists(file.path(vignetteFolder, "table1Covariates"))) {
 
 
 ## ----eval=FALSE---------------------------------------------------------------
-## settings <- createTable1CovariateSettings(excludedCovariateConceptIds = c(1118084, 1124300),
-##                                           addDescendantsToExclude = TRUE)
+## settings <- createTable1CovariateSettings(
+##   excludedCovariateConceptIds = c(1118084, 1124300),
+##   addDescendantsToExclude = TRUE
+## )
 ## 
-## covCelecoxib <- getDbCovariateData(connectionDetails = connectionDetails,
-##                                    cdmDatabaseSchema = cdmDatabaseSchema,
-##                                    cohortDatabaseSchema = resultsDatabaseSchema,
-##                                    cohortTable = "cohorts_of_interest",
-##                                    cohortId = 1118084,
-##                                    covariateSettings = settings,
-##                                    aggregated = TRUE)
+## covCelecoxib <- getDbCovariateData(
+##   connectionDetails = connectionDetails,
+##   cdmDatabaseSchema = cdmDatabaseSchema,
+##   cohortDatabaseSchema = resultsDatabaseSchema,
+##   cohortTable = "cohorts_of_interest",
+##   cohortId = 1118084,
+##   covariateSettings = settings,
+##   aggregated = TRUE
+## )
 ## 
-## covDiclofenac <- getDbCovariateData(connectionDetails = connectionDetails,
-##                                     cdmDatabaseSchema = cdmDatabaseSchema,
-##                                     cohortDatabaseSchema = resultsDatabaseSchema,
-##                                     cohortTable = "cohorts_of_interest",
-##                                     cohortId = 1124300,
-##                                     covariateSettings = settings,
-##                                     aggregated = TRUE)
+## covDiclofenac <- getDbCovariateData(
+##   connectionDetails = connectionDetails,
+##   cdmDatabaseSchema = cdmDatabaseSchema,
+##   cohortDatabaseSchema = resultsDatabaseSchema,
+##   cohortTable = "cohorts_of_interest",
+##   cohortId = 1124300,
+##   covariateSettings = settings,
+##   aggregated = TRUE
+## )
 ## 
 ## std <- computeStandardizedDifference(covCelecoxib, covDiclofenac)
 
@@ -318,7 +361,7 @@ if (file.exists(file.path(vignetteFolder, "covDiclofenac"))) {
   std <- computeStandardizedDifference(covCelecoxib, covDiclofenac)
   truncRight <- function(x, n) {
     nc <- nchar(x)
-    x[nc > (n - 3)] <- paste('...',substr(x[nc > (n - 3)], nc[nc > (n - 3)] - n + 1, nc[nc > (n - 3)]), sep = "")
+    x[nc > (n - 3)] <- paste("...", substr(x[nc > (n - 3)], nc[nc > (n - 3)] - n + 1, nc[nc > (n - 3)]), sep = "")
     x
   }
   std$covariateName <- truncRight(as.character(std$covariateName), 30)
@@ -327,13 +370,21 @@ if (file.exists(file.path(vignetteFolder, "covDiclofenac"))) {
 
 
 ## ----eval=FALSE---------------------------------------------------------------
-## result <- createTable1(covCelecoxib, covDiclofenac)
+## result <- createTable1(
+##   covariateData1 = covCelecoxib,
+##   covariateData2 = covDiclofenac,
+##   output = "two columns"
+## )
 ## print(result, row.names = FALSE, right = FALSE)
 
 
 ## ----comment=NA,echo=FALSE,message=FALSE--------------------------------------
 if (file.exists(file.path(vignetteFolder, "covDiclofenac"))) {
-  result <- createTable1(covCelecoxib, covDiclofenac)
+  result <- createTable1(
+    covariateData1 = covCelecoxib,
+    covariateData2 = covDiclofenac,
+    output = "one column"
+  )
   print(result, row.names = FALSE, right = FALSE)
 }
 

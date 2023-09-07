@@ -1,22 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Determine whether reading should be done lazily</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Determine whether to read a file lazily</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="R.css" />
 </head><body>
 
 <table width="100%" summary="page for should_read_lazy {readr}"><tr><td>should_read_lazy {readr}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Determine whether reading should be done lazily</h2>
+<h2>Determine whether to read a file lazily</h2>
 
 <h3>Description</h3>
 
-<p>Reading in readr is done lazily unless
+<p>This function consults the option <code>readr.read_lazy</code> to figure out whether to
+do lazy reading or not. If the option is unset, the default is <code>FALSE</code>,
+meaning readr will read files eagerly, not lazily. If you want to use this
+option to express a preference for lazy reading, do this:
 </p>
-
-<ul>
-<li> <p><code>options(readr.read_lazy = FALSE)</code>
+<div class="sourceCode"><pre>options(readr.read_lazy = TRUE)
+</pre></div>
+<p>Typically, one would use the option to control lazy reading at the session,
+file, or user level. The <code>lazy</code> argument of functions like <code><a href="read_delim.html">read_csv()</a></code> can
+be used to control laziness in an individual call.
 </p>
-</li></ul>
-
 
 
 <h3>Usage</h3>
@@ -25,5 +28,12 @@
 should_read_lazy()
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>readr</em> version 2.1.0 <a href="00Index.html">Index</a>]</div>
+
+<h3>See Also</h3>
+
+<p>The blog post <a href="https://www.tidyverse.org/blog/2021/11/readr-2-1-0-lazy/">&quot;Eager vs lazy reading in readr 2.1.0&quot;</a> explains
+the benefits (and downsides) of lazy reading.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>readr</em> version 2.1.3 <a href="00Index.html">Index</a>]</div>
 </body></html>

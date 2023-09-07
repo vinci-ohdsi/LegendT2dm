@@ -56,5 +56,25 @@ provided, <code>covariateData2</code> is assumed to contain data on only 1 cohor
 of mean.
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.1.1 <a href="00Index.html">Index</a>]</div>
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+binaryCovDataFile &lt;- system.file("testdata/binaryCovariateData.zip",
+  package = "FeatureExtraction"
+)
+covariateData1 &lt;- loadCovariateData(binaryCovDataFile)
+covariateData2 &lt;- loadCovariateData(binaryCovDataFile)
+covDataDiff &lt;- computeStandardizedDifference(
+  covariateData1,
+  covariateData2,
+  cohortId1 = 1,
+  cohortId2 = 2
+)
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.3.0 <a href="00Index.html">Index</a>]</div>
 </body></html>

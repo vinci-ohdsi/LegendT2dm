@@ -73,9 +73,9 @@ used in the call to <code>vroom()</code> it takes precedence over the one specif
 </td></tr>
 <tr valign="top"><td><code>levels</code></td>
 <td>
-<p>Character vector providing set of allowed levels. if <code>NULL</code>,
-will generate levels based on the unique values of <code>x</code>, ordered by order
-of appearance in <code>x</code>.</p>
+<p>Character vector of the allowed levels. When <code>levels = NULL</code>
+(the default), <code>levels</code> are discovered from the unique values of <code>x</code>, in
+the order in which they appear in <code>x</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>ordered</code></td>
 <td>
@@ -83,7 +83,8 @@ of appearance in <code>x</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>include_na</code></td>
 <td>
-<p>If <code>NA</code> are present, include as an explicit factor to level?</p>
+<p>If <code>TRUE</code> and <code>x</code> contains at least one <code>NA</code>, then <code>NA</code>
+is included in the levels of the constructed factor.</p>
 </td></tr>
 <tr valign="top"><td><code>format</code></td>
 <td>
@@ -191,5 +192,5 @@ t3$cols &lt;- c(t1$cols, t2$cols)
 t3
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>vroom</em> version 1.5.6 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>vroom</em> version 1.6.0 <a href="00Index.html">Index</a>]</div>
 </body></html>

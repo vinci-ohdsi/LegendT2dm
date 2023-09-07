@@ -75,7 +75,7 @@ to exclude?</p>
 
 <h3>Details</h3>
 
-<p>creates an object specifying in detail how covariates should be contructed from data in the CDM
+<p>creates an object specifying in detail how covariates should be constructed from data in the CDM
 model. Warning: this function is for advanced users only.
 </p>
 
@@ -91,19 +91,22 @@ model. Warning: this function is for advanced users only.
 <h3>Examples</h3>
 
 <pre>
-analysisDetails &lt;- createAnalysisDetails(analysisId = 1,
-                                         sqlFileName = "DemographicsGender.sql",
-                                         parameters = list(analysisId = 1,
-                                                           analysisName = "Gender",
-                                                           domainId = "Demographics"),
-                                         includedCovariateConceptIds = c(),
-                                         addDescendantsToInclude = FALSE,
-                                         excludedCovariateConceptIds = c(),
-                                         addDescendantsToExclude = FALSE,
-                                         includedCovariateIds = c())
-
+analysisDetails &lt;- createAnalysisDetails(
+  analysisId = 1,
+  sqlFileName = "DemographicsGender.sql",
+  parameters = list(
+    analysisId = 1,
+    analysisName = "Gender",
+    domainId = "Demographics"
+  ),
+  includedCovariateConceptIds = c(),
+  addDescendantsToInclude = FALSE,
+  excludedCovariateConceptIds = c(),
+  addDescendantsToExclude = FALSE,
+  includedCovariateIds = c()
+)
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.1.1 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.3.0 <a href="00Index.html">Index</a>]</div>
 </body></html>

@@ -1,3 +1,41 @@
+# vroom 1.6.0
+
+* `vroom(col_select=)` now handles column selection by numeric position when `id` column is provided (#455).
+
+* `vroom(id = "path", col_select = a:c)` is treated like `vroom(id = "path", col_select = c(path, a:c))`. If an `id` column is provided, it is automatically included in the output (#416).
+
+* `vroom_write(append = TRUE)` does not modify an existing file when appending an empty data frame. In particular, it does not overwrite (delete) the existing contents of that file (https://github.com/tidyverse/readr/issues/1408, #451).
+
+* `vroom::problems()` now defaults to `.Last.value` for its primary input, similar to how `readr::problems()` works (#443).
+
+* The warning that indicates the existence of parsing problems has been improved, which should make it easier for the user to follow-up (https://github.com/tidyverse/readr/issues/1322).
+
+* `vroom()` reads more reliably from filepaths containing non-ascii characters, in a non-UTF-8 locale (#394, #438).
+
+* `vroom_format()` and `vroom_write()` only quote values that contain a delimiter, quote, or newline. Specifically values that are equal to the `na` string (or that start with it) are no longer quoted (#426).
+  
+* Fixed segfault when reading in multiple files and the first file has only a header row of column names, but subsequent files have at least one row (#430).
+
+* Fixed segfault when `vroom_format()` is given an empty data frame (#425)
+
+* Fixed a segfault that could occur when the final field of the final line is missing and the file also does not end in a newline (#429).
+
+* Fixed recursive garbage collection error that could occur during `vroom_write()` when `output_column()` generates an ALTREP vector (#389).
+
+* `vroom_progress()` uses `rlang::is_interactive()` instead of `base::interactive()`.
+
+* `col_factor(levels = NULL)` honors the `na` strings of `vroom()` and its own `include_na` argument, as described in the docs, and now reproduces the behaviour of readr's first edition parser (#396).
+
+# vroom 1.5.7
+
+* Jenny Bryan is now the official maintainer.
+
+* Fix uninitialized bool detected by CRAN's UBSAN check (https://github.com/tidyverse/vroom/pull/386)
+
+* Fix buffer overflow when trying to parse an integer field that is over 64 characters long (https://github.com/tidyverse/readr/issues/1326)
+
+* Fix subset indexing when indexes span a file boundary multiple times (#383)
+
 # vroom 1.5.6
 
 * `vroom(col_select=)` now works if `col_names = FALSE` as intended (#381)

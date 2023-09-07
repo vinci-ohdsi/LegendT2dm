@@ -25,6 +25,7 @@ read_log(
   trim_ws = TRUE,
   skip = 0,
   n_max = Inf,
+  show_col_types = should_show_types(),
   progress = show_progress()
 )
 </pre>
@@ -140,6 +141,13 @@ supplied any commented lines are ignored <em>after</em> skipping.</p>
 <td>
 <p>Maximum number of lines to read.</p>
 </td></tr>
+<tr valign="top"><td><code>show_col_types</code></td>
+<td>
+<p>If <code>FALSE</code>, do not show the guessed column types. If
+<code>TRUE</code> always show the column types, even if they are supplied. If <code>NULL</code>
+(the default) only show the column types if they are not explicitly supplied
+by the <code>col_types</code> argument.</p>
+</td></tr>
 <tr valign="top"><td><code>progress</code></td>
 <td>
 <p>Display a progress bar? By default it will only display
@@ -156,5 +164,5 @@ progress bar can be disabled by setting option <code>readr.show_progress</code> 
 read_log(readr_example("example.log"))
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>readr</em> version 2.1.0 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>readr</em> version 2.1.3 <a href="00Index.html">Index</a>]</div>
 </body></html>

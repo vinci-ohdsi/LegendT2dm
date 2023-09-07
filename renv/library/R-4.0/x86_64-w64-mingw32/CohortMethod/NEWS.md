@@ -1,3 +1,37 @@
+CohortMethod 4.2.2
+==================
+
+Changes:
+
+1. Added the `analysesToExclude` argument to `runCmAnalyses`, allowing the users to specify target-comparator-outcome-analysis combinations to exclude from execution.
+
+2. Output of `computeCovariateBalance()` now also contains `domainId` and `isBinary` columns.
+
+3. Added `plotCovariatePrevalence()` function.
+
+
+Bug fixes:
+
+1. Fixed erroneous sample size reported for comparator cohorts when computing covariate balance. (the actual sample size was fine)
+
+2. Fixed error when all analyses have `fitOutcomeModel = FALSE`.
+
+3. Fixed attrition counts when using `allowReverseMatch = TRUE`
+
+CohortMethod 4.2.1
+==================
+
+Changes:
+
+1. Adding `highlightExposedEvents` and `includePostIndexTime` arguments to `plotTimeToEvent()`.
+
+2. Adding `maxCohortSize` argument to the `computeCovariateBalance()` function. The target and comparator cohorts will be downsampled if they are larger, speeding up computation.
+
+Bug fixes:
+
+1. Fixed error thrown by `plotTimeToEvent()` when there are time periods in plot when nobody is observed.
+
+
 CohortMethod 4.2.0
 ==================
 
@@ -24,7 +58,7 @@ Bug fixes:
 CohortMethod 4.1.0
 ==================
 
-Changes: 
+Changes:
 
 1. Dropped `insertDbPopulation()` function. This didn't seem to be used by anyone, and would have required carrying the person ID throughout the pipeline.
 
@@ -62,7 +96,7 @@ Bug fixes:
 CohortMethod 4.0.0
 ==================
 
-Changes: 
+Changes:
 
 1. Switching from ff to Andromeda for storing large data objects.
 

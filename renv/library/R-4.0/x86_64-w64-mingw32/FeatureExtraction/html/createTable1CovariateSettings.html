@@ -76,5 +76,23 @@ to exclude?</p>
 <code><a href="getDbCovariateData.html">getDbCovariateData</a></code> function.
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.1.1 <a href="00Index.html">Index</a>]</div>
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+table1CovSettings &lt;- createTable1CovariateSettings(
+  specifications = getDefaultTable1Specifications(),
+  covariateSettings = createDefaultCovariateSettings(),
+  includedCovariateConceptIds = c(),
+  addDescendantsToInclude = FALSE,
+  excludedCovariateConceptIds = c(),
+  addDescendantsToExclude = FALSE,
+  includedCovariateIds = c()
+)
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.3.0 <a href="00Index.html">Index</a>]</div>
 </body></html>

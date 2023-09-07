@@ -1,31 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Determine if progress bars should be shown</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Determine whether progress bars should be shown</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="R.css" />
 </head><body>
 
 <table width="100%" summary="page for vroom_progress {vroom}"><tr><td>vroom_progress {vroom}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2>Determine if progress bars should be shown</h2>
+<h2>Determine whether progress bars should be shown</h2>
 
 <h3>Description</h3>
 
-<p>Progress bars are shown <em>unless</em> one of the following is <code>TRUE</code>
+<p>By default, vroom shows progress bars. However, progress reporting is
+suppressed if any of the following conditions hold:
 </p>
 
 <ul>
-<li><p> The bar is explicitly disabled by setting <code>Sys.getenv("VROOM_SHOW_PROGRESS"="false")</code>
+<li><p> The bar is explicitly disabled by setting the environment variable
+<code>VROOM_SHOW_PROGRESS</code> to <code>"false"</code>.
 </p>
 </li>
-<li><p> The code is run in a non-interactive session (<code>interactive()</code> is <code>FALSE</code>).
+<li><p> The code is run in a non-interactive session, as determined by
+<code><a href="../../rlang/html/is_interactive.html">rlang::is_interactive()</a></code>.
 </p>
 </li>
-<li><p> The code is run in an RStudio notebook chunk.
-</p>
-</li>
-<li><p> The code is run by knitr / rmarkdown.
-</p>
-</li>
-<li><p> The code is run by testthat (the <code>TESTTHAT</code> envvar is <code>true</code>).
+<li><p> The code is run in an RStudio notebook chunk, as determined by
+<code>getOption("rstudio.notebook.executing")</code>.
 </p>
 </li></ul>
 
@@ -44,5 +42,5 @@ vroom_progress()
 vroom_progress()
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>vroom</em> version 1.5.6 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>vroom</em> version 1.6.0 <a href="00Index.html">Index</a>]</div>
 </body></html>

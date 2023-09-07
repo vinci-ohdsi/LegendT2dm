@@ -1,7 +1,7 @@
 Package: LegendT2dmCohortExplorer
 Type: Package
 Title: LEGEND-T2DM Cohort Explorer
-Version: 0.1.0
+Version: 0.2.0
 Author: Marc A. Suchard [aut, cre],
  Martijn J. Schuemie [aut]
 Maintainer: The package maintainer <yourself@somewhere.net>
@@ -14,16 +14,16 @@ Depends: R (>= 4.0),
 Imports: RJSONIO, checkmate, DatabaseConnector, dplyr, DT, ggplot2, ggiraph,
     gtable, htmltools, lubridate, pool, purrr, scales, shiny, shinydashboard,
     shinyWidgets, stringr, SqlRender, tidyr
-RoxygenNote: 7.1.1
-Built: R 4.0.3; ; 2021-11-15 14:19:21 UTC; windows
+RoxygenNote: 7.2.1
+Built: R 4.0.3; ; 2023-09-07 22:44:36 UTC; windows
 RemoteType: github
 RemoteHost: api.github.com
 RemoteRepo: LegendT2dmCohortExplorer
 RemoteUsername: ohdsi-studies
 RemoteRef: HEAD
-RemoteSha: 1f3a5eed965694e3d5a32a3847a2adba10981c7f
+RemoteSha: b1349f871b05afcbbfb784475a907859de32a022
 GithubHost: api.github.com
 GithubRepo: LegendT2dmCohortExplorer
 GithubUsername: ohdsi-studies
 GithubRef: HEAD
-GithubSHA1: 1f3a5eed965694e3d5a32a3847a2adba10981c7f
+GithubSHA1: b1349f871b05afcbbfb784475a907859de32a022

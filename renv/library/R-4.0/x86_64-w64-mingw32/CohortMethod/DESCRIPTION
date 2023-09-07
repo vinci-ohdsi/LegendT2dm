@@ -1,8 +1,8 @@
 Package: CohortMethod
 Type: Package
 Title: New-User Cohort Method with Large Scale Propensity and Outcome Models
-Version: 4.2.0
-Date: 2021-06-17
+Version: 4.2.2
+Date: 2022-01-21
 Authors@R: c(
  person("Martijn", "Schuemie", , "schuemie@ohdsi.org", role = c("aut", "cre")),
  person("Marc", "Suchard", role = c("aut")),
@@ -27,31 +27,32 @@ URL: https://ohdsi.github.io/CohortMethod,
     https://github.com/OHDSI/CohortMethod
 BugReports: https://github.com/OHDSI/CohortMethod/issues
 Depends: R (>= 3.5.0), DatabaseConnector (>= 4.0.0), Cyclops (>= 3.1.2),
-    FeatureExtraction (>= 3.0.0), Andromeda (>= 0.4.0)
+    FeatureExtraction (>= 3.0.0), Andromeda (>= 0.5.0)
 Imports: methods, ggplot2, gridExtra, grid, readr, plyr, dplyr, rlang, cli,
     pillar, Rcpp (>= 0.11.2), SqlRender (>= 1.7.0), survival, ParallelLogger
     (>= 2.0.0), bit64
-Suggests: testthat, pROC, knitr, rmarkdown, EmpiricalCalibration, Eunomia
+Suggests: testthat, pROC, knitr, rmarkdown, EmpiricalCalibration, Eunomia,
+    withr, R.utils, RISCA
 LinkingTo: Rcpp
 NeedsCompilation: yes
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
 Author: Martijn Schuemie [aut, cre],
  Marc Suchard [aut],
  Patrick Ryan [aut]
-Built: R 4.0.3; x86_64-w64-mingw32; 2021-07-08 21:05:12 UTC; windows
+Built: R 4.0.3; x86_64-w64-mingw32; 2023-09-07 22:43:39 UTC; windows
 Archs: x64
 RemoteType: github
-Remotes: ohdsi/FeatureExtraction
+Remotes: ohdsi/FeatureExtraction, ohdsi/Eunomia
 RemoteHost: api.github.com
 RemoteRepo: CohortMethod
 RemoteUsername: OHDSI
 RemoteRef: develop
-RemoteSha: bc649d33b6b5c1c2ea91208394587b84b068b21e
+RemoteSha: fa14f60c2e46f5098a20dbc93741611446ff710e
 GithubHost: api.github.com
 GithubRepo: CohortMethod
 GithubUsername: OHDSI
 GithubRef: develop
-GithubSHA1: bc649d33b6b5c1c2ea91208394587b84b068b21e
-Remotes: ohdsi/FeatureExtraction
+GithubSHA1: fa14f60c2e46f5098a20dbc93741611446ff710e
+Remotes: ohdsi/FeatureExtraction, ohdsi/Eunomia

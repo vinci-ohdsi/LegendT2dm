@@ -9,14 +9,23 @@
 
 <h3>Description</h3>
 
-<p>Column types are shown unless
+<p>Wrapper around <code>getOption("readr.show_col_types")</code> that implements some fall
+back logic if the option is unset. This returns:
 </p>
 
 <ul>
-<li><p> They are disabled by setting <code>options(readr.show_col_types = FALSE)</code>
+<li> <p><code>TRUE</code> if the option is set to <code>TRUE</code>
 </p>
 </li>
-<li><p> The column types are supplied with the <code>col_types</code> argument.
+<li> <p><code>FALSE</code> if the option is set to <code>FALSE</code>
+</p>
+</li>
+<li> <p><code>FALSE</code> if the option is unset and we appear to be running tests
+</p>
+</li>
+<li> <p><code>NULL</code> otherwise, in which case the caller determines whether to show
+column types based on context, e.g. whether <code>show_col_types</code> or actual
+<code>col_types</code> were explicitly specified
 </p>
 </li></ul>
 
@@ -28,5 +37,5 @@
 should_show_types()
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>readr</em> version 2.1.0 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>readr</em> version 2.1.3 <a href="00Index.html">Index</a>]</div>
 </body></html>

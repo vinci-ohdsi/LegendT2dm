@@ -54,11 +54,11 @@ read_all_zip <- function(file, ...) {
 }
 
 ## ---- eval = as.logical(Sys.getenv("NOT_CRAN", "false"))----------------------
-#  file <- "https://raw.githubusercontent.com/r-lib/vroom/main/inst/extdata/mtcars.csv"
+#  file <- "https://raw.githubusercontent.com/tidyverse/vroom/main/inst/extdata/mtcars.csv"
 #  vroom(file)
 
 ## ---- eval = as.logical(Sys.getenv("NOT_CRAN", "false"))----------------------
-#  file <- "https://raw.githubusercontent.com/r-lib/vroom/main/inst/extdata/mtcars.csv.gz"
+#  file <- "https://raw.githubusercontent.com/tidyverse/vroom/main/inst/extdata/mtcars.csv.gz"
 #  vroom(file)
 
 ## -----------------------------------------------------------------------------
@@ -73,7 +73,7 @@ vroom(file, col_select = c(1, 3, 11))
 vroom(file, col_select = starts_with("d"))
 
 ## -----------------------------------------------------------------------------
-vroom(file, col_select = list(car = model, everything()))
+vroom(file, col_select = c(car = model, everything()))
 
 ## -----------------------------------------------------------------------------
 fwf_sample <- vroom_example("fwf-sample.txt")
@@ -148,7 +148,7 @@ vroom_write(mtcars, "mtcars.tsv.xz")
 unlink(c("mtcars.tsv.gz", "mtcars.tsv.bz2", "mtcars.tsv.xz"))
 
 ## ---- eval = nzchar(Sys.which("pigz"))----------------------------------------
-vroom_write(mtcars, pipe("pigz > mtcars.tsv.gz"))
+#  vroom_write(mtcars, pipe("pigz > mtcars.tsv.gz"))
 
 ## ---- include = FALSE---------------------------------------------------------
 unlink("mtcars.tsv.gz")

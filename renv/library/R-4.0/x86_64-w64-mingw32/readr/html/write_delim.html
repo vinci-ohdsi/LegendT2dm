@@ -150,11 +150,13 @@ column names will be included. If not specified, <code>col_names</code> will tak
 </td></tr>
 <tr valign="top"><td><code>quote</code></td>
 <td>
-<p>How to handle fields which contain characters that need to be quoted.
+<p>How to handle fields which contain characters that need to be
+quoted.
 </p>
 
 <ul>
-<li> <p><code>needed</code> - Only quote fields which need them.
+<li> <p><code>needed</code> - Values are only quoted if needed: if they contain a delimiter,
+quote, or newline.
 </p>
 </li>
 <li> <p><code>all</code> - Quote all fields.
@@ -201,11 +203,13 @@ setting option <code>readr.show_progress</code> to <code>FALSE</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>path</code></td>
 <td>
-<p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated"><img src="../help/figures/lifecycle-deprecated.svg" alt='[Deprecated]' /></a>, use the <code>file</code> argument instead.</p>
+<p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated"><img src="../help/figures/lifecycle-deprecated.svg" alt='[Deprecated]' /></a> Use the <code>file</code> argument
+instead.</p>
 </td></tr>
 <tr valign="top"><td><code>quote_escape</code></td>
 <td>
-<p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated"><img src="../help/figures/lifecycle-deprecated.svg" alt='[Deprecated]' /></a>, use the <code>escape</code> argument instead.</p>
+<p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated"><img src="../help/figures/lifecycle-deprecated.svg" alt='[Deprecated]' /></a> Use the <code>escape</code>
+argument instead.</p>
 </td></tr>
 </table>
 
@@ -265,5 +269,5 @@ write_tsv(mtcars, "mtcars.tsv.xz")
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>readr</em> version 2.1.0 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>readr</em> version 2.1.3 <a href="00Index.html">Index</a>]</div>
 </body></html>

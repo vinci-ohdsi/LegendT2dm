@@ -29,8 +29,10 @@ fa(
   width = NULL,
   margin_left = NULL,
   margin_right = NULL,
+  vertical_align = NULL,
   position = NULL,
   title = NULL,
+  prefer_type = c("regular", "solid"),
   a11y = c("deco", "sem", "none")
 )
 </pre>
@@ -43,14 +45,12 @@ fa(
 <td>
 <p>The name of the Font Awesome icon. This could be as a short name
 (e.g., <code>"npm"</code>, <code>"drum"</code>, etc.), or, a full name (e.g., <code>"fab fa-npm"</code>,
-<code>"fas fa-drum"</code>, etc.). The names should correspond to current Version 5
+<code>"fas fa-drum"</code>, etc.). The names should correspond to current Version 6
 Font Awesome names. A list of short and full names can be accessed through
 the <code><a href="fa_metadata.html">fa_metadata()</a></code> function with <code>fa_metadata()$icon_names</code> and
-<code>fa_metadata()$icon_names_full</code>. If supplying a Version 4 icon name, it
-will be internally translated to the Version 5 icon name and a Version 5
-icon will be returned. A data frame containing the short names that changed
-from version 4 (<code>v4_name</code>) to version 5 (<code>v5_name</code>) can be obtained by
-using <code>fa_metadata()$v4_v5_name_tbl</code>.</p>
+<code>fa_metadata()$icon_names_full</code>. If supplying a previous name associated
+with the icon, it will be internally translated to the current name and a
+Version 6 icon will be returned.</p>
 </td></tr>
 <tr valign="top"><td><code>fill, fill_opacity</code></td>
 <td>
@@ -82,6 +82,11 @@ left or right of the icon. By default, <code>"auto"</code> is used for both
 properties. If space is needed on either side then a length of <code>"0.2em"</code> is
 recommended as a starting point.</p>
 </td></tr>
+<tr valign="top"><td><code>vertical_align</code></td>
+<td>
+<p>The vertical alignment of the icon. By default, a
+length of <code>"-0.125em"</code> is used.</p>
+</td></tr>
 <tr valign="top"><td><code>position</code></td>
 <td>
 <p>The value for the <code>position</code> style attribute. By default,
@@ -94,6 +99,14 @@ provides on-hover text for the icon. By default, no title text is given to
 the icon. If <code>a11y == "semantic"</code> then title text will be
 automatically given to the rendered icon, however, providing text here
 will override that.</p>
+</td></tr>
+<tr valign="top"><td><code>prefer_type</code></td>
+<td>
+<p>Chooses the type of icon returned if: (1) providing a
+short name, and (2) that icon has both solid and regular types.
+For example, using <code>name = "address-book"</code> will result in two types of
+icons for an Address Book. By default, this preference is set to
+<code>"regular"</code> and the other option is <code>"solid"</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>a11y</code></td>
 <td>
@@ -123,5 +136,5 @@ fa(name = "r-project")
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>fontawesome</em> version 0.3.0 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>fontawesome</em> version 0.5.0 <a href="00Index.html">Index</a>]</div>
 </body></html>

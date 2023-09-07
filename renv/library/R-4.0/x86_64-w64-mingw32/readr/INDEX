@@ -34,7 +34,7 @@ read_table              Read whitespace-separated columns into a tibble
 readr_example           Get path to readr example
 readr_threads           Determine how many threads readr should use
                         when processing
-should_read_lazy        Determine whether reading should be done lazily
+should_read_lazy        Determine whether to read a file lazily
 should_show_types       Determine whether column types should be shown
 show_progress           Determine whether progress bars should be shown
 spec_delim              Generate a column specification

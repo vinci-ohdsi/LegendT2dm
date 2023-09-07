@@ -1,5 +1,6 @@
 CohortMethodData-class
                         Cohort Method Data
+adjustedKm              Compute a weight-adjusted Kaplan-Meier curve
 checkCmInstallation     Check is CohortMethod and its dependencies are
                         correctly installed
 cohortMethodDataSimulationProfile
@@ -72,6 +73,8 @@ plotCovariateBalanceOfTopVariables
                         Plot variables with largest imbalance
 plotCovariateBalanceScatterPlot
                         Create a scatterplot of the covariate balance
+plotCovariatePrevalence
+                        Plot covariate prevalence
 plotFollowUpDistribution
                         Plot the distribution of follow-up time
 plotKaplanMeier         Plot the Kaplan-Meier curve

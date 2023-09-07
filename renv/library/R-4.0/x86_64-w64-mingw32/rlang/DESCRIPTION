@@ -1,12 +1,12 @@
 Package: rlang
-Version: 0.4.11
+Version: 1.1.0
 Title: Functions for Base Types and Core R and 'Tidyverse' Features
 Description: A toolbox for working with base types, core R features
   like the condition system, and core 'Tidyverse' features like tidy
   evaluation.
 Authors@R: c(
-    person("Lionel", "Henry", ,"lionel@rstudio.com", c("aut", "cre")),
-    person("Hadley", "Wickham", ,"hadley@rstudio.com", "aut"),
+    person("Lionel", "Henry", ,"lionel@posit.co", c("aut", "cre")),
+    person("Hadley", "Wickham", ,"hadley@posit.co", "aut"),
     person(given = "mikefc",
            email = "mikefc@coolbutuseless.com", 
            role = "cph", 
@@ -15,30 +15,32 @@ Authors@R: c(
            family = "Collet",
            role = "cph", 
            comment = "Author of the embedded xxHash library"),
-    person("RStudio", role = "cph")
+    person(given = "Posit, PBC", role = c("cph", "fnd"))
     )
 License: MIT + file LICENSE
 ByteCompile: true
 Biarch: true
-Depends: R (>= 3.3.0)
+Depends: R (>= 3.5.0)
 Imports: utils
-Suggests: cli, covr, crayon, glue, magrittr, methods, pak, pillar,
-        rmarkdown, testthat (>= 3.0.0), vctrs (>= 0.2.3), withr
+Suggests: cli (>= 3.1.0), covr, crayon, fs, glue, knitr, magrittr,
+        methods, pillar, rmarkdown, stats, testthat (>= 3.0.0), tibble,
+        usethis, vctrs (>= 0.2.3), withr
 Enhances: winch
 Encoding: UTF-8
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
 URL: https://rlang.r-lib.org, https://github.com/r-lib/rlang
 BugReports: https://github.com/r-lib/rlang/issues
 Config/testthat/edition: 3
+Config/Needs/website: dplyr, tidyverse/tidytemplate
 NeedsCompilation: yes
-Packaged: 2021-04-29 14:15:00 UTC; lionel
+Packaged: 2023-03-13 10:09:28 UTC; lionel
 Author: Lionel Henry [aut, cre],
   Hadley Wickham [aut],
   mikefc [cph] (Hash implementation based on Mike's xxhashlite),
   Yann Collet [cph] (Author of the embedded xxHash library),
-  RStudio [cph]
-Maintainer: Lionel Henry <lionel@rstudio.com>
+  Posit, PBC [cph, fnd]
+Maintainer: Lionel Henry <lionel@posit.co>
 Repository: CRAN
-Date/Publication: 2021-04-30 23:20:02 UTC
-Built: R 4.0.5; x86_64-w64-mingw32; 2021-07-05 05:33:59 UTC; windows
-Archs: i386, x64
+Date/Publication: 2023-03-14 08:20:06 UTC
+Built: R 4.0.3; x86_64-w64-mingw32; 2023-09-07 22:39:29 UTC; windows
+Archs: x64

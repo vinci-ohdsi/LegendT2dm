@@ -30,7 +30,8 @@ fa_png(
   stroke_width = NULL,
   stroke_opacity = NULL,
   height = NULL,
-  width = NULL
+  width = NULL,
+  prefer_type = c("regular", "solid")
 )
 </pre>
 
@@ -68,6 +69,14 @@ decimal values between <code>0</code> and <code>1</code> (bounds included).</p>
 nothing is provided then the output dimensions will match that of the input
 SVG viewBox.</p>
 </td></tr>
+<tr valign="top"><td><code>prefer_type</code></td>
+<td>
+<p>Chooses the type of icon returned if: (1) providing a
+short name, and (2) that icon has both solid and regular types.
+For example, using <code>name = "address-book"</code> will result in two types of
+icons for an Address Book. By default, this preference is set to
+<code>"regular"</code> and the other option is <code>"solid"</code>.</p>
+</td></tr>
 </table>
 
 
@@ -90,5 +99,5 @@ fa_png(name = "r-project")
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>fontawesome</em> version 0.3.0 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>fontawesome</em> version 0.5.0 <a href="00Index.html">Index</a>]</div>
 </body></html>

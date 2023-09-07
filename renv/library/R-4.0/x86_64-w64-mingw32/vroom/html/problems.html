@@ -19,7 +19,7 @@ with this function.
 <h3>Usage</h3>
 
 <pre>
-problems(x, lazy = FALSE)
+problems(x = .Last.value, lazy = FALSE)
 </pre>
 
 
@@ -45,7 +45,8 @@ problems are returned.</p>
 </p>
 
 <ul>
-<li><p> row,col - Row and column of problem
+<li><p> row,col - Row and column number that caused the problem, referencing the
+original input
 </p>
 </li>
 <li><p> expected - What vroom expected to find
@@ -59,5 +60,5 @@ problems are returned.</p>
 </li></ul>
 
 
-<hr /><div style="text-align: center;">[Package <em>vroom</em> version 1.5.6 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>vroom</em> version 1.6.0 <a href="00Index.html">Index</a>]</div>
 </body></html>

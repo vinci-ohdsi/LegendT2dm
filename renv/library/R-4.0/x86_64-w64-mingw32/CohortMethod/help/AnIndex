@@ -1,4 +1,5 @@
 CohortMethod-package	CohortMethod-package
+adjustedKm	adjustedKm
 checkCmInstallation	checkCmInstallation
 CohortMethod	CohortMethod-package
 CohortMethodData	CohortMethodData-class
@@ -40,6 +41,7 @@ matchOnPs	matchOnPs
 matchOnPsAndCovariates	matchOnPsAndCovariates
 plotCovariateBalanceOfTopVariables	plotCovariateBalanceOfTopVariables
 plotCovariateBalanceScatterPlot	plotCovariateBalanceScatterPlot
+plotCovariatePrevalence	plotCovariatePrevalence
 plotFollowUpDistribution	plotFollowUpDistribution
 plotKaplanMeier	plotKaplanMeier
 plotPs	plotPs

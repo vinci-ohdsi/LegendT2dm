@@ -72,11 +72,13 @@ file is created.</p>
 </td></tr>
 <tr valign="top"><td><code>quote</code></td>
 <td>
-<p>How to handle fields which contain characters that need to be quoted.
+<p>How to handle fields which contain characters that need to be
+quoted.
 </p>
 
 <ul>
-<li> <p><code>needed</code> - Only quote fields which need them.
+<li> <p><code>needed</code> - Values are only quoted if needed: if they contain a delimiter,
+quote, or newline.
 </p>
 </li>
 <li> <p><code>all</code> - Quote all fields.
@@ -148,5 +150,5 @@ vroom_write(mtcars, out_file, ",")
 # vroom_write(mtcars, "mtcars.tsv.xz")
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>vroom</em> version 1.5.6 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>vroom</em> version 1.6.0 <a href="00Index.html">Index</a>]</div>
 </body></html>

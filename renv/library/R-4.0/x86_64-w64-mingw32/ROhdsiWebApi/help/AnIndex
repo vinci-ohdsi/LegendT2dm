@@ -94,6 +94,3 @@ postPredictionDefinition	postPredictionDefinition
 resolveConceptSet	resolveConceptSet
 ROhdsiWebApi	ROhdsiWebApi-package
 setAuthHeader	setAuthHeader
-updateCohortDefinition	updateCohortDefinition
-updateConceptSetDefinition	updateConceptSetDefinition
-updateDefinition	updateDefinition

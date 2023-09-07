@@ -40,7 +40,8 @@ runCmAnalyses(
   prefilterCovariatesThreads = 1,
   fitOutcomeModelThreads = 1,
   outcomeCvThreads = 1,
-  outcomeIdsOfInterest
+  outcomeIdsOfInterest,
+  analysesToExclude = NULL
 )
 </pre>
 
@@ -191,6 +192,10 @@ could be <code>fitOutcomeModelThreads * outcomeCvThreads</code>.</p>
 for all other outcome IDs. This could be helpful to speed up
 analyses with many controls.</p>
 </td></tr>
+<tr valign="top"><td><code>analysesToExclude</code></td>
+<td>
+<p>Analyses to exclude. See the Analyses to Exclude section for details.</p>
+</td></tr>
 </table>
 
 
@@ -207,11 +212,40 @@ analysis.
 </p>
 
 
+<h4>Analyses to Exclude</h4>
+
+<p>Normally, <code>runCmAnalyses</code> will run all combinations of target-comparator-outcome-analyses settings.
+However, sometimes we may not need all those combinations. Using the <code>analysesToExclude</code> argument,
+we can remove certain items from the full matrix. This argument should be a data frame with at least
+one of the following columns:
+</p>
+
+<ul>
+<li><p> targetId
+</p>
+</li>
+<li><p> comparatorId
+</p>
+</li>
+<li><p> outcomeId
+</p>
+</li>
+<li><p> analysisId
+</p>
+</li></ul>
+
+<p>This data frame will be joined to the outcome model reference table before executing, and matching rows
+will be removed. For example, if one specifies only one target ID and analysis ID, then any analyses with
+that target and that analysis ID will be skipped.
+</p>
+
+
+
 <h3>Value</h3>
 
 <p>A tibble describing for each target-comparator-outcome-analysisId combination where the intermediary and
 outcome model files can be found, relative to the <code>outputFolder</code>.
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.2 <a href="00Index.html">Index</a>]</div>
 </body></html>

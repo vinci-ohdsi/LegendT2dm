@@ -26,33 +26,22 @@ getWebApiVersion(baseUrl)
 <tr valign="top"><td><code>baseUrl</code></td>
 <td>
 <p>The base URL for the WebApi instance, for example:
-&quot;http://server.org:80/WebAPI&quot;.</p>
+&quot;http://server.org:80/WebAPI&quot;. Note, there is no trailing '/'.
+If trailing '/' is used, you may receive an error.</p>
 </td></tr>
 </table>
 
 
 <h3>Details</h3>
 
-<p>Obtains the WebAPI version number. This function is used to check that 
-WebAPI baseUrl can be accessed and is a good first check to make sure 
-you can access a WebAPI endpoint.
+<p>Obtains the WebAPI version number.
 </p>
 
 
 <h3>Value</h3>
 
-<p>The WebApi verions as a string.
+<p>A string.
 </p>
 
-
-<h3>Examples</h3>
-
-<pre>
-## Not run: 
-getWebApiVersion("http://server.org:80/WebAPI")
-
-## End(Not run)
-</pre>
-
-<hr /><div style="text-align: center;">[Package <em>ROhdsiWebApi</em> version 1.2.1 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>ROhdsiWebApi</em> version 1.2.0 <a href="00Index.html">Index</a>]</div>
 </body></html>

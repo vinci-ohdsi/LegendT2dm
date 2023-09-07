@@ -14,36 +14,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-checkForInputFileEncoding <- function(fileName) {
-  encoding <- readr::guess_encoding(file = fileName, n_max = min(1e+07))
-  
-  if (!encoding$encoding[1] %in% c("UTF-8", "ASCII")) {
-    stop("Illegal encoding found in file ",
-         basename(fileName),
-         ". Should be 'ASCII' or 'UTF-8', found:",
-         paste(paste0(encoding$encoding, " (", encoding$confidence, ")"), collapse = ", "))
-  }
-  invisible(TRUE)
-}
-
 .createCohorts <- function(connection,
                            cdmDatabaseSchema,
                            vocabularyDatabaseSchema = cdmDatabaseSchema,
                            cohortDatabaseSchema,
                            cohortTable,
-                           oracleTempSchema = NULL,
-                           tempEmulationSchema = getOption("sqlRenderTempEmulationSchema"),
+                           oracleTempSchema,
                            outputFolder) {
-  if (!is.null(oracleTempSchema) && oracleTempSchema != "") {
-    warning("The 'oracleTempSchema' argument is deprecated. Use 'tempEmulationSchema' instead.")
-    tempEmulationSchema <- oracleTempSchema
-  }
   
   # Create study cohort table structure:
   sql <- SqlRender::loadRenderTranslateSql(sqlFilename = "CreateCohortTable.sql",
                                            packageName = "#packageName#",
                                            dbms = attr(connection, "dbms"),
-                                           tempEmulationSchema = tempEmulationSchema,
+                                           oracleTempSchema = oracleTempSchema,
                                            cohort_database_schema = cohortDatabaseSchema,
                                            cohort_table = cohortTable)
   DatabaseConnector::executeSql(connection, sql, progressBar = FALSE, reportOverallTime = FALSE)
@@ -51,7 +34,7 @@ checkForInputFileEncoding <- function(fileName) {
   #stats_start#
   # Insert rule names in cohort_inclusion table:
   pathToCsv <- system.file("cohorts", "InclusionRules.csv", package = "#packageName#")
-  checkForInputFileEncoding(pathToCsv)
+  checkInputFileEncoding(pathToCsv)
   inclusionRules <- readr::read_csv(pathToCsv, col_types = readr::cols()) 
   inclusionRules <- data.frame(cohort_definition_id = inclusionRules$cohortId,
                                rule_sequence = inclusionRules$ruleSequence,
@@ -62,19 +45,19 @@ checkForInputFileEncoding <- function(fileName) {
                                  dropTableIfExists = FALSE,
                                  createTable = FALSE,
                                  tempTable = TRUE,
-                                 tempEmulationSchema = tempEmulationSchema)
+                                 oracleTempSchema = oracleTempSchema)
   #stats_end#
   
   # Instantiate cohorts:
   pathToCsv <- system.file("#fileName#", package = "#packageName#")
-  checkForInputFileEncoding(pathToCsv)
+  checkInputFileEncoding(pathToCsv)
   cohortsToCreate <- readr::read_csv(pathToCsv, col_types = readr::cols())
   for (i in 1:nrow(cohortsToCreate)) {
     writeLines(paste("Creating cohort:", cohortsToCreate$name[i]))
     sql <- SqlRender::loadRenderTranslateSql(sqlFilename = paste0(cohortsToCreate$name[i], ".sql"),
                                              packageName = "#packageName#",
                                              dbms = attr(connection, "dbms"),
-                                             tempEmulationSchema = tempEmulationSchema,
+                                             oracleTempSchema = oracleTempSchema,
                                              cdm_database_schema = cdmDatabaseSchema,
                                              vocabulary_database_schema = vocabularyDatabaseSchema,
                                              #stats_start#
@@ -99,7 +82,7 @@ checkForInputFileEncoding <- function(fileName) {
   names(counts) <- SqlRender::snakeCaseToCamelCase(names(counts))
   counts <- merge(counts, data.frame(cohortDefinitionId = cohortsToCreate$cohortId,
                                      cohortName  = cohortsToCreate$name))
-  readr::write_excel_csv(x = counts, file = file.path(outputFolder, "CohortCounts.csv"), na = "")
+  readr::write_csv(x = counts, path = file.path(outputFolder, "CohortCounts.csv"))
   
   #stats_start#
   # Fetch inclusion rule stats and drop tables:
@@ -108,7 +91,7 @@ checkForInputFileEncoding <- function(fileName) {
     sql <- SqlRender::render(sql, table_name = tableName)
     sql <- SqlRender::translate(sql = sql, 
                                 targetDialect = attr(connection, "dbms"),
-                                tempEmulationSchema = tempEmulationSchema)
+                                oracleTempSchema = oracleTempSchema)
     stats <- DatabaseConnector::querySql(connection, sql)
     names(stats) <- SqlRender::snakeCaseToCamelCase(names(stats))
     fileName <- file.path(outputFolder, paste0(SqlRender::snakeCaseToCamelCase(tableName), ".csv"))
@@ -118,7 +101,7 @@ checkForInputFileEncoding <- function(fileName) {
     sql <- SqlRender::render(sql, table_name = tableName)
     sql <- SqlRender::translate(sql = sql, 
                                 targetDialect = attr(connection, "dbms"),
-                                tempEmulationSchema = tempEmulationSchema)
+                                oracleTempSchema = oracleTempSchema)
     DatabaseConnector::executeSql(connection, sql)
   }
   fetchStats("cohort_inclusion")

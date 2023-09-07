@@ -21,7 +21,8 @@ corrected according the method described in Austin et al (2008).
 computeCovariateBalance(
   population,
   cohortMethodData,
-  subgroupCovariateId = NULL
+  subgroupCovariateId = NULL,
+  maxCohortSize = 250000
 )
 </pre>
 
@@ -44,6 +45,12 @@ and/or trimming.</p>
 <p>Optional: a covariate ID of a binary covariate that indicates a subgroup of
 interest. Both the before and after populations will be restricted to this
 subgroup before computing covariate balance.</p>
+</td></tr>
+<tr valign="top"><td><code>maxCohortSize</code></td>
+<td>
+<p>If the target or comparator cohort are larger than this number, they
+will be downsampled before computing covariate balance to save time.
+Setting this number to 0 means no downsampling will be applied.</p>
 </td></tr>
 </table>
 
@@ -78,5 +85,5 @@ subgroup before computing covariate balance.</p>
 matching on the propensity-score. Pharmacoepidemiology and Drug Safety, 17: 1218-1225.
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.2 <a href="00Index.html">Index</a>]</div>
 </body></html>

@@ -17,11 +17,10 @@
 
 <pre>
 launchCohortExplorer(
+  cohorts = "class",
   dataFolder = "data",
   dataFile = "PreMerged.RData",
   connectionDetails = NULL,
-  resultsDatabaseSchema = NULL,
-  vocabularyDatabaseSchemas = resultsDatabaseSchema,
   aboutText = NULL,
   runOverNetwork = FALSE,
   port = 80,
@@ -51,18 +50,6 @@ DatabaseConnector package, specifying how to connect to the server where
 the study results results have been uploaded using the
 <code><a href="../../CohortDiagnostics/html/uploadResults.html">uploadResults</a></code> function.</p>
 </td></tr>
-<tr valign="top"><td><code>resultsDatabaseSchema</code></td>
-<td>
-<p>The schema on the database server where the results
-have been uploaded.</p>
-</td></tr>
-<tr valign="top"><td><code>vocabularyDatabaseSchemas</code></td>
-<td>
-<p>(optional) A list of one or more schemas on the database server where the vocabulary tables are located.
-The default value is the value of the resultsDatabaseSchema. We can provide a list of vocabulary schema
-that might represent different versions of the OMOP vocabulary tables. It allows us to compare the impact
-of vocabulary changes on Diagnostics.</p>
-</td></tr>
 <tr valign="top"><td><code>aboutText</code></td>
 <td>
 <p>Text (using HTML markup) that will be displayed in an About tab in the Shiny app.
@@ -81,6 +68,22 @@ If not provided, no About tab will be shown.</p>
 <p>Should the app be launched in your default browser, or in a Shiny window.
 Note: copying to clipboard will not work in a Shiny window.</p>
 </td></tr>
+<tr valign="top"><td><code>cohort</code></td>
+<td>
+<p>The set of cohorts to display; currently options are <code>class</code> and <code>outcome</code></p>
+</td></tr>
+<tr valign="top"><td><code>resultsDatabaseSchema</code></td>
+<td>
+<p>The schema on the database server where the results
+have been uploaded.</p>
+</td></tr>
+<tr valign="top"><td><code>vocabularyDatabaseSchemas</code></td>
+<td>
+<p>(optional) A list of one or more schemas on the database server where the vocabulary tables are located.
+The default value is the value of the resultsDatabaseSchema. We can provide a list of vocabulary schema
+that might represent different versions of the OMOP vocabulary tables. It allows us to compare the impact
+of vocabulary changes on Diagnostics.</p>
+</td></tr>
 <tr valign="top"><td><code>appDir</code></td>
 <td>
 <p>Top directory of Shiny app</p>
@@ -93,5 +96,5 @@ Note: copying to clipboard will not work in a Shiny window.</p>
 <p>Launches a Shiny app that allows the user to explore the evidence
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>LegendT2dmCohortExplorer</em> version 0.1.0 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>LegendT2dmCohortExplorer</em> version 0.2.0 <a href="00Index.html">Index</a>]</div>
 </body></html>

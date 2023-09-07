@@ -45,9 +45,21 @@ yet exist.</p>
 <h3>Examples</h3>
 
 <pre>
-# todo
+## Not run: 
+covariateData &lt;- FeatureExtraction:::createEmptyCovariateData(
+  cohortId = 1,
+  aggregated = FALSE,
+  temporal = FALSE
+)
+# For this example we'll use a temporary file location:
+fileName &lt;- tempfile()
+saveCovariateData(covariateData = covariateData, file = fileName)
+# Cleaning up the file used in this example:
+unlink(fileName)
+
+## End(Not run)
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.1.1 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.3.0 <a href="00Index.html">Index</a>]</div>
 </body></html>

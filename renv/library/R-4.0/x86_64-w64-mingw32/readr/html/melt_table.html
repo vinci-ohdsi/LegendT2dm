@@ -10,7 +10,7 @@
 <h3>Description</h3>
 
 <p><a href="https://lifecycle.r-lib.org/articles/stages.html#superseded"><img src="../help/figures/lifecycle-superseded.svg" alt='[Superseded]' /></a>
-This function has been superseded in readr and moved to the meltr package.
+This function has been superseded in readr and moved to <a href="https://r-lib.github.io/meltr/">the meltr package</a>.
 </p>
 <p>For certain non-rectangular data formats, it can be useful to parse the data
 into a melted format where each row represents a single token.
@@ -99,7 +99,8 @@ option to <code>character()</code> to indicate no missing values.</p>
 </td></tr>
 <tr valign="top"><td><code>guess_max</code></td>
 <td>
-<p>Maximum number of lines to use for guessing column types.</p>
+<p>Maximum number of lines to use for guessing column types.
+See <code>vignette("column-types", package = "readr")</code> for more details.</p>
 </td></tr>
 <tr valign="top"><td><code>progress</code></td>
 <td>
@@ -134,17 +135,14 @@ conventional way to read tabular data from whitespace-separated files.
 <h3>Examples</h3>
 
 <pre>
-# One corner from http://www.masseyratings.com/cf/compare.htm
-massey &lt;- readr_example("massey-rating.txt")
-cat(read_file(massey))
-melt_table(massey)
+fwf &lt;- readr_example("fwf-sample.txt")
+writeLines(read_lines(fwf))
+melt_table(fwf)
 
-# Sample of 1978 fuel economy data from
-# http://www.fueleconomy.gov/feg/epadata/78data.zip
-epa &lt;- readr_example("epa78.txt")
-cat(read_file(epa))
-melt_table(epa)
+ws &lt;- readr_example("whitespace-sample.txt")
+writeLines(read_lines(ws))
+melt_table2(ws)
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>readr</em> version 2.1.0 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>readr</em> version 2.1.3 <a href="00Index.html">Index</a>]</div>
 </body></html>

@@ -34,6 +34,8 @@ plotTimeToEvent(
   censorAtNewRiskWindow = FALSE,
   periodLength = 7,
   numberOfPeriods = 52,
+  highlightExposedEvents = TRUE,
+  includePostIndexTime = TRUE,
   showFittedLines = TRUE,
   targetLabel = "Target",
   comparatorLabel = "Comparator",
@@ -63,11 +65,11 @@ transformations will be performed.</p>
 </td></tr>
 <tr valign="top"><td><code>firstExposureOnly</code></td>
 <td>
-<p>Should only the first exposure per subject be included?</p>
+<p>(logical) Should only the first exposure per subject be included?</p>
 </td></tr>
 <tr valign="top"><td><code>restrictToCommonPeriod</code></td>
 <td>
-<p>Restrict the analysis to the period when both exposures are observed?</p>
+<p>(logical) Restrict the analysis to the period when both exposures are observed?</p>
 </td></tr>
 <tr valign="top"><td><code>washoutPeriod</code></td>
 <td>
@@ -125,9 +127,17 @@ when the new time-at-risk starts to prevent overlap?</p>
 <p>Number of periods to show in the plot. The periods are
 equally divided before and after the index date.</p>
 </td></tr>
+<tr valign="top"><td><code>highlightExposedEvents</code></td>
+<td>
+<p>(logical) Highlight event counts during exposure in a different color?</p>
+</td></tr>
+<tr valign="top"><td><code>includePostIndexTime</code></td>
+<td>
+<p>(logical) Show time after the index date?</p>
+</td></tr>
 <tr valign="top"><td><code>showFittedLines</code></td>
 <td>
-<p>Fit lines to the proportions and show them in the plot?</p>
+<p>(logical) Fit lines to the proportions and show them in the plot?</p>
 </td></tr>
 <tr valign="top"><td><code>targetLabel</code></td>
 <td>
@@ -165,5 +175,5 @@ show these prior events.
 format.
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.0 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.2 <a href="00Index.html">Index</a>]</div>
 </body></html>
