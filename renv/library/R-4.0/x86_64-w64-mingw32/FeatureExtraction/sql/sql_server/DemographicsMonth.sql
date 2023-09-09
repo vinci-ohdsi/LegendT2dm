@@ -1,6 +1,6 @@
 -- Feature construction
 SELECT CAST(MONTH(cohort_start_date) * 1000 + @analysis_id AS BIGINT) AS covariate_id,
-{@temporal | @temporal_sequence} ? {
+{@temporal} ? {
     CAST(NULL AS INT) AS time_id,
 }	
 {@aggregated} ? {
@@ -32,7 +32,7 @@ INSERT INTO #cov_ref (
 	concept_id
 	)
 SELECT covariate_id,
-	CAST(CONCAT ('index month: ', CAST((covariate_id - @analysis_id) / 1000 AS INTEGER)) AS VARCHAR(512)) AS covariate_name,
+	CAST(CONCAT ('index month: ', CAST((covariate_id - @analysis_id) / 1000 AS VARCHAR)) AS VARCHAR(512)) AS covariate_name,
 	@analysis_id AS analysis_id,
 	0 AS concept_id
 FROM (

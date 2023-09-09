@@ -1,46 +1,42 @@
 Package: FeatureExtraction
 Type: Package
 Title: Generating Features for a Cohort
-Version: 3.3.0
-Date: 2023-06-29
+Version: 3.1.1
+Date: 2021-04-19
 Authors@R: c(
  person("Martijn", "Schuemie", , "schuemie@ohdsi.org", role = c("aut")),
  person("Marc", "Suchard", role = c("aut")),
  person("Patrick", "Ryan", role = c("aut")),
  person("Jenna", "Reps", role = c("aut")),
- person("Anthony", "Sena", , "sena@ohdsi.org", role = c("aut", "cre")),
- person("Ger", "Inberg", role = c("aut"))
+ person("Anthony", "Sena", , "sena@ohdsi.org", role = c("aut", "cre"))
  )
 Maintainer: Anthony Sena <sena@ohdsi.org>
 Description: An R package for generating features (covariates) for a cohort using data in the Common Data Model.
-Depends: R (>= 3.2.2), DatabaseConnector (>= 3.0.0), Andromeda
-Imports: methods, dplyr, rJava, jsonlite, SqlRender (>= 1.6.0), ParallelLogger
-    (>= 2.0.2), cli, pillar, readr, rlang, RSQLite, DBI, checkmate
-Suggests: testthat, knitr, rmarkdown, Eunomia, withr
 License: Apache License 2.0
 VignetteBuilder: knitr
 URL: https://github.com/OHDSI/FeatureExtraction
 BugReports: https://github.com/OHDSI/FeatureExtraction/issues
+Depends: R (>= 3.2.2), DatabaseConnector (>= 3.0.0), Andromeda
+Imports: methods, dplyr, rJava, jsonlite, SqlRender (>= 1.6.0), ParallelLogger,
+    cli, pillar, readr, rlang, RSQLite, DBI
+Suggests: testthat, knitr, rmarkdown
 NeedsCompilation: no
-RoxygenNote: 7.2.3
+RoxygenNote: 7.1.1
 Encoding: UTF-8
-Language: en-US
 Author: Martijn Schuemie [aut],
  Marc Suchard [aut],
  Patrick Ryan [aut],
  Jenna Reps [aut],
- Anthony Sena [aut, cre],
- Ger Inberg [aut]
-Built: R 4.0.3; ; 2023-09-07 22:43:09 UTC; windows
+ Anthony Sena [aut, cre]
+Built: R 4.0.3; ; 2021-07-08 21:04:49 UTC; windows
 RemoteType: github
 RemoteHost: api.github.com
 RemoteUsername: ohdsi
 RemoteRepo: FeatureExtraction
-RemoteRef: main
-RemoteSha: e4685e0164471b94c5d3f4205563059097b9e8ac
+RemoteRef: master
+RemoteSha: 7e615050508bd1915e8437cf98fceacacbda4b9c
 GithubHost: api.github.com
 GithubRepo: FeatureExtraction
 GithubUsername: ohdsi
-GithubRef: main
-GithubSHA1: e4685e0164471b94c5d3f4205563059097b9e8ac
-Remotes: ohdsi/Eunomia
+GithubRef: master
+GithubSHA1: 7e615050508bd1915e8437cf98fceacacbda4b9c

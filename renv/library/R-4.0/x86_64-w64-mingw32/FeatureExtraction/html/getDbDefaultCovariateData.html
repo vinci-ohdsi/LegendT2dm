@@ -92,8 +92,8 @@ should be stored.</p>
 <tr valign="top"><td><code>targetCovariateTable</code></td>
 <td>
 <p>(Optional) The name of the table where the resulting covariates will
-be stored. If not provided, results will be fetched to R. The table can be
-a permanent table in the <code>targetDatabaseSchema</code> or a temp table. If
+be stored. If not provided, results will be fetched to R. The table can be 
+a permanent table in the <code>targetDatabaseSchema</code> or a temp table. If 
 it is a temp table, do not specify <code>targetDatabaseSchema</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>targetCovariateRefTable</code></td>
@@ -140,28 +140,5 @@ describing the covariates that have been extracted.</p>
 information on how the covariateData object was constructed.
 </p>
 
-
-<h3>Examples</h3>
-
-<pre>
-## Not run: 
-connection &lt;- DatabaseConnector::connect(connectionDetails)
-Eunomia::createCohorts(connectionDetails)
-
-results &lt;- getDbDefaultCovariateData(
-  connection = connection,
-  cdmDatabaseSchema = "main",
-  cohortTable = "cohort",
-  covariateSettings = createDefaultCovariateSettings(),
-  targetDatabaseSchema = "main",
-  targetCovariateTable = "ut_cov",
-  targetCovariateRefTable = "ut_cov_ref",
-  targetAnalysisRefTable = "ut_cov_analysis_ref"
-)
-
-## End(Not run)
-
-</pre>
-
-<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.3.0 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.1.1 <a href="00Index.html">Index</a>]</div>
 </body></html>

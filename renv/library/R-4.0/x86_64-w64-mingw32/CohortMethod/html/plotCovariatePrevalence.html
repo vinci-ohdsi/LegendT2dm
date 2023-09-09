@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Plot covariate prevalence</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for plotCovariatePrevalence {CohortMethod}"><tr><td>plotCovariatePrevalence {CohortMethod}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Plot covariate prevalence</h2>
+
+<h3>Description</h3>
+
+<p>Plot prevalence of binary covariates in the target and comparator cohorts, before and after matching.
+Requires running <code>computeCovariateBalance</code> first.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+plotCovariatePrevalence(
+  balance,
+  threshold = 0,
+  title = "Covariate prevalence",
+  fileName = NULL,
+  beforeLabel = "Before matching",
+  afterLabel = "After matching",
+  targetLabel = "Target",
+  comparatorLabel = "Comparator"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>balance</code></td>
+<td>
+<p>A data frame created by the <code>computeCovariateBalance</code> function.</p>
+</td></tr>
+<tr valign="top"><td><code>threshold</code></td>
+<td>
+<p>A threshold value for standardized difference. When exceeding the threshold, covariates will be
+marked in a different color. If <code>threshold = 0</code>, no color coding will be used.</p>
+</td></tr>
+<tr valign="top"><td><code>title</code></td>
+<td>
+<p>The main title for the plot.</p>
+</td></tr>
+<tr valign="top"><td><code>fileName</code></td>
+<td>
+<p>Name of the file where the plot should be saved, for example 'plot.png'. See the
+function <code>ggsave</code> in the ggplot2 package for supported file formats.</p>
+</td></tr>
+<tr valign="top"><td><code>beforeLabel</code></td>
+<td>
+<p>Label for the before matching / stratification panel.</p>
+</td></tr>
+<tr valign="top"><td><code>afterLabel</code></td>
+<td>
+<p>Label for the after matching / stratification panel.</p>
+</td></tr>
+<tr valign="top"><td><code>targetLabel</code></td>
+<td>
+<p>Label for the x-axis.</p>
+</td></tr>
+<tr valign="top"><td><code>comparatorLabel</code></td>
+<td>
+<p>Label for the y-axis.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A ggplot object. Use the <a href="../../ggplot2/html/ggsave.html">ggplot2::ggsave</a> function to save to file in a different
+format.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

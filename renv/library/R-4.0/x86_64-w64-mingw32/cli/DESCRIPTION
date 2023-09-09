@@ -1,36 +1,41 @@
 Package: cli
 Title: Helpers for Developing Command Line Interfaces
-Version: 2.5.0
+Version: 3.6.1
 Authors@R: c(
-    person("Gábor", "Csárdi", , "csardi.gabor@gmail.com", c("aut", "cre")),
-    person("Hadley", "Wickham", role = c("ctb")),
-    person("Kirill", "Müller", role = c("ctb")),
-    person("RStudio", role = "cph")
-    )
+    person("Gábor", "Csárdi", , "csardi.gabor@gmail.com", role = c("aut", "cre")),
+    person("Hadley", "Wickham", role = "ctb"),
+    person("Kirill", "Müller", role = "ctb"),
+    person("RStudio", role = c("cph", "fnd"))
+  )
 Description: A suite of tools to build attractive command line interfaces
     ('CLIs'), from semantic elements: headings, lists, alerts, paragraphs,
-    etc. Supports custom themes via a 'CSS'-like language. It also contains a
-    number of lower level 'CLI' elements: rules, boxes, trees, and
-    'Unicode' symbols with 'ASCII' alternatives. It support ANSI colors and
-    text styles as well.
+    etc. Supports custom themes via a 'CSS'-like language. It also
+    contains a number of lower level 'CLI' elements: rules, boxes, trees,
+    and 'Unicode' symbols with 'ASCII' alternatives. It support ANSI
+    colors and text styles as well.
 License: MIT + file LICENSE
-URL: https://github.com/r-lib/cli#readme
+URL: https://cli.r-lib.org, https://github.com/r-lib/cli#readme
 BugReports: https://github.com/r-lib/cli/issues
-RoxygenNote: 7.1.1.9001
-Depends: R (>= 2.10)
-Imports: glue, utils
-Suggests: callr, covr, grDevices, htmlwidgets, knitr, methods, mockery,
-        ps (>= 1.3.4.9000), rmarkdown, rstudioapi, prettycode (>=
-        1.1.0), testthat, tibble, withr
+Depends: R (>= 3.4)
+Imports: utils
+Suggests: callr, covr, crayon, digest, glue (>= 1.6.0), grDevices,
+        htmltools, htmlwidgets, knitr, methods, mockery, processx, ps
+        (>= 1.3.4.9000), rlang (>= 1.0.2.9003), rmarkdown, rprojroot,
+        rstudioapi, testthat, tibble, whoami, withr
+Config/Needs/website: r-lib/asciicast, bench, brio, cpp11, decor, desc,
+        fansi, prettyunits, sessioninfo, tidyverse/tidytemplate,
+        usethis, vctrs
 Config/testthat/edition: 3
 Encoding: UTF-8
-NeedsCompilation: no
-Packaged: 2021-04-26 14:07:34 UTC; gaborcsardi
+RoxygenNote: 7.2.1.9000
+NeedsCompilation: yes
+Packaged: 2023-03-22 13:59:32 UTC; gaborcsardi
 Author: Gábor Csárdi [aut, cre],
   Hadley Wickham [ctb],
   Kirill Müller [ctb],
-  RStudio [cph]
+  RStudio [cph, fnd]
 Maintainer: Gábor Csárdi <csardi.gabor@gmail.com>
 Repository: CRAN
-Date/Publication: 2021-04-26 15:10:02 UTC
-Built: R 4.0.5; ; 2021-06-29 15:33:41 UTC; windows
+Date/Publication: 2023-03-23 12:52:05 UTC
+Built: R 4.0.3; x86_64-w64-mingw32; 2023-05-03 22:48:42 UTC; windows
+Archs: i386, x64
