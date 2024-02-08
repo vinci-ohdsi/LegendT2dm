@@ -28,6 +28,9 @@ grantPermissionOnServer
 prepareForEvidenceExplorer
                         Prepare results for the LEGEND-T2DM Evidence
                         Explorer Shiny app.
+prepareStagedExecution
+                        Utility function to split up CES execution,
+                        with only a subset of TC pairs in each run
 printCohortClose        Print cohort closing line
 printCohortDefinition   Print cohort definition from file name
 printCohortDefinitionFromNameAndJson

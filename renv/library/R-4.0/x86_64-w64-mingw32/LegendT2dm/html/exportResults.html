@@ -23,6 +23,7 @@ exportResults(
   databaseName,
   databaseDescription,
   runSections,
+  exportSettings = createExportSettings(),
   minCellCount = 5,
   maxCores
 )
@@ -59,6 +60,10 @@ performance.</p>
 <td>
 <p>Run specific sections through CohortMethod</p>
 </td></tr>
+<tr valign="top"><td><code>exportSettings</code></td>
+<td>
+<p>A list of options for exporting csv files; see 'createExportSettings()'.</p>
+</td></tr>
 <tr valign="top"><td><code>minCellCount</code></td>
 <td>
 <p>The minimum cell count for fields contains person counts or fractions.</p>
@@ -70,5 +75,5 @@ available this can speed up the analyses.</p>
 </td></tr>
 </table>
 
-<hr /><div style="text-align: center;">[Package <em>LegendT2dm</em> version 2.1.0 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>LegendT2dm</em> version 2.1.1 <a href="00Index.html">Index</a>]</div>
 </body></html>

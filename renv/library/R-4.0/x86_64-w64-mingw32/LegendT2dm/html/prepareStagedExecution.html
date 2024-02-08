@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Utility function to split up CES execution, with only a...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for prepareStagedExecution {LegendT2dm}"><tr><td>prepareStagedExecution {LegendT2dm}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Utility function to split up CES execution, with only a subset of TC pairs in each run</h2>
+
+<h3>Description</h3>
+
+<p>Utility function to split up CES execution, with only a subset of TC pairs in each run
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+prepareStagedExecution(
+  originalOutputFolder,
+  outputFolderHeader = originalOutputFolder,
+  indicationId = "drug",
+  stages = 10
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>originalOutputFolder</code></td>
+<td>
+<p>Original output folder used when creating cohorts</p>
+</td></tr>
+<tr valign="top"><td><code>outputFolderHeader</code></td>
+<td>
+<p>The staged execution output folders will start with this header name;
+default is the same as 'originalOutputFolder'</p>
+</td></tr>
+<tr valign="top"><td><code>indicationId</code></td>
+<td>
+<p>Which sub-study to run?</p>
+</td></tr>
+<tr valign="top"><td><code>stages</code></td>
+<td>
+<p>Number of stages for execution?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function prepares staged CES execution by copying/slicing necessary files.
+But note, this does NOT run the study; this is only a utility function that allows staged execution.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>LegendT2dm</em> version 2.1.1 <a href="00Index.html">Index</a>]</div>
+</body></html>
