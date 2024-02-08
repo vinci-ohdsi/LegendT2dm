@@ -22,6 +22,7 @@ execute(
   studyEndDate = "",
   createExposureCohorts = TRUE,
   createOutcomeCohorts = TRUE,
+  createPairedExposureSummary = TRUE,
   fetchAllDataFromServer = TRUE,
   synthesizePositiveControls = FALSE,
   generateAllCohortMethodDataObjects = TRUE,
@@ -29,6 +30,7 @@ execute(
   runSections = c(1:6),
   computeCovariateBalance = TRUE,
   exportToCsv = TRUE,
+  exportSettings = createExportSettings(),
   filterExposureCohorts = NULL,
   filterOutcomeCohorts = NULL,
   maxCores = 4
@@ -86,6 +88,8 @@ length is missing?}
 
 \item{createOutcomeCohorts}{Create the tables with the outcome cohorts?}
 
+\item{createPairedExposureSummary}{Create local fils with paired exposure summary?}
+
 \item{fetchAllDataFromServer}{Fetch all relevant data from the server?}
 
 \item{synthesizePositiveControls}{Inject signals to create synthetic controls?}
@@ -101,6 +105,8 @@ models?}
 \item{computeCovariateBalance}{Report covariate balance statistics across comparisons?}
 
 \item{exportToCsv}{Export all results to CSV files?}
+
+\item{exportSettings}{Settings to optionalize restuls export; see `createExportSettings()`.}
 
 \item{filterExposureCohorts}{Optional subset of exposure cohorts to use; \code{NULL} implies all.}
 
