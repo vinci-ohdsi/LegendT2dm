@@ -44,7 +44,6 @@ connection = DatabaseConnector::connect(connectionDetails)
 
 DatabaseConnector::disconnect(connection)
 
-## test it by uploading one table
 outputFolder = "E:/LegendT2dmOutput_optum_ehr_drug2"
 #balanceExportPath = file.path(outputFolder, "drug", "export", "covariate_balance.csv")
 #balance = readr::read_csv(balanceExportPath)
