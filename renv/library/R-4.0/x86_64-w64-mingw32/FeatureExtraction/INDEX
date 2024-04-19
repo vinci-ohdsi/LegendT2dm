@@ -1,3 +1,7 @@
+.createLooCovariateSettings
+                        Get covariate settings
+.getDbLooCovariateData
+                        Get covariate information from the database
 CovariateData-class     Covariate Data
 aggregateCovariates     Aggregate covariate data
 computeStandardizedDifference
@@ -9,6 +13,12 @@ convertPrespecSettingsToDetailedSettings
 createAnalysisDetails   Create detailed covariate settings
 createCohortAttrCovariateSettings
                         Create cohort attribute covariate settings
+createCohortBasedCovariateSettings
+                        Create settings for covariates based on other
+                        cohorts
+createCohortBasedTemporalCovariateSettings
+                        Create settings for temporal covariates based
+                        on other cohorts
 createCovariateSettings
                         Create covariate settings
 createDefaultCovariateSettings
@@ -19,17 +29,27 @@ createDetailedCovariateSettings
                         Create detailed covariate settings
 createDetailedTemporalCovariateSettings
                         Create detailed temporal covariate settings
+createEmptyCovariateData
+                        Creates an empty covariate data object
 createTable1            Create a table 1
 createTable1CovariateSettings
                         Create covariate settings for a table 1
 createTemporalCovariateSettings
                         Create covariate settings
+createTemporalSequenceCovariateSettings
+                        Create covariate settings
 filterByCohortDefinitionId
-                        Filter covariates by cohort definition ID
+                        Filter covariates by cohort definition IDs
 filterByRowId           Filter covariates by row ID
+filterCovariateDataCovariates
+                        Filters the covariateData covariates based on
+                        the given characterization mean value.
 getDbCohortAttrCovariatesData
                         Getcovariate information from the database
                         through the cohort_attribute table
+getDbCohortBasedCovariatesData
+                        Get covariate information from the database
+                        based on other cohorts
 getDbCovariateData      Get covariate information from the database
 getDbDefaultCovariateData
                         Get default covariate information from the

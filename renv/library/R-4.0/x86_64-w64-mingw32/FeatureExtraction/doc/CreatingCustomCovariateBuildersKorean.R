@@ -16,7 +16,7 @@ library(FeatureExtraction)
 ##                                   oracleTempSchema = NULL,
 ##                                   cdmDatabaseSchema,
 ##                                   cohortTable = "#cohort_person",
-##                                   cohortId = -1,
+##                                   cohortIds = c(-1),
 ##                                   cdmVersion = "5",
 ##                                   rowIdField = "subject_id",
 ##                                   covariateSettings,
@@ -25,8 +25,9 @@ library(FeatureExtraction)
 ##   if (covariateSettings$useLengthOfObs == FALSE) {
 ##     return(NULL)
 ##   }
-##   if (aggregated)
+##   if (aggregated) {
 ##     stop("Aggregation not supported")
+##   }
 ## 
 ##   # Some SQL to construct the covariate:
 ##   sql <- paste("SELECT @row_id_field AS row_id, 1 AS covariate_id,",
@@ -37,10 +38,10 @@ library(FeatureExtraction)
 ##                "ON op.person_id = c.subject_id",
 ##                "WHERE cohort_start_date >= observation_period_start_date",
 ##                "AND cohort_start_date <= observation_period_end_date",
-##                "{@cohort_id != -1} ? {AND cohort_definition_id = @cohort_id}")
+##                "{@cohort_ids != -1} ? {AND cohort_definition_id IN @cohort_ids}")
 ##   sql <- SqlRender::render(sql,
 ##                               cohort_table = cohortTable,
-##                               cohort_id = cohortId,
+##                               cohort_ids = cohortIds,
 ##                               row_id_field = rowIdField,
 ##                               cdm_database_schema = cdmDatabaseSchema)
 ##   sql <- SqlRender::translate(sql, targetDialect = attr(connection, "dbms"))
@@ -52,28 +53,34 @@ library(FeatureExtraction)
 ##   colnames(covariates) <- SqlRender::snakeCaseToCamelCase(colnames(covariates))
 ## 
 ##   # Construct covariate reference:
-##   covariateRef <- data.frame(covariateId = 1,
-##                              covariateName = "Length of observation",
-##                              analysisId = 1,
-##                              conceptId = 0)
+##   covariateRef <- data.frame(
+##     covariateId = 1,
+##     covariateName = "Length of observation",
+##     analysisId = 1,
+##     conceptId = 0
+##   )
 ##   covariateRef <- ff::as.ffdf(covariateRef)
 ## 
 ##   # Construct analysis reference:
-##   analysisRef <- data.frame(analysisId = 1,
-##                             analysisName = "Length of observation",
-##                             domainId = "Demographics",
-##                             startDay = 0,
-##                             endDay = 0,
-##                             isBinary = "N",
-##                             missingMeansZero = "Y")
+##   analysisRef <- data.frame(
+##     analysisId = 1,
+##     analysisName = "Length of observation",
+##     domainId = "Demographics",
+##     startDay = 0,
+##     endDay = 0,
+##     isBinary = "N",
+##     missingMeansZero = "Y"
+##   )
 ##   analysisRef <- ff::as.ffdf(analysisRef)
 ## 
 ##   # Construct analysis reference:
 ##   metaData <- list(sql = sql, call = match.call())
-##   result <- list(covariates = covariates,
-##                  covariateRef = covariateRef,
-##                  analysisRef = analysisRef,
-##                  metaData = metaData)
+##   result <- list(
+##     covariates = covariates,
+##     covariateRef = covariateRef,
+##     analysisRef = analysisRef,
+##     metaData = metaData
+##   )
 ##   class(result) <- "covariateData"
 ##   return(result)
 ## }
@@ -86,17 +93,19 @@ library(FeatureExtraction)
 ##                                  cdmDatabaseSchema = cdmDatabaseSchema,
 ##                                  cohortDatabaseSchema = resultsDatabaseSchema,
 ##                                  cohortTable = "rehospitalization",
-##                                  cohortId = 1,
+##                                  cohortIds = c(1),
 ##                                  covariateSettings = looCovSet)
 
 
 ## ----eval=FALSE---------------------------------------------------------------
-## covariateSettings <- createCovariateSettings(useDemographicsGender = TRUE,
-##                                              useDemographicsAgeGroup = TRUE,
-##                                              useDemographicsRace = TRUE,
-##                                              useDemographicsEthnicity = TRUE,
-##                                              useDemographicsIndexYear = TRUE,
-##                                              useDemographicsIndexMonth = TRUE)
+## covariateSettings <- createCovariateSettings(
+##   useDemographicsGender = TRUE,
+##   useDemographicsAgeGroup = TRUE,
+##   useDemographicsRace = TRUE,
+##   useDemographicsEthnicity = TRUE,
+##   useDemographicsIndexYear = TRUE,
+##   useDemographicsIndexMonth = TRUE
+## )
 ## 
 ## looCovSet <- createLooCovariateSettings(useLengthOfObs = TRUE)
 ## 
@@ -106,6 +115,6 @@ library(FeatureExtraction)
 ##                                  cdmDatabaseSchema = cdmDatabaseSchema,
 ##                                  cohortDatabaseSchema = resultsDatabaseSchema,
 ##                                  cohortTable = "rehospitalization",
-##                                  cohortId = 1,
+##                                  cohortIds = c(1),
 ##                                  covariateSettings = covariateSettingsList)
 

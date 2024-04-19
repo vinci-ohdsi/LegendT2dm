@@ -19,7 +19,7 @@ vignette: >
 ```{r set-options,echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE}
 options(width = 200)
 library(FeatureExtraction)
-vignetteFolder <- "s:/temp/vignetteFeatureExtraction"
+vignetteFolder <- "c:/temp/vignetteFeatureExtraction"
 ```
 
 # 서론
@@ -59,8 +59,10 @@ settings <- createDefaultCovariateSettings()
 예를들어:
 
 ```{r}
-settings <- createDefaultCovariateSettings(excludedCovariateConceptIds = 1124300, 
-                                           addDescendantsToExclude = TRUE)
+settings <- createDefaultCovariateSettings(
+  excludedCovariateConceptIds = 1124300,
+  addDescendantsToExclude = TRUE
+)
 ```
 
 이것은 개념 1124300(성분 디클로페낙)과 그 후손들(즉, 디클로페낙 성분을 함유한 모든 약물)에서 파생된 것을 제외하고 기본 공변량 집합을 생성한다.
@@ -74,9 +76,11 @@ createCovariateSettings 기능은 사용자가 미리 정의된 공변량 집합
 예를들어:
 
 ```{r}
-settings <- createCovariateSettings(useDemographicsGender = TRUE,
-                                    useDemographicsAgeGroup = TRUE,
-                                    useConditionOccurrenceAnyTimePrior = TRUE)
+settings <- createCovariateSettings(
+  useDemographicsGender = TRUE,
+  useDemographicsAgeGroup = TRUE,
+  useConditionOccurrenceAnyTimePrior = TRUE
+)
 ```
 
 이렇게 하면 성별, 연령(5세 그룹) 및 코호트 시작 날짜 이전의(그리고 포함하는) 조건_발생가능에서 관찰된 각 개념에 대한 이진 공변량이 생성된다.
@@ -92,13 +96,15 @@ settings <- createCovariateSettings(useDemographicsGender = TRUE,
 예를들어:
 
 ```{r}
-settings <- createCovariateSettings(useConditionEraLongTerm = TRUE,
-                                    useConditionEraShortTerm = TRUE,
-                                    useDrugEraLongTerm = TRUE,
-                                    useDrugEraShortTerm = TRUE,
-                                    longTermStartDays = -180,
-                                    shortTermStartDays = -14,
-                                    endDays = -1)
+settings <- createCovariateSettings(
+  useConditionEraLongTerm = TRUE,
+  useConditionEraShortTerm = TRUE,
+  useDrugEraLongTerm = TRUE,
+  useDrugEraShortTerm = TRUE,
+  longTermStartDays = -180,
+  shortTermStartDays = -14,
+  endDays = -1
+)
 ```
 
 이것은 코호트 시작일로부터 180일 전(포함하지않음)까지 장기를 재정의하고 코호트 시작일로부터 14일 전(포함하지 않음)까지 단기를 재정의 한다.
@@ -106,15 +112,17 @@ settings <- createCovariateSettings(useConditionEraLongTerm = TRUE,
 또한 공변량 구성에 사용해야 하는 개념ID를 지정할 수도 안할 수도 있다.
 
 ```{r}
-settings <- createCovariateSettings(useConditionEraLongTerm = TRUE,
-                                    useConditionEraShortTerm = TRUE,
-                                    useDrugEraLongTerm = TRUE,
-                                    useDrugEraShortTerm = TRUE,
-                                    longTermStartDays = -180,
-                                    shortTermStartDays = -14,
-                                    endDays = -1,
-                                    excludedCovariateConceptIds = 1124300, 
-                                    addDescendantsToExclude = TRUE)
+settings <- createCovariateSettings(
+  useConditionEraLongTerm = TRUE,
+  useConditionEraShortTerm = TRUE,
+  useDrugEraLongTerm = TRUE,
+  useDrugEraShortTerm = TRUE,
+  longTermStartDays = -180,
+  shortTermStartDays = -14,
+  endDays = -1,
+  excludedCovariateConceptIds = 1124300,
+  addDescendantsToExclude = TRUE
+)
 ```
 
 ## 사용자 공변량 집합을 생성
@@ -130,16 +138,20 @@ settings2$analyses[[1]]
 상세 분석 설정 객체를 처음부터 만들 수 있고 이것을 사용하여 세부 설정 객체를 생성한다
 
 ```{r}
-analysisDetails <- createAnalysisDetails(analysisId = 1,
-                                         sqlFileName = "DemographicsGender.sql",
-                                         parameters = list(analysisId = 1,
-                                                           analysisName = "Gender",
-                                                           domainId = "Demographics"),
-                                         includedCovariateConceptIds = c(),
-                                         addDescendantsToInclude = FALSE,
-                                         excludedCovariateConceptIds = c(),
-                                         addDescendantsToExclude = FALSE,
-                                         includedCovariateIds = c())
+analysisDetails <- createAnalysisDetails(
+  analysisId = 1,
+  sqlFileName = "DemographicsGender.sql",
+  parameters = list(
+    analysisId = 1,
+    analysisName = "Gender",
+    domainId = "Demographics"
+  ),
+  includedCovariateConceptIds = c(),
+  addDescendantsToInclude = FALSE,
+  excludedCovariateConceptIds = c(),
+  addDescendantsToExclude = FALSE,
+  includedCovariateIds = c()
+)
 
 settings <- createDetailedCovariateSettings(list(analysisDetails))
 ```
@@ -161,34 +173,42 @@ settings <- createDefaultTemporalCovariateSettings()
 또는, 미리 정해진 시간 공변량 중에서 선택할 수 있다.
 
 ```{r}
-settings <- createTemporalCovariateSettings(useConditionOccurrence = TRUE,
-                                            useMeasurementValue = TRUE)
+settings <- createTemporalCovariateSettings(
+  useConditionOccurrence = TRUE,
+  useMeasurementValue = TRUE
+)
 ```
 
 이 경우 우리는 condition_occurrence 테이블의 각 개념에 대해 이진 공변량을  생성하기로 선택하였고, CDM의 measurement 테이블에 있는 각 측정 조합에 대해 연속 공변량을 생성하기로 했다. 기본적으로 시간 공변량은 코호트 시작일 365일 전(포함하지 않음)에 개별적으로 각 날에 대해 생성된다. 다른 시간대를 지정할수도 있수도 있는데 예를 들면 밑에 코드처럼 7일간격으로 만들 수 있다
 
 ```{r}
-settings <- createTemporalCovariateSettings(useConditionOccurrence = TRUE,
-                                            useMeasurementValue = TRUE,
-                                            temporalStartDays = seq(-364, -7, by = 7),
-                                            temporalEndDays = seq(-358, -1, by = 7))
+settings <- createTemporalCovariateSettings(
+  useConditionOccurrence = TRUE,
+  useMeasurementValue = TRUE,
+  temporalStartDays = seq(-364, -7, by = 7),
+  temporalEndDays = seq(-358, -1, by = 7)
+)
 ```
 
 각 시간대는 지정된 시작일과 종료일을 포함한다. 일반 공변량과 유사하게 **고급 사용자**도 사용자 정의 분석을 정의할 수 있다.
 
 ```{r}
-analysisDetails <- createAnalysisDetails(analysisId = 1,
-                                         sqlFileName = "MeasurementValue.sql",
-                                         parameters = list(analysisId = 1,
-                                                           analysisName = "MeasurementValue",
-                                                           domainId = "Measurement"),
-                                         includedCovariateConceptIds = c(),
-                                         addDescendantsToInclude = FALSE,
-                                         excludedCovariateConceptIds = c(),
-                                         addDescendantsToExclude = FALSE,
-                                         includedCovariateIds = c())
+analysisDetails <- createAnalysisDetails(
+  analysisId = 1,
+  sqlFileName = "MeasurementValue.sql",
+  parameters = list(
+    analysisId = 1,
+    analysisName = "MeasurementValue",
+    domainId = "Measurement"
+  ),
+  includedCovariateConceptIds = c(),
+  addDescendantsToInclude = FALSE,
+  excludedCovariateConceptIds = c(),
+  addDescendantsToExclude = FALSE,
+  includedCovariateIds = c()
+)
 
-settings <-  createDetailedTemporalCovariateSettings(list(analysisDetails))
+settings <- createDetailedTemporalCovariateSettings(list(analysisDetails))
 ```
 
 # 관심 코호트에 대한 공변량 구성
@@ -202,10 +222,12 @@ settings <-  createDetailedTemporalCovariateSettings(list(analysisDetails))
 다양한 데이터베이스 관리 시스템 (DBMS)에 필요한 특정 설정을 위한 createConnectionDetails을 사용한다. 예를들어 이 코드를 사용하여 PostgreSQL 데이터베이스에 연결할 수 있다.
 
 ```{r tidy=FALSE,eval=FALSE}
-connectionDetails <- createConnectionDetails(dbms = "postgresql", 
-                                             server = "localhost/ohdsi", 
-                                             user = "joe", 
-                                             password = "supersecret")
+connectionDetails <- createConnectionDetails(
+  dbms = "postgresql",
+  server = "localhost/ohdsi",
+  user = "joe",
+  password = "supersecret"
+)
 
 cdmDatabaseSchema <- "my_cdm_data"
 resultsDatabaseSchema <- "my_results"
@@ -251,8 +273,9 @@ WHERE DATEDIFF(DAY, observation_period_start_date, cohort_start_date) >= 365;
 library(SqlRender)
 sql <- readSql("cohortsOfInterest.sql")
 sql <- render(sql,
-              cdmDatabaseSchema = cdmDatabaseSchema, 
-              resultsDatabaseSchema = resultsDatabaseSchema)
+  cdmDatabaseSchema = cdmDatabaseSchema,
+  resultsDatabaseSchema = resultsDatabaseSchema
+)
 sql <- translate(sql, targetDialect = connectionDetails$dbms)
 
 connection <- connect(connectionDetails)
@@ -264,16 +287,18 @@ executeSql(connection, sql)
 지금까지 잘했다면, 우리는 이제 관심 코호트의 테이블을 만들었다. 우리는 한 종류당 얼마나 많은 이벤트를 볼 수 있는 지 알 수 있다.
 
 ```{r tidy=FALSE,eval=FALSE}
-sql <- paste("SELECT cohort_definition_id, COUNT(*) AS count",
-             "FROM @resultsDatabaseSchema.cohorts_of_interest",
-             "GROUP BY cohort_definition_id")
+sql <- paste(
+  "SELECT cohort_definition_id, COUNT(*) AS count",
+  "FROM @resultsDatabaseSchema.cohorts_of_interest",
+  "GROUP BY cohort_definition_id"
+)
 sql <- render(sql, resultsDatabaseSchema = resultsDatabaseSchema)
 sql <- translate(sql, targetDialect = connectionDetails$dbms)
 
 querySql(connection, sql)
 ```
 ```{r echo=FALSE,message=FALSE}
-data.frame(cohort_concept_id = c(1124300,1118084),count = c(240761,47293))
+data.frame(cohort_concept_id = c(1124300, 1118084), count = c(240761, 47293))
 ```
 
 ## 관심 코호트에 대한 1인당 공변량 생성
@@ -287,7 +312,7 @@ covariateData <- getDbCovariateData(connectionDetails = connectionDetails,
                                     cdmDatabaseSchema = cdmDatabaseSchema,
                                     cohortDatabaseSchema = resultsDatabaseSchema,
                                     cohortTable = "cohorts_of_interest",
-                                    cohortId = 1118084,
+                                    cohortIds = c(1118084),
                                     rowIdField = "subject_id",
                                     covariateSettings = covariateSettings)
 
@@ -342,9 +367,10 @@ tidyCovariateData 함수는 세가지 작업을 할 수 있다.
 
 ```{r eval=FALSE}
 tidyCovariates <- tidyCovariateData(covariateData,
-                                    minFraction = 0.001,
-                                    normalize = TRUE,
-                                    removeRedundancy = TRUE)
+  minFraction = 0.001,
+  normalize = TRUE,
+  removeRedundancy = TRUE
+)
 ```
 
 몇 개의 간헐적인 공변량이 제거되었는지 알고 싶다면 metaData 객체를 쓰면 된다
@@ -354,7 +380,7 @@ deletedCovariateIds <- tidyCovariates$metaData$deletedInfrequentCovariateIds
 head(deletedCovariateIds)
 ```
 ```{r echo=FALSE,message=FALSE}
-if (file.exists(file.path(vignetteFolder, "deletedInfrequentCovariateIds.rds"))){
+if (file.exists(file.path(vignetteFolder, "deletedInfrequentCovariateIds.rds"))) {
   deletedCovariateIds <- readRDS(file.path(vignetteFolder, "deletedInfrequentCovariateIds.rds"))
   head(deletedCovariateIds)
 }
@@ -367,7 +393,7 @@ deletedCovariateIds <- tidyCovariates$metaData$deletedRedundantCovariateIds
 head(deletedCovariateIds)
 ```
 ```{r echo=FALSE,message=FALSE}
-if (file.exists(file.path(vignetteFolder, "deletedRedundantCovariateIds.rds"))){
+if (file.exists(file.path(vignetteFolder, "deletedRedundantCovariateIds.rds"))) {
   deletedCovariateIds <- readRDS(file.path(vignetteFolder, "deletedRedundantCovariateIds.rds"))
   head(deletedCovariateIds)
 }
@@ -392,13 +418,13 @@ covariateData2 <- getDbCovariateData(connectionDetails = connectionDetails,
                                      cdmDatabaseSchema = cdmDatabaseSchema,
                                      cohortDatabaseSchema = resultsDatabaseSchema,
                                      cohortTable = "cohorts_of_interest",
-                                     cohortId = 1118084,
+                                     cohortIds = c(1118084),
                                      covariateSettings = covariateSettings,
                                      aggregated = TRUE)
 summary(covariateData2)
 ```
 ```{r echo=FALSE,message=FALSE}
-if (file.exists(file.path(vignetteFolder, "aggregatedCovariates"))){
+if (file.exists(file.path(vignetteFolder, "aggregatedCovariates"))) {
   covariateData2 <- loadCovariateData(file.path(vignetteFolder, "aggregatedCovariates"))
   summary(covariateData2)
 }
@@ -410,7 +436,7 @@ aggregated = TRUE로 지정했다. 또한 더 이상 personId 데이터를 받�
 
 집합 된 covariateData 객체의 두 가지 주요 구성 요소는 각각 이진 및 연속 공변량에 대한 공변량 및 공변 연속이다.
 
- ```{r eval=FALSE}
+```{r eval=FALSE}
 covariateData2$covariates
 ```
 ```{r echo=FALSE,message=FALSE}
@@ -438,21 +464,27 @@ covariatesContinuous의 컬럼은 다음과 같이 정의된다
 
 - covariateId는 공변량을 식별하며, 공변량의 정의는 cohortData$covariateRef 객체에서 찾을 수 있다
 - countValue는 값이 있는 사람의 수입니다(연속된 변수일 경우)
-- minValue,maxValue,averageValue,standardDeviation,medianValue,p10Value,p25Value,p75Value,p90Value 들은 공변량 값의 분포를 알려준다. 일부 공변량(예: Charlson comorbitity index)의 경우 0 값은 0으로 해석되지만 다른 공변량(예: 혈압)의 경우 0은 누락된 값으로 해석되며 분포 통계는 비누락 값에 대해서만 계산된다는 점을 유의해야 한다. 어떤 연속 공변량이 어떤 범주에 속하는지 알아보려면  covariateData$analysisRef 객체의 missingMeansZero 필드를 참조하면 된다.
+- minValue,maxValue,averageValue,standardDeviation,medianValue,p10Value,p25Value,p75Value,p90Value 들은 공변량 값의 분포를 알려준다. 일부 공변량(예: Charlson comorbidity index)의 경우 0 값은 0으로 해석되지만 다른 공변량(예: 혈압)의 경우 0은 누락된 값으로 해석되며 분포 통계는 비누락 값에 대해서만 계산된다는 점을 유의해야 한다. 어떤 연속 공변량이 어떤 범주에 속하는지 알아보려면  covariateData$analysisRef 객체의 missingMeansZero 필드를 참조하면 된다.
 
 ##  테이블 만들기 1
 
 특징추출 패키지가 지원하는 한 가지 과제는 논문에 포함시킬 수 있는 전체 학습 인구 특성 테이블을 만드는 것이다. 이것은 일반적으로 첫 번째 테이블이므로 테이블를 '테이블1'이라고 합니다. 특징추출 패키지에서 기본 테이블 1을 사용 할 수 있다.
 
 ```{r eval=FALSE}
-result <- createTable1(covariateData2)
+result <- createTable1(
+  covariateData1 = covariateData2,
+  output = "one column"
+)
 print(result, row.names = FALSE, right = FALSE)
 ```
 \fontsize{6}{6}
 \selectfont
 ```{r comment=NA,echo=FALSE,message=FALSE}
-if (file.exists(file.path(vignetteFolder, "aggregatedCovariates"))){
-  result <- createTable1(covariateData2)
+if (file.exists(file.path(vignetteFolder, "aggregatedCovariates"))) {
+  result <- createTable1(
+    covariateData1 = covariateData2,
+    output = "one column"
+  )
   print(result, row.names = FALSE, right = FALSE)
 }
 ```
@@ -470,13 +502,13 @@ covariateData2b <- getDbCovariateData(connectionDetails = connectionDetails,
                                       cdmDatabaseSchema = cdmDatabaseSchema,
                                       cohortDatabaseSchema = resultsDatabaseSchema,
                                       cohortTable = "cohorts_of_interest",
-                                      cohortId = 1118084,
+                                      cohortIds = c(1118084),
                                       covariateSettings = covariateSettings,
                                       aggregated = TRUE)
 summary(covariateData2b)
 ```
 ```{r echo=FALSE,message=FALSE}
-if (file.exists(file.path(vignetteFolder, "table1Covariates"))){
+if (file.exists(file.path(vignetteFolder, "table1Covariates"))) {
   covariateData2b <- loadCovariateData(file.path(vignetteFolder, "table1Covariates"))
   summary(covariateData2b)
 }
@@ -489,14 +521,16 @@ if (file.exists(file.path(vignetteFolder, "table1Covariates"))){
 기본 테이블 1에 포함된 변수에만 두 개의  코호트를 비교하려는 경우를 가정해보자
 
 ```{r eval=FALSE}
-settings <- createTable1CovariateSettings(excludedCovariateConceptIds = c(1118084, 1124300),
-                                          addDescendantsToExclude = TRUE)
+settings <- createTable1CovariateSettings(
+  excludedCovariateConceptIds = c(1118084, 1124300),
+  addDescendantsToExclude = TRUE
+)
 
 covCelecoxib <- getDbCovariateData(connectionDetails = connectionDetails,
                                    cdmDatabaseSchema = cdmDatabaseSchema,
                                    cohortDatabaseSchema = resultsDatabaseSchema,
                                    cohortTable = "cohorts_of_interest",
-                                   cohortId = 1118084,
+                                   cohortIds = c(1118084),
                                    covariateSettings = settings,
                                    aggregated = TRUE)
 
@@ -504,10 +538,9 @@ covDiclofenac <- getDbCovariateData(connectionDetails = connectionDetails,
                                     cdmDatabaseSchema = cdmDatabaseSchema,
                                     cohortDatabaseSchema = resultsDatabaseSchema,
                                     cohortTable = "cohorts_of_interest",
-                                    cohortId = 1124300,
+                                    cohortIds = c(1124300),
                                     covariateSettings = settings,
                                     aggregated = TRUE)
-
 std <- computeStandardizedDifference(covCelecoxib, covDiclofenac)
 ```
     
@@ -520,17 +553,17 @@ head(std)
 \fontsize{7}{8}
 \selectfont
 ```{r echo=FALSE,message=FALSE}
-if (file.exists(file.path(vignetteFolder, "covDiclofenac"))){
+if (file.exists(file.path(vignetteFolder, "covDiclofenac"))) {
   covCelecoxib <- loadCovariateData(file.path(vignetteFolder, "covCelecoxib"))
   covDiclofenac <- loadCovariateData(file.path(vignetteFolder, "covDiclofenac"))
   std <- computeStandardizedDifference(covCelecoxib, covDiclofenac)
   truncRight <- function(x, n) {
     nc <- nchar(x)
-    x[nc > (n-3)] <- paste('...',substr(x[nc > (n-3)], nc[nc > (n-3)]-n+1, nc[nc > (n-3)]),sep="")
+    x[nc > (n - 3)] <- paste("...", substr(x[nc > (n - 3)], nc[nc > (n - 3)] - n + 1, nc[nc > (n - 3)]), sep = "")
     x
-   }
-   std$covariateName <- truncRight(as.character(std$covariateName), 30)
-   head(std)
+  }
+  std$covariateName <- truncRight(as.character(std$covariateName), 30)
+  head(std)
 }
 ```
 \fontsize{10}{12}
@@ -541,14 +574,22 @@ stdDiff 열에는 표준화 된 차이가 있습니다. 기본적으로데이터
 우리는 또한 비교를 표준 테이블 1로 보여줄 수 있다.
 
 ```{r eval=FALSE}
-result <- createTable1(covCelecoxib, covDiclofenac)
+result <- createTable1(
+  covariateData1 = covCelecoxib,
+  covariateData2 = covDiclofenac,
+  output = "two columns"
+)
 print(result, row.names = FALSE, right = FALSE)
 ```
 \fontsize{5}{5}
 \selectfont
 ```{r comment=NA,echo=FALSE,message=FALSE}
-if (file.exists(file.path(vignetteFolder, "covDiclofenac"))){
-  result <- createTable1(covCelecoxib, covDiclofenac)
+if (file.exists(file.path(vignetteFolder, "covDiclofenac"))) {
+  result <- createTable1(
+    covariateData1 = covCelecoxib,
+    covariateData2 = covDiclofenac,
+    output = "one column"
+  )
   print(result, row.names = FALSE, right = FALSE)
 }
 ```

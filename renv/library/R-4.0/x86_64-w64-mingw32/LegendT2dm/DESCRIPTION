@@ -1,7 +1,7 @@
 Package: LegendT2dm
 Title: Large-Scale Evidence Generation and Evaluation in a Network of
         Databases
-Version: 2.1.1
+Version: 2.1.2
 Author: Marc A. Suchard [aut, cre],
     Martijn J. Schuemie [aut],
     Patrick B. Ryan [aut],
@@ -30,4 +30,4 @@ License: Apache License 2.0
 LazyData: true
 RoxygenNote: 7.1.1
 Encoding: UTF-8
-Built: R 4.0.3; ; 2024-02-08 23:23:01 UTC; windows
+Built: R 4.0.3; ; 2024-04-19 20:05:10 UTC; windows

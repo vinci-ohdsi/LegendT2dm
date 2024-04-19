@@ -28,6 +28,7 @@ createTemporalCovariateSettings(
   useDemographicsPostObservationTime = FALSE,
   useDemographicsTimeInCohort = FALSE,
   useDemographicsIndexYearMonth = FALSE,
+  useCareSiteId = FALSE,
   useConditionOccurrence = FALSE,
   useConditionOccurrencePrimaryInpatient = FALSE,
   useConditionEraStart = FALSE,
@@ -120,6 +121,12 @@ index date. (analysis ID 10)</p>
 <td>
 <p>Calendar month of the index date. (analysis ID 11)</p>
 </td></tr>
+<tr valign="top"><td><code>useCareSiteId</code></td>
+<td>
+<p>Care site associated with the cohort start, pulled
+from the visit_detail, visit_occurrence, or person
+table, in that order. (analysis ID 12)</p>
+</td></tr>
 <tr valign="top"><td><code>useConditionOccurrence</code></td>
 <td>
 <p>One covariate per condition in the
@@ -154,7 +161,7 @@ time window. (analysis ID 203)</p>
 <td>
 <p>One covariate per condition era rolled up to SNOMED
 groups in the condition_era table overlapping with
-any part of the time window. (analysis ID 203)</p>
+any part of the time window. (analysis ID 204)</p>
 </td></tr>
 <tr valign="top"><td><code>useDrugExposure</code></td>
 <td>
@@ -175,14 +182,14 @@ overlapping with any part of the time window.
 <tr valign="top"><td><code>useDrugEraGroupStart</code></td>
 <td>
 <p>One covariate per drug rolled up to ATC groups in
-the drug_era table starting in thetime window.
+the drug_era table starting in the time window.
 (analysis ID 403)</p>
 </td></tr>
 <tr valign="top"><td><code>useDrugEraGroupOverlap</code></td>
 <td>
 <p>One covariate per drug rolled up to ATC groups in
 the drug_era table overlapping with any part of
-thetime window. (analysis ID 403)</p>
+the time window. (analysis ID 404)</p>
 </td></tr>
 <tr valign="top"><td><code>useProcedureOccurrence</code></td>
 <td>
@@ -327,7 +334,7 @@ to.</p>
 
 <h3>Details</h3>
 
-<p>creates an object specifying how covariates should be contructed from data in the CDM model.
+<p>creates an object specifying how covariates should be constructed from data in the CDM model.
 </p>
 
 
@@ -340,55 +347,58 @@ to.</p>
 <h3>Examples</h3>
 
 <pre>
-settings &lt;- createTemporalCovariateSettings(useDemographicsGender = TRUE,
-                                            useDemographicsAge = FALSE,
-                                            useDemographicsAgeGroup = TRUE,
-                                            useDemographicsRace = TRUE,
-                                            useDemographicsEthnicity = TRUE,
-                                            useDemographicsIndexYear = TRUE,
-                                            useDemographicsIndexMonth = TRUE,
-                                            useDemographicsPriorObservationTime = FALSE,
-                                            useDemographicsPostObservationTime = FALSE,
-                                            useDemographicsTimeInCohort = FALSE,
-                                            useDemographicsIndexYearMonth = FALSE,
-                                            useConditionOccurrence = FALSE,
-                                            useConditionOccurrencePrimaryInpatient = FALSE,
-                                            useConditionEraStart = FALSE,
-                                            useConditionEraOverlap = FALSE,
-                                            useConditionEraGroupStart = FALSE,
-                                            useConditionEraGroupOverlap = TRUE,
-                                            useDrugExposure = FALSE,
-                                            useDrugEraStart = FALSE,
-                                            useDrugEraOverlap = FALSE,
-                                            useDrugEraGroupStart = FALSE,
-                                            useDrugEraGroupOverlap = TRUE,
-                                            useProcedureOccurrence = TRUE,
-                                            useDeviceExposure = TRUE,
-                                            useMeasurement = TRUE,
-                                            useMeasurementValue = FALSE,
-                                            useMeasurementRangeGroup = TRUE,
-                                            useObservation = TRUE,
-                                            useCharlsonIndex = TRUE,
-                                            useDcsi = TRUE,
-                                            useChads2 = TRUE,
-                                            useChads2Vasc = TRUE,
-                                            useHfrs = FALSE,
-                                            useDistinctConditionCount = FALSE,
-                                            useDistinctIngredientCount = FALSE,
-                                            useDistinctProcedureCount = FALSE,
-                                            useDistinctMeasurementCount = FALSE,
-                                            useDistinctObservationCount = FALSE,
-                                            useVisitCount = FALSE,
-                                            useVisitConceptCount = FALSE,
-                                            temporalStartDays = -365:-1,
-                                            temporalEndDays = -365:-1,
-                                            includedCovariateConceptIds = c(),
-                                            addDescendantsToInclude = FALSE,
-                                            excludedCovariateConceptIds = c(),
-                                            addDescendantsToExclude = FALSE,
-                                            includedCovariateIds = c())
+settings &lt;- createTemporalCovariateSettings(
+  useDemographicsGender = TRUE,
+  useDemographicsAge = FALSE,
+  useDemographicsAgeGroup = TRUE,
+  useDemographicsRace = TRUE,
+  useDemographicsEthnicity = TRUE,
+  useDemographicsIndexYear = TRUE,
+  useDemographicsIndexMonth = TRUE,
+  useDemographicsPriorObservationTime = FALSE,
+  useDemographicsPostObservationTime = FALSE,
+  useDemographicsTimeInCohort = FALSE,
+  useDemographicsIndexYearMonth = FALSE,
+  useCareSiteId = FALSE,
+  useConditionOccurrence = FALSE,
+  useConditionOccurrencePrimaryInpatient = FALSE,
+  useConditionEraStart = FALSE,
+  useConditionEraOverlap = FALSE,
+  useConditionEraGroupStart = FALSE,
+  useConditionEraGroupOverlap = TRUE,
+  useDrugExposure = FALSE,
+  useDrugEraStart = FALSE,
+  useDrugEraOverlap = FALSE,
+  useDrugEraGroupStart = FALSE,
+  useDrugEraGroupOverlap = TRUE,
+  useProcedureOccurrence = TRUE,
+  useDeviceExposure = TRUE,
+  useMeasurement = TRUE,
+  useMeasurementValue = FALSE,
+  useMeasurementRangeGroup = TRUE,
+  useObservation = TRUE,
+  useCharlsonIndex = TRUE,
+  useDcsi = TRUE,
+  useChads2 = TRUE,
+  useChads2Vasc = TRUE,
+  useHfrs = FALSE,
+  useDistinctConditionCount = FALSE,
+  useDistinctIngredientCount = FALSE,
+  useDistinctProcedureCount = FALSE,
+  useDistinctMeasurementCount = FALSE,
+  useDistinctObservationCount = FALSE,
+  useVisitCount = FALSE,
+  useVisitConceptCount = FALSE,
+  temporalStartDays = -365:-1,
+  temporalEndDays = -365:-1,
+  includedCovariateConceptIds = c(),
+  addDescendantsToInclude = FALSE,
+  excludedCovariateConceptIds = c(),
+  addDescendantsToExclude = FALSE,
+  includedCovariateIds = c()
+)
 
 </pre>
 
-<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.1.1 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.5.0 <a href="00Index.html">Index</a>]</div>
 </body></html>

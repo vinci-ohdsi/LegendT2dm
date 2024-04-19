@@ -1,8 +1,8 @@
 Package: CohortMethod
 Type: Package
 Title: New-User Cohort Method with Large Scale Propensity and Outcome Models
-Version: 4.2.2
-Date: 2022-01-21
+Version: 4.2.3
+Date: 2023-12-05
 Authors@R: c(
  person("Martijn", "Schuemie", , "schuemie@ohdsi.org", role = c("aut", "cre")),
  person("Marc", "Suchard", role = c("aut")),
@@ -35,24 +35,24 @@ Suggests: testthat, pROC, knitr, rmarkdown, EmpiricalCalibration, Eunomia,
     withr, R.utils, RISCA
 LinkingTo: Rcpp
 NeedsCompilation: yes
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
 Author: Martijn Schuemie [aut, cre],
  Marc Suchard [aut],
  Patrick Ryan [aut]
-Built: R 4.0.3; x86_64-w64-mingw32; 2023-09-07 22:43:39 UTC; windows
+Built: R 4.0.3; x86_64-w64-mingw32; 2024-04-19 20:02:01 UTC; windows
 Archs: x64
 RemoteType: github
 Remotes: ohdsi/FeatureExtraction, ohdsi/Eunomia
 RemoteHost: api.github.com
 RemoteRepo: CohortMethod
 RemoteUsername: OHDSI
-RemoteRef: develop
-RemoteSha: fa14f60c2e46f5098a20dbc93741611446ff710e
+RemoteRef: legendBalancePatch
+RemoteSha: 18634a3c68a93106562c7b176283d5cafaba5861
 GithubHost: api.github.com
 GithubRepo: CohortMethod
 GithubUsername: OHDSI
-GithubRef: develop
-GithubSHA1: fa14f60c2e46f5098a20dbc93741611446ff710e
+GithubRef: legendBalancePatch
+GithubSHA1: 18634a3c68a93106562c7b176283d5cafaba5861
 Remotes: ohdsi/FeatureExtraction, ohdsi/Eunomia

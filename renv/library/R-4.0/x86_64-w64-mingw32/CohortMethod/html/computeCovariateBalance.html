@@ -75,7 +75,87 @@ Setting this number to 0 means no downsampling will be applied.</p>
 
 <h3>Value</h3>
 
-<p>Returns a tibble describing the covariate balance before and after matching/trimming.
+<p>Returns a tibble describing the covariate balance before and after PS adjustment,
+with one row per covariate, with the same data as the <code>covariateRef</code> table in the <code>CohortMethodData</code> object,
+and the following additional columns:
+</p>
+
+<ul>
+<li><p> beforeMatchingMeanTarget: The (weighted) mean value in the target before PS adjustment.
+</p>
+</li>
+<li><p> beforeMatchingMeanComparator: The (weighted) mean value in the comparator before PS adjustment.
+</p>
+</li>
+<li><p> beforeMatchingSumTarget: The (weighted) sum value in the target before PS adjustment.
+</p>
+</li>
+<li><p> beforeMatchingSumComparator: The (weighted) sum value in the comparator before PS adjustment.
+</p>
+</li>
+<li><p> beforeMatchingSdTarget: The standard deviation of the value in the target before PS adjustment.
+</p>
+</li>
+<li><p> beforeMatchingSdComparator: The standard deviation of the value in the comparator before PS adjustment.
+</p>
+</li>
+<li><p> beforeMatchingMean: The mean of the value across target and comparator before PS adjustment.
+</p>
+</li>
+<li><p> beforeMatchingSd: The standard deviation of the value across target and comparator before PS adjustment.
+</p>
+</li>
+<li><p> afterMatchingMeanTarget: The (weighted) mean value in the target after PS adjustment.
+</p>
+</li>
+<li><p> afterMatchingMeanComparator: The (weighted) mean value in the comparator after PS adjustment.
+</p>
+</li>
+<li><p> afterMatchingSumTarget: The (weighted) sum value in the target after PS adjustment.
+</p>
+</li>
+<li><p> afterMatchingSumComparator: The (weighted) sum value in the comparator after PS adjustment.
+</p>
+</li>
+<li><p> afterMatchingSdTarget: The standard deviation of the value in the target after PS adjustment.
+</p>
+</li>
+<li><p> afterMatchingSdComparator: The standard deviation of the value in the comparator after PS adjustment.
+</p>
+</li>
+<li><p> afterMatchingMean: The mean of the value across target and comparator after PS adjustment.
+</p>
+</li>
+<li><p> afterMatchingSd: The standard deviation of the value across target and comparator after PS adjustment.
+</p>
+</li>
+<li><p> beforeMatchingStdDiff: The standardized difference of means when comparing the target to
+the comparator before PS adjustment.
+</p>
+</li>
+<li><p> afterMatchingStdDiff: The standardized difference of means when comparing the target to
+the comparator after PS adjustment.
+</p>
+</li>
+<li><p> targetStdDiff: The standardized difference of means when comparing the target
+before PS adjustment to the target after PS adjustment.
+</p>
+</li>
+<li><p> comparatorStdDiff: The standardized difference of means when comparing the comparator
+before PS adjustment to the comparator after PS adjustment.
+-targetComparatorStdDiff:  The standardized difference of means when comparing the entire
+population before PS adjustment to the entire population after
+PS adjustment.
+</p>
+</li></ul>
+
+<p>The 'beforeMatchingStdDiff' and 'afterMatchingStdDiff' columns inform on the balance:
+are the target and comparator sufficiently similar in terms of baseline covariates to
+allow for valid causal estimation?
+</p>
+<p>The 'targetStdDiff', 'comparatorStdDiff', and 'targetComparatorStdDiff' columns inform on
+the generalizability: are the cohorts after PS adjustment sufficiently similar to the cohorts
+before adjustment to allow generalizing the findings to the original cohorts?
 </p>
 
 
@@ -85,5 +165,5 @@ Setting this number to 0 means no downsampling will be applied.</p>
 matching on the propensity-score. Pharmacoepidemiology and Drug Safety, 17: 1218-1225.
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.2 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>CohortMethod</em> version 4.2.3 <a href="00Index.html">Index</a>]</div>
 </body></html>

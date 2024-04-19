@@ -35,5 +35,21 @@ isTemporalCovariateData(x)
 <p>A logical value.
 </p>
 
-<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.1.1 <a href="00Index.html">Index</a>]</div>
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+covariateData &lt;- FeatureExtraction:::createEmptyCovariateData(
+  cohortIds = 1,
+  aggregated = FALSE,
+  temporal = FALSE
+)
+isTempCovData &lt;- isTemporalCovariateData(covariateData)
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.5.0 <a href="00Index.html">Index</a>]</div>
 </body></html>
