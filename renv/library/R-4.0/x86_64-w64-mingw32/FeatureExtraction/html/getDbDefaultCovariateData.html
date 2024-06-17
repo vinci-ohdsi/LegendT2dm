@@ -24,7 +24,6 @@ getDbDefaultCovariateData(
   cdmDatabaseSchema,
   cohortTable = "#cohort_person",
   cohortId = -1,
-  cohortIds = c(-1),
   cdmVersion = "5",
   rowIdField = "subject_id",
   covariateSettings,
@@ -32,8 +31,7 @@ getDbDefaultCovariateData(
   targetCovariateTable,
   targetCovariateRefTable,
   targetAnalysisRefTable,
-  aggregated = FALSE,
-  minCharacterizationMean = 0
+  aggregated = FALSE
 )
 </pre>
 
@@ -66,13 +64,7 @@ database schema, e.g. 'cdm_database.cohort'.</p>
 </td></tr>
 <tr valign="top"><td><code>cohortId</code></td>
 <td>
-<p>DEPRECATED:For which cohort ID should covariates be constructed? If set to -1,
-covariates will be constructed for all cohorts in the specified cohort
-table.</p>
-</td></tr>
-<tr valign="top"><td><code>cohortIds</code></td>
-<td>
-<p>For which cohort ID(s) should covariates be constructed? If set to c(-1),
+<p>For which cohort ID should covariates be constructed? If set to -1,
 covariates will be constructed for all cohorts in the specified cohort
 table.</p>
 </td></tr>
@@ -100,8 +92,8 @@ should be stored.</p>
 <tr valign="top"><td><code>targetCovariateTable</code></td>
 <td>
 <p>(Optional) The name of the table where the resulting covariates will
-be stored. If not provided, results will be fetched to R. The table can be
-a permanent table in the <code>targetDatabaseSchema</code> or a temp table. If
+be stored. If not provided, results will be fetched to R. The table can be 
+a permanent table in the <code>targetDatabaseSchema</code> or a temp table. If 
 it is a temp table, do not specify <code>targetDatabaseSchema</code>.</p>
 </td></tr>
 <tr valign="top"><td><code>targetCovariateRefTable</code></td>
@@ -116,12 +108,6 @@ it is a temp table, do not specify <code>targetDatabaseSchema</code>.</p>
 <td>
 <p>Should aggregate statistics be computed instead of covariates per
 cohort entry?</p>
-</td></tr>
-<tr valign="top"><td><code>minCharacterizationMean</code></td>
-<td>
-<p>The minimum mean value for characterization output. Values below this will be cut off from output. This 
-will help reduce the file size of the characterization output, but will remove information
-on covariates that have very low values. The default is 0.</p>
 </td></tr>
 </table>
 
@@ -154,28 +140,5 @@ describing the covariates that have been extracted.</p>
 information on how the covariateData object was constructed.
 </p>
 
-
-<h3>Examples</h3>
-
-<pre>
-## Not run: 
-connection &lt;- DatabaseConnector::connect(connectionDetails)
-Eunomia::createCohorts(connectionDetails)
-
-results &lt;- getDbDefaultCovariateData(
-  connection = connection,
-  cdmDatabaseSchema = "main",
-  cohortTable = "cohort",
-  covariateSettings = createDefaultCovariateSettings(),
-  targetDatabaseSchema = "main",
-  targetCovariateTable = "ut_cov",
-  targetCovariateRefTable = "ut_cov_ref",
-  targetAnalysisRefTable = "ut_cov_analysis_ref"
-)
-
-## End(Not run)
-
-</pre>
-
-<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.5.0 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.1.1 <a href="00Index.html">Index</a>]</div>
 </body></html>

@@ -26,11 +26,9 @@ getDbCovariateData(
   cohortDatabaseSchema = cdmDatabaseSchema,
   cohortTableIsTemp = FALSE,
   cohortId = -1,
-  cohortIds = c(-1),
   rowIdField = "subject_id",
   covariateSettings,
-  aggregated = FALSE,
-  minCharacterizationMean = 0
+  aggregated = FALSE
 )
 </pre>
 
@@ -60,7 +58,7 @@ should be specified.</p>
 <td>
 <p>The name of the database schema that contains the OMOP CDM instance.
 Requires read permissions to this database. On SQL Server, this should
-specify both the database and the schema, so for example
+specifiy both the database and the schema, so for example
 'cdm_instance.dbo'.</p>
 </td></tr>
 <tr valign="top"><td><code>cdmVersion</code></td>
@@ -76,7 +74,7 @@ construct covariates</p>
 <td>
 <p>If the cohort table is not a temp table, specify the database schema
 where the cohort table can be found. On SQL Server, this should
-specify both the database and the schema, so for example
+specifiy both the database and the schema, so for example
 'cdm_instance.dbo'.</p>
 </td></tr>
 <tr valign="top"><td><code>cohortTableIsTemp</code></td>
@@ -85,13 +83,7 @@ specify both the database and the schema, so for example
 </td></tr>
 <tr valign="top"><td><code>cohortId</code></td>
 <td>
-<p>DEPRECATED:For which cohort ID(s) should covariates be constructed? If set to -1,
-covariates will be constructed for all cohorts in the specified cohort
-table.</p>
-</td></tr>
-<tr valign="top"><td><code>cohortIds</code></td>
-<td>
-<p>For which cohort ID(s) should covariates be constructed? If set to c(-1),
+<p>For which cohort ID(s) should covariates be constructed? If set to -1,
 covariates will be constructed for all cohorts in the specified cohort
 table.</p>
 </td></tr>
@@ -111,12 +103,6 @@ of the createCovariate functions, or a list of such objects.</p>
 <p>Should aggregate statistics be computed instead of covariates per
 cohort entry?</p>
 </td></tr>
-<tr valign="top"><td><code>minCharacterizationMean</code></td>
-<td>
-<p>The minimum mean value for characterization output. Values below this will be cut off from output. This 
-will help reduce the file size of the characterization output, but will remove information
-on covariates that have very low values. The default is 0.</p>
-</td></tr>
 </table>
 
 
@@ -134,36 +120,5 @@ unique identifier that will be used as rowID in the output.
 <p>Returns an object of type <code>covariateData</code>, containing information on the covariates.
 </p>
 
-
-<h3>Examples</h3>
-
-<pre>
-## Not run: 
-eunomiaConnectionDetails &lt;- Eunomia::getEunomiaConnectionDetails()
-covSettings &lt;- createDefaultCovariateSettings()
-Eunomia::createCohorts(
-  connectionDetails = eunomiaConnectionDetails,
-  cdmDatabaseSchema = "main",
-  cohortDatabaseSchema = "main",
-  cohortTable = "cohort"
-)
-covData &lt;- getDbCovariateData(
-  connectionDetails = eunomiaConnectionDetails,
-  oracleTempSchema = NULL,
-  cdmDatabaseSchema = "main",
-  cdmVersion = "5",
-  cohortTable = "cohort",
-  cohortDatabaseSchema = "main",
-  cohortTableIsTemp = FALSE,
-  cohortIds = -1,
-  rowIdField = "subject_id",
-  covariateSettings = covSettings,
-  aggregated = FALSE
-)
-
-## End(Not run)
-
-</pre>
-
-<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.5.0 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>FeatureExtraction</em> version 3.1.1 <a href="00Index.html">Index</a>]</div>
 </body></html>

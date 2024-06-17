@@ -6,13 +6,12 @@ library(FeatureExtraction)
 ## library(SqlRender)
 ## sql <- readSql("LengthOfObsCohortAttr.sql")
 ## sql <- render(sql,
-##   cdm_database_schema = cdmDatabaseSchema,
-##   cohort_database_schema = cohortDatabaseSchema,
-##   cohort_table = "rehospitalization",
-##   cohort_attribute_table = "loo_cohort_attr",
-##   attribute_definition_table = "loo_attr_def",
-##   cohort_definition_ids = c(1, 2)
-## )
+##                  cdm_database_schema = cdmDatabaseSchema,
+##                  cohort_database_schema = cohortDatabaseSchema,
+##                  cohort_table = "rehospitalization",
+##                  cohort_attribute_table = "loo_cohort_attr",
+##                  attribute_definition_table = "loo_attr_def",
+##                  cohort_definition_ids = c(1,2))
 ## sql <- translate(sql, targetDialect = connectionDetails$dbms)
 ## 
 ## connection <- connect(connectionDetails)
@@ -20,14 +19,12 @@ library(FeatureExtraction)
 
 
 ## ----eval=FALSE---------------------------------------------------------------
-## looCovSet <- createCohortAttrCovariateSettings(
-##   attrDatabaseSchema = cohortDatabaseSchema,
-##   cohortAttrTable = "loo_cohort_attr",
-##   attrDefinitionTable = "loo_attr_def",
-##   includeAttrIds = c(),
-##   isBinary = FALSE,
-##   missingMeansZero = FALSE
-## )
+## looCovSet <- createCohortAttrCovariateSettings(attrDatabaseSchema = cohortDatabaseSchema,
+##                                                cohortAttrTable = "loo_cohort_attr",
+##                                                attrDefinitionTable = "loo_attr_def",
+##                                                includeAttrIds = c(),
+##                                                isBinary = FALSE,
+##                                                missingMeansZero = FALSE)
 
 
 ## ----eval=FALSE---------------------------------------------------------------
@@ -35,26 +32,22 @@ library(FeatureExtraction)
 ##                                  cdmDatabaseSchema = cdmDatabaseSchema,
 ##                                  cohortDatabaseSchema = cohortDatabaseSchema,
 ##                                  cohortTable = "rehospitalization",
-##                                  cohortIds = c(1),
+##                                  cohortId = 1,
 ##                                  covariateSettings = looCovSet)
 
 
 ## ----eval=FALSE---------------------------------------------------------------
-## covariateSettings <- createCovariateSettings(
-##   useDemographicsGender = TRUE,
-##   useDemographicsAgeGroup = TRUE,
-##   useDemographicsRace = TRUE,
-##   useDemographicsEthnicity = TRUE,
-##   useDemographicsIndexYear = TRUE,
-##   useDemographicsIndexMonth = TRUE
-## )
+## covariateSettings <- createCovariateSettings(useDemographicsGender = TRUE,
+##                                              useDemographicsAgeGroup = TRUE,
+##                                              useDemographicsRace = TRUE,
+##                                              useDemographicsEthnicity = TRUE,
+##                                              useDemographicsIndexYear = TRUE,
+##                                              useDemographicsIndexMonth = TRUE)
 ## 
-## looCovSet <- createCohortAttrCovariateSettings(
-##   attrDatabaseSchema = cohortDatabaseSchema,
-##   cohortAttrTable = "loo_cohort_attr",
-##   attrDefinitionTable = "loo_attr_def",
-##   includeAttrIds = c()
-## )
+## looCovSet <- createCohortAttrCovariateSettings(attrDatabaseSchema = cohortDatabaseSchema,
+##                                                cohortAttrTable = "loo_cohort_attr",
+##                                                attrDefinitionTable = "loo_attr_def",
+##                                                includeAttrIds = c())
 ## 
 ## covariateSettingsList <- list(covariateSettings, looCovSet)
 ## 
@@ -62,6 +55,6 @@ library(FeatureExtraction)
 ##                                  cdmDatabaseSchema = cdmDatabaseSchema,
 ##                                  cohortDatabaseSchema = resultsDatabaseSchema,
 ##                                  cohortTable = "rehospitalization",
-##                                  cohortIds = c(1),
+##                                  cohortId = 1,
 ##                                  covariateSettings = covariateSettingsList)
 
