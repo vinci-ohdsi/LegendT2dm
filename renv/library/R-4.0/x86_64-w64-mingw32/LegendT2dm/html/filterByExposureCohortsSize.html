@@ -16,7 +16,12 @@
 <h3>Usage</h3>
 
 <pre>
-filterByExposureCohortsSize(outputFolder, indicationId, minCohortSize)
+filterByExposureCohortsSize(
+  outputFolder,
+  indicationId,
+  minCohortSize,
+  summaryFile = NULL
+)
 </pre>
 
 
@@ -36,7 +41,12 @@ filterByExposureCohortsSize(outputFolder, indicationId, minCohortSize)
 <p>Minimum number of people that have to be in each cohort to keep a pair of
 cohorts.</p>
 </td></tr>
+<tr valign="top"><td><code>summaryFile</code></td>
+<td>
+<p>File name of the csv that contains paired exposure summary;
+if NULL, then default to &quot;pairedExposureSummary.csv&quot;</p>
+</td></tr>
 </table>
 
-<hr /><div style="text-align: center;">[Package <em>LegendT2dm</em> version 2.1.2 <a href="00Index.html">Index</a>]</div>
+<hr /><div style="text-align: center;">[Package <em>LegendT2dm</em> version 3.0.0 <a href="00Index.html">Index</a>]</div>
 </body></html>
